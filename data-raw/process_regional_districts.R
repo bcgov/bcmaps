@@ -3,10 +3,9 @@
 ## Regional Districts) in t A BC only regional district map. The data are available here:
 ## http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000b11a_e.zip
 ## under the Statistics Canada Open License Agreement: http://www.statcan.gc.ca/eng/reference/licence-eng
-
-
 library("sp")
 library("rgdal")
+library("devtools")
 
 url <- "http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000b11a_e.zip"
 path <- "data-raw/census-divisions_statscan"
@@ -58,6 +57,8 @@ regional_districts_disp$region_type <- "Regional District"
 regional_districts_disp$region_type[regional_districts_disp$region_name == "Northern Rockies"] <- "Regional Municipality"
 regional_districts_disp$region_type[regional_districts_disp$region_name == "Stikine"] <- "Unincorporated Area"
 
+use_data(regional_districts_disp, overwrite = TRUE, compress = "xz")
+use_data(regional_districts_analysis, overwrite = TRUE, compress = "xz")
 
 ## Export as geojson
 # library(geojsonio)
