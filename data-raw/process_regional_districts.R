@@ -12,7 +12,7 @@
 
 ################################################################################
 ## Convert Statistics Canada 2011 cencus divisions (which are equivalent to BC
-## Regional Districts) in t A BC only regional district map. The data are available here:
+## Regional Districts) in to a BC only regional district map. The data are available here:
 ## http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000b11a_e.zip
 ## under the Statistics Canada Open License Agreement: http://www.statcan.gc.ca/eng/reference/licence-eng
 library("sp")
