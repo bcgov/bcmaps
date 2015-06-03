@@ -9,8 +9,8 @@
 
   The data slot contains one column, \code{Airzone}, with the name of the Air Zone.}
 \source{
-Downloaded from [DataBC](http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones),
-under the ([Open Government License - British Columbia](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf)).
+Downloaded from \href{http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones}{DataBC},
+under the \href{http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf}{Open Government License - British Columbia}.
 }
 \usage{
 airzones
@@ -18,7 +18,7 @@ airzones
 \description{
 Boundaries of British Columbia Air Zones, which are areas of the province
 for reporting on Canadian Ambient Air Quality Standards
-(\url{http://www.ccme.ca/en/current_priorities/air/caaqs.html}{CAAQS}), and
+(\href{http://www.ccme.ca/en/current_priorities/air/caaqs.html}{CAAQS}), and
 implementing the Air Quality Management System. For more information on Air
 Zones in B.C. see the Air Quality Management section at
 \url{www.bcairquality.ca/plans/}.
