@@ -34,6 +34,7 @@ bc_bound <- spTransform(bc_bound, CRS("+init=epsg:3005"))
 
 bc_bound <- bc_bound[, grep("ISLAND", names(bc_bound))]
 
+names(bc_bound) <- tolower(names(bc_bound))
 
 use_data(bc_bound, overwrite = TRUE, compress = "xz")
 
