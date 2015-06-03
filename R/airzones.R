@@ -12,7 +12,7 @@
 #'
 #'   The data slot contains one column, \code{Airzone}, with the name of the Air Zone.
 #'
-#' @source Downloaded from \href{http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones}{DataBC},
+#' @source Original data from \href{http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones}{DataBC},
 #' under the \href{http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf}{Open Government License - British Columbia}.
 #'
 "airzones"
