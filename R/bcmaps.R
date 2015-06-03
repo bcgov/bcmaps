@@ -6,9 +6,9 @@
 #' projection, which is the
 #' \href{https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm}{B.C. government standard}.
 #' The layers are sourced from various places under open licenses, including
-#' \href{DataBC}{http://data.gov.bc.ca}, the Governmment of Canada
-#' \href{Open Data Portal}{http://open.canada.ca/en/open-data}, and
-#' \href{Statistics Canada}{http://www.statcan.gc.ca/eng/reference/licence-eng}.
+#' \href{http://data.gov.bc.ca}{DataBC}, the Governmment of Canada
+#' \href{http://open.canada.ca/en/open-data}{Open Data Portal}, and
+#' \href{http://www.statcan.gc.ca/eng/reference/licence-eng}{Statistics Canada}.
 #' Each layer's help page contians a section describing the source for the data.
 #'
 #' @import sp
