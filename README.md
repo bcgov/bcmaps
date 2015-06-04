@@ -59,3 +59,4 @@ The data and code in this repository is licensed under multiple licenses.
 
 - Source data in /data-raw/census-divisions_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate folder.
 
+- Source data in /data-raw/airzones is licensed under the Open Government License - British Columbia. See LICENSE.BC-OGL in the appropriate folder.
