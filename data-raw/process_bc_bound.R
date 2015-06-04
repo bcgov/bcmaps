@@ -6,7 +6,7 @@ library("sp")
 library("rgdal")
 library("devtools")
 
-bc_bound_zip <- "data-raw/bc_bound/bc_bound.zip"
+bc_bound_zip <- "data-raw/bc_bound/atlas_of_canada_7.5M.zip"
 bc_bound_dir <- "data-raw/bc_bound"
 
 ## Download the zipfile and unzip:
