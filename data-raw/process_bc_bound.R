@@ -32,9 +32,10 @@ proj4string(bc_bound) <- CRS("+init=epsg:4267")
 ## http://epsg.io/3005)
 bc_bound <- spTransform(bc_bound, CRS("+init=epsg:3005"))
 
-bc_bound <- bc_bound[, grep("ISLAND", names(bc_bound))]
+## Combine ISLAND with ISLAND_E to get one island column
+bc_bound@data$island <- with(bc_bound@data, pmax(ISLAND, ISLAND_E, na.rm = TRUE))
 
-names(bc_bound) <- tolower(names(bc_bound))
+bc_bound <- bc_bound[, "island", drop = FALSE]
 
 use_data(bc_bound, overwrite = TRUE, compress = "xz")
 
