@@ -15,7 +15,7 @@ An [R](http://r-project.org) package of map layers for British Columbia
 
 ### Features
 
-Various layers of B.C., including administrative boundaries, natural resource 
+Various layers of B.C., such as administrative boundaries, natural resource 
 management boundaries, etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in 
 [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
