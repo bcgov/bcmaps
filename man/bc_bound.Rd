@@ -14,8 +14,8 @@
 }}
 \source{
 1:7.5M Atlas of Canada base maps, downloaded from
-\href{http://open.canada.ca/data/en/dataset/f77c2027-ed4a-5f6e-9395-067af3e9fc1e}{The Canadian Open Data Portal}
-under the \href{http://open.canada.ca/en/open-government-licence-canada}{Open Government License - Canada}.
+\href{http://open.canada.ca/data/en/dataset/f77c2027-ed4a-5f6e-9395-067af3e9fc1e}{The Canadian Open Data Portal} on 2015-05-04
+under the \href{http://open.canada.ca/en/open-government-licence-canada}{Open Government License - Canada} version 2.0.
 }
 \usage{
 bc_bound

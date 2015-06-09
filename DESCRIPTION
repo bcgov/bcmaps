@@ -1,9 +1,16 @@
 Package: bcmaps
 Title: Map layers for British Columbia
 Version: 0.0.0.9000
-Authors@R: person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca", role = c("aut", "cre"))
-Description: Various layers of B.C., including administrative boundaries, natural resource management boundaries, etc. All layers are available as sp objects, and are in BC Albers (http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the B.C. government standard (https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
+  role = c("aut", "cre")),
+  person("Province of British Columbia", role="cph"))
+Description: Various layers of B.C., such as administrative boundaries,
+  natural resource management boundaries, etc. All layers are available as sp i
+  objects, and are in BC Albers projection
+  (http://spatialreference.org/ref/epsg/nad83-bc-albers/), which is the B.C.
+  government standard
+  (https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 Depends: R (>= 3.2.0),
   sp (>= 1.1.0)
-License: Apache License (== 2.0) | file LICENSE
+License: file LICENSE
 LazyData: true

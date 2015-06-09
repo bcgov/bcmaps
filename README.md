@@ -55,10 +55,10 @@ The source datasets used in this package come from various sources under open li
 
 The data and code in this repository is licensed under multiple licenses.
 
-- All R code in the /R directory and the /data-raw directory is licensed under the Apache License 2.0. See LICENSE.Apache-2.0 in the appropriate folders.
+- All R code in the /R directory and the /data-raw directory is licensed under the Apache License 2.0. See LICENSE.Apache-2.0 in the appropriate directories.
 
-- Source data in /data-raw/bc_bound is licensed under the Open Government License - Canada. See LICENSE.Canada-OGL in the appropriate folder.
+- Source data in /data-raw/bc_bound is licensed under the Open Government License - Canada. See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
-- Source data in /data-raw/census-divisions_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate folder.
+- Source data in /data-raw/census-divisions_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate directory.
 
 - Source data in /data-raw/airzones is licensed under the Open Government License - British Columbia. See LICENSE.BC-OGL in the appropriate folder.

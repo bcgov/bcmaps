@@ -18,7 +18,7 @@
 #'   \item{\code{region_name}}{Name of region}
 #' }
 #'
-#' @source Adapted from Statistics Canada, Census Divisions Boundary File 2011 Census (gcd_000b11a_e), 2015-06-02. This does not
+#' @source Adapted from Statistics Canada, Census Divisions Boundary File 2011 Census (gcd_000b11a_e), 2015-05-26. This does not
 #'   constitute an endorsement by Statistics Canada of this product.
 #'   \url{http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000b11a_e.zip}
 #'   Available under the \href{http://www.statcan.gc.ca/eng/reference/licence-eng}{Statistics Canada Open License Agreement}
