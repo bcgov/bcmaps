@@ -72,9 +72,3 @@ regional_districts_disp$region_type[regional_districts_disp$region_name == "Stik
 use_data(regional_districts_disp, overwrite = TRUE, compress = "xz")
 use_data(regional_districts_analysis, overwrite = TRUE, compress = "xz")
 
-## Export as geojson
-# library(geojsonio)
-# regional_districts_disp %>%
-#   spTransform(CRS("+init=epsg:4326")) %>%
-# geojson_write(file = "regional_districts.geojson",
-#               layer_options = "COORDINATE_PRECISION=4")
