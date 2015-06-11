@@ -3,3 +3,6 @@ CONTRIBUTING.md
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
+^README\.Rmd$
+^make_readme\.R$
+^README-.*\.png$

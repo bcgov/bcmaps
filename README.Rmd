@@ -6,7 +6,13 @@ output:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
 
 <div id="devex-badge">
   <a rel="Exploration"  href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md">
@@ -35,8 +41,7 @@ management boundaries, etc. All layers are available as [sp](http://cran.r-proje
 The package is not available on CRAN, but can be installed using
 the [devtools](https://github.com/hadley/devtools) package:
 
-
-```r
+```{r eval=FALSE}
 install.packages("devtools") # if not already installed
 
 library(devtools)
@@ -58,19 +63,12 @@ To load any of them, simply type `data(layer_name)`, where `layer_name` is the
 name of the layer of interest. Then you can use the data as you would any `sp`
 object. A couple of simple examples:
 
-
-```r
+```{r plot-maps, fig.height=5}
 library(bcmaps)
-#> Loading required package: sp
 
 # Load and plot the boundaries of B.C.
 data(bc_bound)
 plot(bc_bound)
-```
-
-![plot of chunk plot-maps](README-plot-maps-1.png) 
-
-```r
 
 ## Next load the Regional Districts data, then extract and plot the Kootenays
 data(regional_districts_disp)
@@ -80,8 +78,6 @@ plot(kootenays)
 text(coordinates(kootenays), 
      labels = kootenays$region_name, cex = 0.6)
 ```
-
-![plot of chunk plot-maps](README-plot-maps-2.png) 
 
 
 ### Project Status
