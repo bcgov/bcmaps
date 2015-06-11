@@ -15,7 +15,7 @@ An [R](http://r-project.org) package of map layers for British Columbia
 
 ### Features
 
-Various layers of B.C., including administrative boundaries, natural resource 
+Various layers of B.C., such as administrative boundaries, natural resource 
 management boundaries, etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in 
 [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
@@ -61,4 +61,4 @@ The data and code in this repository is licensed under multiple licenses.
 
 - Source data in /data-raw/census-divisions_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate directory.
 
-- Source data in /data-raw/airzones is licensed under the Open Government License - British Columbia. See LICENSE.BC-OGL in the appropriate folder.
+- Source data in /data-raw/airzones is licensed under the Open Government License - British Columbia. See LICENSE.BC-OGL in the appropriate directory.

@@ -2,7 +2,7 @@ The data and code in this repository is licensed under multiple licenses.
 
 - All R code in the /R directory and the /data-raw directory is licensed under the Apache License 2.0. See LICENSE.Apache-2.0 in the appropriate directories.
 
-- Source data in /data-raw/bc_bound is licensed under the Open Government License - Canada version 2.0. See LICENSE.Canada-OGL in the appropriate directories.
+- Source data in /data-raw/bc_bound is licensed under the Open Government License - Canada version 2.0. See LICENSE.Canada-OGL-2.0 in the appropriate directories.
 
 - Source data in /data-raw/census-divisions_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate folder.
 

@@ -1,6 +1,8 @@
 ## Canadian Census Divisions - BC Regional Districts.
 
-The file `gcd_000b11a_e.zip` is the original 2011 Canadian Census divisions geospatial data, downloaded from http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000b11a_e.zip under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng) on 2015-05-26. It is fully described in `92-160-g2011001-eng.pdf`.
+All data in this folder is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA.
+
+The file `gcd_000b11a_e.zip` is the original 2011 Canadian Census divisions geospatial data, downloaded from http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/gcd_000b11a_e.zip on 2015-05-26. It is fully described in `92-160-g2011001-eng.pdf`.
 
 The file `bc_cd_albers.shp` (and associated files) is an extract of British Columbia census divisions from `gcd_000b11a_e.zip`, and has been transformed to the BC Albers projection. It is added to the package in `data/regional_districts_analysis.rda`.
 
