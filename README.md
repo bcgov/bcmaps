@@ -28,7 +28,7 @@ the [devtools](https://github.com/hadley/devtools) package:
 install.packages("devtools") # if not already installed
 
 library(devtools)
-install_github("bcgov/rcaaqs")
+install_github("bcgov/bcmaps")
 
 ```
 
