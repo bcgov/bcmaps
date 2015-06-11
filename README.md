@@ -1,65 +1,45 @@
----
-output:
-  md_document:
-    variant: markdown_github
----
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
-
-<div id="devex-badge">
-  <a rel="Exploration"  href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md">
-  <img
+<a rel="Exploration"  href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"> <img
   alt="Being designed and built, but in the lab. May change, disappear, or be 
   buggy." style="border-width:0" src="http://bcdevexchange.org/badge/2.svg" 
   title="Being designed and built, but in the lab. May change, disappear, or be 
-  buggy." />
-  </a>
-</div>
+  buggy." /> </a>
 
----
+------------------------------------------------------------------------
 
-# bcmaps
+bcmaps
+======
 
 An [R](http://r-project.org) package of map layers for British Columbia
 
 ### Features
 
-Various layers of B.C., such as administrative boundaries, natural resource 
-management boundaries, etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in 
-[BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+Various layers of B.C., such as administrative boundaries, natural resource management boundaries, etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
 ### Installation
 
-The package is not available on CRAN, but can be installed using
-the [devtools](https://github.com/hadley/devtools) package:
+The package is not available on CRAN, but can be installed using the [devtools](https://github.com/hadley/devtools) package:
 
-
-```r
+``` r
 install.packages("devtools") # if not already installed
 
 library(devtools)
 install_github("bcgov/bcmaps")
-
 ```
 
 ### Usage
 
 At the moment, there are three layers available:
 
-- `bc_bound`: The provincial boundary of British Columbia (at 1:7.5M scale)
+-   `bc_bound`: The provincial boundary of British Columbia (at 1:7.5M scale)
 
-- `regional_districts_analysis`: Detailed Regional District boundaries (Which are based on Canadian cencus boundaries). Suitable for situations where you need detailed boundaries (faithful to the original representation).
+-   `regional_districts_analysis`: Detailed Regional District boundaries (Which are based on Canadian cencus boundaries). Suitable for situations where you need detailed boundaries (faithful to the original representation).
 
-- `regional_districts_disp`: Simplified Regional District boundaries. Much smaller file size than the analysis layer, suitable for situations where you don't need detailed boundaries, often useful when making maps for display.
+-   `regional_districts_disp`: Simplified Regional District boundaries. Much smaller file size than the analysis layer, suitable for situations where you don't need detailed boundaries, often useful when making maps for display.
 
-To load any of them, simply type `data(layer_name)`, where `layer_name` is the 
-name of the layer of interest. Then you can use the data as you would any `sp`
-object. A couple of simple examples:
+To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
 
-
-```r
+``` r
 library(bcmaps)
 #> Loading required package: sp
 
@@ -68,9 +48,9 @@ data(bc_bound)
 plot(bc_bound)
 ```
 
-![plot of chunk plot-maps](README-plot-maps-1.png) 
+![](README-plot-maps-1.png)
 
-```r
+``` r
 
 ## Next load the Regional Districts data, then extract and plot the Kootenays
 data(regional_districts_disp)
@@ -81,8 +61,7 @@ text(coordinates(kootenays),
      labels = kootenays$region_name, cex = 0.6)
 ```
 
-![plot of chunk plot-maps](README-plot-maps-2.png) 
-
+![](README-plot-maps-2.png)
 
 ### Project Status
 
@@ -94,19 +73,18 @@ To report bugs/issues/feature requests, please file an [issue](https://github.co
 
 ### How to Contribute
 
-Pull requests of new B.C. layers are welcome.
-If you would like to contribute to the package, please see our 
-[CONTRIBUTING](CONTRIBUTING.md) guidelines.
+Pull requests of new B.C. layers are welcome. If you would like to contribute to the package, please see our [CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
 ### Source data
+
 The source datasets used in this package come from various sources under open licenses, including [DataBC](http://data.gov.bc.ca) ([Open Government License - British Columbia](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.
 
 ### License
 
 The data and code in this repository is licensed under multiple licenses.
 
-- All R code in the /R directory and the /data-raw directory is licensed under the Apache License 2.0. See LICENSE.Apache-2.0 in the appropriate directories.
+-   All R code in the /R directory and the /data-raw directory is licensed under the Apache License 2.0. See LICENSE.Apache-2.0 in the appropriate directories.
 
-- Source data in /data-raw/bc_bound is licensed under the Open Government License - Canada. See LICENSE.Canada-OGL-2.0 in the appropriate directory.
+-   Source data in /data-raw/bc\_bound is licensed under the Open Government License - Canada. See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
-- Source data in /data-raw/census-divisions_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate directory.
+-   Source data in /data-raw/census-divisions\_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate directory.
