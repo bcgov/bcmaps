@@ -29,13 +29,15 @@ install_github("bcgov/bcmaps")
 
 ### Usage
 
-At the moment, there are three layers available:
+At the moment, there are four layers available:
 
 -   `bc_bound`: The provincial boundary of British Columbia (at 1:7.5M scale)
 
 -   `regional_districts_analysis`: Detailed Regional District boundaries (Which are based on Canadian cencus boundaries). Suitable for situations where you need detailed boundaries (faithful to the original representation).
 
 -   `regional_districts_disp`: Simplified Regional District boundaries. Much smaller file size than the analysis layer, suitable for situations where you don't need detailed boundaries, often useful when making maps for display.
+
+-   `ecoprovinces`: Boundaries of B.C.'s ten ecoprovinces (<http://catalogue.data.gov.bc.ca/dataset/ecoprovinces-ecoregion-ecosystem-classification-of-british-columbia>)
 
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
 
@@ -83,8 +85,10 @@ The source datasets used in this package come from various sources under open li
 
 The data and code in this repository is licensed under multiple licenses.
 
--   All R code in the /R directory and the /data-raw directory is licensed under the Apache License 2.0. See LICENSE.Apache-2.0 in the appropriate directories.
+-   All R code in the `/R` directory and the `/data-raw` directory is licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). See LICENSE.Apache-2.0 in the appropriate directories.
 
--   Source data in /data-raw/bc\_bound is licensed under the Open Government License - Canada. See LICENSE.Canada-OGL-2.0 in the appropriate directory.
+-   Source data in `/data-raw/bc_bound` is licensed under the [Open Government License - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
--   Source data in /data-raw/census-divisions\_statscan is licensed under the Statistics Canada Open License Agreement. See LICENSE.StatsCan-OLA in the appropriate directory.
+-   Source data in `/data-raw/census-divisions_statscan` is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
+
+-   Source data in `/data-raw/ecoprovinces` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
