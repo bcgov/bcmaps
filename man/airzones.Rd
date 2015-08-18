@@ -20,8 +20,7 @@ Boundaries of British Columbia Air Zones, which are areas of the province
 for reporting on Canadian Ambient Air Quality Standards
 (\href{http://www.ccme.ca/en/current_priorities/air/caaqs.html}{CAAQS}), and
 implementing the Air Quality Management System. For more information on Air
-Zones in B.C. see the Air Quality Management section at
-\url{www.bcairquality.ca/plans/}.
+Zones in B.C. see \url{http://www.bcairquality.ca/plans/national-air-quality-management-system.html}.
 }
 \keyword{datasets}
 
