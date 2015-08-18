@@ -39,6 +39,8 @@ At the moment, there are four layers available:
 
 -   `ecoprovinces`: Boundaries of B.C.'s ten ecoprovinces (<http://catalogue.data.gov.bc.ca/dataset/ecoprovinces-ecoregion-ecosystem-classification-of-british-columbia>)
 
+-   `airzones`: Boundaries of B.C.'s seven [Air Zones](http://www.bcairquality.ca/plans/national-air-quality-management-system.html), used for monitoring, reporting and taking action on air quality in British columbia (<http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones>)
+
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
 
 ``` r
