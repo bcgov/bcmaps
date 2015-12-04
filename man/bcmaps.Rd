@@ -4,7 +4,7 @@
 \name{bcmaps}
 \alias{bcmaps}
 \alias{bcmaps-package}
-\title{bcmaps: A data package providing varies map layers for British Columbia}
+\title{bcmaps: A data package providing various map layers for British Columbia}
 \description{
 Various layers of B.C., including administrative boundaries, natural
 resource management boundaries, etc. All layers are available as sp objects,
