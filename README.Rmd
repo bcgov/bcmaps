@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 envreportutils::devex_badge("exploration")
 ```
 
+[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
+
 ---
 
 # bcmaps
