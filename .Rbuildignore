@@ -6,5 +6,5 @@ CONTRIBUTING.md
 ^README\.Rmd$
 ^make_readme\.R$
 ^README-.*\.png$
-^CONDUCT\.md$
+^CODE_OF_CONDUCT\.md$
 ^\.travis\.yml$
