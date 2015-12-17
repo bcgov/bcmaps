@@ -1,6 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
 <a rel="Exploration" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="Being designed and built, but in the lab. May change, disappear, or be buggy." style="border-width:0" src="http://bcdevexchange.org/badge/2.svg" title="Being designed and built, but in the lab. May change, disappear, or be buggy." /></a>
 
+[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
+
 ------------------------------------------------------------------------
 
 bcmaps
@@ -25,7 +27,7 @@ install_github("bcgov/bcmaps")
 
 ### Usage
 
-At the moment, there are four layers available:
+At the moment, there are six layers available:
 
 -   `bc_bound`: The provincial boundary of British Columbia (at 1:7.5M scale)
 
@@ -35,7 +37,7 @@ At the moment, there are four layers available:
 
 -   `ecoprovinces`: Boundaries of B.C.'s ten ecoprovinces (<http://catalogue.data.gov.bc.ca/dataset/ecoprovinces-ecoregion-ecosystem-classification-of-british-columbia>)
 
--   `ecoregions`: Boundaries of B.C.'s ten ecoregions (<http://catalogue.data.gov.bc.ca/dataset/ecoregions-ecoregion-ecosystem-classification-of-british-columbia>)
+-   `ecoregions`: Boundaries of B.C.'s 43 ecoregions (<http://catalogue.data.gov.bc.ca/dataset/ecoregions-ecoregion-ecosystem-classification-of-british-columbia>)
 
 -   `airzones`: Boundaries of B.C.'s seven [Air Zones](http://www.bcairquality.ca/plans/national-air-quality-management-system.html), used for monitoring, reporting and taking action on air quality in British columbia (<http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones>)
 

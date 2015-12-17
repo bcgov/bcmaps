@@ -10,7 +10,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' bcmaps: A data package providing varies map layers for British Columbia
+#' bcmaps: A data package providing various map layers for British Columbia
 #'
 #' Various layers of B.C., including administrative boundaries, natural
 #' resource management boundaries, etc. All layers are available as sp objects,
