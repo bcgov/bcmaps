@@ -41,7 +41,7 @@ the [devtools](https://github.com/hadley/devtools) package:
 install.packages("devtools") # if not already installed
 
 library(devtools)
-install_github("bcgov/bcmaps")
+install_github("bcgov/bcmaps", build_vignettes = TRUE)
 
 ```
 
@@ -81,6 +81,10 @@ text(coordinates(kootenays),
      labels = kootenays$region_name, cex = 0.6)
 ```
 
+#### Vignettes
+
+We have written a short vignette on plotting points on one of the layers from `bcmaps`.
+You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
 
 ### Project Status
 

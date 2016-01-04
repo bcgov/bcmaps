@@ -22,7 +22,7 @@ The package is not available on CRAN, but can be installed using the [devtools](
 install.packages("devtools") # if not already installed
 
 library(devtools)
-install_github("bcgov/bcmaps")
+install_github("bcgov/bcmaps", build_vignettes = TRUE)
 ```
 
 ### Usage
@@ -66,6 +66,10 @@ text(coordinates(kootenays),
 ```
 
 ![](README-plot-maps-2.png)
+
+#### Vignettes
+
+We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
 
 ### Project Status
 
