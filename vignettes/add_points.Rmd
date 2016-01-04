@@ -14,10 +14,6 @@ vignette: >
 
 We often want to be able to add point data to a map. For example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 First, load the packages we will need: 
 
 - `sp` for working with Spatial objects, 
@@ -47,6 +43,7 @@ Next we convert this to a `SpatialPointsDataFrame` using the `sp` package. The s
 ```{r}
 coordinates(spp) <- c("long", "lat")
 summary(spp)
+plot(spp)
 ```
 
 In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf.
