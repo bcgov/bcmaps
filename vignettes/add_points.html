@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="date" content="2016-01-04" />
+
+<title>Adding point data to map layers from bcmaps</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<link href="data:text/css,body%20%7B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20max%2Dwidth%3A%20700px%3B%0A%20%20overflow%3A%20visible%3B%0A%20%20padding%2Dleft%3A%202em%3B%0A%20%20padding%2Dright%3A%202em%3B%0A%20%20font%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20line%2Dheight%3A%201%2E35%3B%0A%7D%0A%0A%23header%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0A%0A%23TOC%20%7B%0A%20%20clear%3A%20both%3B%0A%20%20margin%3A%200%200%2010px%2010px%3B%0A%20%20padding%3A%204px%3B%0A%20%20width%3A%20400px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20border%2Dradius%3A%205px%3B%0A%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20font%2Dsize%3A%2013px%3B%0A%20%20line%2Dheight%3A%201%2E3%3B%0A%7D%0A%20%20%23TOC%20%2Etoctitle%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%20%20font%2Dsize%3A%2015px%3B%0A%20%20%20%20margin%2Dleft%3A%205px%3B%0A%20%20%7D%0A%0A%20%20%23TOC%20ul%20%7B%0A%20%20%20%20padding%2Dleft%3A%2040px%3B%0A%20%20%20%20margin%2Dleft%3A%20%2D1%2E5em%3B%0A%20%20%20%20margin%2Dtop%3A%205px%3B%0A%20%20%20%20margin%2Dbottom%3A%205px%3B%0A%20%20%7D%0A%20%20%23TOC%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dleft%3A%20%2D2em%3B%0A%20%20%7D%0A%20%20%23TOC%20li%20%7B%0A%20%20%20%20line%2Dheight%3A%2016px%3B%0A%20%20%7D%0A%0Atable%20%7B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dcolor%3A%20%23DDDDDD%3B%0A%20%20border%2Dstyle%3A%20outset%3B%0A%20%20border%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0A%20%20border%2Dwidth%3A%202px%3B%0A%20%20padding%3A%205px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%20%20line%2Dheight%3A%2018px%3B%0A%20%20padding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0A%20%20border%2Dleft%2Dstyle%3A%20none%3B%0A%20%20border%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Ap%20%7B%0A%20%20margin%3A%200%2E5em%200%3B%0A%7D%0A%0Ablockquote%20%7B%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20padding%3A%200%2E25em%200%2E75em%3B%0A%7D%0A%0Ahr%20%7B%0A%20%20border%2Dstyle%3A%20solid%3B%0A%20%20border%3A%20none%3B%0A%20%20border%2Dtop%3A%201px%20solid%20%23777%3B%0A%20%20margin%3A%2028px%200%3B%0A%7D%0A%0Adl%20%7B%0A%20%20margin%2Dleft%3A%200%3B%0A%7D%0A%20%20dl%20dd%20%7B%0A%20%20%20%20margin%2Dbottom%3A%2013px%3B%0A%20%20%20%20margin%2Dleft%3A%2013px%3B%0A%20%20%7D%0A%20%20dl%20dt%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%7D%0A%0Aul%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%7D%0A%20%20ul%20li%20%7B%0A%20%20%20%20list%2Dstyle%3A%20circle%20outside%3B%0A%20%20%7D%0A%20%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dbottom%3A%200%3B%0A%20%20%7D%0A%0Apre%2C%20code%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20color%3A%20%23333%3B%0A%7D%0Apre%20%7B%0A%20%20white%2Dspace%3A%20pre%2Dwrap%3B%20%20%20%20%2F%2A%20Wrap%20long%20lines%20%2A%2F%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20margin%3A%205px%200px%2010px%200px%3B%0A%20%20padding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Acode%20%7B%0A%20%20font%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0A%20%20font%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0A%20%20padding%3A%202px%200px%3B%0A%7D%0A%0Adiv%2Efigure%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0A%20%20background%2Dcolor%3A%20%23FFFFFF%3B%0A%20%20padding%3A%202px%3B%0A%20%20border%3A%201px%20solid%20%23DDDDDD%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20margin%3A%200%205px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20font%2Dsize%3A%2035px%3B%0A%20%20line%2Dheight%3A%2040px%3B%0A%7D%0A%0Ah2%20%7B%0A%20%20border%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20padding%2Dbottom%3A%202px%3B%0A%20%20font%2Dsize%3A%20145%25%3B%0A%7D%0A%0Ah3%20%7B%0A%20%20border%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20font%2Dsize%3A%20120%25%3B%0A%7D%0A%0Ah4%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0A%20%20margin%2Dleft%3A%208px%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Ah5%2C%20h6%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23ccc%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Aa%20%7B%0A%20%20color%3A%20%230033dd%3B%0A%20%20text%2Ddecoration%3A%20none%3B%0A%7D%0A%20%20a%3Ahover%20%7B%0A%20%20%20%20color%3A%20%236666ff%3B%20%7D%0A%20%20a%3Avisited%20%7B%0A%20%20%20%20color%3A%20%23800080%3B%20%7D%0A%20%20a%3Avisited%3Ahover%20%7B%0A%20%20%20%20color%3A%20%23BB00BB%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%0A%2F%2A%20Class%20described%20in%20https%3A%2F%2Fbenjeffrey%2Ecom%2Fposts%2Fpandoc%2Dsyntax%2Dhighlighting%2Dcss%0A%20%20%20Colours%20from%20https%3A%2F%2Fgist%2Egithub%2Ecom%2Frobsimmons%2F1172277%20%2A%2F%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Keyword%20%2A%2F%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%2F%2A%20DataType%20%2A%2F%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%2F%2A%20DecVal%20%28decimal%20values%29%20%2A%2F%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20BaseN%20%2A%2F%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Float%20%2A%2F%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Char%20%2A%2F%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20String%20%2A%2F%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%2F%2A%20Comment%20%2A%2F%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%2F%2A%20OtherToken%20%2A%2F%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20AlertToken%20%2A%2F%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Function%20calls%20%2A%2F%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%2F%2A%20ErrorTok%20%2A%2F%0A%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">Adding point data to map layers from bcmaps</h1>
+<h4 class="date"><em>2016-01-04</em></h4>
+</div>
+
+
+<p>We often want to be able to add point data to a map. For example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.</p>
+<p>First, load the packages we will need:</p>
+<ul>
+<li><code>sp</code> for working with Spatial objects,</li>
+<li><code>rgdal</code> for transforming projections,</li>
+<li><code>bcmaps</code> for accessing spatial files of B.C.</li>
+<li><code>ggplot2</code> for plotting</li>
+</ul>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sp)
+<span class="kw">library</span>(rgdal)</code></pre>
+<pre><code>## rgdal: version: 1.1-3, (SVN revision 594)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.0.1, released 2015/09/15
+##  Path to GDAL shared files: C:/R/win_library/rgdal/gdal
+##  GDAL does not use iconv for recoding strings.
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: C:/R/win_library/rgdal/proj
+##  Linking to sp version: 1.2-1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(bcmaps)
+<span class="kw">library</span>(ggplot2)</code></pre>
+<p>We will create a mock dataframe of locations of species presence/absences (in real life these would probably be in a csv or Excel file that we would import):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)
+spp &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">id =</span> <span class="dv">1</span>:<span class="dv">10</span>, <span class="dt">spp_present =</span> <span class="kw">as.logical</span>(<span class="kw">rbinom</span>(<span class="dv">10</span>,<span class="dv">1</span>,<span class="fl">0.5</span>)),
+                 <span class="dt">lat =</span> <span class="kw">runif</span>(<span class="dv">10</span>, <span class="dv">49</span>, <span class="dv">60</span>), <span class="dt">long =</span> <span class="kw">runif</span>(<span class="dv">10</span>, -<span class="dv">128</span>, -<span class="dv">120</span>), 
+                 <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)
+<span class="kw">head</span>(spp)</code></pre>
+<pre><code>##   id spp_present      lat      long
+## 1  1        TRUE 54.03516 -120.7677
+## 2  2        TRUE 56.91023 -126.8903
+## 3  3       FALSE 59.28139 -120.0889
+## 4  4        TRUE 51.80972 -120.4267
+## 5  5        TRUE 54.08522 -127.3405
+## 6  6        TRUE 59.34016 -123.8863</code></pre>
+<p>Next we convert this to a <code>SpatialPointsDataFrame</code> using the <code>sp</code> package. The syntax for doing this is a little obscure - you specify the columns that hold the x and y data in a character vector on the right hand side of the <code>&lt;-</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coordinates</span>(spp) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;long&quot;</span>, <span class="st">&quot;lat&quot;</span>)
+<span class="kw">summary</span>(spp)</code></pre>
+<pre><code>## Object of class SpatialPointsDataFrame
+## Coordinates:
+##             min        max
+## long -127.34050 -120.08887
+## lat    50.29236   59.76049
+## Is projected: NA 
+## proj4string : [NA]
+## Number of points: 10
+## Data attributes:
+##        id        spp_present    
+##  Min.   : 1.00   Mode :logical  
+##  1st Qu.: 3.25   FALSE:2        
+##  Median : 5.50   TRUE :8        
+##  Mean   : 5.50   NA's :0        
+##  3rd Qu.: 7.75                  
+##  Max.   :10.00</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(spp)</code></pre>
+<p><img src="data:image/png;base64,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" /></p>
+<p>In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf</a>.</p>
+<p>We know that our occurrence data are in decimal degrees in <a href="https://epsg.io/4269">NAD83</a>, so we will assign the corresponding <code>proj4string</code>. You can specify the projection using a full proj4 string (<code>&quot;+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs&quot;</code>) or the EPSG code (<code>&quot;+init=epsg:4269&quot;</code>). We will use the EPSG code because it’s shorter and less likely to make a typo with.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(spp) &lt;-<span class="st"> &quot;+init=epsg:4269&quot;</span></code></pre>
+<p>All of the maps in the <code>bcmaps</code> package are in BC Albers projection (<a href="http://epsg.io/3005">EPSG:3005</a>), which is the B.C. government standard. It is an ‘equal area’ projection, meaning that the size of areas is not distorted, and thus is suitable for analyses on large areas.</p>
+<p>If we look at the <code>proj4string</code> for <code>bc_bound</code> and our <code>spp_df</code>, we see that they are different:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">proj4string</span>(bc_bound)
+## [1] &quot;+init=epsg:3005 +proj=aea +lat_1=50 +lat_2=58.5 +lat_0=45 +lon_0=-126 +x_0=1000000 +y_0=0 +datum=NAD83 +units=m +no_defs +ellps=GRS80 +towgs84=0,0,0&quot;
+<span class="kw">proj4string</span>(spp)
+## [1] &quot;+init=epsg:4269 +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0&quot;</code></pre>
+<p>So let’s transform the dataframe of species presence/absences into the same CRS as <code>bc_bound</code>:</p>
+<pre class="sourceCode r"><code class="sourceCode r">spp &lt;-<span class="st"> </span><span class="kw">spTransform</span>(spp, <span class="dt">CRSobj =</span> <span class="kw">proj4string</span>(bc_bound))</code></pre>
+<p>Now we can overlay the points on the provincial boundary dataset:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(bc_bound)
+<span class="kw">points</span>(spp, <span class="dt">pch =</span> <span class="dv">21</span>, <span class="dt">bg =</span> spp$spp_present)</code></pre>
+<p><img src="data:image/png;base64,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" /></p>
+<p>We can also quite easily make a similar (and nicer) map using ggplot2:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Convert the bc_bound SpatialPolygonsDataFrame into a regular data frame for ggplot2 to use</span>
+bc_df &lt;-<span class="st"> </span><span class="kw">fortify</span>(bc_bound)
+
+<span class="co"># combine the attribute data from spp with the transformed coordinates</span>
+spp_df &lt;-<span class="st"> </span><span class="kw">cbind</span>(spp@data, <span class="kw">coordinates</span>(spp))
+
+<span class="kw">ggplot</span>(bc_df, <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> group)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_polygon</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> spp_df, 
+             <span class="kw">aes</span>(<span class="dt">x =</span> long, <span class="dt">y =</span> lat, <span class="dt">group =</span> <span class="ot">NULL</span>, <span class="dt">colour =</span> spp_present)) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">coord_fixed</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme_minimal</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">line =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.title =</span> <span class="kw">element_blank</span>(), <span class="dt">axis.text =</span> <span class="kw">element_blank</span>())</code></pre>
+<p><img src="data:image/png;base64,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" /></p>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

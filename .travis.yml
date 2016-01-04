@@ -5,6 +5,7 @@ sudo: required
 
 r_binary_packages:
   - sp
+  - rgdal
 
 warnings_are_errors: true
 

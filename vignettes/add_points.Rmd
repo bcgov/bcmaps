@@ -1,0 +1,95 @@
+---
+title: "Adding point data to map layers from bcmaps"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    keep_md: true
+    fig_width: 5
+    fig_height: 5
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+We often want to be able to add point data to a map. For example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
+
+First, load the packages we will need: 
+
+- `sp` for working with Spatial objects, 
+- `rgdal` for transforming projections,
+- `bcmaps` for accessing spatial files of B.C.
+- `ggplot2` for plotting
+
+```{r}
+library(sp)
+library(rgdal)
+library(bcmaps)
+library(ggplot2)
+```
+
+We will create a mock dataframe of locations of species presence/absences (in real life these would probably be in a csv or Excel file that we would import):
+
+```{r}
+set.seed(42)
+spp <- data.frame(id = 1:10, spp_present = as.logical(rbinom(10,1,0.5)),
+                 lat = runif(10, 49, 60), long = runif(10, -128, -120), 
+                 stringsAsFactors = FALSE)
+head(spp)
+```
+
+Next we convert this to a `SpatialPointsDataFrame` using the `sp` package. The syntax for doing this is a little obscure - you specify the columns that hold the x and y data in a character vector on the right hand side of the `<-`:
+
+```{r}
+coordinates(spp) <- c("long", "lat")
+summary(spp)
+plot(spp)
+```
+
+In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf.
+
+We know that our occurrence data are in decimal degrees in [NAD83](https://epsg.io/4269), so we will assign the corresponding `proj4string`. You can specify the projection using a full proj4 string (`"+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"`) or the EPSG code (`"+init=epsg:4269"`). We will use the EPSG code because it's shorter and less likely to make a typo with.
+
+```{r}
+proj4string(spp) <- "+init=epsg:4269"
+```
+
+All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005](http://epsg.io/3005)), which is the B.C. government standard. It is an 'equal area' projection, meaning that the size of areas is not distorted, and thus is suitable for analyses on large areas.
+
+If we look at the `proj4string` for `bc_bound` and our `spp_df`, we see that they are different:
+
+```{r collapse=TRUE}
+proj4string(bc_bound)
+proj4string(spp)
+```
+
+So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound`:
+
+```{r}
+spp <- spTransform(spp, CRSobj = proj4string(bc_bound))
+```
+
+Now we can overlay the points on the provincial boundary dataset:
+
+```{r}
+plot(bc_bound)
+points(spp, pch = 21, bg = spp$spp_present)
+```
+
+We can also quite easily make a similar (and nicer) map using ggplot2:
+
+```{r message=FALSE}
+# Convert the bc_bound SpatialPolygonsDataFrame into a regular data frame for ggplot2 to use
+bc_df <- fortify(bc_bound)
+
+# combine the attribute data from spp with the transformed coordinates
+spp_df <- cbind(spp@data, coordinates(spp))
+
+ggplot(bc_df, aes(x = long, y = lat, group = group)) + 
+  geom_polygon() + 
+  geom_point(data = spp_df, 
+             aes(x = long, y = lat, group = NULL, colour = spp_present)) + 
+  coord_fixed() + 
+  theme_minimal() + 
+  theme(line = element_blank(), axis.title = element_blank(), axis.text = element_blank())
+```
