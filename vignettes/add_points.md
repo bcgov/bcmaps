@@ -1,4 +1,4 @@
-# Adding lat/long data to map layers from bcmaps
+# Adding point data to map layers from bcmaps
 `r Sys.Date()`  
 
 We often want to be able to add point data to a map. For example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.

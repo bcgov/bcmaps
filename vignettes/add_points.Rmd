@@ -1,5 +1,5 @@
 ---
-title: "Adding lat/long data to map layers from bcmaps"
+title: "Adding point data to map layers from bcmaps"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
@@ -92,5 +92,4 @@ ggplot(bc_df, aes(x = long, y = lat, group = group)) +
   coord_fixed() + 
   theme_minimal() + 
   theme(line = element_blank(), axis.title = element_blank(), axis.text = element_blank())
-
 ```

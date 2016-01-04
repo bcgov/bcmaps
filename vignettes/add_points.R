@@ -45,4 +45,3 @@ ggplot(bc_df, aes(x = long, y = lat, group = group)) +
   theme_minimal() + 
   theme(line = element_blank(), axis.title = element_blank(), axis.text = element_blank())
 
-
