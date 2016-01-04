@@ -15,3 +15,8 @@ Depends:
 License: file LICENSE
 LazyData: true
 RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown,
+    rgdal,
+    ggplot2
+VignetteBuilder: knitr
