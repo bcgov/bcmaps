@@ -14,20 +14,6 @@ First, load the packages we will need:
 ```r
 library(sp)
 library(rgdal)
-```
-
-```
-## rgdal: version: 1.1-3, (SVN revision 594)
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.0.1, released 2015/09/15
-##  Path to GDAL shared files: C:/R/win_library/rgdal/gdal
-##  GDAL does not use iconv for recoding strings.
-##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
-##  Path to PROJ.4 shared files: C:/R/win_library/rgdal/proj
-##  Linking to sp version: 1.2-1
-```
-
-```r
 library(bcmaps)
 library(ggplot2)
 ```

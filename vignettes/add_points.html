@@ -65,16 +65,8 @@ code > span.er { color: #ff0000; font-weight: bold; }
 <li><code>ggplot2</code> for plotting</li>
 </ul>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(sp)
-<span class="kw">library</span>(rgdal)</code></pre>
-<pre><code>## rgdal: version: 1.1-3, (SVN revision 594)
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.0.1, released 2015/09/15
-##  Path to GDAL shared files: C:/R/win_library/rgdal/gdal
-##  GDAL does not use iconv for recoding strings.
-##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
-##  Path to PROJ.4 shared files: C:/R/win_library/rgdal/proj
-##  Linking to sp version: 1.2-1</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(bcmaps)
+<span class="kw">library</span>(rgdal)
+<span class="kw">library</span>(bcmaps)
 <span class="kw">library</span>(ggplot2)</code></pre>
 <p>We will create a mock dataframe of locations of species presence/absences (in real life these would probably be in a csv or Excel file that we would import):</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">42</span>)

@@ -21,7 +21,7 @@ First, load the packages we will need:
 - `bcmaps` for accessing spatial files of B.C.
 - `ggplot2` for plotting
 
-```{r}
+```{r message=FALSE}
 library(sp)
 library(rgdal)
 library(bcmaps)
