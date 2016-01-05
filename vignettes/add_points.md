@@ -1,7 +1,9 @@
 # Adding point data to map layers from bcmaps
 `r Sys.Date()`  
 
-We often want to be able to add point data to a map. For example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
+We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitutes into a `SpatialPointsDataFrame`, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.
+
+For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
 
 First, load the packages we will need: 
 
