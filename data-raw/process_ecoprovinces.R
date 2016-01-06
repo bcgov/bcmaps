@@ -20,4 +20,6 @@ unzip(ecoprov_zip, exdir = "data-raw/ecoprovinces")
 
 ecoprovinces <- readOGR(dsn = "data-raw/ecoprovinces/ERC_ECOPRO", layer = "ERC_ECOPRO_polygon", stringsAsFactors = FALSE)
 
+ecoprovinces <- spTransform(ecoprovinces, "+init=epsg:3005")
+
 use_data(ecoprovinces, overwrite = TRUE, compress = "xz")

@@ -55,6 +55,9 @@ regional_districts_analysis <- readOGR(path, layer = original_bc_cd,
 regional_districts_disp <- readOGR(path, layer = simplified_bc_cd,
                                    stringsAsFactors = FALSE)
 
+regional_districts_analysis <- spTransform(regional_districts_analysis, "+init=epsg:3005")
+regional_districts_disp <- spTransform(regional_districts_disp, "+init=epsg:3005")
+
 regional_districts_analysis <- regional_districts_analysis[, "CDNAME"]
 names(regional_districts_analysis) <- "region_name"
 

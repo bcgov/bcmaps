@@ -21,4 +21,6 @@ unzip(ecoreg_zip, exdir = "data-raw/ecoregions")
 ecoregions <- readOGR(dsn = "data-raw/ecoregions/ERC_ECOREG",
                         layer = "ERC_ECOREG_polygon", stringsAsFactors = FALSE)
 
+ecoregions <- spTransform(ecoregions, "+init=epsg:3005")
+
 use_data(ecoregions, overwrite = TRUE, compress = "xz")
