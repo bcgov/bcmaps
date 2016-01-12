@@ -66,6 +66,21 @@ text(coordinates(kootenays),
 ```
 
 ![](README-plot-maps-2.png)
+ There is also a simple function that returns the size of B.C. in hectares, square kilometres, or square metres. You can choose total area, land area only, or freshwater area only:
+
+``` r
+bc_area("total", "ha")
+#> total_ha 
+#> 94473500
+
+bc_area("land", "m2")
+#>     land_m2 
+#> 9.25186e+11
+
+bc_area("freshwater", "km2")
+#> freshwater_km2 
+#>          19549
+```
 
 #### Vignettes
 
