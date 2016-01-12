@@ -66,7 +66,10 @@ text(coordinates(kootenays),
 ```
 
 ![](README-plot-maps-2.png)
- There is also a simple function that returns the size of B.C. in hectares, square kilometres, or square metres. You can choose total area, land area only, or freshwater area only:
+
+### Size of British Columbia
+
+There is also a simple function that returns the size of B.C. in hectares, square kilometres, or square metres. You can choose total area, land area only, or freshwater area only:
 
 ``` r
 bc_area("total", "ha")
