@@ -10,18 +10,22 @@ bc_area(what = "total", units = "km2")
 \item{what}{Which part of BC? One of \code{'total'} (default), \code{'land'}, or \code{'freshwater'}.}
 
 \item{units}{One of \code{'km2'} (square kilometres; default), \code{'m2'} (square metres),
-or \code{'ha'} (hectares)}
+\code{'ha'} (hectares), \code{'acres'}, or \code{'sq_mi'} (square miles)}
 }
 \value{
 The area of B.C. in the desired units (numeric vector).
 }
 \description{
-Total area, Land area only, or Freshwater area only, in \eqn{km^2}, \eqn{m^2}, or \code{ha}.
+Total area, Land area only, or Freshwater area only, in the units of your choosing.
 }
 \details{
 The sizes are from \href{http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/phys01-eng.htm}{Statistics Canada}
 }
 \examples{
+## With no arguments, gives the total area in km^2:
+bc_area()
+
+## Get the area of the land only, in hectares:
 bc_area("land", "ha")
 }
 
