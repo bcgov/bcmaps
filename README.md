@@ -122,3 +122,5 @@ The data and code in this repository is licensed under multiple licenses.
 -   Source data in `/data-raw/ecoregions` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
 -   Source data in `/data-raw/airzones` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+
+This repository is maintained by [Environmental Reporting BC](http://www.env.gov.bc.ca/soe/). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
