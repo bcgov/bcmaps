@@ -3,3 +3,7 @@
 .RData
 README.html
 inst/doc
+data-raw/prov_territories_statscan/gpr_000b11a_e.dbf
+data-raw/prov_territories_statscan/gpr_000b11a_e.prj
+data-raw/prov_territories_statscan/gpr_000b11a_e.shp
+data-raw/prov_territories_statscan/gpr_000b11a_e.shx
