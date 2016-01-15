@@ -37,7 +37,7 @@ cd <- readOGR(dsn = path, layer = original_can, stringsAsFactors = FALSE)
 bc_bound_hres <- cd[cd$PRUID == 59,]
 
 ## Transform to BC Albers
-bc <- spTransform(bc_bound_hres, CRS("+init=epsg:3005"))
+bc_bound_hres <- spTransform(bc_bound_hres, CRS("+init=epsg:3005"))
 
 use_data(bc_bound_hres, overwrite = TRUE, compress = "xz")
 
