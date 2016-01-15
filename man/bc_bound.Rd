@@ -21,7 +21,7 @@ under the \href{http://open.canada.ca/en/open-government-licence-canada}{Open Go
 bc_bound
 }
 \description{
-Boundary of British Columbia at 1:7.5M scale
+Boundary of British Columbia at 1:7.5M scale. This is a coarse scale map suitable for a broad overview of the province.
 }
 \keyword{datasets}
 
