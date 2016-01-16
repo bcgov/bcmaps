@@ -12,7 +12,7 @@
 
 #' BC Boundary
 #'
-#' Boundary of British Columbia at 1:7.5M scale
+#' Boundary of British Columbia at 1:7.5M scale. This is a coarse scale map suitable for a broad overview of the province.
 #'
 #' @format A spatialPolygonsDataFrame defining the boundary of each British Columbia. Scale is 1:7.5M
 #'

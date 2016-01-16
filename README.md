@@ -29,7 +29,9 @@ install_github("bcgov/bcmaps", build_vignettes = TRUE)
 
 At the moment, there are six layers available:
 
--   `bc_bound`: The provincial boundary of British Columbia (at 1:7.5M scale)
+-   `bc_bound`: Coarse provincial boundary of British Columbia (at 1:7.5M scale).
+
+-   `bc_bound_hres`: Detailed provincial boundary, from Statistics Canada.
 
 -   `regional_districts_analysis`: Detailed Regional District boundaries (Which are based on Canadian cencus boundaries). Suitable for situations where you need detailed boundaries (faithful to the original representation).
 
@@ -116,6 +118,8 @@ The data and code in this repository is licensed under multiple licenses.
 -   Source data in `/data-raw/bc_bound` is licensed under the [Open Government License - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
 -   Source data in `/data-raw/census-divisions_statscan` is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
+
+-   Source data in `/data-raw/prov_territories_statscan` is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
 
 -   Source data in `/data-raw/ecoprovinces` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
