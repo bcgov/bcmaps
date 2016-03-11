@@ -10,13 +10,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' British Columbia Ecoprovinces
+#' British Columbia Natural Resource (NR) Regions
 #'
-#' An ecoprovince is an area with consistent climatic or oceanography, relief
-#' and regional landforms. There are one oceanic, two marine / terrestrial and seven
-#' terrestrial ecoprovinces occurring within British Columbia. Ecoprovinces are
-#' meant to be mapped at 1:2,000,000 for use in provincial state of the
-#' environment reporting
+#' British Columbia Natural Resource (NR) Regions are administrative boundaries
+#' established by the Ministry of Forests, Lands and Natural Resource Operations.
+#' These boundaries are designated by the Lieutenant Governor in council and published
+#' as regulations which establishes the Ministry's management areas.
+#'
 #'
 #' @format A spatialPolygonsDataFrame with the boundaries of British Columbia's
 #'   Natural Resource (NR) Regions, administrative boundaries established within NR Areas.
