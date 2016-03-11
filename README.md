@@ -27,7 +27,7 @@ install_github("bcgov/bcmaps", build_vignettes = TRUE)
 
 ### Usage
 
-At the moment, there are six layers available:
+At the moment, there are seven layers available:
 
 -   `bc_bound`: The provincial boundary of British Columbia (at 1:7.5M scale)
 
@@ -41,6 +41,8 @@ At the moment, there are six layers available:
 
 -   `airzones`: Boundaries of B.C.'s seven [Air Zones](http://www.bcairquality.ca/plans/national-air-quality-management-system.html), used for monitoring, reporting and taking action on air quality in British columbia (<http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones>)
 
+-   `nr_regions`: Boundaries of B.C.'s 8 Natural Resource (NR) Regions (<http://catalogue.data.gov.bc.ca/dataset/natural-resource-nr-regions>)
+
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
 
 ``` r
@@ -52,7 +54,7 @@ data(bc_bound)
 plot(bc_bound)
 ```
 
-![](README-plot-maps-1.png)
+![](README-plot-maps-1.png)<!-- -->
 
 ``` r
 
@@ -65,7 +67,7 @@ text(coordinates(kootenays),
      labels = kootenays$region_name, cex = 0.6)
 ```
 
-![](README-plot-maps-2.png)
+![](README-plot-maps-2.png)<!-- -->
 
 #### Size of British Columbia
 
