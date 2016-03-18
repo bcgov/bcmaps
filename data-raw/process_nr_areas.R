@@ -18,7 +18,7 @@ nr_areas_zip <- "data-raw/nr_areas/NR_areas.zip"
 
 unzip(nr_areas_zip, exdir = "data-raw/nr_areas")
 
-nr_areas <- readOGR(dsn = "data-raw/nr_regions/ADM_NR_AR",
+nr_areas <- readOGR(dsn = "data-raw/nr_areas/ADM_NR_AR",
                                     layer = "ADM_NR_AR_polygon", stringsAsFactors = FALSE)
 
 nr_areas <- spTransform(nr_areas, CRSobj = CRS("+init=epsg:3005"))
