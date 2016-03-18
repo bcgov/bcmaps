@@ -58,15 +58,15 @@ regional_districts_disp <- readOGR(path, layer = simplified_bc_cd,
 regional_districts_analysis <- spTransform(regional_districts_analysis, "+init=epsg:3005")
 regional_districts_disp <- spTransform(regional_districts_disp, "+init=epsg:3005")
 
-regional_districts_analysis <- regional_districts_analysis[, "CDNAME"]
-names(regional_districts_analysis) <- "region_name"
+regional_districts_analysis <- regional_districts_analysis[, c("CDUID","CDNAME")]
+names(regional_districts_analysis)[2] <- "region_name"
 
 regional_districts_analysis$region_type <- "Regional District"
 regional_districts_analysis$region_type[regional_districts_analysis$region_name == "Northern Rockies"] <- "Regional Municipality"
 regional_districts_analysis$region_type[regional_districts_analysis$region_name == "Stikine"] <- "Unincorporated Area"
 
-regional_districts_disp <- regional_districts_disp[, "CDNAME"]
-names(regional_districts_disp) <- "region_name"
+regional_districts_disp <- regional_districts_disp[, c("CDUID","CDNAME")]
+names(regional_districts_disp)[2] <- "region_name"
 
 regional_districts_disp$region_type <- "Regional District"
 regional_districts_disp$region_type[regional_districts_disp$region_name == "Northern Rockies"] <- "Regional Municipality"
