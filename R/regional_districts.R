@@ -25,6 +25,9 @@
 #'
 #'   The data slot contains two columns:
 #' \describe{
+#'   \item{\code{CDUID}}{Unique identifier for census division, composed of the
+#'    (composed of the 2-digit province/territory unique identifier followed
+#'    by the 2-digit census division code)}
 #'   \item{\code{region_type}}{Type of region (27 Regional Districts, one
 #'    Unincorporated Area, and one Regional Municipality)}
 #'   \item{\code{region_name}}{Name of region}
