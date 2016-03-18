@@ -1,8 +1,9 @@
 Package: bcmaps
 Title: Map layers for British Columbia
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
-  role = c("aut", "cre")),
+  role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
+  role = "aut"),
   person("Province of British Columbia", role="cph"))
 Description: Various layers of B.C., such as administrative boundaries, natural
     resource management boundaries, etc. All layers are available as 'sp' objects,
