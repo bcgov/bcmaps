@@ -19,5 +19,6 @@ RoxygenNote: 5.0.1
 Suggests: knitr,
     rmarkdown,
     rgdal,
-    ggplot2
+    rgeos,
+    ggplot2,
 VignetteBuilder: knitr

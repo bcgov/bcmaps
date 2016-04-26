@@ -71,8 +71,6 @@ transform_bc_albers <- function(sp_obj) {
 #'
 #' @return The SpatialPolygons* object, repaired if necessary
 #' @export
-#'
-#' @examples
 fix_self_intersect <- function(sp_obj) {
   if (!inherits(sp_obj, "SpatialPolygons")) {
     stop("sp_obj must be a Spatial object", call. = FALSE)
