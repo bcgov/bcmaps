@@ -44,3 +44,67 @@ km2_acres <- function(x) {
 km2_sq_mi <- function(x) {
   x * 0.386102
 }
+
+#' Transform a Spatial* object to BC Albers projection
+#'
+#' @param sp_obj The Spatial* object to transform
+#'
+#' @return the Spatial* object in BC Albers projection
+#' @export
+transform_bc_albers <- function(sp_obj) {
+  if (!inherits(sp_obj, "Spatial")) {
+    stop("sp_obj must be a Spatial object", call. = FALSE)
+  }
+
+  if (!requireNamespace("rgdal", quietly = TRUE)) {
+    stop("Package rgdal could not be loaded", call. = FALSE)
+  }
+
+  sp::spTransform(sp_obj, sp::CRS("+init=epsg:3005"))
+}
+
+#' Check and fix polygons that self-intersect
+#'
+#' This uses the common method of buffering by zero, using gBuffer in the rgeos package.
+#'
+#' @param sp_obj The SpatialPolygons* object to check/fix
+#'
+#' @return The SpatialPolygons* object, repaired if necessary
+#' @export
+#'
+#' @examples
+fix_self_intersect <- function(sp_obj) {
+  if (!inherits(sp_obj, "SpatialPolygons")) {
+    stop("sp_obj must be a Spatial object", call. = FALSE)
+  }
+
+  if (!requireNamespace("rgeos", quietly = TRUE)) {
+    stop("Package rgdal could not be loaded", call. = FALSE)
+  }
+
+  ## Check if the overall geomtry is valid, if it is, exit and return input
+  is_valid <- suppressWarnings(rgeos::gIsValid(sp_obj))
+
+  if (is_valid) {
+    message("Geometry is valid")
+    return(sp_obj)
+  }
+
+  ## Check geometry for each polygon
+  validity <- rgeos::gIsValid(sp_obj, byid = TRUE, reason = TRUE)
+  non_valid <- validity[validity != "Valid Geometry"]
+
+  ## Check if any non-valid objects are due to self intersections. If they are,
+  ## repair them, otherwise warn about the other problems
+  if (any(grepl("self[ -]intersection", non_valid, ignore.case = TRUE))) {
+    ret <- rgeos::gBuffer(sp_obj, byid = TRUE, width = 0)
+    message("Self-intersection(s) found - repairing...")
+    fix_self_intersect(ret) # check again (yay recursion)
+  } else {
+    message("No self-intersections found, but there were other problems")
+    message(non_valid)
+    return(sp_obj)
+  }
+
+  ret
+}
