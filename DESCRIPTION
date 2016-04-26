@@ -21,4 +21,5 @@ Suggests: knitr,
     rgdal,
     rgeos,
     ggplot2,
+    testthat
 VignetteBuilder: knitr
