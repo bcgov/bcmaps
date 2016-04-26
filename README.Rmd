@@ -28,7 +28,7 @@ An [R](http://r-project.org) package of map layers for British Columbia
 
 ### Features
 
-Various layers of B.C., such as administrative boundaries, natural resource 
+Various layers of British Columbia, such as administrative boundaries, natural resource 
 management boundaries, etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in 
 [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
@@ -53,15 +53,15 @@ At the moment, there are nine layers available:
 
 - `bc_bound_hres`: Detailed provincial boundary, from Statistics Canada.
 
-- `regional_districts_analysis`: Detailed Regional District boundaries (Which are based on Canadian cencus boundaries). Suitable for situations where you need detailed boundaries (faithful to the original representation).
+- `regional_districts_analysis`: Detailed Regional District boundaries (which are based on Canadian Census boundaries). Suitable for situations where you need detailed boundaries (faithful to the original representation).
 
 - `regional_districts_disp`: Simplified Regional District boundaries. Much smaller file size than the analysis layer, suitable for situations where you don't need detailed boundaries, often useful when making maps for display.
 
-- `ecoprovinces`: Boundaries of B.C.'s ten ecoprovinces (http://catalogue.data.gov.bc.ca/dataset/ecoprovinces-ecoregion-ecosystem-classification-of-british-columbia)
+- `ecoprovinces`: Boundaries of B.C.'s 10 ecoprovinces (http://catalogue.data.gov.bc.ca/dataset/ecoprovinces-ecoregion-ecosystem-classification-of-british-columbia)
 
 - `ecoregions`: Boundaries of B.C.'s 43 ecoregions (http://catalogue.data.gov.bc.ca/dataset/ecoregions-ecoregion-ecosystem-classification-of-british-columbia)
 
-- `airzones`: Boundaries of B.C.'s seven [Air Zones](http://www.bcairquality.ca/plans/national-air-quality-management-system.html), used for monitoring, reporting and taking action on air quality in British columbia (http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones)
+- `airzones`: Boundaries of B.C.'s 7 [Air Zones](http://www.bcairquality.ca/plans/national-air-quality-management-system.html), used for monitoring, reporting and taking action on air quality in British columbia (http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones)
 
 - `nr_areas`: Boundaries of B.C.'s 3 Natural Resource (NR) Areas (https://catalogue.data.gov.bc.ca/dataset/natural-resource-nr-areas)
 
