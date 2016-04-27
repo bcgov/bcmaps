@@ -137,6 +137,10 @@ fix_self_intersect <- function(sp_obj) {
 #' unioned_spdf <- self_union(spdf)
 #' unioned_sp <- self_union(spp)
 self_union <- function(x) {
+  if (!inherits(x, "SpatialPolygons")) {
+    stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
+  }
+
   if (!requireNamespace("raster", quietly = TRUE)) {
     stop("Package raster could not be loaded", call. = FALSE)
   }
@@ -162,9 +166,11 @@ get_unioned_ids <- function(unioned_sp) {
   id_cols <- grep("^ID\\.", names(unioned_sp@data))
   unioned_sp_data <- as.matrix(unioned_sp@data[, id_cols])
   colnames(unioned_sp_data) <- gsub("ID\\.", "", colnames(unioned_sp_data))
+
   unioned_ids <- apply(unioned_sp_data, 1, function(i) {
     as.numeric(colnames(unioned_sp_data)[i > 0])
   })
+
   names(unioned_ids) <- rownames(unioned_sp_data)
   unioned_ids
 }

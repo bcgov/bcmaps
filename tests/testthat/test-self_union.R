@@ -36,3 +36,7 @@ test_that("works with SpatialPolygonsDataFrame", {
   expect_length(self_union(spdf)@polygons, 3)
   expect_equal(self_union(spdf)@data, spdf_out_data)
 })
+
+test_that("fails correctly", {
+  expect_error(self_union("foo"), "x must be a SpatialPolygons or SpatialPolygonsDataFrame")
+})
