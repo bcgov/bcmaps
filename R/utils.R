@@ -175,3 +175,71 @@ get_unioned_ids <- function(unioned_sp) {
   unioned_ids
 }
 
+#' Get or calculate the attribute of a list-column containing nested dataframes.
+#'
+#' For example, \code{self_union} produces a \code{SpatialPolygonsDataFrame}
+#' that has a column called \code{union_df}, which contains a \code{data.frame}
+#' for each polygon with the attributes from the constituent polygons.
+#'
+#' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
+#' @param col the column in the nested data frames from which to retrieve/calculate attributes
+#' @param fun function to determine the resulting single attribute from overlapping polygons
+#' @param ... other paramaters passed on to \code{fun}
+#'
+#' @return An atomic vector of the same length as x
+#' @export
+#'
+#' @examples
+#' p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+#' p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+#' ps1 <- Polygons(list(p1), "s1")
+#' ps2 <- Polygons(list(p2), "s2")
+#' spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+#' df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
+#'                  c = factor(c("high", "low"), ordered = TRUE,
+#'                             levels = c("low", "high")),
+#'                  stringsAsFactors = FALSE)
+#' spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+#' plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+#' unioned_spdf <- self_union(spdf)
+#' get_poly_attribute(unioned_spdf$union_df, "a", sum)
+#' get_poly_attribute(unioned_spdf$union_df, "c", max)
+get_poly_attribute <- function(x, col, fun, ...) {
+  if (!is(x, "list")) stop("x must be a list, or list-column in a data frame")
+  if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
+  if (!col %in% names(x[[1]])) stop(col, " is not a column in the data frames in x")
+  if (!is.function(fun)) stop("fun must be a function")
+
+  test_data <- x[[1]][[col]]
+
+  return_type <- get_return_type(test_data)
+
+  is_fac <- FALSE
+
+  if (return_type == "factor") {
+    is_fac <- TRUE
+    lvls <- levels(test_data)
+    ordered <- is.ordered(test_data)
+    return_type <- "integer"
+  }
+
+  return_call <- call(return_type, 1)
+
+  ret <- vapply(x, function(y) {
+    fun(y[[col]], ...)
+  }, FUN.VALUE = eval(return_call))
+
+  if (is_fac) {
+    ret <- factor(lvls[ret], ordered = ordered, levels = lvls)
+  }
+
+  ret
+}
+
+get_return_type <- function(x) {
+  if (is.factor(x)) {
+    return_type <- "factor"
+  } else {
+    return_type <- typeof(x)
+  }
+}

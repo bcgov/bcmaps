@@ -2,6 +2,7 @@
 
 export(bc_area)
 export(fix_self_intersect)
+export(get_poly_attribute)
 export(self_union)
 export(transform_bc_albers)
 import(sp)
