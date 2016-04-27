@@ -2,5 +2,6 @@
 
 export(bc_area)
 export(fix_self_intersect)
+export(self_union)
 export(transform_bc_albers)
 import(sp)

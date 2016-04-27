@@ -106,3 +106,66 @@ fix_self_intersect <- function(sp_obj) {
 
   ret
 }
+
+#' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
+#'
+#' The IDs of source polygons are stored in a list-column called
+#' \code{union_ids}, and original attributes (if present) are stored as nested
+#' dataframes in a list-column called \code{union_df}
+#'
+#' @param x A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
+#'
+#' @return A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
+#' @export
+#'
+#' @examples
+#' p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+#' p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+#'
+#' ps1 <- Polygons(list(p1), "s1")
+#' ps2 <- Polygons(list(p2), "s2")
+#'
+#' spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+#'
+#' df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
+#'                  stringsAsFactors = FALSE)
+#'
+#' spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+#'
+#' plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+#'
+#' unioned_spdf <- self_union(spdf)
+#' unioned_sp <- self_union(spp)
+self_union <- function(x) {
+  if (!requireNamespace("raster", quietly = TRUE)) {
+    stop("Package raster could not be loaded", call. = FALSE)
+  }
+
+  unioned <- raster::union(x)
+  unioned$union_ids <- get_unioned_ids(unioned)
+
+  export_cols <- c("union_count", "union_ids")
+
+  if (inherits(x, "SpatialPolygonsDataFrame")) {
+    unioned$union_df <- lapply(unioned$union_ids, function(y) x@data[y, ])
+    export_cols <- c(export_cols, "union_df")
+  }
+
+  names(unioned)[names(unioned) == "count"] <- "union_count"
+  unioned[, export_cols]
+}
+
+## For each new polygon in a SpatialPolygonsDataFrame that has been unioned with
+## itself (raster::union(SPDF, missing)), get the original polygon ids that
+## compose it
+get_unioned_ids <- function(unioned_sp) {
+  id_cols <- grep("^ID\\.", names(unioned_sp@data))
+  unioned_sp_data <- as.matrix(unioned_sp@data[, id_cols])
+  colnames(unioned_sp_data) <- gsub("ID\\.", "", colnames(unioned_sp_data))
+  unioned_ids <- apply(unioned_sp_data, 1, function(i) {
+    as.numeric(colnames(unioned_sp_data)[i > 0])
+  })
+  names(unioned_ids) <- rownames(unioned_sp_data)
+  unioned_ids
+}
+
