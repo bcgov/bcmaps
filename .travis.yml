@@ -1,21 +1,19 @@
-
 language: r
-warnings_are_errors: true
 sudo: required
+dist: trusty
 
-r_binary_packages:
-  - sp
-  - rgdal
-
-warnings_are_errors: true
+addons:
+  apt:
+    packages:
+      - libgdal-dev
+      - libproj-dev
 
 notifications:
   email:
     on_success: change
     on_failure: change
 
-env:
-  matrix:
-    - RVERSION=oldrel
-    - RVERSION=release
-    - RVERSION=devel
+r:
+  - oldrel
+  - release
+  - devel

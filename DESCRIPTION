@@ -18,7 +18,7 @@ LazyData: true
 RoxygenNote: 5.0.1
 Suggests: knitr,
     rmarkdown,
-    rgdal,
+    rgdal (>= 1.1-8),
     rgeos (>= 0.3-19),
     raster (>= 2.5-2),
     ggplot2 (>= 2.1.0),
