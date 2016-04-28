@@ -1,14 +1,12 @@
 language: r
+sudo: required
 dist: trusty
-cache: packages
 
 addons:
   apt:
     packages:
       - libgdal-dev
       - libproj-dev
-
-warnings_are_errors: true
 
 notifications:
   email:
