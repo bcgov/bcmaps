@@ -37,17 +37,17 @@ At the moment, there are nine layers available:
 
 -   `regional_districts_disp`: Simplified Regional District boundaries. Much smaller file size than the analysis layer, suitable for situations where you don't need detailed boundaries, often useful when making maps for display.
 
--   `ecoprovinces`: Boundaries of B.C.'s 10 ecoprovinces (<http://catalogue.data.gov.bc.ca/dataset/ecoprovinces-ecoregion-ecosystem-classification-of-british-columbia>)
+-   `ecoprovinces`: Boundaries of B.C.'s 10 [ecoprovinces](https://catalogue.data.gov.bc.ca/dataset/51832f47-efdf-4956-837a-45fc2c9032dd)
 
--   `ecoregions`: Boundaries of B.C.'s 43 ecoregions (<http://catalogue.data.gov.bc.ca/dataset/ecoregions-ecoregion-ecosystem-classification-of-british-columbia>)
+-   `ecoregions`: Boundaries of B.C.'s 43 [ecoregions](https://catalogue.data.gov.bc.ca/dataset/d00389e0-66da-4895-bd56-39a0dd64aa78)
 
--   `airzones`: Boundaries of B.C.'s 7 [Air Zones](http://www.bcairquality.ca/plans/national-air-quality-management-system.html), used for monitoring, reporting and taking action on air quality in British columbia (<http://catalogue.data.gov.bc.ca/dataset/british-columbia-air-zones>)
+-   `airzones`: Boundaries of B.C.'s 7 [Air Zones](https://catalogue.data.gov.bc.ca/dataset/e8eeefc4-2826-47bc-8430-85703d328516)
 
--   `nr_areas`: Boundaries of B.C.'s 3 Natural Resource (NR) Areas (<https://catalogue.data.gov.bc.ca/dataset/natural-resource-nr-areas>)
+-   `nr_areas`: Boundaries of B.C.'s 3 [Natural Resource (NR) Areas](https://catalogue.data.gov.bc.ca/dataset/c1861ba4-abb8-4947-b3e5-7f7c4d7257d5)
 
--   `nr_regions`: Boundaries of B.C.'s 8 Natural Resource (NR) Regions (<http://catalogue.data.gov.bc.ca/dataset/natural-resource-nr-regions>)
+-   `nr_regions`: Boundaries of B.C.'s 8 [Natural Resource (NR) Regions](https://catalogue.data.gov.bc.ca/dataset/dfc492c0-69c5-4c20-a6de-2c9bc999301f)
 
--   `nr_districts`: Boundaries of B.C.'s 24 Natural Resource (NR) Districts (<https://catalogue.data.gov.bc.ca/dataset/natural-resource-nr-district>)
+-   `nr_districts`: [Boundaries of B.C.'s 24 Natural Resource (NR) Districts](https://catalogue.data.gov.bc.ca/dataset/0bc73892-e41f-41d0-8d8e-828c16139337)
 
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
 
@@ -113,7 +113,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### Source data
 
-The source datasets used in this package come from various sources under open licenses, including [DataBC](http://data.gov.bc.ca) ([Open Government License - British Columbia](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.
+The source datasets used in this package come from various sources under open licenses, including [DataBC](http://data.gov.bc.ca) ([Open Government License - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.
 
 ### License
 
@@ -127,10 +127,10 @@ The data and code in this repository is licensed under multiple licenses.
 
 -   Source data in `/data-raw/prov_territories_statscan` is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
 
--   Source data in `/data-raw/ecoprovinces` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/ecoprovinces` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/ecoregions` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/ecoregions` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/airzones` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/airzones` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
 This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
