@@ -54,14 +54,13 @@ To load any of them, simply type `data(layer_name)`, where `layer_name` is the n
 ``` r
 library(bcmaps)
 #> Loading required package: sp
-#> Warning: package 'sp' was built under R version 3.2.4
 
 # Load and plot the boundaries of B.C.
 data(bc_bound)
 plot(bc_bound)
 ```
 
-![](README-plot-maps-1.png)<!-- -->
+![](README-plot-maps-1.png)
 
 ``` r
 
@@ -74,7 +73,7 @@ text(coordinates(kootenays),
      labels = kootenays$region_name, cex = 0.6)
 ```
 
-![](README-plot-maps-2.png)<!-- -->
+![](README-plot-maps-2.png)
 
 #### Size of British Columbia
 
@@ -134,4 +133,4 @@ The data and code in this repository is licensed under multiple licenses.
 
 -   Source data in `/data-raw/airzones` is licensed under the [Open Government License - British Columbia version 2.0](http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
-This repository is maintained by [Environmental Reporting BC](http://www.env.gov.bc.ca/soe/). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
+This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
