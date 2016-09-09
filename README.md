@@ -49,6 +49,8 @@ At the moment, there are nine layers available:
 
 -   `nr_districts`: [Boundaries of B.C.'s 24 Natural Resource (NR) Districts](https://catalogue.data.gov.bc.ca/dataset/0bc73892-e41f-41d0-8d8e-828c16139337)
 
+-   `watersheds`: [Watershed boundaries delineated for Canada-BC hydrometric stations](https://catalogue.data.gov.bc.ca/dataset/02c0e328-e871-4d05-a672-8faf99ebfc11)
+
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
 
 ``` r
