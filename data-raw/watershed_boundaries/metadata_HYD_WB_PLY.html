@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie ie7"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="ie ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+  <head>
+    <!--[if lte ie 8]><script type="text/javascript" src="/fanstatic/vendor/:version:2016-08-13T08:24:57.23/html5.min.js"></script><![endif]-->
+<link rel="stylesheet" type="text/css" href="/fanstatic/vendor/:version:2016-08-13T08:24:57.23/select2/select2.css" />
+<link rel="stylesheet" type="text/css" href="/fanstatic/css/:version:2016-08-13T08:24:47.36/main.min.css" />
+<link rel="stylesheet" type="text/css" href="/fanstatic/vendor/:version:2016-08-13T08:24:57.23/font-awesome/css/font-awesome.min.css" />
+<!--[if ie 7]><link rel="stylesheet" type="text/css" href="/fanstatic/vendor/:version:2016-08-13T08:24:57.23/font-awesome/css/font-awesome-ie7.min.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="/fanstatic/ckanext-geoview/:version:2016-08-13T08:23:49.86/css/geo-resource-styles.css" />
+<link rel="stylesheet" type="text/css" href="/fanstatic/edc_resource/:version:2016-08-13T08:23:27.16/:bundle:edc_theme.css;edc_gov.css;edcdisqus.css;responsive.css" />
+<!--[if lte ie 8]><link rel="stylesheet" type="text/css" href="/fanstatic/edc_resource/:version:2016-08-13T08:23:27.16/edc_theme_ie8.css" /><![endif]-->
+
+    <meta charset="utf-8" />
+      <meta name="generator" content="ckan 2.5.3-bcgov" />
+      <meta name="viewport" content="width=device-width, user-scalable=no">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Hydrology: Hydrometric Watershed Boundaries - Datasets - Data Catalogue</title>
+
+    
+    <link rel="shortcut icon" href="https://apps.gov.bc.ca/favicon.ico" />
+    
+    
+      
+    
+    
+
+
+    
+  
+  
+  <meta property="og:title" content="Hydrology: Hydrometric Watershed Boundaries - Data Catalogue">
+  <meta property="og:description" content="Watershed boundary delineated for Canada-BC hydrometric stations. 
+Currently, watersheds were delineated using 1:50,000 scale boundaries in 1996, and many watersheds encompass entire drainages, instead of just the upstream watersheds.
+Note - Not yet available, but we are in the process of generating BC hydrometric station upstream watersheds using updated base data, using the following method:
+Within BC, watershed boundaries are based on the 1:20,000-scale Freshwater Atlas fundamental watersheds, and trimmed using the BC TRIM DEM used to approximate the height-of-land at the station locations. Outside of BC, but within Canada, watershed boundaries were approximated using Canada CDED DEM data for delineation (no &amp;#34;stream burning&amp;#34; was used) and some manual editing of boundaries was done to approximately match hydrology data after the fact. Within U.S.A., the USGS Watershed Boundary Dataset was used (at the best scale available for each drainage) to delineate the watershed boundary, with the watershed trimmed using the USGS National Elevation Dataset to approximate the height-of-land when necessary.">
+
+      
+      
+      
+      
+      
+      
+    
+
+
+<script type="text/javascript">
+	var IDLE_TIMEOUT = 14400; //seconds =  4 hours
+	var _idleSecondsCounter = 0;
+	document.onclick = function() {
+		_idleSecondsCounter = 0;
+	};
+	document.onmousemove = function() {
+		_idleSecondsCounter = 0;
+	};
+	document.onkeypress = function() {
+		_idleSecondsCounter = 0;
+	};
+	window.setInterval(CheckIdleTime, 1000);
+
+	function CheckIdleTime() {
+		_idleSecondsCounter++;
+		var oPanel = document.getElementById("SecondsUntilExpire");
+		var user = "";
+		if (oPanel)
+			oPanel.innerHTML = (IDLE_TIMEOUT - _idleSecondsCounter) + "";
+		//Fixed repeated logout bug (Khalegh Mamakani)
+		//Redirect to logout page only if the idle time is expired and the user has already logged in.
+		if (user && _idleSecondsCounter >= IDLE_TIMEOUT) {
+			//alert("Time expired!");
+			_idleSecondsCounter = 0;   //Fixed by Khalegh Mamakani; Reset the idle seconds counter
+			document.cookie = 'ckan=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+			document.location.href = "/user/_logout";
+		}
+	}
+
+
+</script>
+
+	<!-- Copyright (c) 1996-2009 WebTrends Inc. All rights reserved. -->
+	<!-- Version: 8.6.0 -->
+	<!-- Tag Builder Version: 2.1.0 -->
+	<!-- Created: 1/15/2009 23:50:46 -->
+	<script type="text/javascript" src="/js/webtrends.js"></script>
+	<!-- *********************************************************************************** -->
+	<!-- Warning: The two script blocks below must remain inline. Moving them to an external -->
+	<!-- JavaScript include file can cause serious problems with cross-domain tracking. -->
+	<!-- *********************************************************************************** -->
+	<script type="text/javascript">
+		//<![CDATA[
+		  var _tag=new WebTrends();
+		//]]>>
+	</script>
+	<script type="text/javascript">
+		//<![CDATA[
+			_tag.dcsCustom=function()
+			{ // Add custom parameters here. //_tag.DCSext.param_name=param_value;
+			}
+			_tag.dcsid = "dcs4rjxwe100008ifyptnnc1t_2r5m";
+			_tag.domain = "sdc.gov.bc.ca";
+			_tag.fpcdom = ".gov.bc.ca";
+			_tag.dcsCollect();
+		//]]>>
+	</script>
+	<noscript>
+	  <div>
+	  <img alt="" width="1" height="1" src="http://sdc.gov.bc.ca/dcs4rjxwe100008ifyptnnc1t_2r5m/njs.gif?dcsuri=/nojavascript&WT.js=No&WT.tv=8.0.2" />
+	  </div>
+	</noscript>
+	<!-- END OF SmartSource Data Collector TAG -->
+
+  
+<!-- Snippet googleanalytics/snippets/googleanalytics_header.html start -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-7579094-3', 'auto');
+  ga('set', 'anonymizeIp', true);
+  ga('send', 'pageview');
+</script>
+<!-- Snippet googleanalytics/snippets/googleanalytics_header.html end -->
+
+
+  </head>
+
+  
+  <body class="grid-12" data-site-root="https://catalogue.data.gov.bc.ca/" data-locale-root="https://catalogue.data.gov.bc.ca/" >
+
+    <div id="wb-body">
+  <div id="wb-skip">
+    <ul id="wb-tphp">
+      <li id="wb-skip1"><a href="#wb-cont">Skip to main content</a></li>
+      <li id="wb-skip2"><a href="#wb-nav">Skip to footer</a></li>
+      <li id="wb-skip3"><a href="http://www2.gov.bc.ca/gov/admin/accessibility.page">Accessibility Statement</a></li>
+    </ul>
+  </div>
+  <div id="wb-head">
+    <div id="wb-head-in">
+      <header>
+        
+          
+    
+
+
+<div id="header" class="collapsed-header">
+
+        <div id="header-main" class="navbar navbar-default navbar-fixed-top">
+
+            <div class="container" >
+                <div id="header-main-row1">
+                    <div class="row">
+                        <div class="span8 navbar-brand">
+                            <div href="http://www2.gov.bc.ca/" class="logo">
+                                <a href="http://www2.gov.bc.ca/"><img src="/assets/gov/images/gov3_bc_logo.png"></a>
+                                <a href="/dataset" class="hidden-xs">Data Catalogue</a>
+                            </div>
+                            <div class="navbar-header">
+                                <button data-target="#header-main-row2" data-toggle="collapse" class="menu-button navbar-toggle mini-menu-trigger collapsed" type="button"></button>
+                                <button data-target="#header-main-row1 .header-search.collapse" data-toggle="collapse" class="search-button navbar-toggle mini-menu-trigger collapsed" type="button"></button>
+                            </div>
+                        </div>
+                        <div class="span4 header-main-right hidden-xs">
+                            <div class="header-main-search">
+                              <form role="form" class="" method="get" action="/dataset" id="suggestion_form">
+                                <label style="display:none;" for="global-search">Search</label>
+                                <input type="text" autocomplete="off" value="" name="q" placeholder="Search datasets..." class="searchbox">
+                                <i class="icon-search"></i>
+                                <div class="search-trigger"> </div>
+                            </form>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="header-search collapse">
+                       <div class="search-boarder-arror visible-xs-block"></div>
+                       <div class="header-main-right">
+                           <div class="gov search">
+                               <form role="form" class="" method="get" action="https://catalogue.data.gov.bc.ca/dataset" id="form-dataset-search-header">
+                                   <label class="sr-only" for="dataset-search">Search</label>
+                                   <input type="text" autocomplete="off" value="" name="q" placeholder="Search BC Data Catalogue" class="searchbox" id="dataset-search">
+                                   <div class="search-trigger"> </div>
+                               </form>
+                           </div>
+                       </div>
+                   </div>
+                </div>
+
+                <div id="header-main-row2" class="collapse">
+                    <div class="header-main-right">
+                        <div id="header-links">
+                            
+<!-- Snippet snippets/mobile-main-navigation.html start -->
+<div class="account-container__mobile">
+    
+        
+            <nav class="account not-authed">
+                
+                    
+                        
+                            <a href="https://apps.gov.bc.ca/int/eas/login.jsp">Log in</a>
+                        
+                    
+                
+            </nav>
+        
+    
+</div>
+
+<ul id="mobile-nav-list" class="inline nav navbar-nav">
+    <li><a href="http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc">What is DataBC?</a></li>
+    <li><a href="/dataset" title="Data Catalogue Home">Data Catalogue</a></li>
+    <li><a href="http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/geographic-data-and-services">Geographic Services</a></li>
+    <li><a href="http://blog.data.gov.bc.ca/">Blog</a></li>
+    <li><a href="http://developer.gov.bc.ca/">Developers</a></li>
+    <li><a href="https://forms.gov.bc.ca/databc-contact-us/">Contact</a></li>
+</ul>
+<!-- Snippet snippets/mobile-main-navigation.html end -->
+
+                        </div>
+                    </div>
+
+                    <div class="header-main-left">
+                        <div id="govNavMenu">
+                            <nav class="govNav" id="govMainMenu">
+                                <ul class="firstLevel nav navbar-nav">
+                                    <li><a href="/dataset">Datasets</a></li>
+                                    <li><a href="/organization">Organizations</a></li>
+                                    <li><a href="/groups">Groups</a></li>
+                                    <li class="hassub clearfix">
+                                        <a href="http://www2.gov.bc.ca/gov/content/governments">  Stay up to Date</a>
+                                        <span class="level-trigger"></span>
+                                        <div class="issub" style="z-index: 1008; display: none;">
+                                            <h2 class="hidden-xs">
+                                                    Stay up to Date</h2>
+                                                <ul class="secondLevel childMenu nav navbar-nav">
+                                                    <li>
+                                                        <a href="/feeds/recent.rss" title="Subscribe to New data">Subscribe to New Data</a><span class="no-trigger visible-xs-block"></span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="http://bccatalogue.disqus.com/latest.rss">Subscribe to Comments</a><span class="no-trigger visible-xs-block"></span>
+                                                    </li>
+                                                    <li>
+                                                        <a href="http://blog.data.gov.bc.ca/feed/" target="_blank">Subscribe to Blog Posts</a><span class="no-trigger visible-xs-block"></span>
+                                                    </li>
+                                                </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="/about">About</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav id="sub" class="navbar-fixed-top">
+        
+<!-- Snippet snippets/main-navigation.html start -->
+<div class="navigationRibbon">      
+    <div class="level2Navigation">
+        <div class="container">
+          <div class="account-container">
+              
+                
+                  <nav class="account not-authed">
+                    
+                      
+                        
+                          <a href="https://apps.gov.bc.ca/int/eas/login.jsp">Log in</a>
+                        
+                      
+                    
+                  </nav>
+                
+              
+          </div>
+          
+          <a href="http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc">What is DataBC?</a>
+          <a href="/dataset" title="Data Catalogue Home">Data Catalogue</a>
+          <a href="http://www2.gov.bc.ca/gov/content/governments/about-the-bc-government/databc/geographic-data-and-services">Geographic Services</a>
+          <a href="http://blog.data.gov.bc.ca/">Blog</a>
+          <a href="http://developer.gov.bc.ca/">Developers</a>
+          <a href="https://forms.gov.bc.ca/databc-contact-us/">Contact</a>
+        </div>
+    </div>
+</div>
+
+<div class="navigationRibbon sub-navigation">   
+  <div class="level3Navigation">
+    <div class="container">
+      <a href="/dataset">Datasets</a>
+      <a href="/organization">Organizations</a>
+      <a href="/groups">Groups</a>
+      <div class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-rss"></i> Stay Up To Date</a>
+        <ul class="dropdown-menu">
+          <li><a href="/feeds/recent.rss" title="Subscribe to New data"><span>Subscribe to New Data</span></a></li>
+          <li><a href="http://bccatalogue.disqus.com/latest.rss">Subscribe to Catalogue Comments</a></li>
+          <li><a href="http://blog.data.gov.bc.ca/feed/" target="_blank">Subscribe to Blog Posts</a></li>
+        </ul>
+      </div>
+      <a href="/about">About</a>
+    </div>
+  </div>          
+</div>
+<!-- Snippet snippets/main-navigation.html end -->
+
+
+        <div class="site-title visible-xs-inline-block">
+            <h1 class="">Data Catalogue</h1>
+        </div>
+    </nav>
+
+
+  
+        
+      </header>
+    </div>
+  </div>
+
+  <div id="wb-core">
+    <div id="wb-core-in" class="equalize">
+      <div id="wb-main" role="main">
+        <div id="wb-main-in">
+          <div class="wrap">
+  
+    
+    
+    
+    <form action="/dataset" class="search-form search-main">
+    <div class="search-input control-group search-giant">
+      <input type="text" class="search" name="q" autocomplete="off" placeholder="Search datasets...">
+      <button type="submit" value="search">
+        <i class="icon-search"></i>
+        <span>Submit</span>
+      </button>
+    </div>
+  </form>
+  
+  
+              
+    <div role="main">
+      <div id="content" class="container">
+        
+          
+            <div class="flash-messages">
+              
+                
+              
+            </div>
+          
+
+          
+            <div class="toolbar">
+              
+                
+                  <ol class="breadcrumb">
+                    
+<!-- Snippet snippets/home_breadcrumb_item.html start -->
+
+<li class="home"><a href="/"><i class="icon-home"></i><span> Home</span></a></li>
+<!-- Snippet snippets/home_breadcrumb_item.html end -->
+
+                    
+  
+    
+    
+      
+      <li><a href="/organization">Organizations</a></li>
+      <li><a href="/organization/knowledge-management">Knowledge Management</a></li>
+    
+    <li class="active"><a href="/dataset/hydrology-hydrometric-watershed-boundaries">Hydrology: Hydrometric ...</a></li>
+  
+
+                  </ol>
+                
+              
+            </div>
+          
+
+          <div class="row wrapper dataset-view">
+
+            
+            
+            
+
+            
+              <div class="primary span9">
+                
+                
+                  <article class="module">
+                    
+                      <header class="module-content page-header">
+                        
+                        <ul class="nav nav-tabs">
+                          
+  
+  <li><a href="/dataset/hydrology-hydrometric-watershed-boundaries"><i class="icon-sitemap"></i> Dataset</a></li>
+  <li><a href="/dataset/groups/hydrology-hydrometric-watershed-boundaries"><i class="icon-group"></i> Groups</a></li>
+  <li><a href="/dataset/activity/hydrology-hydrometric-watershed-boundaries"><i class="icon-time"></i> Activity Stream</a></li>
+
+  <li class="dropdown share-this-record">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-share-alt"></i> Share this Record</a>
+    
+<!-- Snippet snippets/social.html start -->
+
+<ul class="dropdown-menu">
+<li><a href="https://plus.google.com/share?url=https://catalogue.data.gov.bc.ca/dataset/hydrology-hydrometric-watershed-boundaries" target="_blank" title="Share this page on Google+"><i class="icon-google-plus-sign"></i> Google+</a></li>
+<li><a href="https://twitter.com/share?url=https://catalogue.data.gov.bc.ca/dataset/hydrology-hydrometric-watershed-boundaries" target="_blank" title="Share this page on Twitter"><i class="icon-twitter-sign"></i> Twitter</a></li>
+<li><a href="https://www.facebook.com/sharer.php?u=https://catalogue.data.gov.bc.ca/dataset/hydrology-hydrometric-watershed-boundaries" target="_blank" title="Share this page on Facebook"><i class="icon-facebook-sign"></i> Facebook</a></li>
+<li><a href="http://www.linkedin.com/shareArticle?mini=true&url=https://catalogue.data.gov.bc.ca/dataset/hydrology-hydrometric-watershed-boundaries" target="_blank" title="Share this page on LinkedIn"><i class="icon-linkedin-sign"></i> LinkedIn</a></li>
+</ul>
+<!-- Snippet snippets/social.html end -->
+
+  </li>
+  <li>
+    <a href="/dataset/02c0e328-e871-4d05-a672-8faf99ebfc11"
+      ><i class="icon-link"></i> Permalink</a>
+  </li>
+  
+
+                        </ul>
+                      </header>
+                    
+                    <div class="module-content">
+                      
+                      
+  
+    
+
+    
+
+    
+      
+      
+<!-- Snippet package/snippets/markers.html start -->
+
+
+
+
+    
+
+
+
+	
+
+
+<ul class="dataset-markers">
+    <li class="marker dataset-type geographic"><a href="/dataset?type=Geographic">Geographic Dataset</a></li>
+    
+    	
+    	<li class="marker dataset-sector natural-resources"><a href="/dataset?sector=Natural+Resources">Natural Resources</a></li>
+    
+    
+    <li class="marker dataset-iso small"><a href="/dataset?q=iso_topic_string%3A%2AinlandWaters%2A">inlandWaters</a></li>
+    
+</ul>
+<!-- Snippet package/snippets/markers.html end -->
+
+    
+
+    <h1>
+      
+        Hydrology: Hydrometric Watershed Boundaries
+        
+      
+    </h1>
+
+    
+    
+    
+      
+        
+      Published by the 
+<!-- Snippet package/snippets/org_view.html start -->
+
+
+	
+	
+
+
+	
+	
+
+<a href="/organization/ministry-of-environment">Ministry of Environment</a> - <a href="/dataset?organization=knowledge-management">Knowledge Management</a> 
+<!-- Snippet package/snippets/org_view.html end -->
+
+    
+    
+      <br/>
+      Licensed under
+      
+<!-- Snippet snippets/license.html start -->
+
+  
+    <a href="http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf" rel="dc:rights">Open Government License - British Columbia</a>
+  
+  
+    
+  
+
+<!-- Snippet snippets/license.html end -->
+
+    
+    
+    
+      
+        <div class="notes embedded-content">
+          <p>Watershed boundary delineated for Canada-BC hydrometric stations. 
+Currently, watersheds were delineated using 1:50,000 scale boundaries in 1996, and many watersheds encompass entire drainages, instead of just the upstream watersheds.
+Note - Not yet available, but we are in the process of generating BC hydrometric station upstream watersheds using updated base data, using the following method:
+Within BC, watershed boundaries are based on the 1:20,000-scale Freshwater Atlas fundamental watersheds, and trimmed using the BC TRIM DEM used to approximate the height-of-land at the station locations. Outside of BC, but within Canada, watershed boundaries were approximated using Canada CDED DEM data for delineation (no "stream burning" was used) and some manual editing of boundaries was done to approximately match hydrology data after the fact. Within U.S.A., the USGS Watershed Boundary Dataset was used (at the best scale available for each drainage) to delineate the watershed boundary, with the watershed trimmed using the USGS National Elevation Dataset to approximate the height-of-land when necessary.</p>
+        </div>
+      
+    
+    
+    <span class="insert-comment-thread"></span>
+  
+
+  
+    
+<!-- Snippet package/snippets/tags.html start -->
+
+  <section class="tags">
+    
+<!-- Snippet snippets/tag_list.html start -->
+
+
+<ul class="tag-list">
+  
+    <li>
+      <a class="tag" href="/dataset?tags=hydrology">hydrology</a>
+    </li>
+  
+    <li>
+      <a class="tag" href="/dataset?tags=isoline">isoline</a>
+    </li>
+  
+    <li>
+      <a class="tag" href="/dataset?tags=low+flow">low flow</a>
+    </li>
+  
+    <li>
+      <a class="tag" href="/dataset?tags=stream+flow">stream flow</a>
+    </li>
+  
+</ul>
+<!-- Snippet snippets/tag_list.html end -->
+
+  </section>
+
+<!-- Snippet package/snippets/tags.html end -->
+
+  
+
+  
+  
+     
+<!-- Snippet package/snippets/dataset_extent.html start -->
+
+
+<!-- Snippet package/snippets/dataset_extent.html end -->
+
+  
+
+
+  
+    
+<!-- Snippet package/snippets/resources_list.html start -->
+
+<section id="dataset-resources" class="resources">
+  <h3>Data and Resources</h3>
+  
+    
+      <ul class="resource-list">
+        
+          
+            
+<!-- Snippet package/snippets/resource_item.html start -->
+
+
+
+
+
+
+<li class="resource-item" data-id="8b11505b-ae3a-48da-850e-97d7a3106f29">
+  
+  <a class="heading resource-url-analytics" href="https://apps.gov.bc.ca/pub/dwds/addProductsFromExternalApplication.do?productTypeId=0&amp;productId=9614" title="Hydrology: Hydrometric Watershed Boundaries - Custom Download">
+    Hydrology: Hydrometric Watershed Boundaries - ...<span class="format-label" property="dc:format" data-format="other">other</span>
+    
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+  </a>
+  
+  <p class="description">
+    
+  </p>
+  
+  
+  <div class="dropdown btn-group">
+    <a href="/dataset/hydrology-hydrometric-watershed-boundaries/resource/8b11505b-ae3a-48da-850e-97d7a3106f29" class="btn btn-primary dropdown-toggle">
+      <i class="icon-share-alt"></i>
+      Explore
+    </a>
+  </div>
+  
+  
+</li>
+<!-- Snippet package/snippets/resource_item.html end -->
+
+          
+            
+<!-- Snippet package/snippets/resource_item.html start -->
+
+
+
+
+
+
+<li class="resource-item" data-id="64bcfda1-79ce-4d5b-9730-2e18ea703ed6">
+  
+  <a class="heading resource-url-analytics" href="https://openmaps.gov.bc.ca/geo/pub/WHSE_WATER_MANAGEMENT.HYDZ_HYD_WATERSHED_BND_POLY/ows?service=WMS&amp;request=GetCapabilities" title="WMS getCapabilities request">
+    WMS getCapabilities request<span class="format-label" property="dc:format" data-format="wms">wms</span>
+    
+<!-- Snippet snippets/popular.html start -->
+
+
+<!-- Snippet snippets/popular.html end -->
+
+  </a>
+  
+  <p class="description">
+    
+      For use in viewers such as ESRI tools use this truncated link:...
+    
+  </p>
+  
+  
+  <div class="dropdown btn-group">
+    <a href="/dataset/hydrology-hydrometric-watershed-boundaries/resource/64bcfda1-79ce-4d5b-9730-2e18ea703ed6" class="btn btn-primary dropdown-toggle">
+      <i class="icon-share-alt"></i>
+      Explore
+    </a>
+  </div>
+  
+  
+</li>
+<!-- Snippet package/snippets/resource_item.html end -->
+
+          
+        
+      </ul>
+    
+   
+</section>
+<!-- Snippet package/snippets/resources_list.html end -->
+
+  
+
+  
+    
+<!-- Snippet package/snippets/thumbnail.html start -->
+
+<!-- Snippet package/snippets/thumbnail.html end -->
+
+  
+
+  
+  	
+<!-- Snippet package/snippets/map_view.html start -->
+
+
+
+
+<div class="module-content ckanext-datapreview">
+  <div class="row">
+    
+    <div class="col-md-9">
+    
+    
+      
+      	
+        	
+      		
+      		
+      			<iframe src="//apps.gov.bc.ca/pub/dmf-viewer/?siteid=7535188336326689232&amp;maponly&amp;wmsservices=http://openmaps.gov.bc.ca/mapserver/freshwater-and-marine?&amp;wmslayers=HYDZ_HYD_WATERSHED_BND_POLY_O&amp;ll=49.873000000000005,-119.512&amp;z=8" frameborder="0" width="100%" data-module="data-viewer" height="400px"></iframe>
+       	
+      
+    </div>
+    
+    <div class="col-md-3">
+      <div class="extent">
+        <h4>Dataset Extent</h4>
+        <table class="table extent-table">
+          <tr>
+            <td>Latitude: </td> <td>48.0&deg; to 60.0&deg;</td>
+          </tr>
+          <tr>
+            <td>Longitude: </td><td>-139.5&deg; to -113.5&deg;</td>
+          </tr>
+        </table>
+      </div>
+       
+       <div class="imap">
+           <a href="http://maps.gov.bc.ca/ess/hm/imap4m/?catalogLayers=1803" target="_blank" class="btn btn-primary"><i class="icon-map-marker"></i> View in iMapBC</a>
+       </div>
+      
+    </div>
+    
+  </div>
+      
+</div>
+<!-- Snippet package/snippets/map_view.html end -->
+
+  
+
+  
+    
+<!-- Snippet package/snippets/additional_info.html start -->
+  <h3>Additional Information</h3>
+  <div id="additional-information">
+    
+      
+      <h2>Purpose</h2>
+      <div id="purpose">
+        Spatial layer intended to display hydrometric station watershed boundaries.
+      </div>
+      
+    
+
+    
+        
+<!-- Snippet package/snippets/more_info_links.html start -->
+
+
+    <h2>More Information</h2>
+    <ul class="more-info-links">
+    
+        <li><a href=""></a></li>
+    
+    </ul>
+
+<!-- Snippet package/snippets/more_info_links.html end -->
+
+    
+
+    
+    
+      
+        
+      
+      
+<!-- Snippet package/snippets/contacts_view.html start -->
+
+
+<h2 class="view-group">Contact Information</h2>
+
+
+	
+	
+	
+		
+        
+		<table class="table dataset_view">
+			<tr>
+				<td><strong>Name</strong></td><td>Heather Johnstone (businessExpert)</td>
+			</tr>
+			<tr>
+				<td><strong>Email</strong></td><td><a href="mailto:Heather.Johnstone@gov.bc.ca" title="Send an email to Heather Johnstone">Heather.Johnstone@gov.bc.ca<a/></td>
+			</tr>
+			<tr>
+				<td><strong>Organization</strong></td><td>Ministry of Environment</td>
+			</tr>
+            
+            <tr>
+                <td><strong>Sub-Organization</strong></td><td>Knowledge Management</td>
+            </tr>
+            
+		</table>
+	
+
+
+	
+	
+	
+		
+        
+		<table class="table dataset_view">
+			<tr>
+				<td><strong>Name</strong></td><td>Brad Sparks (pointOfContact)</td>
+			</tr>
+			<tr>
+				<td><strong>Email</strong></td><td><a href="mailto:brad.sparks@gov.bc.ca" title="Send an email to Brad Sparks">brad.sparks@gov.bc.ca<a/></td>
+			</tr>
+			<tr>
+				<td><strong>Organization</strong></td><td>Ministry of Environment</td>
+			</tr>
+            
+            <tr>
+                <td><strong>Sub-Organization</strong></td><td>Knowledge Management</td>
+            </tr>
+            
+		</table>
+	
+
+
+
+<!-- Snippet package/snippets/contacts_view.html end -->
+
+    
+
+    
+      
+<!-- Snippet package/snippets/security_classification.html start -->
+
+<h2 class="view-group">Access & Security</h2>
+<table class="table dataset_view">
+    
+	
+    <tr>
+        <td>
+            <strong>
+                
+                
+                    Who can view this dataset?
+                
+            </strong>
+        </td>
+        <td>Public</td>
+    </tr>
+    
+	
+        
+        
+        <tr>
+            <td><strong>Who can download this dataset?</strong></td><td>Public</td>
+        </tr>
+        
+    
+    
+</table>
+<!-- Snippet package/snippets/security_classification.html end -->
+
+    
+  <h2>Metadata Information</h2>
+  <table class="table dataset_view">
+
+  
+  
+  
+
+  
+  
+
+  
+  
+      
+<!-- Snippet package/snippets/dates_view.html start -->
+
+
+
+
+
+	<tr>
+		<td><strong> Record Published </strong></td><td> 2011-03-09 </td>
+	</tr>
+
+<tr>
+	<td><strong> Record Last Modified </strong></td><td> 2016-02-11 </td>
+</tr>
+<!-- Snippet package/snippets/dates_view.html end -->
+
+  
+
+
+  
+    
+          <tr>
+              <td><strong>Resource Status</strong></td><td> underDevelopment </td>
+          </tr>
+          
+      
+      
+  
+
+  
+      
+<!-- Snippet package/snippets/pkg_extra_info.html start -->
+
+    
+    
+
+<!-- Snippet package/snippets/pkg_extra_info.html end -->
+
+  
+
+  </table>
+
+</div>
+
+<!-- Snippet package/snippets/additional_info.html end -->
+
+  
+
+  
+    
+<!-- Snippet package/snippets/bcgw_data.html start -->
+    
+
+      
+      
+      
+      
+
+      
+        <h3>Object Description</h3>
+        <div id="object-description">
+          
+          <p><strong>Object Name: WHSE_WATER_MANAGEMENT.HYDZ_HYD_WATERSHED_BND_POLY</strong></p>
+          
+          <p>
+            
+            <strong>Short Name</strong>: HYD_WB_PLY<br/>
+            
+
+            
+            <strong>Comments</strong>: HYD WATERSHED BND POLY SP  represents the watershed boundaries, at a level compatible with peak flow and annual runoff data.
+            
+          </p>
+          
+          <table class="table details">
+            <thead>
+              <tr>
+                <th class="column-name">Column Name</th>
+                <th class="short-name">Short Name</th>
+                <th class="data-type">Data Type</th>
+                <th class="data-precision">Data Precision</th>
+                <th class="data-comments">Comments</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+              <tr>
+                <td class="column-name">GEOMETRY</td>
+                <td class="short-name">GEOMETRY</td>
+                <td class="data-type">SDO_GEOMETRY</td>
+                <td class="data-precision">0</td>
+                <td class="data-comments">GEOMETRY is the column used to reference the spatial coordinates defining the feature. </td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">FEATURE_AREA_SQM</td>
+                <td class="short-name">null</td>
+                <td class="data-type">NUMBER</td>
+                <td class="data-precision">19</td>
+                <td class="data-comments">FEATURE_AREA_SQM is the system calculated area of a two-dimensional polygon in square meters</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">FEATURE_LENGTH_M</td>
+                <td class="short-name">null</td>
+                <td class="data-type">NUMBER</td>
+                <td class="data-precision">19</td>
+                <td class="data-comments">FEATURE_LENGTH_M is the system calculated length or perimeter of a geometry in meters</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">HYD_WATERSHED_BND_POLY_ID</td>
+                <td class="short-name">HDWTRSHDBN</td>
+                <td class="data-type">NUMBER</td>
+                <td class="data-precision">10</td>
+                <td class="data-comments">HYD WATERSHED BND POLY ID  is the primary unique numeric identifier for a feature.</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">FEATURE_CODE</td>
+                <td class="short-name">FTRCD</td>
+                <td class="data-type">VARCHAR2</td>
+                <td class="data-precision">0</td>
+                <td class="data-comments">FEATURE CODE is a 10 character alpha-numeric code based on the Canadian Council on Surveying and Mapping (CCSM) coding convention.</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">SOURCE_NAME</td>
+                <td class="short-name">SRCNM</td>
+                <td class="data-type">VARCHAR2</td>
+                <td class="data-precision">0</td>
+                <td class="data-comments">SOURCE NAME is the source hydrometric station is located on.</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">PEAK_FLOW_10YR_IN_M3_PER_SEC</td>
+                <td class="short-name">PKFLW10RNM</td>
+                <td class="data-type">NUMBER</td>
+                <td class="data-precision">5</td>
+                <td class="data-comments">PEAK FLOW 10YR IN M3 PER SEC  is the 10 year return period peak flow in cubic metres per second  (m3/second).</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">ANNUAL_RUNOFF_IN_MM</td>
+                <td class="short-name">NNLRNFFNMM</td>
+                <td class="data-type">NUMBER</td>
+                <td class="data-precision">5</td>
+                <td class="data-comments">ANNUAL RUNOFF IN MM  is the normal annual runoff in  millimetres.</td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">OBJECTID</td>
+                <td class="short-name">OBJECTID</td>
+                <td class="data-type">NUMBER</td>
+                <td class="data-precision">0</td>
+                <td class="data-comments">OBJECTID is a required attribute of feature classes and object classes in a geodatabase. </td>
+              </tr>
+              
+              <tr>
+                <td class="column-name">SE_ANNO_CAD_DATA</td>
+                <td class="short-name">null</td>
+                <td class="data-type">BLOB</td>
+                <td class="data-precision">0</td>
+                <td class="data-comments">SE_ANNO_CAD_DATA is a binary column used by spatial tools to store annotation, curve features and CAD data when using the SDO_GEOMETRY storage data type. </td>
+              </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    
+
+  
+      
+          
+<!-- Snippet package/comments_block.html start -->
+<div class="module-content disqus-comments">
+  <h3>Comments</h3>
+  <div id="disqus_messages" style="display: none;"></div>
+  <div id="disqus_num_comments"></div>
+  <div id="disqus_add_comment" style="display: none;">
+    <div class="user-avatar"><img src="//a.disquscdn.com/uploads/users/9087/2489/avatar92.jpg?1389868656"></div>
+    <div id="comment_box">
+        <form id="add_comment_form">
+            <textarea name="message" class="message" placeholder="Add a comment"></textarea>
+            <div class="author_information">
+              <input type="text" class="author_name" name="author_name" placeholder="Name" />
+              <input type="email" class="author_email" name="author_email" placeholder="Email" />
+              <input type="submit" class="btn btn-primary btn-xs pull-right" value="Post comment" />
+              <div class="errors" style="display: none;"></div>
+            </div>
+        </form>
+    </div>
+  </div>
+  <div id="disqus_thread">
+    <div class="loader"><img src="https://catalogue.data.gov.bc.ca/loader.gif" /></div>
+    <div style="display: none;">
+    <div class="empty">No comments have been posted yet.</div>
+    <div class="post">
+      <div class="post-content">
+        <div class="post-avatar"><img src="//a.disquscdn.com/uploads/users/9087/2489/avatar92.jpg?1389868656"></div>
+        <div class="post-header">
+            <span class="post-author"></span> <span class="bullet">&bull;</span> <span class="post-time"></span>
+        </div>
+        <div class="post-body">
+            <p></p>
+        </div>
+      </div>
+      <div class="post-menu">
+        <ul>
+          <li><a href="#" class="post-menu-reply">Reply</a></li>
+          <li style="display: none;"><a href="#" class="post-menu-collapse">Collapse</a></li>
+        </ul>
+      </div>
+      <div class="form-errors">
+      </div>
+      <div class="post-reply-form">
+      </div>
+      <div class="post-replies">
+      </div>
+    </div>
+    </div>
+  </div>
+  <div id="disqus-brand">
+    <a href="http://disqus.com"><img src="//a.disquscdn.com/dotcom/d-e357401/img/brand/disqus-social-icon-dark-transparent.png"></a>
+  </div>
+  <script type="text/javascript">
+    var disqus_identifier = '02c0e328-e871-4d05-a672-8faf99ebfc11';
+    var site_url = 'https://catalogue.data.gov.bc.ca';
+  </script>
+  
+  
+  
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="comment-terms-modal" tabindex="-1" role="dialog" aria-labelledby="comment-terms-modal-label" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="comment-terms-modal-label">Terms of Use</h4>
+      </div>
+      <div class="modal-body">
+          <p><strong>I consent effective immediately to the disclosure of my personal information to Disqus and to the Province of British Columbia, and I  agree to the Terms of Use and Moderation Policies below.</strong></p>
+
+          <p><strong>Collection of Personal Information</strong>: Your personal information is collected under section 26(c) of the Freedom of Information and Protection of Privacy Act for the purposes of facilitating discussion with other users and to help us improve the Provinces' DataBC program. If you have questions about the collection of your personal information, please contact David Wrate, Director, Citizen Engagement, Strategic Initiatives Division, Government Communications and Public Engagement; by mail: PO Box 9439, STN Prov Gov, Victoria, BC, V8W 9V3 by phone: 250-588-9231 or e-mail: <a href="mailto:data@gov.bc.ca">data@gov.bc.ca</a>.</p>
+          <p>DataBC uses the “Disqus” service to facilitate its comment forum. Disqus collects and stores your name, email address, comments, IP address and possibly other information on servers outside of Canada and to Disqus and on this website.</p>
+          <h2>Terms of Use</h2>
+          <p>These Terms of Use constitute an agreement between you and the Province of British Columbia, represented by the Minister of Technology Innovation and Citizens Services (the "Province") with respect to your use of the Dataset Review (as defined below). By accepting these Terms of Use, you are deemed to have read and agreed to the terms and conditions set out below.</p>
+          The DataBC Dataset Review (the "Review") is a public forum that welcomes candid dialogue and diverse views about The Provinces' data presented by the DataBC program.</p>
+          <p>To contribute to the Review, you must be either of the age of majority or have obtained legal parental or guardian consent, in which case your legal parent or guardian will be responsible for your use of the Review.</p>
+          <p><strong>Submission and Review of Content</strong>: Questions, comments, ideas and other contributions to the Review (collectively, the "Content") will be screened before they are published and we hope the Review will be self-governing. We are confident that contributors will not submit Content that offends any law or includes information about other people.</p>
+          <p>The Province reserves the right to edit or delete Content for any reason to ensure that all Content is reasonable and appropriate. In particular, defamatory, indecent, obscene, illegal, immoral and sexually explicit Content will be removed. We will also remove: (a) Content that potentially or actually infringes any third party's copyright, trademark, right of privacy, publicity or any other intellectual property or other right; and (b) Content containing information about other identifiable individuals, including their names, email addresses, images of them or comments about them. If you are concerned about inappropriate content please e-mail data@gov.bc.ca, citing the date and author of the Content in question.</p>
+          <p><strong>Ownership and License</strong>: You retain ownership of all Content you submit to the Review ("Your Content"). You represent and warrant that: (a) Your Content is your original work, or has been provided to you or obtained by you from the rightful owner with all necessary permissions; and (b) Your Content does not infringe on the copyrights, trademarks, rights of privacy, publicity or other intellectual property or other rights of any person or entity.</p>
+          <p>By submitting Your Content to the Review, and in consideration of the opportunity to participate in the Review and other valuable consideration (the receipt and sufficiency of which you hereby acknowledge), you grant to the Province a non-exclusive, perpetual, royalty-free, worldwide license to use, reproduce, publish, communicate to the public by telecommunication, modify, display and distribute Your Content in any and all formats for any and all purposes associated with the Review. You agree that the Province may engage independent contractors and service providers to assist the Province to exercise the rights you grant to the Province under these Terms of Use.</p>
+          <p>You agree that the Province may reformat, rearrange or otherwise modify Your Content, and you understand that the Province has no obligation to acknowledge you by name or pseudonym as the author of Your Content or to ensure that you remain anonymous.</p>
+          <p>With the exception of Your Content and Content submitted to the Review by other contributors, all intellectual property in the Review, including but not limited to copyright, official marks or trademarks, is owned by the Province. Copying or unauthorized use of any such intellectual property without the express written consent of the Province is prohibited.</p>
+          <p>Use of any material from or links to third party websites must be in accordance with these Terms of Use. The Province does not control such third party websites and is not responsible for their contents. The inclusion of hyperlinks to such third party websites does not imply any endorsement of the material on such websites or any association with these third parties.</p>
+          <p><strong>Freedom of Information</strong>: Since most government information, including the contents of this Review, may be the subject of a freedom of information request, it is possible that some or all of the information you submit will be disclosed publicly under the Freedom of Information and Protection of Privacy Act ("FOIPPA"). Please consider this when commenting.</p>
+          <p><strong>Collection of Personal Information</strong>: Your name, email address and your opinions are characterized as "personal information" under FOIPPA. In order to hear your thoughts on the Provinces' DataBC program to facilitate discussion with other users, and to collect comments to help us improve the Provinces' DataBC program, we are collecting this personal information from you and we will share it with the Ministry of Labour, Citizens' Services and Open Government, which is responsible the Provinces' DataBC program for government. Your email address may be used to contact you for clarification of your comment(s), to notify you of future opportunities to participate in public consultations, and to keep you updated on the progress of the Provinces' DataBC program.  We also are collecting details of your visit to this website such as your IP address, and date and time of your visit, and your acceptance of the Terms of Use for the purpose of administering this site.
+          The authority to collect personal information comes from Section 26(c) of FOIPPA. If you have any questions about the collection of your personal information, please contact:
+        David Wrate, Director, Citizen Engagement, Business and Workforce Transformation; by mail: PO Box 9110, STN Prov Gov, Victoria, BC, by phone: 250-588-9231 or e-mail:David.Wrate@gov.bc.ca</p>
+          <p><strong>Access and Disclosure</strong>: By accepting the Terms of Use, you consent to the use of your personal information for the purposes outlined above, the public disclosure and access in or outside of Canada of your name, comments and/or opinions and any other Content submitted by you, and the date/time of your submission for the purpose of participating in the conversation on the Provinces' DataBC program. You also consent to the administrators of this Review sharing this personal information with the Ministry of Citizens' Services for the Provinces' DataBC program.</p>
+          <p><strong>Limitation of Liability and Indemnity</strong>: You agree that under no circumstances will the Province or any of its respective servants, employees or agents be liable to any person or entity for any direct, indirect, special, incidental, consequential, or other damages based on: (a) use of any of Your Content under these Terms of Use; (b) any use by you of the Review; or (c) any failure by you to abide by these Terms of Use.</p>
+          <p>You agree to indemnify, defend and hold harmless the Province and all of its respective servants, employees and agents from and against all claims, demands, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to reasonable legal fees) arising from: (a) your use of the Review; (b) your violation of any provision of these Terms of Use; (c) your violation of any third party right, including without limitation any claims or action based on infringement or violation of intellectual property rights, libel or slander or other defamation, rights of privacy or rights of publicity; and (d) any claim that any of Your Content caused damage to a third party.</p>
+          <p><strong>Additional Terms</strong>: These Terms of Use also incorporate the contents of the Copyright, Disclaimer, and Privacy notices at the bottom of the page. Please read them carefully.
+          If any term or provision of these Terms of Use is invalid, illegal or unenforceable, all other terms and provisions of these Terms of Use shall nonetheless remain in full force and effect.
+          These Terms of Use will be governed by and construed in accordance with the laws of British Columbia.</p>
+
+          <h2>Moderation Policy</h2>
+          <p>We welcome your participation in our discussion and look forward to an active exchange of ideas.
+          We want to publish your comments, but we expect conversations to follow the conventions of polite discourse.</p>
+          <p>Therefore, we won't post comments that:</p>
+          <ul>
+          <li>contain abusive, obscene, indecent or offensive language</li>
+          <li>include defamatory, abusive, harassing or hateful remarks or make unproven or unsupported accusations against</li>
+          <li>individuals or organizations</li>
+          <li>constitute spam, promote services or products</li>
+          <li>invade anyone's privacy or impersonates anyone</li>
+          <li>are far off-topic</li>
+          <li>are posted without the necessary rights, licenses and consents (see Terms of Use)</li>
+          <li>encourage conduct that may or would constitute a criminal offence or give rise to civil liability, or that otherwise violates</li>
+          <li>any local, provincial, national or international law or regulation anywhere in the world</li>
+          <li>contain long embedded URLs</li>
+          <li>contain excessive links or contain code</li>
+          <li>identify any publicly-elected representative or candidate regardless of their political affiliation, whether those comments:
+              <ul>
+                <li>are supportive or critical</li>
+                <li>are contrary to the principles of the Canadian Charter of Rights and Freedoms</li>
+              </ul>
+          </li>
+          </ul>
+          <p>We don't edit comments to remove objectionable content, so please ensure that your comment contains none of the above.</p>
+          <p>Reporters are asked to send questions through their normal channels. Questions from reporters will not be posted.</p>
+          <p>Your comments are welcome at any time - the review is available 24 hours a day, 7 days a week. However, given the need to manage provincial resources, moderating and posting of comments will generally occur during regular business hours Monday through Friday. Comments submitted after hours or on weekends will be read and posted as early as possible the next business day.</p>
+          <p>To protect your own privacy and the privacy of others, please do not include phone numbers or e-mail addresses in the body of your comment.</p>
+          <p>If you have questions about this moderation policy or how we apply it, please contact us at <a href="mailto:data@gov.bc.ca">data@gov.bc.ca</a></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default terms-decline" data-dismiss="modal">Decline</button>
+        <button type="button" class="btn btn-primary terms-accept" data-dismiss="modal">Accept</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Snippet package/comments_block.html end -->
+
+      
+  
+<!-- Snippet package/snippets/bcgw_data.html end -->
+
+  
+
+                    </div>
+                  </article>
+                
+              </div>
+            
+
+            
+              <aside class="secondary span3">
+                
+                
+              </aside>
+            
+          </div>
+        
+      </div>
+    </div>
+  
+            
+</div>
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="wb-foot">
+    <div id="wb-foot-in">
+      <footer>
+        
+          
+    
+
+
+
+
+    <div id="footer">
+        <img src="/assets/gov/images/back-to-top.png" alt="Back to top" title="Back to top" class="back-to-top" style="display: none;">
+        <div id="footerWrapper">
+            <div id="footerToggle">
+                <a class="footerExpand" href="http://www2.gov.bc.ca/#"><img src="/assets/gov/images/footer_expandbutton.png" alt="Expand footer" title="Expand footer"></a>
+                <a class="footerCollapse" href="http://www2.gov.bc.ca/#" style="display:none"><img src="/assets/gov/images/footer_collapsebutton.png" alt="Collapse footer" title="Collapse footer"></a>     
+            </div>
+        
+            <div id="footerCollapsible">
+        
+                <div id="footerContainer" class="container">
+                    
+                    <div id="footerMediaLinks" class="row">
+                        <div class="span12">
+                            <div class="connect">
+                                <h2 class="pull-left">Connect With Us</h2>
+                            </div>
+                            <div class="">
+                                <ul class="inline">
+                                    <li data-order="0"><a href="https://news.gov.bc.ca/" target="_blank">BC Gov News</a></li>
+                                    <li data-order="1"><a href="https://www.facebook.com/BCProvincialGovernment" target="_blank">Facebook</a></li>
+                                    <li data-order="2"><a href="https://twitter.com/BCGovNews" target="_blank">Twitter</a></li>
+                                    <li data-order="3"><a href="https://www.flickr.com/photos/bcgovphotos/" target="_blank">Photos</a></li>
+                                    <li data-order="4"><a href="https://www.youtube.com/user/ProvinceofBC" target="_blank">Videos</a></li>
+                                    <li data-order="5"><a href="https://news.gov.bc.ca/newsletters" target="_blank">Newsletters</a></li>
+                                    <li data-order="6"><a href="https://news.gov.bc.ca/connect#rss" target="_blank">RSS Feeds</a></li>
+                                </ul>
+                            </div>
+                        
+                            <hr class="span12">
+                        </div>
+                    </div>
+                
+                    <div id="footerAZLinks" class="row hidden-xs">
+                        <div class="span12">            
+                            <h2>Government A-Z</h2>
+                            <div class="row">
+                                <div class="span4">
+                                <ul class="bulleted">
+                                    <li id="replicantData_461EB6AD9D76408B82B694E9FBDEFE32" data-order="0">
+                                                <a href="http://www2.gov.bc.ca/gov/content/home/services-a-z" target="_self">Services A-Z</a>
+
+        </li>
+                                        </ul>
+                            </div>
+                            <div class="span4">
+                                <ul class="bulleted">
+                                    <li id="replicantData_F0EA3631778F4368BC0987587A9985B7" data-order="1">
+                                                <a href="http://www2.gov.bc.ca/gov/content/home/organizations-a-z" target="_self">Organizations A-Z</a>
+
+        </li>
+                                        </ul>
+                            </div>
+                            <div class="span4">
+                                <ul class="bulleted">
+                                    <li id="replicantData_4DC9D94C2FFD4FFBAEA035FE68828407" data-order="2">
+                                                <a href="http://www2.gov.bc.ca/gov/content/home/forms-a-z" target="_self">Forms A-Z</a>
+
+        </li>
+                                        </ul>
+                                
+                            </div>
+                            </div>
+                            
+                            <hr class="hidden-md hidden-lg span12">
+                        </div>
+                    </div>
+                
+                    <div id="footerThemeLinks" class="row hidden-xs">
+                        <div class="span12">
+                            <h2>Services and Information Topics</h2>
+
+                            <div class="row">
+                                
+                                <div class="span4">
+                                    <ul class="bulleted">
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/governments">British Columbians &amp; Our Governments</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/health">Health</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/life-events">Birth, Adoption, Death, Marriage &amp; Divorce</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/education-training">Education &amp; Training</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/transportation">Driving &amp; Transportation</a></li>
+                                    </ul>
+                                </div>
+                                <div class="span4">
+                                    <ul class="bulleted">
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/safety">Public Safety &amp; Emergency Services</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/justice">Law, Crime &amp; Justice</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/taxes">Taxes &amp; Tax Credits</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/housing-tenancy">Housing &amp; Tenancy</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/sports-culture">Sports, Recreation, Arts &amp; Culture</a></li>
+                                    </ul>
+                                </div>
+                                <div class="span4">
+                                    <ul class="bulleted">
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/environment">Environmental Protection &amp; Sustainability</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/industry">Farming, Natural Resources &amp; Industry</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/employment-business">Employment, Business &amp; Economic Development</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/tourism-immigration">Tourism &amp; Immigration</a></li>
+                                        <li><a href="http://www2.gov.bc.ca/gov/content/family-social-supports">Family &amp; Social Supports</a></li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            
+                            <hr class="span12">
+                        </div>
+                    </div>  
+                    
+                </div>  
+            </div>
+        
+            <div id="footerAdminSection">
+                <div id="footerAdminLinksContainer" class="container">
+                    <div id="footerAdminLinks" class="row">
+                        <div class="span12">
+                            <ul class="inline">
+                                <li data-order="0"><a href="http://www2.gov.bc.ca/gov/content/home" target="_self">Home</a></li>              
+                                <li data-order="1"><a href="http://www2.gov.bc.ca/gov/content/about-gov-bc-ca" target="_self">About gov.bc.ca</a></li>      
+                                <li data-order="2"><a href="http://www2.gov.bc.ca/gov/content/home/disclaimer" target="_self">Disclaimer</a></li>
+                                <li data-order="3"><a href="http://www2.gov.bc.ca/gov/content/home/privacy" target="_self">Privacy</a></li>
+                                <li data-order="5"><a href="#tracking-modal" data-toggle="modal">Tracking</a></li>
+                                <li data-order="6"><a href="http://www2.gov.bc.ca/gov/content/home/accessibility" target="_self">Accessibility</a></li>
+                                <li data-order="7"><a href="http://www2.gov.bc.ca/gov/content/home/copyright" target="_self">Copyright</a></li>
+                                <li data-order="8"><a href="http://www2.gov.bc.ca/gov/content/home/contact-us" target="_self">Contact Us</a></li>                                                       
+                                <!-- viewport toggle - set view port cookie and reload current page -->
+                                <li class="mobileToggle  hidden-lg hidden-md"><a target="_self" href="javascript:location.reload();" onclick="document.cookie = &#39;forseLargeViewport=true; path=/&#39;;">Desktop View</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div id="version">
+                <div class="container">
+                    
+                        P1:
+                    
+
+                    
+                        v1.4.0
+                    
+
+                    c28e02c
+                </div>
+            </div>
+        </div> 
+    </div>
+
+    <div id="tracking-modal" class="modal hide fade">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>About Tracking</h3>
+      </div>
+      <div class="modal-body">
+        <p>This website uses Google Analytics, a web analytics service provided by Google Inc. ("Google").</p>
+        <p>Google Analytics uses "cookies," which are text files stored on your computer that enable an analysis of your use of the website. Some of the information generated by the cookie about your use of this website may be transmitted to and stored on Google servers outside of Canada. You may refuse the use of cookies by selecting the appropriate settings in your browser; however, please note that if you do so, you may not be able to use the full functionality of this website. Furthermore, you can prevent Google’s collection and use of data generated by the cookie and related to your use of the website by downloading and installing the browser plug-in available at (<a href="http://tools.google.com/dlpage/gaoptout?hl=en" target="_blank">http://tools.google.com/dlpage/gaoptout?hl=en</a>).</p>
+        <p>This website also specifies that Google Analytics apply IP Address Anonymization <a href="https://support.google.com/analytics/answer/2763052?hl=en" target="_blank">https://support.google.com/analytics/answer/2763052?hl=en</a> so that complete IP addresses are never stored by Google.</p>
+        <p>You can learn more about Google’s Privacy Policies as they pertain to our partner use from <a href="http://www.google.com/policies/privacy/partners/" target="_blank">http://www.google.com/policies/privacy/partners/</a>.</p>
+      </div>
+    </div>
+        
+      </footer>
+    </div>
+  </div>
+</div>
+
+
+    
+    
+    
+      
+    
+  
+    
+
+      
+
+    
+      
+      <div class="js-hide" data-module="google-analytics" 
+        data-module-googleanalytics_resource_prefix="/downloads/">
+      </div>
+    
+
+  <script>document.getElementsByTagName('html')[0].className += ' js';</script>
+<script type="text/javascript" src="/fanstatic/vendor/:version:2016-08-13T08:24:57.23/jquery.min.js"></script>
+<script type="text/javascript" src="/fanstatic/vendor/:version:2016-08-13T08:24:57.23/:bundle:bootstrap/js/bootstrap.min.js;jed.min.js;moment-with-locales.js;select2/select2.min.js"></script>
+<script type="text/javascript" src="/fanstatic/base/:version:2016-08-13T08:24:51.76/:bundle:plugins/jquery.inherit.min.js;plugins/jquery.proxy-all.min.js;plugins/jquery.url-helpers.min.js;plugins/jquery.date-helpers.min.js;plugins/jquery.slug.min.js;plugins/jquery.slug-preview.min.js;plugins/jquery.truncator.min.js;plugins/jquery.masonry.min.js;plugins/jquery.form-warning.min.js;sandbox.min.js;module.min.js;pubsub.min.js;client.min.js;notify.min.js;i18n.min.js;main.min.js;modules/select-switch.min.js;modules/slug-preview.min.js;modules/basic-form.min.js;modules/confirm-action.min.js;modules/api-info.min.js;modules/autocomplete.min.js;modules/custom-fields.min.js;modules/related-item.min.js;modules/data-viewer.min.js;modules/table-selectable-rows.min.js;modules/resource-form.min.js;modules/resource-upload-field.min.js;modules/resource-reorder.min.js;modules/resource-view-reorder.min.js;modules/follow.min.js;modules/activity-stream.min.js;modules/dashboard.min.js;modules/resource-view-embed.min.js;view-filters.min.js;modules/resource-view-filters-form.min.js;modules/resource-view-filters.min.js;modules/table-toggle-more.min.js;modules/dataset-visibility.min.js;modules/media-grid.min.js;modules/image-upload.min.js"></script>
+<script type="text/javascript" src="/fanstatic/base/:version:2016-08-13T08:24:51.76/tracking.min.js"></script>
+<script type="text/javascript" src="/fanstatic/ckanext-googleanalytics/:version:2016-08-13T08:23:36.19/googleanalytics_event_tracking.js"></script>
+<script type="text/javascript" src="/fanstatic/edc_resource/:version:2016-08-13T08:23:27.16/responsive.js"></script>
+<script type="text/javascript" src="/fanstatic/edc_resource/:version:2016-08-13T08:23:27.16/:bundle:typeahead.bundle.js;jquery.timeago.js;search.js;edc_dataset_view.js;disqus.js;edc_gov.js"></script></body>
+</html>
