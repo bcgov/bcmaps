@@ -75,15 +75,18 @@ transform_bc_albers <- function(sp_obj) {
   sp::spTransform(sp_obj, sp::CRS("+init=epsg:3005"))
 }
 
-#' Check and fix polygons that self-intersect
+#' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
 #' This uses the common method of buffering by zero, using gBuffer in the rgeos package.
+#'
+#' \code{fix_self_intersect} is the old name and is an alias for the better named
+#' \code{fix_geo_problems}.
 #'
 #' @param sp_obj The SpatialPolygons* object to check/fix
 #'
 #' @return The SpatialPolygons* object, repaired if necessary
 #' @export
-fix_self_intersect <- function(sp_obj) {
+fix_geo_problems <- function(sp_obj) {
   if (!inherits(sp_obj, "SpatialPolygons")) {
     stop("sp_obj must be a Spatial object", call. = FALSE)
   }
@@ -106,9 +109,9 @@ fix_self_intersect <- function(sp_obj) {
 
   ## Check if any non-valid objects are due to self intersections. If they are,
   ## repair them, otherwise warn about the other problems
-  if (any(grepl("self[ -]intersection", non_valid, ignore.case = TRUE))) {
+  if (!is_valid) {
     ret <- rgeos::gBuffer(sp_obj, byid = TRUE, width = 0)
-    message("Self-intersection(s) found - repairing...")
+    message("Problems found - attempting to repair...")
     fix_self_intersect(ret) # check again (yay recursion)
   } else {
     message("No self-intersections found, but there were other problems")
@@ -118,6 +121,9 @@ fix_self_intersect <- function(sp_obj) {
 
   ret
 }
+
+#' @rdname fix_geo_problems
+fix_self_intersect <- fix_geo_problems
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
@@ -198,6 +204,8 @@ get_unioned_ids <- function(unioned_sp) {
 #' @param fun function to determine the resulting single attribute from overlapping polygons
 #' @param ... other paramaters passed on to \code{fun}
 #'
+#' @importFrom methods is
+#'
 #' @return An atomic vector of the same length as x
 #' @export
 #'
@@ -232,14 +240,14 @@ get_poly_attribute <- function(x, col, fun, ...) {
     is_fac <- TRUE
     lvls <- levels(test_data)
     ordered <- is.ordered(test_data)
-    return_type <- "integer"
+    return_fun <- "integer"
   }
 
-  return_call <- call(return_type, 1)
+  fun_value <- eval(call(return_type, 1))
 
   ret <- vapply(x, function(y) {
     fun(y[[col]], ...)
-  }, FUN.VALUE = eval(return_call))
+  }, FUN.VALUE = fun_value)
 
   if (is_fac) {
     ret <- factor(lvls[ret], ordered = ordered, levels = lvls)
