@@ -20,6 +20,6 @@ This uses the common method of buffering by zero, using gBuffer in the rgeos pac
 }
 \details{
 \code{fix_self_intersect} is the old name and is an alias for the better named
-\code{fix_geo_problems}.
+\code{fix_geo_problems}. It will be removed in a future version of bcmaps.
 }
 

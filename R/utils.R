@@ -80,7 +80,7 @@ transform_bc_albers <- function(sp_obj) {
 #' This uses the common method of buffering by zero, using gBuffer in the rgeos package.
 #'
 #' \code{fix_self_intersect} is the old name and is an alias for the better named
-#' \code{fix_geo_problems}.
+#' \code{fix_geo_problems}. It will be removed in a future version of bcmaps.
 #'
 #' @param sp_obj The SpatialPolygons* object to check/fix
 #'
@@ -123,7 +123,11 @@ fix_geo_problems <- function(sp_obj) {
 }
 
 #' @rdname fix_geo_problems
-fix_self_intersect <- fix_geo_problems
+fix_self_intersect <- function(sp_obj) {
+  message("This function will be removed in a future version of bcmaps.
+          Please use 'fix_geo_problems' instead.")
+  fix_geo_problems(sp_obj)
+}
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
