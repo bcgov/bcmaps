@@ -1,3 +1,8 @@
+# bcmaps 0.6.1
+
+* `fix_self_intersect` has been renamed to `fix_geo_problems` (but kept as an alias for now)
+* `fix_geo_problems` can often also fix orphaned holes in addition to self-intersections.
+
 # bcmaps 0.6.0
 
 * Added `watersheds` dataset (#15, @markjohnsonubc)
