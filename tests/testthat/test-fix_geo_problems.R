@@ -1,6 +1,6 @@
-context("fix_self_intersect")
+context("fix_geo_problems")
 
-fixing_msg <- "Self-intersection"
+fixing_msg <- "Problems"
 valid_msg <- "Geometry is valid"
 other_prob_msg <- "there were other problems"
 
@@ -28,40 +28,40 @@ p9 <- rgeos::readWKT(paste("MULTIPOLYGON (((20 380, 420 380, 420 20, 20 20, 20 3
                    "((60 200, 340 60, 220 340, 60 200)))"))
 
 test_that("works with valid geometries", {
-  expect_message(out <- fix_self_intersect(p1), valid_msg, ignore.case = TRUE)
+  expect_message(out <- fix_geo_problems(p1), valid_msg, ignore.case = TRUE)
   expect_is(out, "SpatialPolygons")
   expect_true(rgeos::gIsValid(out))
-  expect_message(out <- fix_self_intersect(p2), valid_msg, ignore.case = TRUE)
+  expect_message(out <- fix_geo_problems(p2), valid_msg, ignore.case = TRUE)
   expect_is(out, "SpatialPolygons")
   expect_true(rgeos::gIsValid(out))
-  expect_message(out <- fix_self_intersect(p3), valid_msg, ignore.case = TRUE)
+  expect_message(out <- fix_geo_problems(p3), valid_msg, ignore.case = TRUE)
   expect_is(out, "SpatialPolygons")
   expect_true(rgeos::gIsValid(out))
 })
 
 test_that("works with self-intersections", {
-  expect_message(out <- fix_self_intersect(p4), fixing_msg, ignore.case = TRUE, all = FALSE)
-  expect_message(out <- fix_self_intersect(p4), valid_msg, ignore.case = TRUE, all = FALSE)
+  expect_message(out <- fix_geo_problems(p4), fixing_msg, ignore.case = TRUE, all = FALSE)
+  expect_message(out <- fix_geo_problems(p4), valid_msg, ignore.case = TRUE, all = FALSE)
   expect_is(out, "SpatialPolygons")
   expect_true(rgeos::gIsValid(out))
-  expect_message(out <- fix_self_intersect(p5), fixing_msg, ignore.case = TRUE, all = FALSE)
-  expect_message(out <- fix_self_intersect(p5), valid_msg, ignore.case = TRUE, all = FALSE)
+  expect_message(out <- fix_geo_problems(p5), fixing_msg, ignore.case = TRUE, all = FALSE)
+  expect_message(out <- fix_geo_problems(p5), valid_msg, ignore.case = TRUE, all = FALSE)
   expect_is(out, "SpatialPolygons")
   expect_true(rgeos::gIsValid(out))
-  expect_message(out <- fix_self_intersect(p6), fixing_msg, ignore.case = TRUE, all = FALSE)
-  expect_message(out <- fix_self_intersect(p6), valid_msg, ignore.case = TRUE, all = FALSE)
+  expect_message(out <- fix_geo_problems(p6), fixing_msg, ignore.case = TRUE, all = FALSE)
+  expect_message(out <- fix_geo_problems(p6), valid_msg, ignore.case = TRUE, all = FALSE)
   expect_is(out, "SpatialPolygons")
   expect_true(rgeos::gIsValid(out))
 })
 
-test_that("works with other problems", {
-  expect_message(out <- fix_self_intersect(p7), other_prob_msg, ignore.case = TRUE)
-  expect_is(out, "SpatialPolygons")
-  expect_false(suppressWarnings(rgeos::gIsValid(out)))
-  expect_message(out <- fix_self_intersect(p8), other_prob_msg, ignore.case = TRUE)
-  expect_is(out, "SpatialPolygons")
-  expect_false(suppressWarnings(rgeos::gIsValid(out)))
-  expect_message(out <- fix_self_intersect(p9), other_prob_msg, ignore.case = TRUE)
-  expect_is(out, "SpatialPolygons")
-  expect_false(suppressWarnings(rgeos::gIsValid(out)))
-})
+# test_that("works with other problems", {
+#   expect_message(out <- fix_geo_problems(p7), other_prob_msg, ignore.case = TRUE)
+#   expect_is(out, "SpatialPolygons")
+#   expect_false(suppressWarnings(rgeos::gIsValid(out)))
+#   expect_message(out <- fix_geo_problems(p8), other_prob_msg, ignore.case = TRUE)
+#   expect_is(out, "SpatialPolygons")
+#   expect_false(suppressWarnings(rgeos::gIsValid(out)))
+#   expect_message(out <- fix_geo_problems(p9), other_prob_msg, ignore.case = TRUE)
+#   expect_is(out, "SpatialPolygons")
+#   expect_false(suppressWarnings(rgeos::gIsValid(out)))
+# })
