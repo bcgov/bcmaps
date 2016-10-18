@@ -112,7 +112,7 @@ fix_geo_problems <- function(sp_obj) {
   if (!is_valid) {
     ret <- rgeos::gBuffer(sp_obj, byid = TRUE, width = 0)
     message("Problems found - attempting to repair...")
-    fix_self_intersect(ret) # check again (yay recursion)
+    fix_geo_problems(ret) # check again (yay recursion)
   } else {
     message("No self-intersections found, but there were other problems")
     message(non_valid)
