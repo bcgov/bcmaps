@@ -165,18 +165,22 @@ fix_geo_problems.sf <- function(obj) {
     return(obj)
   } else {
     i <- 1
+    geom <- sf::st_geometry(obj)
     while (i <= 3) { # Try three times
       message("Problems found - attempting to repair...")
-      obj <- sf::st_buffer(obj, dist = 0)
-      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
+      geom <- sf::st_buffer(geom, dist = 0)
+      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(geom)))
       if (all(is_valid)) {
         message("Geometry is valid")
+        sf::st_geometry(obj) <- geom
         return(obj)
       } else {
         i <- i + 1
       }
     }
   }
+  warning("tried 3 times but could not repair all geometries")
+  sf::st_geometry(obj) <- geom
   obj
 }
 
