@@ -2,12 +2,9 @@
 % Please edit documentation in R/utils.R
 \name{fix_geo_problems}
 \alias{fix_geo_problems}
-\alias{fix_self_intersect}
 \title{Check and fix polygons that self-intersect, and sometimes can fix orphan holes}
 \usage{
 fix_geo_problems(obj)
-
-fix_self_intersect(sp_obj)
 }
 \arguments{
 \item{sp_obj}{The SpatialPolygons* object to check/fix}
@@ -19,7 +16,7 @@ The SpatialPolygons* object, repaired if necessary
 This uses the common method of buffering by zero, using gBuffer in the rgeos package.
 }
 \details{
-\code{fix_self_intersect} is the old name and is an alias for the better named
-\code{fix_geo_problems}. It will be removed in a future version of bcmaps.
+\code{fix_self_intersect} has been removed and will no longer work. Use
+\code{fix_geo_problems} instead
 }
 

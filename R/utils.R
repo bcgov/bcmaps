@@ -10,6 +10,17 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
+#' Defunct functions in bcmaps
+#'
+#' These functions are gone, no longer available.
+#'
+#' \itemize{
+#'  \item \code{\link{fix_self_intersect}}: This function is defunct. Use \code{\link{fix_geo_problems}} instead.
+#' }
+#'
+#' @name bcmaps-defunct
+NULL
+
 #' The size of British Columbia
 #'
 #' Total area, Land area only, or Freshwater area only, in the units of your choosing.
@@ -94,8 +105,8 @@ transform_bc_albers.sf <- function(obj) {
 #'
 #' This uses the common method of buffering by zero, using gBuffer in the rgeos package.
 #'
-#' \code{fix_self_intersect} is the old name and is an alias for the better named
-#' \code{fix_geo_problems}. It will be removed in a future version of bcmaps.
+#' \code{fix_self_intersect} has been removed and will no longer work. Use
+#' \code{fix_geo_problems} instead
 #'
 #' @param sp_obj The SpatialPolygons* object to check/fix
 #'
@@ -169,11 +180,10 @@ fix_geo_problems.sf <- function(obj) {
   ret
 }
 
-#' @rdname fix_geo_problems
-fix_self_intersect <- function(sp_obj) {
-  message("This function will be removed in a future version of bcmaps.
+#' @rdname bcmaps-defunct
+fix_self_intersect <- function(...) {
+  .Defunct("This function has been removed from bcmaps.
           Please use 'fix_geo_problems' instead.")
-  fix_geo_problems(sp_obj)
 }
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
