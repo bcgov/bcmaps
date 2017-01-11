@@ -86,37 +86,69 @@ transform_bc_albers <- function(sp_obj) {
 #'
 #' @return The SpatialPolygons* object, repaired if necessary
 #' @export
-fix_geo_problems <- function(sp_obj) {
-  if (!inherits(sp_obj, "SpatialPolygons")) {
-    stop("sp_obj must be a Spatial object", call. = FALSE)
-  }
+fix_geo_problems <- function(obj) {
+  UseMethod("fix_geo_problems")
+}
 
+#' @export
+fix_geo_problems.Spatial <- function(obj) {
   if (!requireNamespace("rgeos", quietly = TRUE)) {
     stop("Package rgdal could not be loaded", call. = FALSE)
   }
 
   ## Check if the overall geomtry is valid, if it is, exit and return input
-  is_valid <- suppressWarnings(rgeos::gIsValid(sp_obj))
+  is_valid <- suppressWarnings(rgeos::gIsValid(obj))
 
   if (is_valid) {
     message("Geometry is valid")
-    return(sp_obj)
+    return(obj)
   }
 
   ## Check geometry for each polygon
-  validity <- rgeos::gIsValid(sp_obj, byid = TRUE, reason = TRUE)
+  validity <- rgeos::gIsValid(obj, byid = TRUE, reason = TRUE)
   non_valid <- validity[validity != "Valid Geometry"]
 
   ## Check if any non-valid objects are due to self intersections. If they are,
   ## repair them, otherwise warn about the other problems
   if (!is_valid) {
-    ret <- rgeos::gBuffer(sp_obj, byid = TRUE, width = 0)
+    ret <- rgeos::gBuffer(obj, byid = TRUE, width = 0)
     message("Problems found - attempting to repair...")
     fix_geo_problems(ret) # check again (yay recursion)
   } else {
     message("No self-intersections found, but there were other problems")
     message(non_valid)
-    return(sp_obj)
+    return(obj)
+  }
+
+  ret
+}
+
+#' @export
+fix_geo_problems.sf <- function(obj) {
+  if (!requireNamespace("sf", quietly = TRUE)) {
+    stop("Package sf could not be loaded", call. = FALSE)
+  }
+
+  ## Check if the overall geomtry is valid, if it is, exit and return input
+  is_valid <- suppressWarnings(sf::st_is_valid(obj))
+
+  if (all(is_valid)) {
+    message("Geometry is valid")
+    return(obj)
+  }
+
+  non_valid <- is_valid[!is_valid]
+
+  ## Check if any non-valid objects are due to self intersections. If they are,
+  ## repair them, otherwise warn about the other problems
+  if (!is_valid) {
+    ret <- sf::st_buffer(obj, dist = 0)
+    message("Problems found - attempting to repair...")
+    fix_geo_problems(ret) # check again (yay recursion)
+  } else {
+    message("No self-intersections found, but there were other problems")
+    message(non_valid)
+    return(obj)
   }
 
   ret
