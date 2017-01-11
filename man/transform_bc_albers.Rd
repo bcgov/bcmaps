@@ -7,10 +7,10 @@
 transform_bc_albers(obj)
 }
 \arguments{
-\item{sp_obj}{The Spatial* object to transform}
+\item{obj}{The Spatial* or sf object to transform}
 }
 \value{
-the Spatial* object in BC Albers projection
+the Spatial* or sf object in BC Albers projection
 }
 \description{
 Transform a Spatial* object to BC Albers projection

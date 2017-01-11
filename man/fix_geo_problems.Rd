@@ -7,13 +7,13 @@
 fix_geo_problems(obj)
 }
 \arguments{
-\item{sp_obj}{The SpatialPolygons* object to check/fix}
+\item{obj}{The SpatialPolygons* or sf object to check/fix}
 }
 \value{
-The SpatialPolygons* object, repaired if necessary
+The SpatialPolygons* or sf object, repaired if necessary
 }
 \description{
-This uses the common method of buffering by zero, using gBuffer in the rgeos package.
+This uses the common method of buffering by zero.
 }
 \details{
 \code{fix_self_intersect} has been removed and will no longer work. Use

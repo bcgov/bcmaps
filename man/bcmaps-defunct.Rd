@@ -7,12 +7,14 @@
 \usage{
 fix_self_intersect(...)
 }
-\description{
-These functions are gone, no longer available.
-}
-\details{
+\arguments{
+\item{...}{old defunct arguments
+
 \itemize{
  \item \code{\link{fix_self_intersect}}: This function is defunct. Use \code{\link{fix_geo_problems}} instead.
+}}
 }
+\description{
+These functions are gone, no longer available.
 }
 

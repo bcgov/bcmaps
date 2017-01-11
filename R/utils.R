@@ -14,6 +14,8 @@
 #'
 #' These functions are gone, no longer available.
 #'
+#' @param ... old defunct arguments
+#'
 #' \itemize{
 #'  \item \code{\link{fix_self_intersect}}: This function is defunct. Use \code{\link{fix_geo_problems}} instead.
 #' }
@@ -70,9 +72,9 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
-#' @param sp_obj The Spatial* object to transform
+#' @param obj The Spatial* or sf object to transform
 #'
-#' @return the Spatial* object in BC Albers projection
+#' @return the Spatial* or sf object in BC Albers projection
 #' @export
 #'
 transform_bc_albers <- function(obj) {
@@ -103,14 +105,14 @@ transform_bc_albers.sf <- function(obj) {
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
-#' This uses the common method of buffering by zero, using gBuffer in the rgeos package.
+#' This uses the common method of buffering by zero.
 #'
 #' \code{fix_self_intersect} has been removed and will no longer work. Use
 #' \code{fix_geo_problems} instead
 #'
-#' @param sp_obj The SpatialPolygons* object to check/fix
+#' @param obj The SpatialPolygons* or sf object to check/fix
 #'
-#' @return The SpatialPolygons* object, repaired if necessary
+#' @return The SpatialPolygons* or sf object, repaired if necessary
 #' @export
 fix_geo_problems <- function(obj) {
   UseMethod("fix_geo_problems")
