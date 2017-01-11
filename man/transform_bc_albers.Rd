@@ -4,7 +4,7 @@
 \alias{transform_bc_albers}
 \title{Transform a Spatial* object to BC Albers projection}
 \usage{
-transform_bc_albers(sp_obj)
+transform_bc_albers(obj)
 }
 \arguments{
 \item{sp_obj}{The Spatial* object to transform}

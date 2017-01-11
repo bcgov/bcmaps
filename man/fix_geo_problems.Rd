@@ -5,7 +5,7 @@
 \alias{fix_self_intersect}
 \title{Check and fix polygons that self-intersect, and sometimes can fix orphan holes}
 \usage{
-fix_geo_problems(sp_obj)
+fix_geo_problems(obj)
 
 fix_self_intersect(sp_obj)
 }
