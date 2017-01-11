@@ -158,28 +158,26 @@ fix_geo_problems.sf <- function(obj) {
   }
 
   ## Check if the overall geomtry is valid, if it is, exit and return input
-  is_valid <- suppressWarnings(sf::st_is_valid(obj))
+  is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
 
   if (all(is_valid)) {
     message("Geometry is valid")
     return(obj)
-  }
-
-  non_valid <- is_valid[!is_valid]
-
-  ## Check if any non-valid objects are due to self intersections. If they are,
-  ## repair them, otherwise warn about the other problems
-  if (!is_valid) {
-    ret <- sf::st_buffer(obj, dist = 0)
-    message("Problems found - attempting to repair...")
-    fix_geo_problems(ret) # check again (yay recursion)
   } else {
-    message("No self-intersections found, but there were other problems")
-    message(non_valid)
-    return(obj)
+    i <- 1
+    while (i <= 3) { # Try three times
+      message("Problems found - attempting to repair...")
+      obj <- sf::st_buffer(obj, dist = 0)
+      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
+      if (all(is_valid)) {
+        message("Geometry is valid")
+        return(obj)
+      } else {
+        i <- i + 1
+      }
+    }
   }
-
-  ret
+  obj
 }
 
 #' @rdname bcmaps-defunct
