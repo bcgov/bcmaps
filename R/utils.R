@@ -63,8 +63,14 @@ km2_sq_mi <- function(x) {
 #'
 #' @return the Spatial* object in BC Albers projection
 #' @export
-transform_bc_albers <- function(sp_obj) {
-  if (!inherits(sp_obj, "Spatial")) {
+#'
+transform_bc_albers <- function(obj) {
+  UseMethod("transform_bc_albers")
+}
+
+#' @export
+transform_bc_albers.Spatial <- function(obj) {
+  if (!inherits(obj, "Spatial")) {
     stop("sp_obj must be a Spatial object", call. = FALSE)
   }
 
@@ -72,7 +78,16 @@ transform_bc_albers <- function(sp_obj) {
     stop("Package rgdal could not be loaded", call. = FALSE)
   }
 
-  sp::spTransform(sp_obj, sp::CRS("+init=epsg:3005"))
+  sp::spTransform(obj, sp::CRS("+init=epsg:3005"))
+}
+
+#' @export
+transform_bc_albers.sf <- function(obj) {
+  if (!requireNamespace("sf", quietly = TRUE)) {
+    stop("Package sf could not be loaded", call. = FALSE)
+  }
+
+  sf::st_transform(obj, 3005)
 }
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
