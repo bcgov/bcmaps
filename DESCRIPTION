@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map layers for British Columbia
-Version: 0.6.2
+Version: 0.7.0
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
   role = "aut"),
@@ -23,5 +23,6 @@ Suggests: knitr,
     rgeos (>= 0.3-19),
     raster (>= 2.5-2),
     ggplot2 (>= 2.1.0),
+    sf (>= 0.2-7),
     testthat
 VignetteBuilder: knitr
