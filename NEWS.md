@@ -1,3 +1,8 @@
+# bcmaps 0.7
+
+* `fix_geo_problems` and `transform_bc_albers` are Generic functions with methods for `sf` objects as well as `Spatial` objects
+* `fix_self_intersect` is now defunct
+
 # bcmaps 0.6.2
 
 * `fix_self_intersect` has been renamed to `fix_geo_problems` (but kept as an alias for now)
