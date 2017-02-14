@@ -8,11 +8,11 @@
 bcmaps
 ======
 
-An [R](http://r-project.org) package of map layers for British Columbia
+An [R](http://r-project.org) package of map layers for British Columbia.
 
 ### Features
 
-Various layers of British Columbia, such as administrative boundaries, natural resource management boundaries, etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+Various layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
 ### Installation
 
@@ -27,7 +27,7 @@ install_github("bcgov/bcmaps", build_vignettes = TRUE)
 
 ### Usage
 
-At the moment, there are nine layers available:
+At the moment, there are eleven layers available:
 
 -   `bc_bound`: Coarse provincial boundary of British Columbia (at 1:7.5M scale).
 
@@ -51,7 +51,13 @@ At the moment, there are nine layers available:
 
 -   `watersheds`: [Watershed boundaries delineated for Canada-BC hydrometric stations](https://catalogue.data.gov.bc.ca/dataset/02c0e328-e871-4d05-a672-8faf99ebfc11)
 
-To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object. A couple of simple examples:
+-   `watercourses_15M`: Watercourses for British Columbia at 1:15M scale.
+
+-   `watercourses_5M`: Watercourses for British Columbia at 1:5M scale.
+
+To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object.
+
+A couple of simple examples:
 
 ``` r
 library(bcmaps)
@@ -76,6 +82,18 @@ text(coordinates(kootenays),
 ```
 
 ![](README-plot-maps-2.png)
+
+#### Plot watercourses in British Columbia at a course scale
+
+``` r
+
+# Load watercourse data and plot with boundaries of B.C.
+data(watercourses_15M)
+plot(bc_bound)
+plot(watercourses_15M, add = TRUE)
+```
+
+![](README-unnamed-chunk-4-1.png)
 
 #### Size of British Columbia
 
