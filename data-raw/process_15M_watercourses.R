@@ -13,6 +13,8 @@
 library("sp")
 library("rgdal")
 library("devtools")
+library("raster") # for intersect()
+library("bcmaps") #for bc_bound
 
 watercourses_15M_zip <- "data-raw/canvec_15M_hydro/canvec_15M_CA_Hydro_shp.zip"
 
@@ -22,5 +24,7 @@ watercourses_15M <- readOGR(dsn = "data-raw/canvec_15M_hydro",
                         layer = "watercourse_1", stringsAsFactors = FALSE)
 
 watercourses_15M <- spTransform(watercourses_15M, "+init=epsg:3005")
+
+watercourses_15M <- intersect(watercourses_15M, bc_bound_hres)
 
 use_data(watercourses_15M, overwrite = TRUE, compress = "xz")
