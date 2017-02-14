@@ -10,12 +10,14 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' British Columbia watercourses at 1:15M scale.
+#' British Columbia watercourses at 15M scale.
 #'
-#' Watercourses at 1:15M scale for British Columbia sourced from Natural Resources Canada GeoGratis data.
+#' Watercourses at 15M scale for British Columbia.
+#' Currently, watersheds were delineated using 1:50,000 scale boundaries in 1996,
+#' and many watersheds encompass entire drainages, instead of just the upstream watersheds.
 #'
 #'
-#' @format A spatialPolygonsDataFrame with watercourses at the 1:15M scale for British Columbia.
+#' @format A spatialPolygonsDataFrame with watercourses at the 15M scale in British Columbia.
 #'
 #'
 #' @source Original data from
