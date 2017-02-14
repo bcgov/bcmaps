@@ -1,0 +1,11 @@
+*.dbf
+*.shp
+*.xml
+read-me.txt
+*.txt
+*.cpg
+*.prj
+*.sbn
+*.sbx
+*.shx
+CanVec_Catalogue_15M_Hydro/*
