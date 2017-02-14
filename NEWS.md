@@ -1,3 +1,11 @@
+# bcmaps 0.8.1
+
+* Set character encoding of `watercourses_15M` and `watercourses_5M` datasets to UTF-8.
+
+# bcmaps 0.8.0
+
+* Added `watercourses_15M` and `watercourses_5M` datasets.
+
 # bcmaps 0.7.1
 
 * `fix_geo_problems` and `transform_bc_albers` are Generic functions with methods for `sf` objects as well as `Spatial` objects

@@ -19,4 +19,3 @@ This uses the common method of buffering by zero.
 \code{fix_self_intersect} has been removed and will no longer work. Use
 \code{fix_geo_problems} instead
 }
-

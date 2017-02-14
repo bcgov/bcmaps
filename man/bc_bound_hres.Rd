@@ -18,4 +18,3 @@ bc_bound_hres
 Boundary of British Columbia
 }
 \keyword{datasets}
-

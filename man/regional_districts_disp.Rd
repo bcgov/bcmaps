@@ -2,8 +2,8 @@
 % Please edit documentation in R/regional_districts.R
 \docType{data}
 \name{regional_districts_disp}
-\alias{regional_districts_analysis}
 \alias{regional_districts_disp}
+\alias{regional_districts_analysis}
 \title{Regional districts}
 \format{A spatialPolygonsDataFrame with 29 polygons defining the boundaries
   of each Regional District.
@@ -39,4 +39,3 @@ There are two datasets available:
   }
 }
 \keyword{datasets}
-

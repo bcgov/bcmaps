@@ -24,4 +24,3 @@ bc_bound
 Boundary of British Columbia at 1:7.5M scale. This is a coarse scale map suitable for a broad overview of the province.
 }
 \keyword{datasets}
-

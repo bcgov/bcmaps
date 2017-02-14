@@ -15,4 +15,3 @@ the Spatial* or sf object in BC Albers projection
 \description{
 Transform a Spatial* object to BC Albers projection
 }
-

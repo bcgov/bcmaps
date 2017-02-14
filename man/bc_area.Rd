@@ -28,4 +28,3 @@ bc_area()
 ## Get the area of the land only, in hectares:
 bc_area("land", "ha")
 }
-

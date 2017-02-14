@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map layers for British Columbia
-Version: 0.7.1
+Version: 0.8.1
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
   role = "aut"),
@@ -16,7 +16,7 @@ Depends:
 Imports: methods
 License: file LICENSE
 LazyData: true
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
     rgdal (>= 1.1-8),

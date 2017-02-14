@@ -19,4 +19,3 @@ watercourses_5M
 Watercourses at 1:5M scale for British Columbia sourced from Natural Resources Canada GeoGratis data.
 }
 \keyword{datasets}
-

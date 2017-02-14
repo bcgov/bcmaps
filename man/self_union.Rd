@@ -36,4 +36,3 @@ plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
 unioned_spdf <- self_union(spdf)
 unioned_sp <- self_union(spp)
 }
-

@@ -39,4 +39,3 @@ unioned_spdf <- self_union(spdf)
 get_poly_attribute(unioned_spdf$union_df, "a", sum)
 get_poly_attribute(unioned_spdf$union_df, "c", max)
 }
-

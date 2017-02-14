@@ -16,6 +16,8 @@ library("devtools")
 library("raster") # for intersect()
 library("bcmaps") #for bc_bound
 
+source("data-raw/utils.R")
+
 watercourses_5M_zip <- "data-raw/canvec_5M_hydro/canvec_5M_CA_Hydro_shp.zip"
 
 unzip(watercourses_5M_zip, exdir = "data-raw/canvec_5M_hydro")
@@ -26,5 +28,7 @@ watercourses_5M <- readOGR(dsn = "data-raw/canvec_5M_hydro",
 watercourses_5M <- spTransform(watercourses_5M, "+init=epsg:3005")
 
 watercourses_5M <- intersect(watercourses_5M, bc_bound_hres)
+
+watercourses_5M <- set_utf8(watercourses_5M)
 
 use_data(watercourses_5M, overwrite = TRUE, compress = "xz")

@@ -21,4 +21,3 @@ British Columbia Natural Resource (NR) Districts are administrative boundaries
 established by the Ministry of Forests, Lands and Natural Resource Operations.
 }
 \keyword{datasets}
-

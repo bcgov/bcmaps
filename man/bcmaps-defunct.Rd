@@ -17,4 +17,3 @@ fix_self_intersect(...)
 \description{
 These functions are gone, no longer available.
 }
-
