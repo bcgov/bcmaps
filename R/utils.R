@@ -111,20 +111,20 @@ transform_bc_albers.sf <- function(obj) {
 #' \code{fix_geo_problems} instead
 #'
 #' @param obj The SpatialPolygons* or sf object to check/fix
+#' @param tries The maximum number of attempts to repair the geometry.
 #'
 #' @return The SpatialPolygons* or sf object, repaired if necessary
 #' @export
-fix_geo_problems <- function(obj) {
+fix_geo_problems <- function(obj, tries = 5) {
   UseMethod("fix_geo_problems")
 }
 
 #' @export
-fix_geo_problems.Spatial <- function(obj) {
+fix_geo_problems.Spatial <- function(obj, tries = 5) {
   if (!requireNamespace("rgeos", quietly = TRUE)) {
     stop("Package rgdal could not be loaded", call. = FALSE)
   }
 
-  ## Check if the overall geomtry is valid, if it is, exit and return input
   is_valid <- suppressWarnings(rgeos::gIsValid(obj))
 
   if (is_valid) {
@@ -132,27 +132,26 @@ fix_geo_problems.Spatial <- function(obj) {
     return(obj)
   }
 
-  ## Check geometry for each polygon
-  validity <- rgeos::gIsValid(obj, byid = TRUE, reason = TRUE)
-  non_valid <- validity[validity != "Valid Geometry"]
-
-  ## Check if any non-valid objects are due to self intersections. If they are,
-  ## repair them, otherwise warn about the other problems
-  if (!is_valid) {
-    ret <- rgeos::gBuffer(obj, byid = TRUE, width = 0)
-    message("Problems found - attempting to repair...")
-    fix_geo_problems(ret) # check again (yay recursion)
-  } else {
-    message("No self-intersections found, but there were other problems")
-    message(non_valid)
-    return(obj)
+  ## If not valid, repair. Try max tries times
+  i <- 1L
+  message("Problems found - Attempting to repair...")
+  while (i <= tries) {
+    message("Attempt ", i, " of ", tries)
+    obj <- rgeos::gBuffer(obj, byid = TRUE, width = 0)
+    is_valid <- suppressWarnings(rgeos::gIsValid(obj))
+    if (is_valid) {
+      message("Geometry is valid")
+      return(obj)
+    } else {
+      i <- i + 1
+    }
   }
-
-  ret
+  warning("Tried ", tries, " times but could not repair geometry")
+  obj
 }
 
 #' @export
-fix_geo_problems.sf <- function(obj) {
+fix_geo_problems.sf <- function(obj, tries = 5) {
   if (!requireNamespace("sf", quietly = TRUE)) {
     stop("Package sf could not be loaded", call. = FALSE)
   }
@@ -163,23 +162,25 @@ fix_geo_problems.sf <- function(obj) {
   if (all(is_valid)) {
     message("Geometry is valid")
     return(obj)
-  } else {
-    i <- 1
-    geom <- sf::st_geometry(obj)
-    while (i <= 3) { # Try three times
-      message("Problems found - attempting to repair...")
-      geom <- sf::st_buffer(geom, dist = 0)
-      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(geom)))
-      if (all(is_valid)) {
-        message("Geometry is valid")
-        sf::st_geometry(obj) <- geom
-        return(obj)
-      } else {
-        i <- i + 1
-      }
+  }
+
+  message("Problems found - Attempting to repair...")
+  i <- 1
+  geom <- sf::st_geometry(obj)
+  while (i <= tries) { # Try three times
+    message("Attempt ", i, " of ", tries)
+    geom <- sf::st_buffer(geom, dist = 0)
+    is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(geom)))
+    if (all(is_valid)) {
+      message("Geometry is valid")
+      sf::st_geometry(obj) <- geom
+      return(obj)
+    } else {
+      i <- i + 1
     }
   }
-  warning("tried 3 times but could not repair all geometries")
+
+  warning("tried ", tries, " times but could not repair all geometries")
   sf::st_geometry(obj) <- geom
   obj
 }
