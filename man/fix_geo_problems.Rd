@@ -4,10 +4,12 @@
 \alias{fix_geo_problems}
 \title{Check and fix polygons that self-intersect, and sometimes can fix orphan holes}
 \usage{
-fix_geo_problems(obj)
+fix_geo_problems(obj, tries = 5)
 }
 \arguments{
 \item{obj}{The SpatialPolygons* or sf object to check/fix}
+
+\item{tries}{The maximum number of attempts to repair the geometry.}
 }
 \value{
 The SpatialPolygons* or sf object, repaired if necessary
