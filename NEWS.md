@@ -1,3 +1,7 @@
+# bcmaps 0.8.2
+
+* Added a `tries` argument to `fix_geo_problems` function to set the maximum number of iterations it should go through in attempting to repair topological issues.
+
 # bcmaps 0.8.1
 
 * Set character encoding of `watercourses_15M` and `watercourses_5M` datasets to UTF-8.
