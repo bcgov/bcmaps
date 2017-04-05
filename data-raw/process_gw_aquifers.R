@@ -16,15 +16,15 @@ library("devtools")
 library("raster") # for intersect()
 library("bcmaps") #for bc_bound
 
-gw_aquifer_zip <- "data-raw/gw_aquifer/BCGW_78757263_1491002090185_10148.zip"
+gw_aquifers_zip <- "data-raw/gw_aquifer/BCGW_78757263_1491002090185_10148.zip"
 
-unzip(gw_aquifer_zip, exdir = "data-raw/gw_aquifer")
+unzip(gw_aquifers_zip, exdir = "data-raw/gw_aquifers")
 
-gw_aquifer <- readOGR(dsn = "data-raw/gw_aquifer/GW_AQUIFER",
+gw_aquifers <- readOGR(dsn = "data-raw/gw_aquifers/GW_AQUIFER",
                         layer = "GW_AQUIFER_polygon", stringsAsFactors = FALSE)
 
-gw_aquifer <- spTransform(gw_aquifer, "+init=epsg:3005")
+gw_aquifers <- spTransform(gw_aquifers, "+init=epsg:3005")
 
 #gw_aquifer <- intersect(gw_aquifer, bc_bound_hres)
 
-use_data(gw_aquifer, overwrite = TRUE, compress = "xz")
+use_data(gw_aquifers, overwrite = TRUE, compress = "xz")
