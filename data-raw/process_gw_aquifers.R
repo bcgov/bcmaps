@@ -25,8 +25,6 @@ gw_aquifer <- readOGR(dsn = "data-raw/gw_aquifer/GW_AQUIFER",
 
 gw_aquifer <- spTransform(gw_aquifer, "+init=epsg:3005")
 
-gw_aquifer <- intersect(gw_aquifer, bc_bound_hres)
-
-#watercourses_5M <- set_utf8(watercourses_5M)
+#gw_aquifer <- intersect(gw_aquifer, bc_bound_hres)
 
 use_data(gw_aquifer, overwrite = TRUE, compress = "xz")
