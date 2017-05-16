@@ -27,7 +27,7 @@ install_github("bcgov/bcmaps", build_vignettes = TRUE)
 
 ### Usage
 
-At the moment, there are twelve layers available:
+At the moment, there are fourteen layers available:
 
 -   `bc_bound`: Coarse provincial boundary of British Columbia (1:7.5M scale).
 
@@ -56,6 +56,10 @@ At the moment, there are twelve layers available:
 -   `watercourses_5M`: Watercourses for British Columbia at 1:5M scale.
 
 -   `gw_aquifers`: Boundaries of British Columbia's developed ground water aquifers (that have been mapped).
+
+-   `water_districts`: Boundaries of British Columbia's Water Management Districts.
+
+-   `water_precincts`: Boundaries of British Columbia's Water Management Precincts.
 
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object.
 
@@ -159,6 +163,6 @@ The data and code in this repository is licensed under multiple licenses.
 
 -   Source data in `/data-raw/canvec_15M_hydro` and `/data-raw/canvec_5M_hydro` is licensed under the [Open Government License - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
--   Source data in `/data-raw/gw_aquifers` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/gw_aquifers`, `/data-raw/water_districts` and `/data-raw/water_precincts` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
 This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
