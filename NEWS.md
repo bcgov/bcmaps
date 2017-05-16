@@ -1,3 +1,7 @@
+# bcmaps 0.10.0
+
+* Added `water_districts` and `water_precincts` datasets.
+
 # bcmaps 0.9.0
 
 * Added `gw_aquifers` dataset.
