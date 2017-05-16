@@ -11,7 +11,7 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 #' Polygons delineating British Columbia's Water Management Precincts. Water Precincts are
-#' a jurisdictional areas within a Water District.
+#' jurisdictional areas within a Water District.
 #'
 #' @format A spatialPolygonsDataFrame with polygons delineating Water Management Precincts for British Columbia.
 #'
