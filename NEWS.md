@@ -1,3 +1,7 @@
+# bcmaps 0.8.3
+
+* Fixed ring self-intersctions in `bc_bound_hres` and `airzones`
+
 # bcmaps 0.8.2
 
 * Added a `tries` argument to `fix_geo_problems` function to set the maximum number of iterations it should go through in attempting to repair topological issues.

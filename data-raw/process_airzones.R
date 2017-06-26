@@ -25,6 +25,8 @@ unzip(airzones_zip, exdir = "data-raw/airzones")
 
 airzones <- readOGR(dsn = "data-raw/airzones", layer = "bc_air_zones", stringsAsFactors = FALSE)
 
+airzones <- bcmaps::fix_geo_problems(airzones)
+
 airzones <- spTransform(airzones, CRSobj = CRS("+init=epsg:3005"))
 
 use_data(airzones, overwrite = TRUE, compress = "xz")
