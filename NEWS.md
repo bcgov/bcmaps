@@ -1,3 +1,7 @@
+# bcmaps 0.11.0
+
+* Added `hydrozones` dataset.
+
 # bcmaps 0.10.0
 
 * Added `water_districts` and `water_precincts` datasets.
