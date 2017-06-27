@@ -39,6 +39,9 @@ bc_bound_hres <- cd[cd$PRUID == 59,]
 ## Transform to BC Albers
 bc_bound_hres <- spTransform(bc_bound_hres, CRS("+init=epsg:3005"))
 
+bc_bound_hres <- bcmaps::fix_geo_problems(bc_bound_hres)
+
+
 use_data(bc_bound_hres, overwrite = TRUE, compress = "xz")
 
 

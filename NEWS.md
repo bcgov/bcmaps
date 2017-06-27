@@ -2,6 +2,10 @@
 
 * Added `hydrozones` dataset.
 
+# bcmaps 0.10.1
+
+* Fixed ring self-intersctions in `bc_bound_hres` and `airzones` (#13)
+
 # bcmaps 0.10.0
 
 * Added `water_districts` and `water_precincts` datasets.
