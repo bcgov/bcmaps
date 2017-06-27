@@ -14,13 +14,13 @@ library("sp")
 library("rgdal")
 library("devtools")
 
-hydrologic_zip <- "data-raw/hydrologic_zones/BC_hydrologic_zones.zip"
+hydrologic_zip <- "data-raw/hydrozones/BC_hydrologic_zones.zip"
 
-unzip(hydrologic_zip , exdir = "data-raw/hydrologic_zones")
+unzip(hydrologic_zip , exdir = "data-raw/hydrozones")
 
-bc_hyd_zn <- readOGR(dsn = "data-raw/hydrologic_zones/HYD_BC_H_Z",
+hydrozones <- readOGR(dsn = "data-raw/hydrozones/HYD_BC_H_Z",
                       layer = "HYD_BC_H_Z_polygon", stringsAsFactors = FALSE)
 
-bc_hyd_zn <- spTransform(bc_hyd_zn, "+init=epsg:3005")
+hydrozones <- spTransform(hydrozones, "+init=epsg:3005")
 
-use_data(bc_hyd_zn, overwrite = TRUE, compress = "xz")
+use_data(hydrozones, overwrite = TRUE, compress = "xz")

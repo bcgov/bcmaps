@@ -27,4 +27,4 @@
 #'   \href{http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf}{Open
 #'   Government License - British Columbia}.
 
-"bc_hyd_zn"
+"hydrozones"
