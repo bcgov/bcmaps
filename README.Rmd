@@ -47,7 +47,7 @@ install_github("bcgov/bcmaps", build_vignettes = TRUE)
 
 ### Usage
 
-At the moment, there are fourteen layers available:
+At the moment, there are fifteen layers available:
 
 - `bc_bound`: Coarse provincial boundary of British Columbia (1:7.5M scale).
 
@@ -80,6 +80,8 @@ At the moment, there are fourteen layers available:
 - `water_districts`: Boundaries of British Columbia's Water Management Districts.
 
 - `water_precincts`: Boundaries of British Columbia's Water Management Precincts.
+
+- `bc_hyd_zn`: Hydrologic Zone Boundaries of British Columbia.
 
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the 
 name of the layer of interest. Then you can use the data as you would any `sp`
