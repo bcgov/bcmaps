@@ -1,3 +1,7 @@
+# bcmaps 0.12.0
+
+* Added `wsc_drainages`
+
 # bcmaps 0.11.0
 
 * Added `hydrozones` dataset.
