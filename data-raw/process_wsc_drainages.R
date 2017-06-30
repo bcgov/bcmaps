@@ -23,4 +23,7 @@ wsc_drainages <- readOGR(dsn = "data-raw/wsc_drainages/SSDA",
 
 wsc_drainages <- spTransform(wsc_drainages, "+init=epsg:3005")
 
+## deal with a non ASCII character in the data
+wsc_drainages$WSCSSDA_EN <- iconv(wsc_drainages$WSCSSDA_EN, "UTF-8", sub = "")
+
 use_data(wsc_drainages, overwrite = TRUE, compress = "xz")
