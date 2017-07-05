@@ -63,7 +63,7 @@ At the moment, there are sixteen layers available:
 
 -   `hydrozones`: Hydrologic Zone Boundaries of British Columbia.
 
--   `wsc_drainages`: Water Survey of Canada Sub-Sub-Drainage Areas
+-   `wsc_drainages`: Water Survey of Canada Sub-Sub-Drainage Areas.
 
 To load any of them, simply type `data(layer_name)`, where `layer_name` is the name of the layer of interest. Then you can use the data as you would any `sp` object.
 
@@ -72,6 +72,7 @@ A couple of simple examples:
 ``` r
 library(bcmaps)
 #> Loading required package: sp
+#> Warning: package 'sp' was built under R version 3.4.1
 
 # Load and plot the boundaries of B.C.
 data(bc_bound)
@@ -129,7 +130,16 @@ We have written a short vignette on plotting points on one of the layers from `b
 
 ### Project Status
 
-Under active development, we will add different layers iteratively.
+Further development of the `bcmaps` package is on hold until the enhancements outlined in [Issue \#2](https://github.com/bcgov/bcmaps/issues/2) and [\#21](https://github.com/bcgov/bcmaps/issues/21) are implemented. We are hoping to tackle these in 2018.
+
+If you are using the new [R package sf](https://cran.r-project.org/web/packages/sf/index.html), you can convert the `bcmaps` [sp](https://cran.r-project.org/web/packages/sp/index.html) objects to `sf` objects with `sf::st_as_sf()`
+
+``` r
+install.packages("sf") # if not already installed
+
+library(sf)
+bc_bound_sf <- st_as_sf(bcmaps::bc_bound)
+```
 
 ### Getting Help or Reporting an Issue
 
