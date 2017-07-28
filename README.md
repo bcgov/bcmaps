@@ -12,7 +12,7 @@ An [R](http://r-project.org) package of map layers for British Columbia.
 
 ### Features
 
-Various layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+Various layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
 ### Installation
 
@@ -72,7 +72,6 @@ A couple of simple examples:
 ``` r
 library(bcmaps)
 #> Loading required package: sp
-#> Warning: package 'sp' was built under R version 3.4.1
 
 # Load and plot the boundaries of B.C.
 data(bc_bound)
@@ -153,34 +152,34 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ### Source Data
 
-The source datasets used in this package come from various sources under open licenses, including [DataBC](http://data.gov.bc.ca) ([Open Government License - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.
+The source datasets used in this package come from various sources under open licences, including [DataBC](http://data.gov.bc.ca) ([Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.
 
 ### License
 
-The data and code in this repository is licensed under multiple licenses.
+The data and code in this repository is licenced under multiple licences.
 
--   All R code in the `/R` directory and the `/data-raw` directory is licensed under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). See LICENSE.Apache-2.0 in the appropriate directories.
+-   All R code in the `/R` directory and the `/data-raw` directory is licenced under the [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). See LICENSE.Apache-2.0 in the appropriate directories.
 
--   Source data in `/data-raw/bc_bound` is licensed under the [Open Government License - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
+-   Source data in `/data-raw/bc_bound` is licenced under the [Open Government Licence - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
--   Source data in `/data-raw/census-divisions_statscan` is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
+-   Source data in `/data-raw/census-divisions_statscan` is licenced under the [Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
 
--   Source data in `/data-raw/prov_territories_statscan` is licensed under the [Statistics Canada Open License Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
+-   Source data in `/data-raw/prov_territories_statscan` is licenced under the [Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng). See LICENSE.StatsCan-OLA in the appropriate directory.
 
--   Source data in `/data-raw/ecoprovinces` and `/data-raw/ecoregions` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/ecoprovinces` and `/data-raw/ecoregions` is licenced under the [Open Government Licence - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/airzones` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/airzones` is licenced under the [Open Government Licence - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/nr_areas`, `/data-raw/nr_regions` and `/data-raw/nr_districts` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/nr_areas`, `/data-raw/nr_regions` and `/data-raw/nr_districts` is licenced under the [Open Government Licence - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/watershed_boundaries` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/watershed_boundaries` is licenced under the [Open Government Licence - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/hydrozones` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/hydrozones` is licenced under the [Open Government Licence - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/canvec_15M_hydro` and `/data-raw/canvec_5M_hydro` is licensed under the [Open Government License - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
+-   Source data in `/data-raw/canvec_15M_hydro` and `/data-raw/canvec_5M_hydro` is licenced under the [Open Government Licence - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
--   Source data in `/data-raw/gw_aquifers`, `/data-raw/water_districts` and `/data-raw/water_precincts` is licensed under the [Open Government License - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
+-   Source data in `/data-raw/gw_aquifers`, `/data-raw/water_districts` and `/data-raw/water_precincts` is licenced under the [Open Government Licence - British Columbia version 2.0](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61). See LICENSE.OGL-vbc2.0.pdf in the appropriate directory.
 
--   Source data in `/data-raw/wsc_drainages` is licensed under the [Open Government License - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
+-   Source data in `/data-raw/wsc_drainages` is licenced under the [Open Government Licence - Canada version 2.0](http://open.canada.ca/en/open-government-licence-canada). See LICENSE.Canada-OGL-2.0 in the appropriate directory.
 
 This repository is maintained by [Environmental Reporting BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a complete list of our repositories on GitHub.
