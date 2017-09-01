@@ -1,20 +1,22 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
-<a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
-
-[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
-
-------------------------------------------------------------------------
-
 bcmaps
 ======
 
+<a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
+
+Overview
+--------
+
 An [R](http://r-project.org) package of map layers for British Columbia.
 
-### Features
+Features
+--------
 
 Various layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 
-### Installation
+Installation
+------------
 
 The package is not available on CRAN, but can be installed using the [devtools](https://github.com/hadley/devtools) package:
 
@@ -25,7 +27,8 @@ library(devtools)
 install_github("bcgov/bcmaps", build_vignettes = TRUE)
 ```
 
-### Usage
+Usage
+-----
 
 At the moment, there are sixteen layers available:
 
@@ -93,7 +96,7 @@ text(coordinates(kootenays),
 
 ![](README-plot-maps-2.png)
 
-#### Plot watercourses in British Columbia at a course scale
+### Plot watercourses in British Columbia at a course scale
 
 ``` r
 
@@ -103,9 +106,9 @@ plot(bc_bound)
 plot(watercourses_15M, add = TRUE)
 ```
 
-![](README-unnamed-chunk-4-1.png)
+![](README-unnamed-chunk-3-1.png)
 
-#### Size of British Columbia
+### Size of British Columbia
 
 There is also a simple function that returns the size of B.C. in various units. You can choose total area, land area only, or freshwater area only:
 
@@ -123,11 +126,12 @@ bc_area("freshwater", "km2")
 #>          19549
 ```
 
-#### Vignettes
+### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
 
-### Project Status
+Project Status
+--------------
 
 Further development of the `bcmaps` package is on hold until the enhancements outlined in [Issue \#2](https://github.com/bcgov/bcmaps/issues/2) and [\#21](https://github.com/bcgov/bcmaps/issues/21) are implemented. We are hoping to tackle these in 2018.
 
@@ -140,21 +144,25 @@ library(sf)
 bc_bound_sf <- st_as_sf(bcmaps::bc_bound)
 ```
 
-### Getting Help or Reporting an Issue
+Getting Help or Reporting an Issue
+----------------------------------
 
 To report bugs/issues/feature requests, please file an [issue](https://github.com/bcgov/bcmaps/issues/).
 
-### How to Contribute
+How to Contribute
+-----------------
 
 Pull requests of new B.C. layers are welcome. If you would like to contribute to the package, please see our [CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-### Source Data
+Source Data
+-----------
 
 The source datasets used in this package come from various sources under open licences, including [DataBC](http://data.gov.bc.ca) ([Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.
 
-### License
+License
+-------
 
 The data and code in this repository is licenced under multiple licences.
 
