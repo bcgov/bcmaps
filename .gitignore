@@ -1,6 +1,7 @@
 .Rproj.user
 .Rhistory
 .RData
+.DS_Store
 README.html
 inst/doc
 data-raw/prov_territories_statscan/gpr_000b11a_e.dbf
