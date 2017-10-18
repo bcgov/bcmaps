@@ -17,7 +17,9 @@ Imports: methods
 License: file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests: knitr,
+Suggests: 
+    bcmaps.rdata,
+    knitr,
     rmarkdown,
     sp (>= 1.2-5),
     rgdal (>= 1.2-13),
@@ -26,4 +28,5 @@ Suggests: knitr,
     ggplot2 (>= 2.2.1),
     sf (>= 0.5-4),
     testthat
+Additional_repositories: https://bcgov.github.io/drat
 VignetteBuilder: knitr
