@@ -10,19 +10,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Defunct functions in bcmaps
-#'
-#' These functions are gone, no longer available.
-#'
-#' @param ... old defunct arguments
-#'
-#' \itemize{
-#'  \item \code{\link{fix_self_intersect}}: This function is defunct. Use \code{\link{fix_geo_problems}} instead.
-#' }
-#'
-#' @name bcmaps-defunct
-NULL
-
 #' The size of British Columbia
 #'
 #' Total area, Land area only, or Freshwater area only, in the units of your choosing.
@@ -103,6 +90,9 @@ transform_bc_albers.sf <- function(obj) {
   sf::st_transform(obj, 3005)
 }
 
+#' @export
+transform_bc_albers.sfc <- transform_bc_albers.sf
+
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
 #' This uses the common method of buffering by zero.
@@ -182,11 +172,8 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
   obj
 }
 
-#' @rdname bcmaps-defunct
-fix_self_intersect <- function(...) {
-  .Defunct("This function has been removed from bcmaps.
-          Please use 'fix_geo_problems' instead.")
-}
+#' @export
+fix_geo_problems.sfc <- fix_geo_problems.sf
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
