@@ -19,22 +19,22 @@
 
 .onAttach <- function(libname, pkgname) {
   if (!.bcmaps_env$has_data) {
-    msg <- paste("To use this package, you must install the",
-                 "bcmaps.rdata package. To install that ",
-                 "package, run `install.packages('bcmaps.rdata',",
-                 "repos='https://bcgov.github.io/drat/', type='source')`.")
-    msg <- paste(strwrap(msg), collapse="\n")
+    msg <- has_no_data_msg()
     packageStartupMessage(msg)
   }
 }
 
-hasData <- function(has_data = .pkgenv$has_data) {
-  if (!has_data) {
-    msg <- paste("To use this package, you must install the",
-                 "bcmaps.rdata package. To install that ",
-                 "package, run `install.packages('bcmaps.rdata',",
-                 "repos='https://bcgov.github.io/drat/', type='source')`.")
-    msg <- paste(strwrap(msg), collapse="\n")
+hasData <- function() {
+  if (!.bcmaps_env$has_data) {
+    msg <- has_no_data_msg()
     stop(msg)
   }
+}
+
+has_no_data_msg <- function() {
+  msg <- paste("To use the data in this package, you must install the",
+               "bcmaps.rdata package. To install that ",
+               "package, run `install.packages('bcmaps.rdata',",
+               "repos='https://bcgov.github.io/drat/', type='source')`.")
+  paste(strwrap(msg), collapse="\n")
 }
