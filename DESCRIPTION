@@ -30,3 +30,4 @@ Suggests:
     testthat
 Additional_repositories: https://bcgov.github.io/drat
 VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)

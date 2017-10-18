@@ -16,9 +16,9 @@
 #'
 #' The sizes are from \href{http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/phys01-eng.htm}{Statistics Canada}
 #'
-#' @param what Which part of BC? One of \code{'total'} (default), \code{'land'}, or \code{'freshwater'}.
-#' @param units One of \code{'km2'} (square kilometres; default), \code{'m2'} (square metres),
-#'          \code{'ha'} (hectares), \code{'acres'}, or \code{'sq_mi'} (square miles)
+#' @param what Which part of BC? One of `'total'` (default), `'land'`, or `'freshwater'`.
+#' @param units One of `'km2'` (square kilometres; default), `'m2'` (square metres),
+#'          `'ha'` (hectares), `'acres'`, or `'sq_mi'` (square miles)
 #'
 #' @return The area of B.C. in the desired units (numeric vector).
 #' @export
@@ -97,8 +97,8 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 #'
 #' This uses the common method of buffering by zero.
 #'
-#' \code{fix_self_intersect} has been removed and will no longer work. Use
-#' \code{fix_geo_problems} instead
+#' `fix_self_intersect` has been removed and will no longer work. Use
+#' `fix_geo_problems` instead
 #'
 #' @param obj The SpatialPolygons* or sf object to check/fix
 #' @param tries The maximum number of attempts to repair the geometry.
@@ -178,12 +178,12 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
 #' The IDs of source polygons are stored in a list-column called
-#' \code{union_ids}, and original attributes (if present) are stored as nested
-#' dataframes in a list-column called \code{union_df}
+#' `union_ids`, and original attributes (if present) are stored as nested
+#' dataframes in a list-column called `union_df`
 #'
-#' @param x A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
+#' @param x A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
 #'
-#' @return A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
+#' @return A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
 #' @export
 #'
 #' @examples
@@ -245,14 +245,14 @@ get_unioned_ids <- function(unioned_sp) {
 
 #' Get or calculate the attribute of a list-column containing nested dataframes.
 #'
-#' For example, \code{self_union} produces a \code{SpatialPolygonsDataFrame}
-#' that has a column called \code{union_df}, which contains a \code{data.frame}
+#' For example, `self_union` produces a `SpatialPolygonsDataFrame`
+#' that has a column called `union_df`, which contains a `data.frame`
 #' for each polygon with the attributes from the constituent polygons.
 #'
 #' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
 #' @param col the column in the nested data frames from which to retrieve/calculate attributes
 #' @param fun function to determine the resulting single attribute from overlapping polygons
-#' @param ... other paramaters passed on to \code{fun}
+#' @param ... other paramaters passed on to `fun`
 #'
 #' @importFrom methods is
 #'

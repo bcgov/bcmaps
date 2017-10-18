@@ -14,14 +14,17 @@
 #'
 #' Watercourses at 1:15M scale for British Columbia sourced from Natural Resources Canada GeoGratis data.
 #'
+#' @inherit bc_bound_hres params return
 #'
-#' @format A spatialPolygonsDataFrame with watercourses at the 1:15M scale for British Columbia.
+#' @details  An sf or Spatial object with watercourses at the 1:15M scale for British Columbia.
 #'
-#'
-#' @source Original data from
+#' Original data from
 #'   \href{https://www.nrcan.gc.ca/earth-sciences/geography/topographic-information/free-data-geogratis/download-directory-documentation/17215}{},
 #'    under the
 #'   \href{http://open.canada.ca/en/open-government-licence-canada}{Open
 #'   Government License - Canada}.
 #'
-"watercourses_15M"
+#' @export
+watercourses_15M <- function(class = "sf") {
+  get_layer("watercourses_15M", class = class)
+}

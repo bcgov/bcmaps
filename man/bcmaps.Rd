@@ -17,13 +17,3 @@ The layers are sourced from various places under open licenses, including
 \href{http://www.statcan.gc.ca/eng/reference/licence-eng}{Statistics Canada}.
 Each layer's help page contians a section describing the source for the data.
 }
-\section{Available layers}{
-
-\describe{
- \item{\link{bc_bound}}{British Columbia Boundary}
- \item{\link{regional_districts_disp}}{Regional district boundaries (for display)}
- \item{\link{regional_districts_analysis}}{Regional district boundaries (for analysis)}
- \item{\link{airzones}}{British Columbia Air Zones}
-}
-}
-
