@@ -1,28 +1,29 @@
 Package: bcmaps
-Title: Map layers for British Columbia
-Version: 0.12.0
+Title: Map layers and spatial utilities for British Columbia
+Version: 0.12.0.9999
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
   role = "aut"), person("Sam", "Albers", email = "sam.albers@gov.bc.ca", role = "aut"),
   person("Province of British Columbia", role="cph"))
-Description: Various layers of B.C., such as administrative boundaries, natural
-    resource management boundaries, etc. All layers are available as 'sp' objects,
-    and are in BC Albers projection (http://spatialreference.org/ref/epsg/nad83-bc-
-    albers/), which is the B.C. government standard (https://www.for.gov.bc.ca/hts/
-    risc/pubs/other/mappro/index.htm).
+Description: Provides access to various spatial layers for B.C., such as 
+    administrative boundaries, natural resource management boundaries, etc. 
+    All layers are imported from the 'bcmaps.rdata' package as 'sf' or 'Spatial' objects
+    through function calls in this package. All layers are in BC Albers projection 
+    (http://spatialreference.org/ref/epsg/nad83-bc-albers/), which is the B.C. 
+    government standard (https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 Depends:
-    R (>= 3.2.0),
-    sp (>= 1.1.0)
+    R (>= 3.4.0)
 Imports: methods
 License: file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
-    rgdal (>= 1.1-8),
-    rgeos (>= 0.3-19),
-    raster (>= 2.5-2),
-    ggplot2 (>= 2.1.0),
-    sf (>= 0.2-7),
+    sp (>= 1.2-5),
+    rgdal (>= 1.2-13),
+    rgeos (>= 0.3-25),
+    raster (>= 2.5-8),
+    ggplot2 (>= 2.2.1),
+    sf (>= 0.5-4),
     testthat
 VignetteBuilder: knitr
