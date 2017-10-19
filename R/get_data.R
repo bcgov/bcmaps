@@ -46,6 +46,10 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 
 }
 
+#' List available data layers
+#'
+#' @return A data.frame of layers 
+#' @export
 available_layers <- function() {
   hasData()
   datas <- data(package = "bcmaps.rdata")
