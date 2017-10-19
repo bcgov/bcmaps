@@ -1,4 +1,4 @@
-# Copyright 2015 Province of British Columbia
+# Copyright 2016 Province of British Columbia
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,4 +28,23 @@
 #' @export
 bc_bound_hres <- function(class = "sf") {
   get_layer("bc_bound_hres", class = class)
+}
+
+#' British Columbia watercourses at 1:15M scale.
+#'
+#' Watercourses at 1:15M scale for British Columbia sourced from Natural Resources Canada GeoGratis data.
+#'
+#' @inherit bc_bound_hres params return
+#'
+#' @details  An sf or Spatial object with watercourses at the 1:15M scale for British Columbia.
+#'
+#' Original data from
+#'   \href{https://www.nrcan.gc.ca/earth-sciences/geography/topographic-information/free-data-geogratis/download-directory-documentation/17215}{},
+#'    under the
+#'   \href{http://open.canada.ca/en/open-government-licence-canada}{Open
+#'   Government License - Canada}.
+#'
+#' @export
+watercourses_15M <- function(class = "sf") {
+  get_layer("watercourses_15M", class = class)
 }
