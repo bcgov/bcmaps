@@ -38,7 +38,7 @@ get_layer <- function(layer, class = c("sf", "sp")) {
   ret <- getExportedValue("bcmaps.rdata", layer)
 
   if (class == "sp") {
-    if (!require("sf")) stop("The sf package is required to convert to sp")
+    if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
     ret <- as(ret, "Spatial")
   }
 
