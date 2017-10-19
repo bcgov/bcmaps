@@ -20,7 +20,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun {
+#' \dontrun{
 #'  get_layer("bc_bound_hres")
 #'
 #'  # As a "Spatial" (sp) object

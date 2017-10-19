@@ -19,7 +19,7 @@ the layer requested
 Get a B.C. spatial layer
 }
 \examples{
-\dontrun {
+\dontrun{
  get_layer("bc_bound_hres")
 
  # As a "Spatial" (sp) object
