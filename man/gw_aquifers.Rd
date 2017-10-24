@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{gw_aquifers}
 \alias{gw_aquifers}
-\title{Polygons delineating British Columbia's developed ground water aquifers (that have been mapped). Most aquifer boundaries are delineated based on geology, hydrology and topographic information. Some aquifer boundaries stop at the border of BC mapsheet boundaries due to resource or data constraints at the time of mapping.}
+\title{British Columbia's developed ground water aquifers.}
 \usage{
 gw_aquifers(class = "sf")
 }

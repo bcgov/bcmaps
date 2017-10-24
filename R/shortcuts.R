@@ -121,7 +121,7 @@ ecoregions <- function(class = 'sf') {
    get_layer('ecoregions', class = class)
 }
 
-#' Polygons delineating British Columbia's developed ground water aquifers (that have been mapped). Most aquifer boundaries are delineated based on geology, hydrology and topographic information. Some aquifer boundaries stop at the border of BC mapsheet boundaries due to resource or data constraints at the time of mapping.
+#' British Columbia's developed ground water aquifers.
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
