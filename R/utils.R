@@ -187,23 +187,25 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 #' @export
 #'
 #' @examples
-#' p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-#' p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+#' if (require(sp)) {
+#'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+#'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
 #'
-#' ps1 <- Polygons(list(p1), "s1")
-#' ps2 <- Polygons(list(p2), "s2")
+#'   ps1 <- Polygons(list(p1), "s1")
+#'   ps2 <- Polygons(list(p2), "s2")
 #'
-#' spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+#'   spp <- SpatialPolygons(list(ps1,ps2), 1:2)
 #'
-#' df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
-#'                  stringsAsFactors = FALSE)
+#'   df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
+#'                    stringsAsFactors = FALSE)
 #'
-#' spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+#'   spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
 #'
-#' plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+#'   plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
 #'
-#' unioned_spdf <- self_union(spdf)
-#' unioned_sp <- self_union(spp)
+#'   unioned_spdf <- self_union(spdf)
+#'   unioned_sp <- self_union(spp)
+#' }
 self_union <- function(x) {
   if (!inherits(x, "SpatialPolygons")) {
     stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
@@ -260,20 +262,22 @@ get_unioned_ids <- function(unioned_sp) {
 #' @export
 #'
 #' @examples
-#' p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-#' p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
-#' ps1 <- Polygons(list(p1), "s1")
-#' ps2 <- Polygons(list(p2), "s2")
-#' spp <- SpatialPolygons(list(ps1,ps2), 1:2)
-#' df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
-#'                  c = factor(c("high", "low"), ordered = TRUE,
-#'                             levels = c("low", "high")),
-#'                  stringsAsFactors = FALSE)
-#' spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
-#' plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
-#' unioned_spdf <- self_union(spdf)
-#' get_poly_attribute(unioned_spdf$union_df, "a", sum)
-#' get_poly_attribute(unioned_spdf$union_df, "c", max)
+#' if (require(sp)) {
+#'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+#'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+#'   ps1 <- Polygons(list(p1), "s1")
+#'   ps2 <- Polygons(list(p2), "s2")
+#'   spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+#'   df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
+#'                    c = factor(c("high", "low"), ordered = TRUE,
+#'                               levels = c("low", "high")),
+#'                    stringsAsFactors = FALSE)
+#'   spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+#'   plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+#'   unioned_spdf <- self_union(spdf)
+#'   get_poly_attribute(unioned_spdf$union_df, "a", sum)
+#'   get_poly_attribute(unioned_spdf$union_df, "c", max)
+#' }
 get_poly_attribute <- function(x, col, fun, ...) {
   if (!is(x, "list")) stop("x must be a list, or list-column in a data frame")
   if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
