@@ -18,11 +18,19 @@
 
 #' British Columbia Air Zones
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `airzones` in the desired class
 #'
 #' @details See [bcmaps.rdata::airzones] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- airzones()
+#' my_layer_sp <- airzones(class = 'sp')
+#' }
 #'
 #' @export
 airzones <- function(class = 'sf') {
@@ -31,11 +39,19 @@ airzones <- function(class = 'sf') {
 
 #' BC Boundary
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `bc_bound` in the desired class
 #'
 #' @details See [bcmaps.rdata::bc_bound] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- bc_bound()
+#' my_layer_sp <- bc_bound(class = 'sp')
+#' }
 #'
 #' @export
 bc_bound <- function(class = 'sf') {
@@ -44,11 +60,19 @@ bc_bound <- function(class = 'sf') {
 
 #' BC Boundary - High Resolution
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `bc_bound_hres` in the desired class
 #'
 #' @details See [bcmaps.rdata::bc_bound_hres] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- bc_bound_hres()
+#' my_layer_sp <- bc_bound_hres(class = 'sp')
+#' }
 #'
 #' @export
 bc_bound_hres <- function(class = 'sf') {
@@ -57,11 +81,19 @@ bc_bound_hres <- function(class = 'sf') {
 
 #' British Columbia Ecoprovinces
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `ecoprovinces` in the desired class
 #'
 #' @details See [bcmaps.rdata::ecoprovinces] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- ecoprovinces()
+#' my_layer_sp <- ecoprovinces(class = 'sp')
+#' }
 #'
 #' @export
 ecoprovinces <- function(class = 'sf') {
@@ -70,11 +102,19 @@ ecoprovinces <- function(class = 'sf') {
 
 #' British Columbia Ecoregions
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `ecoregions` in the desired class
 #'
 #' @details See [bcmaps.rdata::ecoregions] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- ecoregions()
+#' my_layer_sp <- ecoregions(class = 'sp')
+#' }
 #'
 #' @export
 ecoregions <- function(class = 'sf') {
@@ -83,11 +123,19 @@ ecoregions <- function(class = 'sf') {
 
 #' Polygons delineating British Columbia's developed ground water aquifers (that have been mapped). Most aquifer boundaries are delineated based on geology, hydrology and topographic information. Some aquifer boundaries stop at the border of BC mapsheet boundaries due to resource or data constraints at the time of mapping.
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `gw_aquifers` in the desired class
 #'
 #' @details See [bcmaps.rdata::gw_aquifers] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- gw_aquifers()
+#' my_layer_sp <- gw_aquifers(class = 'sp')
+#' }
 #'
 #' @export
 gw_aquifers <- function(class = 'sf') {
@@ -96,11 +144,19 @@ gw_aquifers <- function(class = 'sf') {
 
 #' British Columbia Ecoregions
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `municipalities` in the desired class
 #'
 #' @details See [bcmaps.rdata::municipalities] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- municipalities()
+#' my_layer_sp <- municipalities(class = 'sp')
+#' }
 #'
 #' @export
 municipalities <- function(class = 'sf') {
@@ -109,11 +165,19 @@ municipalities <- function(class = 'sf') {
 
 #' British Columbia Ecoregions
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `regional_districts` in the desired class
 #'
 #' @details See [bcmaps.rdata::regional_districts] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- regional_districts()
+#' my_layer_sp <- regional_districts(class = 'sp')
+#' }
 #'
 #' @export
 regional_districts <- function(class = 'sf') {
@@ -122,11 +186,19 @@ regional_districts <- function(class = 'sf') {
 
 #' British Columbia watercourses at 1:15M scale.
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `watercourses_15M` in the desired class
 #'
 #' @details See [bcmaps.rdata::watercourses_15M] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- watercourses_15M()
+#' my_layer_sp <- watercourses_15M(class = 'sp')
+#' }
 #'
 #' @export
 watercourses_15M <- function(class = 'sf') {
@@ -135,11 +207,19 @@ watercourses_15M <- function(class = 'sf') {
 
 #' British Columbia watercourses at 1:5M scale.
 #'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
-#' @return The spatial layer in the desired class
+#' @return The spatial layer of `watercourses_5M` in the desired class
 #'
 #' @details See [bcmaps.rdata::watercourses_5M] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- watercourses_5M()
+#' my_layer_sp <- watercourses_5M(class = 'sp')
+#' }
 #'
 #' @export
 watercourses_5M <- function(class = 'sf') {
