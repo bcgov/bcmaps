@@ -10,7 +10,6 @@
 #' @param file the R file where the shortcut file is. Default "R/shortcuts.R"
 #'
 #' @return TRUE (invisibly)
-#'
 make_shortcuts <- function(file = "R/shortcuts.R") {
 
   if (!requireNamespace("bcmaps") || !requireNamespace("bcmaps.rdata") ||
@@ -37,29 +36,30 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
 
     fn_defn <- glue::glue("
 
-         #' {fn_title}
-         #'
-         #' You must have the `bcmaps.rdata` package installed to use this function.
-         #'
-         #' @param class what class you want the object in? `\"sf\"` (default) or `\"sp\"`.
-         #'
-         #' @return The spatial layer of `{fn_name}` in the desired class
-         #'
-         #' @details See [bcmaps.rdata::{fn_name}] for details.
-         #'
-         #' @examples
-         #' \\dontrun{{
-         #' my_layer <- {fn_name}()
-         #' my_layer_sp <- {fn_name}(class = 'sp')
-         #' }}
-         #'
-         #' @export
+         roxygen_blocker#' {fn_title}
+         roxygen_blocker#'
+         roxygen_blocker#' You must have the `bcmaps.rdata` package installed to use this function.
+         roxygen_blocker#'
+         roxygen_blocker#' @param class what class you want the object in? `\"sf\"` (default) or `\"sp\"`.
+         roxygen_blocker#'
+         roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
+         roxygen_blocker#'
+         roxygen_blocker#' @details See [bcmaps.rdata::{fn_name}] for details.
+         roxygen_blocker#'
+         roxygen_blocker#' @examples
+         roxygen_blocker#' \\dontrun{{
+         roxygen_blocker#' my_layer <- {fn_name}()
+         roxygen_blocker#' my_layer_sp <- {fn_name}(class = 'sp')
+         roxygen_blocker#' }}
+         roxygen_blocker#'
+         roxygen_blocker#' @export
          {fn_name} <- function(class = 'sf') {{
             get_layer('{fn_name}', class = class)
          }}
 
          ")
-    cat(as.character(fn_defn), file = file, append = TRUE)
+    fn_defn <- gsub("roxygen_blocker", "", fn_defn)
+    cat(fn_defn, file = file, append = TRUE)
     message("Succuss! Shorcut function for '", fn_name, "' added to ", file)
   }
 
