@@ -13,11 +13,13 @@ Description: Provides access to various spatial layers for B.C., such as
     government standard (https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
 Depends:
     R (>= 3.4.0)
-Imports: methods
+Imports: 
+    methods,
+    utils
 License: file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
-Suggests: 
+Suggests:
     bcmaps.rdata,
     knitr,
     rmarkdown,

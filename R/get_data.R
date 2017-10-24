@@ -39,7 +39,7 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 
   if (class == "sp") {
     if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
-    ret <- as(ret, "Spatial")
+    ret <- methods::as(ret, "Spatial")
   }
 
   ret
@@ -48,10 +48,10 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 
 #' List available data layers
 #'
-#' @return A data.frame of layers 
+#' @return A data.frame of layers
 #' @export
 available_layers <- function() {
   hasData()
-  datas <- data(package = "bcmaps.rdata")
+  datas <- utils::data(package = "bcmaps.rdata")
   as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
 }
