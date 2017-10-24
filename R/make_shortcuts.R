@@ -60,9 +60,11 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
 
          ")
     cat(as.character(fn_defn), file = file, append = TRUE)
+    message("Succuss! Shorcut function for '", fn_name, "' added to ", file)
   }
 
   bcgovr::add_license_header(file)
+  message("Don't forget to run devtools::document to rebuild documentation.")
 
   invisible(TRUE)
 }
