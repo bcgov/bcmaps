@@ -18,21 +18,23 @@ The IDs of source polygons are stored in a list-column called
 dataframes in a list-column called \code{union_df}
 }
 \examples{
-p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+if (require(sp)) {
+  p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+  p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
 
-ps1 <- Polygons(list(p1), "s1")
-ps2 <- Polygons(list(p2), "s2")
+  ps1 <- Polygons(list(p1), "s1")
+  ps2 <- Polygons(list(p2), "s2")
 
-spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+  spp <- SpatialPolygons(list(ps1,ps2), 1:2)
 
-df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
-                 stringsAsFactors = FALSE)
+  df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
+                   stringsAsFactors = FALSE)
 
-spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+  spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
 
-plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+  plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
 
-unioned_spdf <- self_union(spdf)
-unioned_sp <- self_union(spp)
+  unioned_spdf <- self_union(spdf)
+  unioned_sp <- self_union(spp)
+}
 }

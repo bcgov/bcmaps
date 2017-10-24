@@ -10,17 +10,18 @@ watercourses_15M(class = "sf")
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
 }
 \value{
-The spatial layer in the desired class
+The spatial layer of \code{watercourses_15M} in the desired class
 }
 \description{
-Watercourses at 1:15M scale for British Columbia sourced from Natural Resources Canada GeoGratis data.
+You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-An sf or Spatial object with watercourses at the 1:15M scale for British Columbia.
+See \link[bcmaps.rdata:watercourses_15M]{bcmaps.rdata::watercourses_15M} for details.
+}
+\examples{
+\dontrun{
+my_layer <- watercourses_15M()
+my_layer_sp <- watercourses_15M(class = 'sp')
+}
 
-Original data from
-\href{https://www.nrcan.gc.ca/earth-sciences/geography/topographic-information/free-data-geogratis/download-directory-documentation/17215}{},
-under the
-\href{http://open.canada.ca/en/open-government-licence-canada}{Open
-Government License - Canada}.
 }
