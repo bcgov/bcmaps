@@ -94,8 +94,7 @@ plot(st_geometry(bc))
 
 ![](tools/readme/unnamed-chunk-6-1.png)
 
-Simple Features objects
------------------------
+### Simple Features objects
 
 By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
 
@@ -116,15 +115,14 @@ plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 
 ![](tools/readme/plot-maps-1.png)
 
-Spatial (sp) objects
---------------------
+### Spatial (sp) objects
 
-If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp) way of doing things, set `class = "sp"`:
+If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp) way of doing things, set `class = "sp"` in either `get_layer` or the shortcut functions:
 
 ``` r
 library("sp")
 # Load watercourse data and plot with boundaries of B.C.
-plot(bc_bound(class = "sp"))
+plot(get_layer("bc_bound", class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
@@ -133,6 +131,13 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 ### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
+
+### Utility Functions
+
+The package also contains a couple of handy utility functions:
+
+1.  `fix_geo_problems()` for fixing invalid topologies in `sf` or `Spatial` objects such as orphaned holes and self-intersections
+2.  `transform_bc_albers()` for transforming any `sf` or `Spatial` object to [BC Albers](https://epsg.io/3005) projection.
 
 Project Status
 --------------
