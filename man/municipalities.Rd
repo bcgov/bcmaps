@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{municipalities}
 \alias{municipalities}
-\title{British Columbia Ecoregions}
+\title{British Columbia Municipalities}
 \usage{
 municipalities(class = "sf")
 }

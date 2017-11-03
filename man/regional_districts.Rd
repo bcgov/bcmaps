@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{regional_districts}
 \alias{regional_districts}
-\title{British Columbia Ecoregions}
+\title{British Columbia Regional Districts}
 \usage{
 regional_districts(class = "sf")
 }

@@ -121,7 +121,7 @@ ecoregions <- function(class = 'sf') {
    get_layer('ecoregions', class = class)
 }
 
-#' British Columbia's developed ground water aquifers.
+#' British Columbia's developed ground water aquifers
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -142,7 +142,28 @@ gw_aquifers <- function(class = 'sf') {
    get_layer('gw_aquifers', class = class)
 }
 
-#' British Columbia Ecoregions
+#' Hydrologic Zone Boundaries of British Columbia
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `hydrozones` in the desired class
+#'
+#' @details See [bcmaps.rdata::hydrozones] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- hydrozones()
+#' my_layer_sp <- hydrozones(class = 'sp')
+#' }
+#'
+#' @export
+hydrozones <- function(class = 'sf') {
+   get_layer('hydrozones', class = class)
+}
+
+#' British Columbia Municipalities
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -163,7 +184,70 @@ municipalities <- function(class = 'sf') {
    get_layer('municipalities', class = class)
 }
 
-#' British Columbia Ecoregions
+#' British Columbia Natural Resource (NR) Areas
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `nr_areas` in the desired class
+#'
+#' @details See [bcmaps.rdata::nr_areas] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- nr_areas()
+#' my_layer_sp <- nr_areas(class = 'sp')
+#' }
+#'
+#' @export
+nr_areas <- function(class = 'sf') {
+   get_layer('nr_areas', class = class)
+}
+
+#' British Columbia Natural Resource (NR) Districts
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `nr_districts` in the desired class
+#'
+#' @details See [bcmaps.rdata::nr_districts] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- nr_districts()
+#' my_layer_sp <- nr_districts(class = 'sp')
+#' }
+#'
+#' @export
+nr_districts <- function(class = 'sf') {
+   get_layer('nr_districts', class = class)
+}
+
+#' British Columbia Natural Resource (NR) Regions
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `nr_regions` in the desired class
+#'
+#' @details See [bcmaps.rdata::nr_regions] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- nr_regions()
+#' my_layer_sp <- nr_regions(class = 'sp')
+#' }
+#'
+#' @export
+nr_regions <- function(class = 'sf') {
+   get_layer('nr_regions', class = class)
+}
+
+#' British Columbia Regional Districts
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -182,6 +266,48 @@ municipalities <- function(class = 'sf') {
 #' @export
 regional_districts <- function(class = 'sf') {
    get_layer('regional_districts', class = class)
+}
+
+#' Polygons delineating British Columbia's Water Management Districts. Water Districts are administrative areas established by the WATER REGULATIONS.
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `water_districts` in the desired class
+#'
+#' @details See [bcmaps.rdata::water_districts] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- water_districts()
+#' my_layer_sp <- water_districts(class = 'sp')
+#' }
+#'
+#' @export
+water_districts <- function(class = 'sf') {
+   get_layer('water_districts', class = class)
+}
+
+#' Polygons delineating British Columbia's Water Management Precincts. Water Precincts are jurisdictional areas within a Water District.
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `water_precincts` in the desired class
+#'
+#' @details See [bcmaps.rdata::water_precincts] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- water_precincts()
+#' my_layer_sp <- water_precincts(class = 'sp')
+#' }
+#'
+#' @export
+water_precincts <- function(class = 'sf') {
+   get_layer('water_precincts', class = class)
 }
 
 #' British Columbia watercourses at 1:15M scale.
@@ -224,4 +350,46 @@ watercourses_15M <- function(class = 'sf') {
 #' @export
 watercourses_5M <- function(class = 'sf') {
    get_layer('watercourses_5M', class = class)
+}
+
+#' British Columbia Hydrometric Watershed Boundaries
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `watersheds` in the desired class
+#'
+#' @details See [bcmaps.rdata::watersheds] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- watersheds()
+#' my_layer_sp <- watersheds(class = 'sp')
+#' }
+#'
+#' @export
+watersheds <- function(class = 'sf') {
+   get_layer('watersheds', class = class)
+}
+
+#' For use in showing the 4th level drainages (sub-sub-drainages) in the national Drainage Area Framework and for use in determining the Water Survey of Canada alphanumeric codes that are used in hydrometric station numbering.
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `wsc_drainages` in the desired class
+#'
+#' @details See [bcmaps.rdata::wsc_drainages] for details.
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- wsc_drainages()
+#' my_layer_sp <- wsc_drainages(class = 'sp')
+#' }
+#'
+#' @export
+wsc_drainages <- function(class = 'sf') {
+   get_layer('wsc_drainages', class = class)
 }
