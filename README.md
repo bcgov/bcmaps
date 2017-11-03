@@ -81,7 +81,7 @@ ws <- get_layer("watersheds", class = "sf")
 plot(ws["SRCNM"], key.pos = NULL)
 ```
 
-![](README-unnamed-chunk-5-1.png)
+![](tools/readme/unnamed-chunk-5-1.png)
 
 Alternatively, there are shortcut functions for each of the layers:
 
@@ -92,7 +92,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](README-unnamed-chunk-6-1.png)
+![](tools/readme/unnamed-chunk-6-1.png)
 
 Simple Features objects
 -----------------------
@@ -114,7 +114,7 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
-![](README-plot-maps-1.png)
+![](tools/readme/plot-maps-1.png)
 
 Spatial (sp) objects
 --------------------
@@ -128,9 +128,7 @@ plot(bc_bound(class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
-![](README-watercourses-1.png)
-
-\`\`\`
+![](tools/readme/watercourses-1.png)
 
 ### Vignettes
 
@@ -139,7 +137,7 @@ We have written a short vignette on plotting points on one of the layers from `b
 Project Status
 --------------
 
-Inder active development
+Under active development
 
 Getting Help or Reporting an Issue
 ----------------------------------

@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "README-"
+  fig.path = "tools/readme/"
 )
 ```
 
@@ -107,8 +107,6 @@ plot(bc_bound(class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
-```
-
 ### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`.
@@ -117,7 +115,7 @@ You can view the vignette online [here](/vignettes/add_points.md) or if you inst
 
 ## Project Status
 
-Inder active development
+Under active development
 
 ## Getting Help or Reporting an Issue
 
