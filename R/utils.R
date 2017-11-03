@@ -95,7 +95,8 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
-#' This uses the common method of buffering by zero.
+#' For `sf` objects, uses `sf::st_make_valid` if `sf` was installed linking to `lwgeom`.
+#' Otherwise, uses the common method of buffering by zero.
 #'
 #' `fix_self_intersect` has been removed and will no longer work. Use
 #' `fix_geo_problems` instead
@@ -155,16 +156,21 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
   }
 
   message("Problems found - Attempting to repair...")
-  i <- 1
-  while (i <= tries) { # Try three times
-    message("Attempt ", i, " of ", tries)
-    obj <- sf::st_buffer(obj, dist = 0)
-    is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
-    if (all(is_valid)) {
-      message("Geometry is valid")
-      return(obj)
-    } else {
-      i <- i + 1
+
+  if (!is.na(sf_extSoftVersion()["lwgeom"])) {
+    obj <- sf::st_make_valid(obj)
+  } else {
+    i <- 1
+    while (i <= tries) { # Try three times
+      message("Attempt ", i, " of ", tries)
+      obj <- sf::st_buffer(obj, dist = 0)
+      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
+      if (all(is_valid)) {
+        message("Geometry is valid")
+        return(obj)
+      } else {
+        i <- i + 1
+      }
     }
   }
 
