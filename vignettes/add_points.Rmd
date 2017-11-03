@@ -32,7 +32,7 @@ We will create a mock dataframe of locations of species presence/absences (in re
 
 ```{r}
 set.seed(42)
-spp <- data.frame(id = 1:10, spp_present = as.logical(rbinom(10,1,0.5)),
+spp <- data.frame(id = 1:10, spp_present = rbinom(10,1,0.5),
                  lat = runif(10, 49, 60), long = runif(10, -128, -120), 
                  stringsAsFactors = FALSE)
 head(spp)
@@ -43,7 +43,7 @@ Next we convert this to a `SpatialPointsDataFrame` using the `sp` package. The s
 ```{r}
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
-plot(spp[, "spp_present"])
+plot(spp["spp_present"])
 ```
 
 In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf.

@@ -40,33 +40,68 @@ To see the layers that are available, fun the `avialable_layers()` function:
 ``` r
 library(bcmaps)
 available_layers()
-#>                  Item                                               Title
-#> 1            airzones                          British Columbia Air Zones
-#> 2            bc_bound                                         BC Boundary
-#> 3       bc_bound_hres                       BC Boundary - High Resolution
-#> 4        ecoprovinces                       British Columbia Ecoprovinces
-#> 5          ecoregions                         British Columbia Ecoregions
-#> 6         gw_aquifers British Columbia's developed ground water aquifers.
-#> 7      municipalities                         British Columbia Ecoregions
-#> 8  regional_districts                         British Columbia Ecoregions
-#> 9    watercourses_15M       British Columbia watercourses at 1:15M scale.
-#> 10    watercourses_5M        British Columbia watercourses at 1:5M scale.
+#>                  Item                                              Title
+#> 1            airzones                         British Columbia Air Zones
+#> 2            bc_bound                                        BC Boundary
+#> 3       bc_bound_hres                      BC Boundary - High Resolution
+#> 4        ecoprovinces                      British Columbia Ecoprovinces
+#> 5          ecoregions                        British Columbia Ecoregions
+#> 6         gw_aquifers British Columbia's developed ground water aquifers
+#> 7          hydrozones     Hydrologic Zone Boundaries of British Columbia
+#> 8      municipalities                    British Columbia Municipalities
+#> 9            nr_areas       British Columbia Natural Resource (NR) Areas
+#> 10       nr_districts   British Columbia Natural Resource (NR) Districts
+#> 11         nr_regions     British Columbia Natural Resource (NR) Regions
+#> 12 regional_districts                British Columbia Regional Districts
+#> 13    water_districts     British Columbia's Water Management Districts.
+#> 14    water_precincts     British Columbia's Water Management Precincts.
+#> 15   watercourses_15M      British Columbia watercourses at 1:15M scale.
+#> 16    watercourses_5M       British Columbia watercourses at 1:5M scale.
+#> 17         watersheds  British Columbia Hydrometric Watershed Boundaries
+#> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
 ```
 
-To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'` is the name of the layer of interest. Then you can use the data as you would any `sp` object. Alternatively, there are shortcut functions for each of the layers:
+To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'` is the name of the layer of interest. Then you can use the data as you would any `sf` or `Spatial` object:
+
+``` r
+library(sf)
+#> Linking to GEOS 3.6.2, GDAL 2.2.2, proj.4 4.9.3, lwgeom 2.4.0 r15853
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+
+ws <- get_layer("watersheds", class = "sf")
+
+plot(ws["SRCNM"], key.pos = NULL)
+```
+
+![](README-unnamed-chunk-5-1.png)
+
+Alternatively, there are shortcut functions for each of the layers:
 
 For example:
 
 ``` r
 bc <- bc_bound()
+plot(st_geometry(bc))
 ```
 
-A couple of simple examples. By default, all layers are returned as `sf` spatial objects:
+![](README-unnamed-chunk-6-1.png)
+
+Simple Features objects
+-----------------------
+
+By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
 
 ``` r
 library(bcmaps)
 library(sf)
-#> Linking to GEOS 3.6.2, GDAL 2.2.2, proj.4 4.9.3, lwgeom 2.4.0 r15853
 
 # Load and plot the boundaries of B.C.
 
@@ -81,12 +116,10 @@ plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 
 ![](README-plot-maps-1.png)
 
-``` r
-#text(st_coordinates(kootenays), 
- #    labels = kootenays$region_name, cex = 0.6)
-```
+Spatial (sp) objects
+--------------------
 
-### Plot watercourses in British Columbia at a course scale
+If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp) way of doing things, set `class = "sp"`:
 
 ``` r
 library("sp")
@@ -97,23 +130,7 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 
 ![](README-watercourses-1.png)
 
-### Size of British Columbia
-
-There is also a simple function that returns the size of B.C. in various units. You can choose total area, land area only, or freshwater area only:
-
-``` r
-bc_area("total", "ha")
-#> total_ha 
-#> 94473500
-
-bc_area("land", "m2")
-#>     land_m2 
-#> 9.25186e+11
-
-bc_area("freshwater", "km2")
-#> freshwater_km2 
-#>          19549
-```
+\`\`\`
 
 ### Vignettes
 

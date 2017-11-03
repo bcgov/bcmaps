@@ -57,17 +57,28 @@ available_layers()
 ```
 
 To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'` is the 
-name of the layer of interest. Then you can use the data as you would any `sp`
-object. Alternatively, there are shortcut functions for each of the layers:
+name of the layer of interest. Then you can use the data as you would any `sf` or `Spatial`
+object:
+
+```{r}
+library(sf)
+library(dplyr)
+
+ws <- get_layer("watersheds", class = "sf")
+
+plot(ws["SRCNM"], key.pos = NULL)
+```
+
+Alternatively, there are shortcut functions for each of the layers:
 
 For example:
 ```{r}
 bc <- bc_bound()
+plot(st_geometry(bc))
 ```
 
-
-A couple of simple examples. By default, all layers are returned as `sf` spatial 
-objects:
+## Simple Features objects
+By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
 
 ```{r plot-maps, fig.height=5, warning=FALSE}
 library(bcmaps)
@@ -82,11 +93,12 @@ plot(st_geometry(bc))
 rd <- regional_districts()
 kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
-#text(st_coordinates(kootenays), 
- #    labels = kootenays$region_name, cex = 0.6)
 ```
 
-### Plot watercourses in British Columbia at a course scale 
+## Spatial (sp) objects
+
+If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp)
+way of doing things, set `class = "sp"`:
 
 ```{r watercourses, warning=FALSE}
 library("sp")
@@ -95,16 +107,6 @@ plot(bc_bound(class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
-### Size of British Columbia
-
-There is also a simple function that returns the size of B.C. in various units. You can choose total area, land area only, or freshwater area only:
-
-```{r}
-bc_area("total", "ha")
-
-bc_area("land", "m2")
-
-bc_area("freshwater", "km2")
 ```
 
 ### Vignettes
