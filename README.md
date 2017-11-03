@@ -26,6 +26,13 @@ drat::addRepo("bcgov")
 install.packages("bcmaps")
 ```
 
+#### Development version
+
+``` r
+# install.packages("remotes")
+remotes::install_github("bcgov/bcmaps")
+```
+
 Usage
 -----
 
@@ -81,7 +88,7 @@ ws <- get_layer("watersheds", class = "sf")
 plot(ws["SRCNM"], key.pos = NULL)
 ```
 
-![](tools/readme/unnamed-chunk-5-1.png)
+![](tools/readme/unnamed-chunk-6-1.png)
 
 Alternatively, there are shortcut functions for each of the layers:
 
@@ -92,7 +99,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-6-1.png)
+![](tools/readme/unnamed-chunk-7-1.png)
 
 ### Simple Features objects
 
