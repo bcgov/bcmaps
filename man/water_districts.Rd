@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{water_districts}
 \alias{water_districts}
-\title{Polygons delineating British Columbia's Water Management Districts. Water Districts are administrative areas established by the WATER REGULATIONS.}
+\title{British Columbia's Water Management Districts.}
 \usage{
 water_districts(class = "sf")
 }

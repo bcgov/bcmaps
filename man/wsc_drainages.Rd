@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{wsc_drainages}
 \alias{wsc_drainages}
-\title{For use in showing the 4th level drainages (sub-sub-drainages) in the national Drainage Area Framework and for use in determining the Water Survey of Canada alphanumeric codes that are used in hydrometric station numbering.}
+\title{Water Survey of Canada Sub-Sub-Drainage Areas}
 \usage{
 wsc_drainages(class = "sf")
 }
