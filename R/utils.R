@@ -323,3 +323,17 @@ get_return_type <- function(x) {
     return_type <- typeof(x)
   }
 }
+
+#' Combine Northern Rockies Regional Municipality with Regional Districts
+#'
+#' @inheritParams get_layer
+#'
+#' @return A layer where the Northern Rockies Regional Municipality has been
+#' combined with the Regional Districts to form a full provincial coverage.
+#' @export
+combine_nr_rd <- function(class = c("sf", "sp")) {
+  class = match.arg(class)
+  rd <- get_layer("regional_districts", class = class)
+  mun <- get_layer("municipalities", class = class)
+  rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
+}
