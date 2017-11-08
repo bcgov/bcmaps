@@ -157,8 +157,8 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
 
   message("Problems found - Attempting to repair...")
 
-  if (!is.na(sf_extSoftVersion()["lwgeom"])) {
-    obj <- sf::st_make_valid(obj)
+  if (!is.na(sf::sf_extSoftVersion()["lwgeom"])) {
+    return(sf::st_make_valid(obj))
   } else {
     i <- 1
     while (i <= tries) { # Try three times
