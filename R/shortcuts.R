@@ -268,7 +268,7 @@ regional_districts <- function(class = 'sf') {
    get_layer('regional_districts', class = class)
 }
 
-#' Polygons delineating British Columbia's Water Management Districts. Water Districts are administrative areas established by the WATER REGULATIONS.
+#' British Columbia's Water Management Districts.
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -289,7 +289,7 @@ water_districts <- function(class = 'sf') {
    get_layer('water_districts', class = class)
 }
 
-#' Polygons delineating British Columbia's Water Management Precincts. Water Precincts are jurisdictional areas within a Water District.
+#' British Columbia's Water Management Precincts.
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -373,7 +373,7 @@ watersheds <- function(class = 'sf') {
    get_layer('watersheds', class = class)
 }
 
-#' For use in showing the 4th level drainages (sub-sub-drainages) in the national Drainage Area Framework and for use in determining the Water Survey of Canada alphanumeric codes that are used in hydrometric station numbering.
+#' Water Survey of Canada Sub-Sub-Drainage Areas
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
