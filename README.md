@@ -13,7 +13,9 @@ An [R](http://r-project.org) package of map layers for British Columbia.
 Features
 --------
 
-Various layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as [sp](http://cran.r-project.org/web/packages/sp/index.html) objects, and are in [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+Provides access to various spatial layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as `sf` or `Spatial` objects in the [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+
+Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) package and loaded by this package, following the strategy recommended by [Anderson and Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html).
 
 Installation
 ------------
@@ -42,7 +44,7 @@ To get full usage of the package, you will also need to install the [**bcmaps.rd
 install.packages("bcmaps.rdata")
 ```
 
-To see the layers that are available, fun the `avialable_layers()` function:
+To see the layers that are available, run the `avialable_layers()` function:
 
 ``` r
 library(bcmaps)
