@@ -19,6 +19,5 @@ env:
     - _R_CHECK_FORCE_SUGGESTS_=false
 
 r:
-  - oldrel
   - release
   - devel
