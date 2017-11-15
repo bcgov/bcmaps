@@ -49,6 +49,11 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 #' List available data layers
 #'
 #' @return A data.frame of layers
+#'
+#' @examples
+#' \dontrun{
+#' available_layers()
+#' }
 #' @export
 available_layers <- function() {
   hasData()
