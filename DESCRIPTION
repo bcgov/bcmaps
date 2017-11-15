@@ -30,7 +30,6 @@ Suggests:
     ggplot2 (>= 2.2.1),
     sf (>= 0.5-4),
     glue (>= 1.1.1),
-    bcgovr (>= 0.1.3),
     testthat
 Additional_repositories: https://bcgov.github.io/drat
 VignetteBuilder: knitr
