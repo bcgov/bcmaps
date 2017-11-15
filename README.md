@@ -8,7 +8,7 @@ bcmaps
 Overview
 --------
 
-An [R](http://r-project.org) package of map layers for British Columbia.
+An [R](http://r-project.org) package of spatial map layers for British Columbia.
 
 Features
 --------
@@ -44,7 +44,7 @@ To get full usage of the package, you will also need to install the [**bcmaps.rd
 install.packages("bcmaps.rdata")
 ```
 
-To see the layers that are available, run the `avialable_layers()` function:
+To see the layers that are available, run the `available_layers()` function:
 
 ``` r
 library(bcmaps)
@@ -74,13 +74,16 @@ To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'`
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.2, GDAL 2.2.2, proj.4 4.9.3, lwgeom 2.4.0 r15853
+#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
+#> The following object is masked from 'package:testthat':
+#> 
+#>     matches
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
@@ -139,7 +142,7 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 
 ### Vignettes
 
-We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
+We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `remotes::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
 
 ### Utility Functions
 

@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-An [R](http://r-project.org) package of map layers for British Columbia.
+An [R](http://r-project.org) package of spatial map layers for British Columbia.
 
 ## Features
 
@@ -59,7 +59,7 @@ all of the datasets.
 install.packages("bcmaps.rdata")
 ```
 
-To see the layers that are available, run the `avialable_layers()` function:
+To see the layers that are available, run the `available_layers()` function:
 
 ```{r}
 library(bcmaps)
@@ -120,7 +120,7 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 ### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`.
-You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
+You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `remotes::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
 
 ### Utility Functions
 
