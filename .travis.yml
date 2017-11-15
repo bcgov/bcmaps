@@ -19,7 +19,7 @@ env:
     - _R_CHECK_FORCE_SUGGESTS_=false
 
 r_github_packages:
-    - bcgov/bcmaps.data
+    - bcgov/bcmaps.rdata
 r:
   - release
   - devel
