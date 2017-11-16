@@ -21,3 +21,9 @@ function such as \code{bc_bound()}, or \code{airzones("sp")}.
 \details{
 Run this function each time you add a new data object.
 }
+\examples{
+\dontrun{
+make_shortcut()
+}
+
+}

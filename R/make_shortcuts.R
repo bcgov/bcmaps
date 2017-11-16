@@ -21,12 +21,17 @@
 #'
 #' @param file the R file where the shortcut file is. Default "R/shortcuts.R"
 #'
+#' @examples
+#' \dontrun{
+#' make_shortcut()
+#' }
+#'
 #' @return TRUE (invisibly)
 make_shortcuts <- function(file = "R/shortcuts.R") {
 
   if (!requireNamespace("bcmaps") || !requireNamespace("bcmaps.rdata") ||
-      !requireNamespace("bcgovr") || !requireNamespace("glue")) {
-    stop("bcmaps, bcmaps.rdata, bcgovr, and glue all need to be installed.")
+      !requireNamespace("glue")) {
+    stop("bcmaps, bcmaps.rdata, and glue all need to be installed.")
   }
 
   available_layers <- bcmaps::available_layers()
@@ -72,10 +77,10 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          ")
     fn_defn <- gsub("roxygen_blocker", "", fn_defn)
     cat(fn_defn, file = file, append = TRUE)
-    message("Succuss! Shorcut function for '", fn_name, "' added to ", file)
+    message("Success! Shortcut function for '", fn_name, "' added to ", file)
   }
 
-  bcgovr::add_license_header(file)
+  add_license_header(file)
   message("Don't forget to run devtools::document to rebuild documentation.")
 
   invisible(TRUE)
