@@ -260,7 +260,7 @@ get_unioned_ids <- function(unioned_sp) {
 #' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
 #' @param col the column in the nested data frames from which to retrieve/calculate attributes
 #' @param fun function to determine the resulting single attribute from overlapping polygons
-#' @param ... other paramaters passed on to `fun`
+#' @param ... other parameters passed on to `fun`
 #'
 #' @importFrom methods is
 #'
@@ -268,6 +268,7 @@ get_unioned_ids <- function(unioned_sp) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' if (require(sp)) {
 #'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
 #'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
@@ -283,6 +284,7 @@ get_unioned_ids <- function(unioned_sp) {
 #'   unioned_spdf <- self_union(spdf)
 #'   get_poly_attribute(unioned_spdf$union_df, "a", sum)
 #'   get_poly_attribute(unioned_spdf$union_df, "c", max)
+#' }
 #' }
 get_poly_attribute <- function(x, col, fun, ...) {
   if (!is(x, "list")) stop("x must be a list, or list-column in a data frame")

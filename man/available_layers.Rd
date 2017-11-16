@@ -10,7 +10,9 @@ available_layers()
 A data.frame of layers
 }
 \description{
-List available data layers
+A data.frame of all available layers in the bcmaps package. This drawn
+directly from the bcmaps.rdata package and will therefore be the most current list
+layers available.
 }
 \examples{
 \dontrun{

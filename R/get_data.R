@@ -48,6 +48,10 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 
 #' List available data layers
 #'
+#' A data.frame of all available layers in the bcmaps package. This drawn
+#' directly from the bcmaps.rdata package and will therefore be the most current list
+#' layers available.
+#'
 #' @return A data.frame of layers
 #'
 #' @examples

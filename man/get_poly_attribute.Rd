@@ -13,7 +13,7 @@ get_poly_attribute(x, col, fun, ...)
 
 \item{fun}{function to determine the resulting single attribute from overlapping polygons}
 
-\item{...}{other paramaters passed on to \code{fun}}
+\item{...}{other parameters passed on to \code{fun}}
 }
 \value{
 An atomic vector of the same length as x
@@ -24,6 +24,7 @@ that has a column called \code{union_df}, which contains a \code{data.frame}
 for each polygon with the attributes from the constituent polygons.
 }
 \examples{
+\dontrun{
 if (require(sp)) {
   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
@@ -39,5 +40,6 @@ if (require(sp)) {
   unioned_spdf <- self_union(spdf)
   get_poly_attribute(unioned_spdf$union_df, "a", sum)
   get_poly_attribute(unioned_spdf$union_df, "c", max)
+}
 }
 }
