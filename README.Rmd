@@ -35,16 +35,7 @@ and loaded by this package, following the strategy recommended by [Anderson and 
 
 ## Installation
 
-The package is not available on CRAN, but can be installed from the bcgov R 
-package repository:
-
-```{r eval=FALSE}
-install.packages("drat") # if not already installed
-drat::addRepo("bcgov")
-install.packages("bcmaps")
-```
-
-#### Development version
+The package is not available on CRAN, but can be installed from github: 
 
 ```{r eval=FALSE}
 # install.packages("remotes")
@@ -56,7 +47,7 @@ To get full usage of the package, you will also need to install the [**bcmaps.rd
 all of the datasets.
 
 ```{r, eval=FALSE}
-install.packages("bcmaps.rdata")
+install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
 ```
 
 To see the layers that are available, run the `available_layers()` function:
@@ -66,9 +57,19 @@ library(bcmaps)
 available_layers()
 ```
 
-To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'` is the 
-name of the layer of interest. Then you can use the data as you would any `sf` or `Spatial`
-object:
+Most layers are accessible by a shortcut function by the same name as the object. 
+Then you can use the data as you would any `sf` or `Spatial` object. For example:
+```{r}
+library(sf)
+
+bc <- bc_bound()
+plot(st_geometry(bc))
+```
+
+Alternatively, you can use the `get_layer` function - simply type `get_layer('layer_name')`, 
+where `'layer_name'` is the name of the layer of interest. The `get_layer` function is
+useful if the back-end `bcmaps.rdata` package has had a layer added to it, but there is 
+as yet no shortcut function created in `bcmaps`.
 
 ```{r}
 library(sf)
@@ -77,14 +78,6 @@ library(dplyr)
 ws <- get_layer("watersheds", class = "sf")
 
 plot(ws["SRCNM"], key.pos = NULL)
-```
-
-Alternatively, there are shortcut functions for each of the layers:
-
-For example:
-```{r}
-bc <- bc_bound()
-plot(st_geometry(bc))
 ```
 
 ### Simple Features objects
@@ -130,6 +123,7 @@ The package also contains a couple of handy utility functions:
 such as orphaned holes and self-intersections
 2. `transform_bc_albers()` for transforming any `sf` or `Spatial` object to 
 [BC Albers](https://epsg.io/3005) projection.
+3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
 
 ## Project Status
 

@@ -20,15 +20,7 @@ Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) p
 Installation
 ------------
 
-The package is not available on CRAN, but can be installed from the bcgov R package repository:
-
-``` r
-install.packages("drat") # if not already installed
-drat::addRepo("bcgov")
-install.packages("bcmaps")
-```
-
-#### Development version
+The package is not available on CRAN, but can be installed from github:
 
 ``` r
 # install.packages("remotes")
@@ -41,7 +33,7 @@ Usage
 To get full usage of the package, you will also need to install the [**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which holds all of the datasets.
 
 ``` r
-install.packages("bcmaps.rdata")
+install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
 ```
 
 To see the layers that are available, run the `available_layers()` function:
@@ -89,11 +81,22 @@ available_layers()
 #> 18      wsc_drainages
 ```
 
-To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'` is the name of the layer of interest. Then you can use the data as you would any `sf` or `Spatial` object:
+Most layers are accessible by a shortcut function by the same name as the object. Then you can use the data as you would any `sf` or `Spatial` object. For example:
 
 ``` r
 library(sf)
 #> Linking to GEOS 3.6.2, GDAL 2.2.2, proj.4 4.9.3, lwgeom 2.4.0 r15853
+
+bc <- bc_bound()
+plot(st_geometry(bc))
+```
+
+![](tools/readme/unnamed-chunk-5-1.png)
+
+Alternatively, you can use the `get_layer` function - simply type `get_layer('layer_name')`, where `'layer_name'` is the name of the layer of interest. The `get_layer` function is useful if the back-end `bcmaps.rdata` package has had a layer added to it, but there is as yet no shortcut function created in `bcmaps`.
+
+``` r
+library(sf)
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
@@ -110,17 +113,6 @@ plot(ws["SRCNM"], key.pos = NULL)
 ```
 
 ![](tools/readme/unnamed-chunk-6-1.png)
-
-Alternatively, there are shortcut functions for each of the layers:
-
-For example:
-
-``` r
-bc <- bc_bound()
-plot(st_geometry(bc))
-```
-
-![](tools/readme/unnamed-chunk-7-1.png)
 
 ### Simple Features objects
 
@@ -166,6 +158,7 @@ The package also contains a couple of handy utility functions:
 
 1.  `fix_geo_problems()` for fixing invalid topologies in `sf` or `Spatial` objects such as orphaned holes and self-intersections
 2.  `transform_bc_albers()` for transforming any `sf` or `Spatial` object to [BC Albers](https://epsg.io/3005) projection.
+3.  `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
 
 Project Status
 --------------
