@@ -322,10 +322,10 @@ get_poly_attribute <- function(x, col, fun, ...) {
     is_fac <- TRUE
     lvls <- levels(test_data)
     ordered <- is.ordered(test_data)
-    return_fun <- "integer"
+    return_type <- "integer"
   }
 
-  fun_value <- eval(call(return_fun, 1))
+  fun_value <- eval(call(return_type, 1))
 
   ret <- vapply(x, function(y) {
     fun(y[[col]], ...)
