@@ -68,6 +68,25 @@ available_layers()
 #> 16    watercourses_5M       British Columbia watercourses at 1:5M scale.
 #> 17         watersheds  British Columbia Hydrometric Watershed Boundaries
 #> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
+#>     shortcut_function
+#> 1            airzones
+#> 2            bc_bound
+#> 3       bc_bound_hres
+#> 4        ecoprovinces
+#> 5          ecoregions
+#> 6         gw_aquifers
+#> 7          hydrozones
+#> 8      municipalities
+#> 9            nr_areas
+#> 10       nr_districts
+#> 11         nr_regions
+#> 12 regional_districts
+#> 13    water_districts
+#> 14    water_precincts
+#> 15   watercourses_15M
+#> 16    watercourses_5M
+#> 17         watersheds
+#> 18      wsc_drainages
 ```
 
 To load any of them, simply type `get_layer('layer_name')`, where `'layer_name'` is the name of the layer of interest. Then you can use the data as you would any `sf` or `Spatial` object:
