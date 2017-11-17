@@ -40,7 +40,7 @@ has_no_data_msg <- function() {
 }
 
 check_for_data_pkg_update <- function() {
-  pkgs <- packageStatus(.libPaths(), repositories = 'https://bcgov.github.io/drat/src/contrib')
+  pkgs <- utils::packageStatus(.libPaths(), repositories = 'https://bcgov.github.io/drat/src/contrib')
   bcmaps_rdata_local <- pkgs$inst[pkgs$inst$Package == "bcmaps.rdata", ]
   bcmaps_rdata_drat <- pkgs$avail[pkgs$avail$Package == "bcmaps.rdata", ]
   if (bcmaps_rdata_local$Status == "upgrade") {
