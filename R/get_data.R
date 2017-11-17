@@ -39,6 +39,7 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 
   if (class == "sp") {
     if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
+    ret <- sf::st_zm(ret, drop = TRUE)
     ret <- methods::as(ret, "Spatial")
   }
 
