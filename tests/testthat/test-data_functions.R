@@ -15,16 +15,7 @@ test_that("test that all sp layer function work without error and return a Spati
   for (i in seq_along(fn_names_sp)) {
     #cat("\n", fn_names_sp[i]) #for debugging
     expect_error(layer <- match.fun(fn_names_sp[i])(class="sp"), NA)
-
-    ## watercourses_* are Lines - different object
-    if(fn_names_sp[i] %in% c("watercourses_15M","watercourses_5M")){
-      expect_is(layer, "SpatialLinesDataFrame")
-    }
-
-    ## All the rest of the objects
-    if(!fn_names_sp[i] %in% c("watercourses_15M","watercourses_5M")){
-      expect_is(layer, "SpatialPolygonsDataFrame")
-    }
+    expect_is(layer, "Spatial")
   }
 })
 
