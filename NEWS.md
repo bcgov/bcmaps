@@ -1,3 +1,25 @@
+# bcmaps 0.13.0
+
+This is a major new release with breaking changes. 
+
+All data has been removed from the `bcmaps` package and moved to the `bcmaps.rdata` 
+package, which is hosted on the bcgov drat repository: https://github.com/bcgov/drat. 
+That package must be installed in order for `bcmaps` to access the data. It can 
+be installed with: `install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')`
+
+In previous versions of `bcmaps`, data was stored in the package and loaded by 
+calling `data("layername")` or simply `layername` (e.g., `data("bc_bound")` or `bc_bound`).
+
+Now loading data requires a function call - either using a shortcut function that
+is the same name as the dataset (e.g., `bc_bound()` whereas previously one would 
+simply use `bc_bound`). Alternatively, one can use the `get_layer()` function 
+(e.g., `get_layer("bc_bound")`).
+
+Another major change is that all the layers are now returned as `sf` classes by 
+default, rather than `Spatial` classes. `Spatial` versions of the data can still be
+obtained by setting the `class` argument to `"sp"` in `get_layer()` and the shortcut
+functions (E.g., `bc_bound(class = "sp")` or `get_layer("bc_bound", class = "sp")`).
+
 # bcmaps 0.12.0
 
 * Added `wsc_drainages`
