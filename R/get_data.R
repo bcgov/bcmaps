@@ -53,7 +53,10 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 #' directly from the bcmaps.rdata package and will therefore be the most current list
 #' layers available.
 #'
-#' @return A data.frame of layers
+#' @return A data.frame of layers, with Titles, and an additional column `shortcut_function`
+#' containing the name of the shortcut function that can be used to return the
+#' layer. A value of `NA` in this column means the layer is available via `get_data()` but
+#' there is no shortcut function for it.
 #'
 #' @examples
 #' \dontrun{
@@ -63,5 +66,8 @@ get_layer <- function(layer, class = c("sf", "sp")) {
 available_layers <- function() {
   hasData()
   datas <- utils::data(package = "bcmaps.rdata")
-  as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
+  layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
+  layers_df$shortcut_function <- ifelse(layers_df[["Item"]] %in% ls("package:bcmaps"),
+                                        layers_df[["Item"]], NA_character_)
+  layers_df
 }
