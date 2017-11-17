@@ -5,3 +5,4 @@ CONTRIBUTING.md
 ^README-.*\.png$
 ^CODE_OF_CONDUCT\.md$
 ^\.travis\.yml$
+^inst/sticker$
