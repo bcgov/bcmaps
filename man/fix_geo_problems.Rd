@@ -15,7 +15,8 @@ fix_geo_problems(obj, tries = 5)
 The SpatialPolygons* or sf object, repaired if necessary
 }
 \description{
-This uses the common method of buffering by zero.
+For \code{sf} objects, uses \code{sf::st_make_valid} if \code{sf} was installed linking to \code{lwgeom}.
+Otherwise, uses the common method of buffering by zero.
 }
 \details{
 \code{fix_self_intersect} has been removed and will no longer work. Use

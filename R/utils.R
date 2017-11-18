@@ -10,28 +10,15 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Defunct functions in bcmaps
-#'
-#' These functions are gone, no longer available.
-#'
-#' @param ... old defunct arguments
-#'
-#' \itemize{
-#'  \item \code{\link{fix_self_intersect}}: This function is defunct. Use \code{\link{fix_geo_problems}} instead.
-#' }
-#'
-#' @name bcmaps-defunct
-NULL
-
 #' The size of British Columbia
 #'
 #' Total area, Land area only, or Freshwater area only, in the units of your choosing.
 #'
 #' The sizes are from \href{http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/phys01-eng.htm}{Statistics Canada}
 #'
-#' @param what Which part of BC? One of \code{'total'} (default), \code{'land'}, or \code{'freshwater'}.
-#' @param units One of \code{'km2'} (square kilometres; default), \code{'m2'} (square metres),
-#'          \code{'ha'} (hectares), \code{'acres'}, or \code{'sq_mi'} (square miles)
+#' @param what Which part of BC? One of `'total'` (default), `'land'`, or `'freshwater'`.
+#' @param units One of `'km2'` (square kilometres; default), `'m2'` (square metres),
+#'          `'ha'` (hectares), `'acres'`, or `'sq_mi'` (square miles)
 #'
 #' @return The area of B.C. in the desired units (numeric vector).
 #' @export
@@ -103,12 +90,16 @@ transform_bc_albers.sf <- function(obj) {
   sf::st_transform(obj, 3005)
 }
 
+#' @export
+transform_bc_albers.sfc <- transform_bc_albers.sf
+
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
-#' This uses the common method of buffering by zero.
+#' For `sf` objects, uses `sf::st_make_valid` if `sf` was installed linking to `lwgeom`.
+#' Otherwise, uses the common method of buffering by zero.
 #'
-#' \code{fix_self_intersect} has been removed and will no longer work. Use
-#' \code{fix_geo_problems} instead
+#' `fix_self_intersect` has been removed and will no longer work. Use
+#' `fix_geo_problems` instead
 #'
 #' @param obj The SpatialPolygons* or sf object to check/fix
 #' @param tries The maximum number of attempts to repair the geometry.
@@ -165,16 +156,21 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
   }
 
   message("Problems found - Attempting to repair...")
-  i <- 1
-  while (i <= tries) { # Try three times
-    message("Attempt ", i, " of ", tries)
-    obj <- sf::st_buffer(obj, dist = 0)
-    is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
-    if (all(is_valid)) {
-      message("Geometry is valid")
-      return(obj)
-    } else {
-      i <- i + 1
+
+  if (!is.na(sf::sf_extSoftVersion()["lwgeom"])) {
+    return(sf::st_make_valid(obj))
+  } else {
+    i <- 1
+    while (i <= tries) { # Try three times
+      message("Attempt ", i, " of ", tries)
+      obj <- sf::st_buffer(obj, dist = 0)
+      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
+      if (all(is_valid)) {
+        message("Geometry is valid")
+        return(obj)
+      } else {
+        i <- i + 1
+      }
     }
   }
 
@@ -182,41 +178,40 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
   obj
 }
 
-#' @rdname bcmaps-defunct
-fix_self_intersect <- function(...) {
-  .Defunct("This function has been removed from bcmaps.
-          Please use 'fix_geo_problems' instead.")
-}
+#' @export
+fix_geo_problems.sfc <- fix_geo_problems.sf
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
 #' The IDs of source polygons are stored in a list-column called
-#' \code{union_ids}, and original attributes (if present) are stored as nested
-#' dataframes in a list-column called \code{union_df}
+#' `union_ids`, and original attributes (if present) are stored as nested
+#' dataframes in a list-column called `union_df`
 #'
-#' @param x A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
+#' @param x A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
 #'
-#' @return A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
+#' @return A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
 #' @export
 #'
 #' @examples
-#' p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-#' p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+#' if (require(sp)) {
+#'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+#'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
 #'
-#' ps1 <- Polygons(list(p1), "s1")
-#' ps2 <- Polygons(list(p2), "s2")
+#'   ps1 <- Polygons(list(p1), "s1")
+#'   ps2 <- Polygons(list(p2), "s2")
 #'
-#' spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+#'   spp <- SpatialPolygons(list(ps1,ps2), 1:2)
 #'
-#' df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
-#'                  stringsAsFactors = FALSE)
+#'   df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
+#'                    stringsAsFactors = FALSE)
 #'
-#' spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+#'   spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
 #'
-#' plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+#'   plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
 #'
-#' unioned_spdf <- self_union(spdf)
-#' unioned_sp <- self_union(spp)
+#'   unioned_spdf <- self_union(spdf)
+#'   unioned_sp <- self_union(spp)
+#' }
 self_union <- function(x) {
   if (!inherits(x, "SpatialPolygons")) {
     stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
@@ -226,7 +221,7 @@ self_union <- function(x) {
     stop("Package raster could not be loaded", call. = FALSE)
   }
 
-  unioned <- raster::union(x)
+  unioned <- raster_union(x)
   unioned$union_ids <- get_unioned_ids(unioned)
 
   export_cols <- c("union_count", "union_ids")
@@ -238,6 +233,28 @@ self_union <- function(x) {
 
   names(unioned)[names(unioned) == "count"] <- "union_count"
   unioned[, export_cols]
+}
+
+#' Modified raster::union method for a single SpatialPolygons(DataFrame)
+#'
+#' Modify raster::union to remove the expression:
+#'   if (!rgeos::gIntersects(x)) {
+#'     return(x)
+#'   }
+#' As it throws an error:
+#'   Error in RGEOSBinPredFunc(spgeom1, spgeom2, byid, func) :
+#'    TopologyException: side location conflict
+#'
+#' @param x a single SpatialPolygons(DataFrame) object
+#' @noRd
+raster_union <- function(x) {
+  # First get the function (method)
+  f <- methods::getMethod("union", c("SpatialPolygons", "missing"))
+  # Find the offending block in the body, and replace it with NULL
+  the_prob <- which(grepl("!rgeos::gIntersects(x)", body(f), fixed = TRUE))
+  body(f)[[the_prob]] <- NULL
+  # Call the modified function with the input
+  f(x)
 }
 
 ## For each new polygon in a SpatialPolygonsDataFrame that has been unioned with
@@ -258,14 +275,14 @@ get_unioned_ids <- function(unioned_sp) {
 
 #' Get or calculate the attribute of a list-column containing nested dataframes.
 #'
-#' For example, \code{self_union} produces a \code{SpatialPolygonsDataFrame}
-#' that has a column called \code{union_df}, which contains a \code{data.frame}
+#' For example, `self_union` produces a `SpatialPolygonsDataFrame`
+#' that has a column called `union_df`, which contains a `data.frame`
 #' for each polygon with the attributes from the constituent polygons.
 #'
 #' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
 #' @param col the column in the nested data frames from which to retrieve/calculate attributes
 #' @param fun function to determine the resulting single attribute from overlapping polygons
-#' @param ... other paramaters passed on to \code{fun}
+#' @param ... other paramaters passed on to `fun`
 #'
 #' @importFrom methods is
 #'
@@ -273,20 +290,22 @@ get_unioned_ids <- function(unioned_sp) {
 #' @export
 #'
 #' @examples
-#' p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-#' p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
-#' ps1 <- Polygons(list(p1), "s1")
-#' ps2 <- Polygons(list(p2), "s2")
-#' spp <- SpatialPolygons(list(ps1,ps2), 1:2)
-#' df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
-#'                  c = factor(c("high", "low"), ordered = TRUE,
-#'                             levels = c("low", "high")),
-#'                  stringsAsFactors = FALSE)
-#' spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
-#' plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
-#' unioned_spdf <- self_union(spdf)
-#' get_poly_attribute(unioned_spdf$union_df, "a", sum)
-#' get_poly_attribute(unioned_spdf$union_df, "c", max)
+#' if (require(sp)) {
+#'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
+#'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
+#'   ps1 <- Polygons(list(p1), "s1")
+#'   ps2 <- Polygons(list(p2), "s2")
+#'   spp <- SpatialPolygons(list(ps1,ps2), 1:2)
+#'   df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
+#'                    c = factor(c("high", "low"), ordered = TRUE,
+#'                               levels = c("low", "high")),
+#'                    stringsAsFactors = FALSE)
+#'   spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
+#'   plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
+#'   unioned_spdf <- self_union(spdf)
+#'   get_poly_attribute(unioned_spdf$union_df, "a", sum)
+#'   get_poly_attribute(unioned_spdf$union_df, "c", max)
+#' }
 get_poly_attribute <- function(x, col, fun, ...) {
   if (!is(x, "list")) stop("x must be a list, or list-column in a data frame")
   if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
@@ -303,7 +322,7 @@ get_poly_attribute <- function(x, col, fun, ...) {
     is_fac <- TRUE
     lvls <- levels(test_data)
     ordered <- is.ordered(test_data)
-    return_fun <- "integer"
+    return_type <- "integer"
   }
 
   fun_value <- eval(call(return_type, 1))
@@ -325,4 +344,18 @@ get_return_type <- function(x) {
   } else {
     return_type <- typeof(x)
   }
+}
+
+#' Combine Northern Rockies Regional Municipality with Regional Districts
+#'
+#' @inheritParams get_layer
+#'
+#' @return A layer where the Northern Rockies Regional Municipality has been
+#' combined with the Regional Districts to form a full provincial coverage.
+#' @export
+combine_nr_rd <- function(class = c("sf", "sp")) {
+  class = match.arg(class)
+  rd <- get_layer("regional_districts", class = class)
+  mun <- get_layer("municipalities", class = class)
+  rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }

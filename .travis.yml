@@ -18,7 +18,8 @@ env:
   global:
     - _R_CHECK_FORCE_SUGGESTS_=false
 
+r_github_packages:
+    - bcgov/bcmaps.rdata
 r:
-  - oldrel
   - release
   - devel
