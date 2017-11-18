@@ -38,7 +38,7 @@ and loaded by this package, following the strategy recommended by [Anderson and 
 The package is not available on CRAN, but can be installed from github: 
 
 ```{r eval=FALSE}
-# install.packages("remotes")
+# install.packages("devtools")
 devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)
 ```
 ## Usage
@@ -113,7 +113,7 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 ### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`.
-You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `remotes::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
+You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
 
 ### Utility Functions
 
