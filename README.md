@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
-bcmaps <img src="inst/sticker/bcmaps.png" height="200" align="right"/>
+bcmaps <img src="inst/sticker/bcmaps.png" height="139" align="right"/>
 ======================================================================
 
 <a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
@@ -60,32 +60,13 @@ available_layers()
 #> 16    watercourses_5M       British Columbia watercourses at 1:5M scale.
 #> 17         watersheds  British Columbia Hydrometric Watershed Boundaries
 #> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
-#>     shortcut_function
-#> 1            airzones
-#> 2            bc_bound
-#> 3       bc_bound_hres
-#> 4        ecoprovinces
-#> 5          ecoregions
-#> 6         gw_aquifers
-#> 7          hydrozones
-#> 8      municipalities
-#> 9            nr_areas
-#> 10       nr_districts
-#> 11         nr_regions
-#> 12 regional_districts
-#> 13    water_districts
-#> 14    water_precincts
-#> 15   watercourses_15M
-#> 16    watercourses_5M
-#> 17         watersheds
-#> 18      wsc_drainages
 ```
 
 Most layers are accessible by a shortcut function by the same name as the object. Then you can use the data as you would any `sf` or `Spatial` object. For example:
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.2, GDAL 2.2.2, proj.4 4.9.3, lwgeom 2.4.0 r15853
+#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
@@ -103,6 +84,9 @@ library(dplyr)
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
+#> The following object is masked from 'package:testthat':
+#> 
+#>     matches
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
