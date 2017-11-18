@@ -39,7 +39,7 @@ The package is not available on CRAN, but can be installed from github:
 
 ```{r eval=FALSE}
 # install.packages("remotes")
-remotes::install_github("bcgov/bcmaps")
+devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)
 ```
 ## Usage
 
