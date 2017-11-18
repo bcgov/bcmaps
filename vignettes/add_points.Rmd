@@ -18,8 +18,7 @@ For this example, say we have done surveys for a species across B.C., and we wan
 
 First, load the packages we will need: 
 
-- `sp` for working with Spatial objects, 
-- `rgdal` for transforming projections,
+- `sf` for working with spatial layers in the *simple features* format
 - `bcmaps` for accessing spatial files of B.C.
 - `ggplot2` for plotting
 
@@ -32,7 +31,7 @@ We will create a mock dataframe of locations of species presence/absences (in re
 
 ```{r}
 set.seed(42)
-spp <- data.frame(id = 1:10, spp_present = rbinom(10,1,0.5),
+spp <- data.frame(site_num = LETTERS[1:10], spp_present = sample(c("yes", "no"), 10, replace = TRUE),
                  lat = runif(10, 49, 60), long = runif(10, -128, -120), 
                  stringsAsFactors = FALSE)
 head(spp)
@@ -40,7 +39,7 @@ head(spp)
 
 Next we convert this to a `SpatialPointsDataFrame` using the `sp` package. The syntax for doing this is a little obscure - you specify the columns that hold the x and y data in a character vector on the right hand side of the `<-`:
 
-```{r}
+```{r warning=FALSE}
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
 plot(spp["spp_present"])
@@ -50,7 +49,7 @@ In order to overlay these points on other spatial layers, they need to use the s
 
 We know that our occurrence data are in decimal degrees in [NAD83](https://epsg.io/4269), so we will assign the corresponding `proj4string`. You can specify the projection using a full proj4 string (`"+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"`) or the EPSG code (4269). We will use the EPSG code because it's shorter and less likely to make a typo with.
 
-```{r}
+```{r warning=FALSE}
 spp <- st_set_crs(spp, 4326)
 ```
 
@@ -67,30 +66,22 @@ st_crs(spp)
 So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound`:
 
 ```{r}
-spp <- st_transform(spp, st_crs(bc_bound))
+spp <- transform_bc_albers(spp)
 ```
 
 Now we can overlay the points on the provincial boundary dataset:
 
+```{r fig.height=4, fig.width=6, warning=FALSE}
+plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
+plot(st_geometry(bc_bound), add = TRUE)
+```
+
+Now we want to know what ecoregeion of the province each of these observations
+was in. We can use the `ecoregions` data from bcmaps, and the `st_join` function 
+from the `sf` package to extract ecoregions from the point data and add that information:
+
 ```{r}
-plot(bc_bound)
-plot(spp, add = TRUE)
+ecoreg <- ecoregions()
+st_join(spp, ecoreg["CRGNNM"])
 ```
 
-We can also quite easily make a similar (and nicer) map using ggplot2:
-
-```{r message=FALSE}
-# Convert the bc_bound SpatialPolygonsDataFrame into a regular data frame for ggplot2 to use
-# bc_df <- fortify(bc_bound)
-# 
-# # combine the attribute data from spp with the transformed coordinates
-# spp_df <- cbind(spp@data, coordinates(spp))
-# 
-# ggplot(bc_df, aes(x = long, y = lat, group = group)) + 
-#   geom_polygon() + 
-#   geom_point(data = spp_df, 
-#              aes(x = long, y = lat, group = NULL, colour = spp_present)) + 
-#   coord_fixed() + 
-#   theme_minimal() + 
-#   theme(line = element_blank(), axis.title = element_blank(), axis.text = element_blank())
-```
