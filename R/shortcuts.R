@@ -309,7 +309,7 @@ regional_districts <- function(class = 'sf') {
    get_layer('regional_districts', class = class)
 }
 
-#' British Columbia's Water Management Districts.
+#' British Columbia's Water Management Districts
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -330,7 +330,7 @@ water_districts <- function(class = 'sf') {
    get_layer('water_districts', class = class)
 }
 
-#' British Columbia's Water Management Precincts.
+#' British Columbia's Water Management Precincts
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -351,7 +351,7 @@ water_precincts <- function(class = 'sf') {
    get_layer('water_precincts', class = class)
 }
 
-#' British Columbia watercourses at 1:15M scale.
+#' British Columbia watercourses at 1:15M scale
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
@@ -372,7 +372,7 @@ watercourses_15M <- function(class = 'sf') {
    get_layer('watercourses_15M', class = class)
 }
 
-#' British Columbia watercourses at 1:5M scale.
+#' British Columbia watercourses at 1:5M scale
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
