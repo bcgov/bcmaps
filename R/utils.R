@@ -359,3 +359,24 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
   mun <- get_layer("municipalities", class = class)
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
+
+#' Biogeoclimatic Zone Colours
+#'
+#' Standard colours used to represent Biogeoclimatic Zone colours
+#'
+#' @return named vector of hexadecimal colour codes. Names are standard
+#' abbreviations of Zone names.
+#' @export
+#'
+bec_colours <- function() {
+  c(BAFA = "#E5D8B1", SWB = "#A3D1AB", BWBS = "#ABE7FF",
+    ESSF = "#9E33D3", CMA = "#E5C7C7", SBS = "#2D8CBD",
+    MH = "#A599FF", CWH = "#208500", ICH = "#85A303",
+    IMA = "#B2B2B2", SBPS = "#36DEFC", MS = "#FF46A3",
+    IDF = "#FFCF00", BG = "#FF0000", PP = "#DE7D00",
+    CDF = "#FFFF00")
+}
+
+#' @rdname bec_colours
+#' @export
+bec_colors <- bec_colours
