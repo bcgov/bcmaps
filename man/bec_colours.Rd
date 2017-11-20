@@ -14,5 +14,17 @@ named vector of hexadecimal colour codes. Names are standard
 abbreviations of Zone names.
 }
 \description{
-Standard colours used to represent Biogeoclimatic Zone colours
+Standard colours used to represent Biogeoclimatic Zone colours to be used in plotting.
+}
+\examples{
+\dontrun{
+if (require("bcmaps.rdata") && require(sf) && require(ggplot2) && packageVersion("ggplot2") >= '2.2.1.9000') {
+ bec <- bec()
+ ggplot() +
+   geom_sf(data = bec[bec$ZONE \%in\% c("BG", "PP"),],
+           aes(fill = ZONE, col = ZONE)) +
+   scale_fill_manual(values = bec_colors()) +
+   scale_colour_manual(values = bec_colours())
+}
+}
 }
