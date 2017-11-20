@@ -45,40 +45,44 @@ available_layers()
 #> 1            airzones                         British Columbia Air Zones
 #> 2            bc_bound                                        BC Boundary
 #> 3       bc_bound_hres                      BC Boundary - High Resolution
-#> 4        ecoprovinces                      British Columbia Ecoprovinces
-#> 5          ecoregions                        British Columbia Ecoregions
-#> 6         gw_aquifers British Columbia's developed ground water aquifers
-#> 7          hydrozones     Hydrologic Zone Boundaries of British Columbia
-#> 8      municipalities                    British Columbia Municipalities
-#> 9            nr_areas       British Columbia Natural Resource (NR) Areas
-#> 10       nr_districts   British Columbia Natural Resource (NR) Districts
-#> 11         nr_regions     British Columbia Natural Resource (NR) Regions
-#> 12 regional_districts                British Columbia Regional Districts
-#> 13    water_districts     British Columbia's Water Management Districts.
-#> 14    water_precincts     British Columbia's Water Management Precincts.
-#> 15   watercourses_15M      British Columbia watercourses at 1:15M scale.
-#> 16    watercourses_5M       British Columbia watercourses at 1:5M scale.
-#> 17         watersheds  British Columbia Hydrometric Watershed Boundaries
-#> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
+#> 4                 bec                           British Columbia BEC Map
+#> 5        ecoprovinces                      British Columbia Ecoprovinces
+#> 6          ecoregions                        British Columbia Ecoregions
+#> 7         ecosections                       British Columbia Ecosections
+#> 8         gw_aquifers British Columbia's developed ground water aquifers
+#> 9          hydrozones     Hydrologic Zone Boundaries of British Columbia
+#> 10     municipalities                    British Columbia Municipalities
+#> 11           nr_areas       British Columbia Natural Resource (NR) Areas
+#> 12       nr_districts   British Columbia Natural Resource (NR) Districts
+#> 13         nr_regions     British Columbia Natural Resource (NR) Regions
+#> 14 regional_districts                British Columbia Regional Districts
+#> 15    water_districts      British Columbia's Water Management Districts
+#> 16    water_precincts      British Columbia's Water Management Precincts
+#> 17   watercourses_15M       British Columbia watercourses at 1:15M scale
+#> 18    watercourses_5M        British Columbia watercourses at 1:5M scale
+#> 19         watersheds  British Columbia Hydrometric Watershed Boundaries
+#> 20      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
 #>     shortcut_function
 #> 1            airzones
 #> 2            bc_bound
 #> 3       bc_bound_hres
-#> 4        ecoprovinces
-#> 5          ecoregions
-#> 6         gw_aquifers
-#> 7          hydrozones
-#> 8      municipalities
-#> 9            nr_areas
-#> 10       nr_districts
-#> 11         nr_regions
-#> 12 regional_districts
-#> 13    water_districts
-#> 14    water_precincts
-#> 15   watercourses_15M
-#> 16    watercourses_5M
-#> 17         watersheds
-#> 18      wsc_drainages
+#> 4                 bec
+#> 5        ecoprovinces
+#> 6          ecoregions
+#> 7         ecosections
+#> 8         gw_aquifers
+#> 9          hydrozones
+#> 10     municipalities
+#> 11           nr_areas
+#> 12       nr_districts
+#> 13         nr_regions
+#> 14 regional_districts
+#> 15    water_districts
+#> 16    water_precincts
+#> 17   watercourses_15M
+#> 18    watercourses_5M
+#> 19         watersheds
+#> 20      wsc_drainages
 ```
 
 Most layers are accessible by a shortcut function by the same name as the object. Then you can use the data as you would any `sf` or `Spatial` object. For example:
