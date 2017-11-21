@@ -38,13 +38,17 @@ get_layer <- function(layer, class = c("sf", "sp")) {
   ret <- getExportedValue("bcmaps.rdata", layer)
 
   if (class == "sp") {
-    if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
-    ret <- sf::st_zm(ret, drop = TRUE)
-    ret <- methods::as(ret, "Spatial")
+    ret <- convert_to_sp(ret)
   }
 
   ret
 
+}
+
+convert_to_sp <- function(sf_obj) {
+  if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
+  ret <- sf::st_zm(sf_obj, drop = TRUE)
+  ret <- methods::as(ret, "Spatial")
 }
 
 #' List available data layers
