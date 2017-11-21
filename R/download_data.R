@@ -1,0 +1,73 @@
+# Copyright 2017 Province of British Columbia
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
+
+#' British Columbia BEC Map
+#'
+#' The current and most detailed version of the approved corporate provincial
+#' digital Biogeoclimatic Ecosystem Classification (BEC)
+#' Zone/Subzone/Variant/Phase map (version 10, August 31st, 2016).
+#'
+#' @format An `sf` polygons object with B.C.'s Biogeoclimatic Ecosystem
+#' Classification (BEC) Zone/Subzone/Variant/Phase map
+#'
+#' @source Original data from the
+#'   \href{https://catalogue.data.gov.bc.ca/dataset/f358a53b-ffde-4830-a325-a5a03ff672c3}{B.C. Data Catalogue},
+#'    under the
+#'   \href{https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61}{Open
+#'   Government Licence - British Columbia}.
+#'
+get_bec <- function(class = c("sf", "sp")) {
+  get_big_data("bec", class)
+}
+
+get_big_data <- function(what, class= c("sf", "sp")) {
+  class <- match.arg(class)
+  # Check cache then download_file_from_release
+}
+
+download_file_from_release <- function(file, path) {
+  release <- get_latest_release()
+  assets <- list_release_assets(release$id)
+
+  the_asset <- which(vapply(assets, function(x) x$name, FUN.VALUE = character(1)) == file)
+  the_asset_url <- assets[[the_asset]][["url"]]
+  download_release_asset(the_asset_url, path)
+}
+
+get_latest_release <- function() {
+  # List releases
+  rels_resp <- httr::GET(base_url())
+  httr::stop_for_status(rels_resp)
+
+  rels <- httr::content(rels_resp)
+
+  # List most recent release
+  release_resp <- httr::GET(paste0(base_url(), "/", rels[[1]]$id))
+  httr::stop_for_status(release_resp)
+  httr::content(release_resp)
+}
+
+list_release_assets <- function(release_id) {
+  resp <- httr::GET(paste0(base_url(), "/", release_id, "/assets"))
+  httr::stop_for_status(resp)
+  httr::content(resp)
+}
+
+download_release_asset <- function(asset_url, path) {
+  resp <- httr::GET(asset_url,
+     config = httr::add_headers(Accept = "application/octet-stream"),
+     httr::write_disk(path, overwrite = TRUE),
+     httr::progress("down"))
+  httr::stop_for_status(resp)
+}
+
+base_url <- function() "https://api.github.com/repos/bcgov/bcmaps.rdata/releases"
