@@ -31,7 +31,34 @@ get_bec <- function(class = c("sf", "sp")) {
 
 get_big_data <- function(what, class= c("sf", "sp")) {
   class <- match.arg(class)
-  # Check cache then download_file_from_release
+  fname <- paste0(what, ".rds")
+  dir <- data_dir()
+  fpath <- file.path(dir, fname)
+
+  if (!file.exists(fpath)) {
+    check_write_to_data_dir(dir)
+    message("Downlading ", what, "...\n")
+    download_file_from_release(fname, fpath)
+  } else {
+    # check cache
+
+  }
+  ret <- readRDS(fpath)
+
+  if (class == "sp") {
+    ret <- convert_to_sp(ret)
+  }
+  ret
+}
+
+data_dir <- function() rappdirs::user_data_dir("bcmaps")
+
+check_write_to_data_dir <- function(dir = data_dir()) {
+  ans <- readline(paste("bcmaps would like to store data in the directory:",
+                        dir, "Is that okay? (y/n)", sep = "\n"))
+  if (tolower(ans) != "y") stop("Exiting...", call. = FALSE)
+
+  dir.create(dir, showWarnings = FALSE)
 }
 
 download_file_from_release <- function(file, path) {
@@ -39,6 +66,12 @@ download_file_from_release <- function(file, path) {
   assets <- list_release_assets(release$id)
 
   the_asset <- which(vapply(assets, function(x) x$name, FUN.VALUE = character(1)) == file)
+  if (!length(the_asset)) {
+    stop("No assets matching filename ", file)
+  } else if (length(the_asset) > 1) {
+    stop("More than one asset matching filename ", file)
+  }
+
   the_asset_url <- assets[[the_asset]][["url"]]
   download_release_asset(the_asset_url, path)
 }
@@ -67,7 +100,10 @@ download_release_asset <- function(asset_url, path) {
      config = httr::add_headers(Accept = "application/octet-stream"),
      httr::write_disk(path, overwrite = TRUE),
      httr::progress("down"))
+
   httr::stop_for_status(resp)
+
+  invisible(path)
 }
 
 base_url <- function() "https://api.github.com/repos/bcgov/bcmaps.rdata/releases"
