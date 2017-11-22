@@ -37,12 +37,12 @@ get_big_data <- function(what, class= c("sf", "sp")) {
 
   if (!file.exists(fpath)) {
     check_write_to_data_dir(dir)
-    message("Downlading ", what, "...\n")
-    download_file_from_release(fname, fpath)
-  } else {
-    # check cache
-
   }
+
+  ret_path <- download_file_from_release(fname, fpath)
+  if (ret_path != fpath)
+    stop("Something went wrong. ", fname, " was written to an unexpected place.")
+
   ret <- readRDS(fpath)
 
   if (class == "sp") {
@@ -63,7 +63,8 @@ check_write_to_data_dir <- function(dir = data_dir()) {
 
 download_file_from_release <- function(file, path) {
   release <- get_latest_release()
-  assets <- list_release_assets(release$id)
+  # assets <- list_release_assets(release$id)
+  assets <- release$assets
 
   the_asset <- which(vapply(assets, function(x) x$name, FUN.VALUE = character(1)) == file)
   if (!length(the_asset)) {
@@ -73,7 +74,38 @@ download_file_from_release <- function(file, path) {
   }
 
   the_asset_url <- assets[[the_asset]][["url"]]
-  download_release_asset(the_asset_url, path)
+
+  the_asset_id <- as.character(assets[[the_asset]][["id"]])
+  asset_id_file <- gsub("rds$", "gh_asset_id", path)
+
+  if (file.exists(asset_id_file)) {
+    old_asset_id <- as.character(readLines(asset_id_file, n = 1L, warn = FALSE))
+    if (old_asset_id != the_asset_id) {
+      ans <- readline(paste0("There is a newer version of ", basename(file),
+                             "available. Would you like to download it and store it at ",
+                             path, "? (y/n"))
+      if (tolower(ans) == "y") {
+        download <- TRUE
+      } else {
+        download <- FALSE
+      }
+    } else {
+      download <- FALSE
+    }
+  } else {
+    download <- TRUE
+  }
+
+  if (download) {
+    message("Downlading ", file, "...\n")
+    # write the github release asset id to a file for checking version
+    cat(the_asset_id,
+        file = asset_id_file)
+    download_release_asset(the_asset_url, path)
+  } else {
+    message("Loading file from cache...\n")
+    invisible(path)
+  }
 }
 
 get_latest_release <- function() {
