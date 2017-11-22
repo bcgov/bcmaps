@@ -359,3 +359,9 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
   mun <- get_layer("municipalities", class = class)
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
+
+ask <- function(...) {
+  choices <- c("Yes", "No")
+  cat(paste0(..., collapse = ""))
+  menu(choices) == which(choices == "Yes")
+}

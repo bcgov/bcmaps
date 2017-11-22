@@ -54,9 +54,9 @@ get_big_data <- function(what, class= c("sf", "sp")) {
 data_dir <- function() rappdirs::user_data_dir("bcmaps")
 
 check_write_to_data_dir <- function(dir = data_dir()) {
-  ans <- readline(paste("bcmaps would like to store data in the directory:",
-                        dir, "Is that okay? (y/n)", sep = "\n"))
-  if (tolower(ans) != "y") stop("Exiting...", call. = FALSE)
+  ans <- ask(paste("bcmaps would like to store data in the directory:",
+                   dir, "Is that okay?", sep = "\n"))
+  if (!ans) stop("Exiting...", call. = FALSE)
 
   dir.create(dir, showWarnings = FALSE)
 }
@@ -81,10 +81,10 @@ download_file_from_release <- function(file, path) {
   if (file.exists(asset_id_file)) {
     old_asset_id <- as.character(readLines(asset_id_file, n = 1L, warn = FALSE))
     if (old_asset_id != the_asset_id) {
-      ans <- readline(paste0("There is a newer version of ", basename(file),
+      ans <- ask(paste0("There is a newer version of ", basename(file),
                              "available. Would you like to download it and store it at ",
-                             path, "? (y/n"))
-      if (tolower(ans) == "y") {
+                             path, "?"))
+      if (!ans) {
         download <- TRUE
       } else {
         download <- FALSE
