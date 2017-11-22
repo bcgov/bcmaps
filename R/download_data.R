@@ -72,9 +72,9 @@ download_file_from_release <- function(file, path, release = "latest") {
   the_asset <- which(vapply(assets, function(x) x$name, FUN.VALUE = character(1)) == file)
 
   if (!length(the_asset)) {
-    stop("No assets matching filename ", file)
+    stop("No assets matching filename ", file, " in ", release, " release.")
   } else if (length(the_asset) > 1) {
-    stop("More than one asset matching filename ", file)
+    stop("More than one asset matching filename ", file, " in ", release, " release.")
   }
 
   the_asset_url <- assets[[the_asset]][["url"]]
