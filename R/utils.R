@@ -363,5 +363,5 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
 ask <- function(...) {
   choices <- c("Yes", "No")
   cat(paste0(..., collapse = ""))
-  menu(choices) == which(choices == "Yes")
+  utils::menu(choices) == which(choices == "Yes")
 }
