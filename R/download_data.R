@@ -30,10 +30,10 @@
 #' @export
 #'
 bec <- function(class = c("sf", "sp")) {
-  get_big_data("bec", class)
+  get_big_data("bec", class, release = "latest")
 }
 
-get_big_data <- function(what, class= c("sf", "sp")) {
+get_big_data <- function(what, class= c("sf", "sp"), release = "latest") {
   class <- match.arg(class)
   fname <- paste0(what, ".rds")
   dir <- data_dir()
@@ -43,7 +43,7 @@ get_big_data <- function(what, class= c("sf", "sp")) {
     check_write_to_data_dir(dir)
   }
 
-  ret_path <- download_file_from_release("latest", fname, fpath)
+  ret_path <- download_file_from_release(fname, fpath, release = release)
   if (ret_path != fpath)
     stop("Something went wrong. ", fname, " was written to an unexpected place.")
 
@@ -65,7 +65,7 @@ check_write_to_data_dir <- function(dir) {
   dir.create(dir, showWarnings = FALSE)
 }
 
-download_file_from_release <- function(release = "latest", file, path) {
+download_file_from_release <- function(file, path, release = "latest") {
   the_release <- get_gh_release(release)
   assets <- the_release$assets
 
@@ -100,7 +100,7 @@ download_file_from_release <- function(release = "latest", file, path) {
   }
 
   if (download) {
-    message("Downlading ", file, "...\n")
+    message("Downloading ", file, "...\n")
     # write the github release asset id to a file for checking version
     cat(the_asset_id,
         file = asset_id_file)
@@ -121,7 +121,7 @@ get_gh_release <- function(release) {
   if (release == "latest") {
     rels[[1]]
   } else {
-    rels[vapply(rels, function(x) x$id == as.character(release), FUN.VALUE = logical(1))][[1]]
+    rels[vapply(rels, function(x) x$tag_name == as.character(release), FUN.VALUE = logical(1))][[1]]
   }
 }
 
