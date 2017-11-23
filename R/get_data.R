@@ -67,7 +67,7 @@ available_layers <- function() {
   hasData()
   datas <- utils::data(package = "bcmaps.rdata")
   layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
-  layers_df$shortcut_function <- ifelse(layers_df[["Item"]] %in% ls("package:bcmaps"),
+  layers_df$shortcut_function <- ifelse(layers_df[["Item"]] %in% getNamespaceExports("bcmaps"),
                                         layers_df[["Item"]], NA_character_)
   layers_df
 }
