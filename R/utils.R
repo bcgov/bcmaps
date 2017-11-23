@@ -370,7 +370,8 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
 #'
 #' @examples
 #' \dontrun{
-#' if (require("bcmaps.rdata") && require(sf) && require(ggplot2) && packageVersion("ggplot2") >= '2.2.1.9000') {
+#' if (require("bcmaps.rdata") && #' require(sf) && require(ggplot2) &&
+#' packageVersion("ggplot2") >= '2.2.1.9000') {
 #'  bec <- bec()
 #'  ggplot() +
 #'    geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
