@@ -372,27 +372,6 @@ watercourses_5M <- function(class = 'sf') {
    get_layer('watercourses_5M', class = class)
 }
 
-#' British Columbia Hydrometric Watershed Boundaries
-#'
-#' You must have the `bcmaps.rdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `watersheds` in the desired class
-#'
-#' @details See [bcmaps.rdata::watersheds] for details.
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- watersheds()
-#' my_layer_sp <- watersheds(class = 'sp')
-#' }
-#'
-#' @export
-watersheds <- function(class = 'sf') {
-   get_layer('watersheds', class = class)
-}
-
 #' Water Survey of Canada Sub-Sub-Drainage Areas
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
