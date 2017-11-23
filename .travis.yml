@@ -14,10 +14,6 @@ notifications:
     on_success: change
     on_failure: change
 
-env:
-  global:
-    - _R_CHECK_FORCE_SUGGESTS_=false
-
 r_github_packages:
     - bcgov/bcmaps.rdata
 r:
