@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{water_districts}
 \alias{water_districts}
-\title{British Columbia's Water Management Districts.}
+\title{British Columbia's Water Management Districts}
 \usage{
 water_districts(class = "sf")
 }
