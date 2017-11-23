@@ -2,7 +2,7 @@
 * Changed the lookup for exported objected to `getNamespaceExports("bcmaps")` so that you can 
 call layers without loading the package via `bcmaps::`
 * Removed `watersheds` layer from package
-* Added `ecosections` from package
+* Added `ecosections` to package
 
 # bcmaps 0.13.0
 
