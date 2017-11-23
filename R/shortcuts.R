@@ -78,27 +78,6 @@ bc_bound_hres <- function(class = 'sf') {
    get_layer('bc_bound_hres', class = class)
 }
 
-#' British Columbia BEC Map
-#'
-#' You must have the `bcmaps.rdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `bec` in the desired class
-#'
-#' @details See [bcmaps.rdata::bec] for details.
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- bec()
-#' my_layer_sp <- bec(class = 'sp')
-#' }
-#'
-#' @export
-bec <- function(class = 'sf') {
-   get_layer('bec', class = class)
-}
-
 #' British Columbia Ecoprovinces
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
