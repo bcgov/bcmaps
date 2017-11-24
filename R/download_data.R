@@ -17,7 +17,7 @@
 #' Zone/Subzone/Variant/Phase map (version 10, August 31st, 2016).
 #'
 #' @inheritParams get_big_data
-#' @param ... arguments passed on to [get_big_data]:
+#' @param ... arguments passed on to [get_big_data]
 #'
 #' @format An `sf` or `Spatial` polygons object with B.C.'s Biogeoclimatic Ecosystem
 #' Classification (BEC) Zone/Subzone/Variant/Phase map

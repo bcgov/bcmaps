@@ -18,7 +18,7 @@ bec(class = c("sf", "sp"), ...)
 \arguments{
 \item{class}{class of object to import; one of \code{"sf"} (default) or \code{"sp"}.}
 
-\item{...}{arguments passed on to \link{get_big_data}:}
+\item{...}{arguments passed on to \link{get_big_data}}
 }
 \description{
 The current and most detailed version of the approved corporate provincial
