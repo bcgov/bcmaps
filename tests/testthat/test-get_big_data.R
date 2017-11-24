@@ -1,13 +1,32 @@
 context("data from gh release")
 
-# test.rds is saved on release 0.1.1
-test <- function(class = c("sf", "sp")) get_big_data("test", class, "latest")
+# Shortcut function of the same form as bec etc...
+test <- function(class = c("sf", "sp"), ...) {
+  class <- match.arg(class)
+  get_big_data("test", class, ...)
+}
 
-get_big_data("test", "sf", "latest")
+test_that("get_big_data works with specific release", {
+  skip_on_cran()
+  expect_equal(get_big_data("test", "sf", "0.1.1", force = TRUE, ask = FALSE), "test")
+  expect_equal(test(release = "0.1.1", force = TRUE, ask = FALSE), "test")
+  test_gh_assid_file <- file.path(data_dir(), "test.gh_asset_id")
+  expect_true(file.exists(test_gh_assid_file))
+  expect_equal(readChar(test_gh_assid_file, nchars = 10), "5416227")
+})
 
-get_big_data("test", "sf", "0.1.1")
+test_that("get_big_data works with latest release", {
+  skip_on_cran()
+  expect_equal(get_big_data("test", "sf", "latest", force = TRUE, ask = FALSE), "test")
+  expect_equal(test(force = TRUE, ask = FALSE), "test")
+})
 
 test_that("get_big_data fails when file doesn't exist", {
+  skip_on_cran()
   expect_error(get_big_data("test", "sf", "0.1.0"), "No assets matching filename test.rds in 0.1.0 release")
 })
 
+test_that("check_write_to_data_dir works", {
+  expect_message(check_write_to_data_dir(data_dir(), ask = FALSE), "Creating directory to hold bcmaps data")
+  expect_true(dir.exists(rappdirs::user_data_dir("bcmaps")))
+})
