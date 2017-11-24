@@ -47,18 +47,18 @@ available_layers()
 #> 3       bc_bound_hres                      BC Boundary - High Resolution
 #> 4        ecoprovinces                      British Columbia Ecoprovinces
 #> 5          ecoregions                        British Columbia Ecoregions
-#> 6         gw_aquifers British Columbia's developed ground water aquifers
-#> 7          hydrozones     Hydrologic Zone Boundaries of British Columbia
-#> 8      municipalities                    British Columbia Municipalities
-#> 9            nr_areas       British Columbia Natural Resource (NR) Areas
-#> 10       nr_districts   British Columbia Natural Resource (NR) Districts
-#> 11         nr_regions     British Columbia Natural Resource (NR) Regions
-#> 12 regional_districts                British Columbia Regional Districts
-#> 13    water_districts     British Columbia's Water Management Districts.
-#> 14    water_precincts     British Columbia's Water Management Precincts.
-#> 15   watercourses_15M      British Columbia watercourses at 1:15M scale.
-#> 16    watercourses_5M       British Columbia watercourses at 1:5M scale.
-#> 17         watersheds  British Columbia Hydrometric Watershed Boundaries
+#> 6         ecosections                       British Columbia Ecosections
+#> 7         gw_aquifers British Columbia's developed ground water aquifers
+#> 8          hydrozones     Hydrologic Zone Boundaries of British Columbia
+#> 9      municipalities                    British Columbia Municipalities
+#> 10           nr_areas       British Columbia Natural Resource (NR) Areas
+#> 11       nr_districts   British Columbia Natural Resource (NR) Districts
+#> 12         nr_regions     British Columbia Natural Resource (NR) Regions
+#> 13 regional_districts                British Columbia Regional Districts
+#> 14    water_districts      British Columbia's Water Management Districts
+#> 15    water_precincts      British Columbia's Water Management Precincts
+#> 16   watercourses_15M       British Columbia watercourses at 1:15M scale
+#> 17    watercourses_5M        British Columbia watercourses at 1:5M scale
 #> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
 #>     shortcut_function
 #> 1            airzones
@@ -66,18 +66,18 @@ available_layers()
 #> 3       bc_bound_hres
 #> 4        ecoprovinces
 #> 5          ecoregions
-#> 6         gw_aquifers
-#> 7          hydrozones
-#> 8      municipalities
-#> 9            nr_areas
-#> 10       nr_districts
-#> 11         nr_regions
-#> 12 regional_districts
-#> 13    water_districts
-#> 14    water_precincts
-#> 15   watercourses_15M
-#> 16    watercourses_5M
-#> 17         watersheds
+#> 6                <NA>
+#> 7         gw_aquifers
+#> 8          hydrozones
+#> 9      municipalities
+#> 10           nr_areas
+#> 11       nr_districts
+#> 12         nr_regions
+#> 13 regional_districts
+#> 14    water_districts
+#> 15    water_precincts
+#> 16   watercourses_15M
+#> 17    watercourses_5M
 #> 18      wsc_drainages
 ```
 
@@ -85,7 +85,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.2, GDAL 2.2.2, proj.4 4.9.3, lwgeom 2.4.0 r15853
+#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
@@ -98,18 +98,10 @@ Alternatively, you can use the `get_layer` function - simply type `get_layer('la
 ``` r
 library(sf)
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 
-ws <- get_layer("watersheds", class = "sf")
+ws <- get_layer("wsc_drainages", class = "sf")
 
-plot(ws["SRCNM"], key.pos = NULL)
+plot(ws["WSCSSDA_EN"], key.pos = NULL)
 ```
 
 ![](tools/readme/unnamed-chunk-6-1.png)

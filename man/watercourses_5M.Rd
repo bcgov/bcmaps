@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{watercourses_5M}
 \alias{watercourses_5M}
-\title{British Columbia watercourses at 1:5M scale.}
+\title{British Columbia watercourses at 1:5M scale}
 \usage{
 watercourses_5M(class = "sf")
 }

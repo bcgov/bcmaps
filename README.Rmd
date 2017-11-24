@@ -71,13 +71,13 @@ where `'layer_name'` is the name of the layer of interest. The `get_layer` funct
 useful if the back-end `bcmaps.rdata` package has had a layer added to it, but there is 
 as yet no shortcut function created in `bcmaps`.
 
-```{r}
+```{r, message=FALSE}
 library(sf)
 library(dplyr)
 
-ws <- get_layer("watersheds", class = "sf")
+ws <- get_layer("wsc_drainages", class = "sf")
 
-plot(ws["SRCNM"], key.pos = NULL)
+plot(ws["WSCSSDA_EN"], key.pos = NULL)
 ```
 
 ### Simple Features objects

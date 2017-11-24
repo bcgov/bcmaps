@@ -82,6 +82,6 @@ from the `sf` package to extract ecoregions from the point data and add that inf
 
 ```{r}
 ecoreg <- ecoregions()
-st_join(spp, ecoreg["CRGNNM"])
+st_join(spp, ecoreg["ECOREGION_NAME"])
 ```
 

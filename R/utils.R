@@ -360,8 +360,44 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
 
+
 ask <- function(...) {
   choices <- c("Yes", "No")
   cat(paste0(..., collapse = ""))
   utils::menu(choices) == which(choices == "Yes")
 }
+
+#' Biogeoclimatic Zone Colours
+#'
+#' Standard colours used to represent Biogeoclimatic Zone colours to be used in plotting.
+#'
+#' @return named vector of hexadecimal colour codes. Names are standard
+#' abbreviations of Zone names.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' if (require("bcmaps.rdata") && #' require(sf) && require(ggplot2) &&
+#' packageVersion("ggplot2") >= '2.2.1.9000') {
+#'  bec <- bec()
+#'  ggplot() +
+#'    geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+#'            aes(fill = ZONE, col = ZONE)) +
+#'    scale_fill_manual(values = bec_colors()) +
+#'    scale_colour_manual(values = bec_colours())
+#' }
+#' }
+bec_colours <- function() {
+  bec_colours <- c(BAFA = "#E5D8B1", SWB = "#A3D1AB", BWBS = "#ABE7FF",
+    ESSF = "#9E33D3", CMA = "#E5C7C7", SBS = "#2D8CBD",
+    MH = "#A599FF", CWH = "#208500", ICH = "#85A303",
+    IMA = "#B2B2B2", SBPS = "#36DEFC", MS = "#FF46A3",
+    IDF = "#FFCF00", BG = "#FF0000", PP = "#DE7D00",
+    CDF = "#FFFF00")
+  bec_colours[sort(names(bec_colours))]
+}
+
+#' @rdname bec_colours
+#' @export
+bec_colors <- bec_colours
+

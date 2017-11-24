@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{water_precincts}
 \alias{water_precincts}
-\title{British Columbia's Water Management Precincts.}
+\title{British Columbia's Water Management Precincts}
 \usage{
 water_precincts(class = "sf")
 }
