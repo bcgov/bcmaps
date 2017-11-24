@@ -29,22 +29,22 @@
 #'
 #' @export
 #'
-bec <- function(class = c("sf", "sp")) {
+bec <- function(class = c("sf", "sp"), ...) {
   class <- match.arg(class)
-  get_big_data("bec", class, release = "latest")
+  get_big_data("bec", class, ...)
 }
 
-get_big_data <- function(what, class= c("sf", "sp"), release = "latest") {
+get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force = FALSE, ask = TRUE) {
   class <- match.arg(class)
   fname <- paste0(what, ".rds")
   dir <- data_dir()
   fpath <- file.path(dir, fname)
 
   if (!file.exists(fpath)) {
-    check_write_to_data_dir(dir)
+    check_write_to_data_dir(dir, ask)
   }
 
-  ret_path <- download_file_from_release(fname, fpath, release = release)
+  ret_path <- download_file_from_release(fname, fpath, release = release, force = force)
   if (ret_path != fpath)
     stop("Something went wrong. ", fname, " was written to an unexpected place.")
 
@@ -58,15 +58,17 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest") {
 
 data_dir <- function() rappdirs::user_data_dir("bcmaps")
 
-check_write_to_data_dir <- function(dir) {
-  ans <- ask(paste("bcmaps would like to store this layer in the directory:",
-                   dir, "Is that okay?", sep = "\n"))
-  if (!ans) stop("Exiting...", call. = FALSE)
-
+check_write_to_data_dir <- function(dir, ask) {
+  if (ask) {
+    ans <- ask(paste("bcmaps would like to store this layer in the directory:",
+                     dir, "Is that okay?", sep = "\n"))
+    if (!ans) stop("Exiting...", call. = FALSE)
+  }
+  message("Creating directory to hold bcmaps data ", dir)
   dir.create(dir, showWarnings = FALSE)
 }
 
-download_file_from_release <- function(file, path, release = "latest") {
+download_file_from_release <- function(file, path, release = "latest", force = FALSE) {
   the_release <- get_gh_release(release)
   assets <- the_release$assets
 
@@ -83,7 +85,7 @@ download_file_from_release <- function(file, path, release = "latest") {
   the_asset_id <- as.character(assets[[the_asset]][["id"]])
   asset_id_file <- gsub("rds$", "gh_asset_id", path)
 
-  if (file.exists(asset_id_file)) {
+  if (file.exists(asset_id_file) && !force) {
     # Read the asset id of the previously written file
     old_asset_id <- as.character(readLines(asset_id_file, n = 1L, warn = FALSE))
     if (old_asset_id == the_asset_id) {
