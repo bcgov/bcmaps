@@ -30,3 +30,20 @@ test_that("check_write_to_data_dir works", {
   expect_message(check_write_to_data_dir(data_dir(), ask = FALSE), "Creating directory to hold bcmaps data")
   expect_true(dir.exists(rappdirs::user_data_dir("bcmaps")))
 })
+
+test_that("gh functions work with and without authentication", {
+  gh_pat <- ""
+  if (nzchar(Sys.getenv("GITHUB_PAT"))) {
+    expect_is(get_gh_release("latest"), "list")
+    temp <- tempfile(fileext = ".rds")
+    download_release_asset("https://api.github.com/repos/bcgov/bcmaps.rdata/releases/assets/5432872", temp)
+    expect_equal(readRDS(temp), "test")
+    gh_pat <- Sys.getenv("GITHUB_PAT")
+    Sys.unsetenv("GITHUB_PAT")
+  }
+  expect_is(get_gh_release("latest"), "list")
+  temp <- tempfile(fileext = ".rds")
+  download_release_asset("https://api.github.com/repos/bcgov/bcmaps.rdata/releases/assets/5432872", temp)
+  expect_equal(readRDS(temp), "test")
+  Sys.setenv("GITHUB_PAT" = gh_pat)
+})
