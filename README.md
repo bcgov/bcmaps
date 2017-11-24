@@ -103,7 +103,7 @@ library(dplyr)
 
 ws <- get_layer("wsc_drainages", class = "sf")
 
-plot(ws["WSCSSDA_EN"], key.pos = NULL)
+plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
 ```
 
 ![](tools/readme/unnamed-chunk-6-1.png)
