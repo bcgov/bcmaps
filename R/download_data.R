@@ -116,7 +116,7 @@ download_file_from_release <- function(file, path, release = "latest", force = F
 
 get_gh_release <- function(release) {
   # List releases
-  rels_resp <- httr::GET(base_url())
+  rels_resp <- httr::GET(base_url(), auth())
   httr::stop_for_status(rels_resp)
 
   rels <- httr::content(rels_resp)
@@ -132,11 +132,20 @@ download_release_asset <- function(asset_url, path) {
   resp <- httr::GET(asset_url,
      config = httr::add_headers(Accept = "application/octet-stream"),
      httr::write_disk(path, overwrite = TRUE),
-     httr::progress("down"))
+     httr::progress("down"),
+     auth())
 
   httr::stop_for_status(resp)
 
   invisible(path)
+}
+
+auth <- function() {
+  pat <- Sys.getenv("GITHUB_PAT")
+  if (nzchar(pat)) {
+    return(httr::authenticate(pat, ""))
+  }
+  NULL
 }
 
 base_url <- function() "https://api.github.com/repos/bcgov/bcmaps.rdata/releases"
