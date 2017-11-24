@@ -16,9 +16,9 @@
 #' digital Biogeoclimatic Ecosystem Classification (BEC)
 #' Zone/Subzone/Variant/Phase map (version 10, August 31st, 2016).
 #'
-#' @param class
+#' @param class class of object to import; one of `"sf"` (default) or `"sp"`.
 #'
-#' @format An `sf` polygons object with B.C.'s Biogeoclimatic Ecosystem
+#' @format An `sf` or `Spatial` polygons object with B.C.'s Biogeoclimatic Ecosystem
 #' Classification (BEC) Zone/Subzone/Variant/Phase map
 #'
 #' @source Original data from the
@@ -30,6 +30,7 @@
 #' @export
 #'
 bec <- function(class = c("sf", "sp")) {
+  class <- match.arg(class)
   get_big_data("bec", class, release = "latest")
 }
 
