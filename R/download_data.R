@@ -16,7 +16,8 @@
 #' digital Biogeoclimatic Ecosystem Classification (BEC)
 #' Zone/Subzone/Variant/Phase map (version 10, August 31st, 2016).
 #'
-#' @param class class of object to import; one of `"sf"` (default) or `"sp"`.
+#' @inheritParams get_big_data
+#' @param ... arguments passed on to [get_big_data]:
 #'
 #' @format An `sf` or `Spatial` polygons object with B.C.'s Biogeoclimatic Ecosystem
 #' Classification (BEC) Zone/Subzone/Variant/Phase map
@@ -34,6 +35,15 @@ bec <- function(class = c("sf", "sp"), ...) {
   get_big_data("bec", class, ...)
 }
 
+#' Download a large data file
+#'
+#' @param what The name of the object to download
+#' @param class class of object to import; one of `"sf"` (default) or `"sp"`.
+#' @param release Specific version of bcmaps.rdata to get the desired dataset from. Default `"latest"`
+#' @param force Force downloading and overwriting existing dataset. Default `FALSE`
+#' @param ask Ask whether or not to write to the default data directory for bcmaps. Default `TRUE`
+#' @export
+#'
 get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force = FALSE, ask = TRUE) {
   class <- match.arg(class)
   fname <- paste0(what, ".rds")
