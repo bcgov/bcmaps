@@ -360,6 +360,13 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
 
+
+ask <- function(...) {
+  choices <- c("Yes", "No")
+  cat(paste0(..., collapse = ""))
+  utils::menu(choices) == which(choices == "Yes")
+}
+
 #' Biogeoclimatic Zone Colours
 #'
 #' Standard colours used to represent Biogeoclimatic Zone colours to be used in plotting.
@@ -393,3 +400,4 @@ bec_colours <- function() {
 #' @rdname bec_colours
 #' @export
 bec_colors <- bec_colours
+

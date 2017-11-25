@@ -15,7 +15,10 @@ Depends:
     R (>= 3.4.0)
 Imports: 
     methods,
-    utils
+    utils,
+    sf (>= 0.5-4),
+    rappdirs (>= 0.3.1),
+    httr (>= 1.3.1)
 License: file LICENSE
 LazyData: true
 RoxygenNote: 6.0.1
@@ -28,7 +31,6 @@ Suggests:
     rgeos (>= 0.3-25),
     raster (>= 2.5-8),
     ggplot2 (>= 2.2.1),
-    sf (>= 0.5-4),
     glue (>= 1.1.1),
     testthat
 Additional_repositories: https://bcgov.github.io/drat

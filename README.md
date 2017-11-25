@@ -3,7 +3,9 @@
 bcmaps <img src="inst/sticker/bcmaps.png" height="139" align="right"/>
 ======================================================================
 
-<a rel="Delivery" href="https://github.com/BCDevExchange/docs/blob/master/discussion/projectstates.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
+### Version 0.13.0
+
+<a id="devex-badge" rel="Exploration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="Being designed and built, but in the lab. May change, disappear, or be buggy." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/exploration.svg" title="Being designed and built, but in the lab. May change, disappear, or be buggy." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
 
 Overview
 --------
@@ -66,7 +68,7 @@ available_layers()
 #> 3       bc_bound_hres
 #> 4        ecoprovinces
 #> 5          ecoregions
-#> 6                <NA>
+#> 6         ecosections
 #> 7         gw_aquifers
 #> 8          hydrozones
 #> 9      municipalities
@@ -85,7 +87,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
@@ -101,7 +103,7 @@ library(dplyr)
 
 ws <- get_layer("wsc_drainages", class = "sf")
 
-plot(ws["WSCSSDA_EN"], key.pos = NULL)
+plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
 ```
 
 ![](tools/readme/unnamed-chunk-6-1.png)
