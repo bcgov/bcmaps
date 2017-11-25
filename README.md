@@ -3,7 +3,7 @@
 bcmaps <img src="inst/sticker/bcmaps.png" height="139" align="right"/>
 ======================================================================
 
-### Version 0.13.0
+### Version 0.15.0
 
 <a id="devex-badge" rel="Exploration" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="Being designed and built, but in the lab. May change, disappear, or be buggy." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/exploration.svg" title="Being designed and built, but in the lab. May change, disappear, or be buggy." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
 
@@ -141,6 +141,25 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
 ![](tools/readme/watercourses-1.png)
+
+### Biogeoclimatic Zones
+
+As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem Classification) map is available via the `bec()` function, and an accompanying function `bec_colours()` function to colour it:
+
+``` r
+# This example requires the development version of ggplot2 which has the 
+# `geom_sf()` function:
+# remotes::install_github("tidyverse/ggplot2")
+bec <- bec()
+library(ggplot2)
+ggplot() +
+  geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+          aes(fill = ZONE, col = ZONE)) +
+  scale_fill_manual(values = bec_colors()) +
+  scale_colour_manual(values = bec_colours())
+```
+
+![](tools/readme/bec-1.png)
 
 ### Vignettes
 

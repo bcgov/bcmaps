@@ -1,3 +1,10 @@
+# bcmaps 0.15.0
+* Added the ability to download Biogeoclimatic Zone map - as it was too big to 
+fit in the bcmaps.rdata package, it is hosted as an asset on a GitHub release of bcmaps.rdata, 
+and downloaded via the function `bec()`, which uses the new function `get_big_data()` (#28).
+* Added function `bec_colours()` (and alias `bec_colors()`) to generate a vector of colours 
+that match the standard colours used to colour Biogeoclimatic Zone maps.
+
 # bcmaps 0.14.0
 * Changed the lookup for exported objected to `getNamespaceExports("bcmaps")` so that you can 
 call layers without loading the package via `bcmaps::`

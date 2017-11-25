@@ -113,6 +113,31 @@ plot(get_layer("bc_bound", class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
+### Biogeoclimatic Zones
+
+As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem Classification) map
+is available via the `bec()` function, and an accompanying function `bec_colours()` 
+function to colour it:
+
+```{r include=FALSE}
+bec <- bec(force = TRUE, ask = FALSE)
+```
+
+```{r bec, message=FALSE}
+# This example requires the development version of ggplot2 which has the 
+# `geom_sf()` function:
+# remotes::install_github("tidyverse/ggplot2")
+bec <- bec()
+library(ggplot2)
+ggplot() +
+  geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+          aes(fill = ZONE, col = ZONE)) +
+  scale_fill_manual(values = bec_colors()) +
+  scale_colour_manual(values = bec_colours())
+
+```
+
+
 ### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`.
