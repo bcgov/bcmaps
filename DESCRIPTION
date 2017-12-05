@@ -1,5 +1,5 @@
 Package: bcmaps
-Title: Map layers and spatial utilities for British Columbia
+Title: Map Layers and Spatial Utilities for British Columbia
 Version: 0.15.0
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
@@ -8,9 +8,9 @@ Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
 Description: Provides access to various spatial layers for B.C., such as 
     administrative boundaries, natural resource management boundaries, etc. 
     All layers are imported from the 'bcmaps.rdata' package as 'sf' or 'Spatial' objects
-    through function calls in this package. All layers are in BC Albers projection 
-    (http://spatialreference.org/ref/epsg/nad83-bc-albers/), which is the B.C. 
-    government standard (https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+    through function calls in this package. All layers are in B.C. 'Albers' projection 
+    <http://spatialreference.org/ref/epsg/nad83-bc-albers/>, which is the B.C. 
+    government standard <https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm>.
 Depends:
     R (>= 3.4.0)
 Imports: 
