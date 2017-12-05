@@ -33,6 +33,7 @@ test_that("check_write_to_data_dir works", {
 })
 
 test_that("gh functions work with and without authentication", {
+  skip_on_cran()
   gh_pat <- ""
   if (nzchar(Sys.getenv("GITHUB_PAT"))) {
     expect_is(get_gh_release("latest"), "list")
