@@ -27,6 +27,7 @@ test_that("get_big_data fails when file doesn't exist", {
 })
 
 test_that("check_write_to_data_dir works", {
+  skip_on_cran()
   expect_message(check_write_to_data_dir(data_dir(), ask = FALSE), "Creating directory to hold bcmaps data")
   expect_true(dir.exists(rappdirs::user_data_dir("bcmaps")))
 })
