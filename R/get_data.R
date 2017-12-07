@@ -28,6 +28,10 @@
 #' }
 get_layer <- function(layer, class = c("sf", "sp")) {
 
+  if (!is.character(layer))
+    stop("You must refer to the map layer as a character string (in 'quotes')\n
+         Use the function available_layers() to get a list of layers")
+
   class <- match.arg(class)
   available <- available_layers()[["Item"]]
 
