@@ -34,6 +34,8 @@ Usage
 
 To get full usage of the package, you will also need to install the [**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which holds all of the datasets.
 
+*Note that it is not necessary to actually load the **bcmaps.rdata** package (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't.*
+
 ``` r
 install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
 ```
