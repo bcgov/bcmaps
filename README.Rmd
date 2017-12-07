@@ -30,8 +30,8 @@ An [R](http://r-project.org) package of spatial map layers for British Columbia.
 
 Provides access to various spatial layers of British Columbia, such as 
 administrative boundaries, natural resource management boundaries, watercourses etc. 
-All layers are available as `sf` or `Spatial` objects in the
-[BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm). 
+All layers are available in the
+[BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm) as `sf` or `Spatial` objects. 
 
 Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) package 
 and loaded by this package, following the strategy recommended by [Anderson and Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html). 
@@ -42,7 +42,7 @@ The package is not available on CRAN, but can be installed from github:
 
 ```{r eval=FALSE}
 # install.packages("devtools")
-devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)
+devtools::install_github("bcgov/bcmaps")
 ```
 ## Usage
 
@@ -50,7 +50,7 @@ To get full usage of the package, you will also need to install the
 [**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which holds 
 all of the datasets. 
 
-_Note that it is not necessary to actually load the **bcmaps.rdata** package
+_Note that unlike most package it is not necessary to actually load the **bcmaps.rdata** package
 (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't._
 
 ```{r, eval=FALSE}

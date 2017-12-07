@@ -3,7 +3,7 @@
 bcmaps <img src="inst/sticker/bcmaps.png" height="139" align="right"/>
 ======================================================================
 
-### Version 0.15.0
+### Version 0.15.1
 
 <a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
 
@@ -15,7 +15,7 @@ An [R](http://r-project.org) package of spatial map layers for British Columbia.
 Features
 --------
 
-Provides access to various spatial layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available as `sf` or `Spatial` objects in the [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+Provides access to various spatial layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available in the [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm) as `sf` or `Spatial` objects.
 
 Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) package and loaded by this package, following the strategy recommended by [Anderson and Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html).
 
@@ -26,7 +26,7 @@ The package is not available on CRAN, but can be installed from github:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)
+devtools::install_github("bcgov/bcmaps")
 ```
 
 Usage
@@ -34,7 +34,7 @@ Usage
 
 To get full usage of the package, you will also need to install the [**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which holds all of the datasets.
 
-*Note that it is not necessary to actually load the **bcmaps.rdata** package (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't.*
+*Note that unlike most package it is not necessary to actually load the **bcmaps.rdata** package (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't.*
 
 ``` r
 install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
@@ -89,7 +89,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
