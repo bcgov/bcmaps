@@ -75,7 +75,7 @@ check_write_to_data_dir <- function(dir, ask) {
     if (!ans) stop("Exiting...", call. = FALSE)
   }
   message("Creating directory to hold bcmaps data ", dir)
-  dir.create(dir, showWarnings = FALSE)
+  dir.create(dir, showWarnings = FALSE, recursive = TRUE)
 }
 
 download_file_from_release <- function(file, path, release = "latest", force = FALSE) {
