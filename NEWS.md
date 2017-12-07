@@ -1,3 +1,9 @@
+# bcmaps 0.15.1
+* `get_layer()` now only accepts characters (#31)
+* Fixes bug in `check_write_to_data_dir` where it was not creating data directory
+* Update README installation instructions so that vignettes aren't built before bcmaps.rdata is installed (#29)
+
+
 # bcmaps 0.15.0
 * Added the ability to download Biogeoclimatic Zone map - as it was too big to 
 fit in the bcmaps.rdata package, it is hosted as an asset on a GitHub release of bcmaps.rdata, 
