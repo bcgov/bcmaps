@@ -284,8 +284,6 @@ get_unioned_ids <- function(unioned_sp) {
 #' @param fun function to determine the resulting single attribute from overlapping polygons
 #' @param ... other paramaters passed on to `fun`
 #'
-#' @importFrom methods is
-#'
 #' @return An atomic vector of the same length as x
 #' @export
 #'
@@ -307,7 +305,7 @@ get_unioned_ids <- function(unioned_sp) {
 #'   get_poly_attribute(unioned_spdf$union_df, "c", max)
 #' }
 get_poly_attribute <- function(x, col, fun, ...) {
-  if (!is(x, "list")) stop("x must be a list, or list-column in a data frame")
+  if (!inherits(x, "list")) stop("x must be a list, or list-column in a data frame")
   if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
   if (!col %in% names(x[[1]])) stop(col, " is not a column in the data frames in x")
   if (!is.function(fun)) stop("fun must be a function")
