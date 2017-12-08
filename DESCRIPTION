@@ -1,6 +1,7 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 0.15.1
+Version: 0.16
+Date: 2017-12-08
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
   role = "aut"), person("Sam", "Albers", email = "sam.albers@gov.bc.ca", role = "aut"),

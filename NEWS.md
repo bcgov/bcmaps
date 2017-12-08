@@ -1,3 +1,6 @@
+# bcmaps 0.16
+* Added two new functions: `raster_by_poly` to overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer and clip the raster to each polygon, and `summarize_raster_list` to summarize the results of `raster_to_poly`
+
 # bcmaps 0.15.1
 * `get_layer()` now only accepts characters (#31)
 * Fixes bug in `check_write_to_data_dir` where it was not creating data directory
