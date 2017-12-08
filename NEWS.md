@@ -1,4 +1,4 @@
-# bcmaps 0.16
+# bcmaps 0.16.0
 * Added two new functions: `raster_by_poly` to overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer and clip the raster to each polygon, and `summarize_raster_list` to summarize the results of `raster_to_poly`
 
 # bcmaps 0.15.1
