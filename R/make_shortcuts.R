@@ -61,7 +61,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#'
          roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
          roxygen_blocker#'
-         roxygen_blocker#' @details See [bcmaps.rdata::{fn_name}] for details.
+         roxygen_blocker#' @details Type `?bcmaps.rdata::{fn_name}` for details.
          roxygen_blocker#'
          roxygen_blocker#' @examples
          roxygen_blocker#' \\dontrun{{
@@ -81,7 +81,8 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
   }
 
   add_license_header(file)
-  message("Don't forget to run devtools::document to rebuild documentation.")
+  message("Running devtools::document to rebuild documentation.")
+  devtools::document()
 
   invisible(TRUE)
 }
