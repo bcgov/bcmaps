@@ -8,7 +8,12 @@
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release.
+* This is a new submission.
+
+On win-builder, there was one additional NOTE: 
+    "Packages suggested but not available for checking: 'bcmaps.rdata' 'doMC'"
+    - bcmaps.rdata - a package containing data that is used by bcmaps - It is hosted for installation at: https://bcgov.github.io/drat.
+    - doMC - Not available for Windows
 
 ## Reverse dependencies
 
