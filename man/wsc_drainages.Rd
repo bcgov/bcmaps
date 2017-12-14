@@ -16,7 +16,7 @@ The spatial layer of \code{wsc_drainages} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:wsc_drainages]{bcmaps.rdata::wsc_drainages} for details.
+Type \code{?bcmaps.rdata::wsc_drainages} for details.
 }
 \examples{
 \dontrun{

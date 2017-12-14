@@ -16,7 +16,7 @@ The spatial layer of \code{water_districts} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:water_districts]{bcmaps.rdata::water_districts} for details.
+Type \code{?bcmaps.rdata::water_districts} for details.
 }
 \examples{
 \dontrun{

@@ -16,7 +16,7 @@ The spatial layer of \code{hydrozones} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:hydrozones]{bcmaps.rdata::hydrozones} for details.
+Type \code{?bcmaps.rdata::hydrozones} for details.
 }
 \examples{
 \dontrun{

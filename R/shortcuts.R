@@ -23,7 +23,7 @@
 #'
 #' @return The spatial layer of `airzones` in the desired class
 #'
-#' @details See [bcmaps.rdata::airzones] for details.
+#' @details Type `?bcmaps.rdata::airzones` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -44,7 +44,7 @@ airzones <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `bc_bound` in the desired class
 #'
-#' @details See [bcmaps.rdata::bc_bound] for details.
+#' @details Type `?bcmaps.rdata::bc_bound` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -65,7 +65,7 @@ bc_bound <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `bc_bound_hres` in the desired class
 #'
-#' @details See [bcmaps.rdata::bc_bound_hres] for details.
+#' @details Type `?bcmaps.rdata::bc_bound_hres` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -86,7 +86,7 @@ bc_bound_hres <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `ecoprovinces` in the desired class
 #'
-#' @details See [bcmaps.rdata::ecoprovinces] for details.
+#' @details Type `?bcmaps.rdata::ecoprovinces` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -107,7 +107,7 @@ ecoprovinces <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `ecoregions` in the desired class
 #'
-#' @details See [bcmaps.rdata::ecoregions] for details.
+#' @details Type `?bcmaps.rdata::ecoregions` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -128,7 +128,7 @@ ecoregions <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `ecosections` in the desired class
 #'
-#' @details See [bcmaps.rdata::ecosections] for details.
+#' @details Type `?bcmaps.rdata::ecosections` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -149,7 +149,7 @@ ecosections <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `gw_aquifers` in the desired class
 #'
-#' @details See [bcmaps.rdata::gw_aquifers] for details.
+#' @details Type `?bcmaps.rdata::gw_aquifers` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -170,7 +170,7 @@ gw_aquifers <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `hydrozones` in the desired class
 #'
-#' @details See [bcmaps.rdata::hydrozones] for details.
+#' @details Type `?bcmaps.rdata::hydrozones` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -191,7 +191,7 @@ hydrozones <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `municipalities` in the desired class
 #'
-#' @details See [bcmaps.rdata::municipalities] for details.
+#' @details Type `?bcmaps.rdata::municipalities` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -212,7 +212,7 @@ municipalities <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `nr_areas` in the desired class
 #'
-#' @details See [bcmaps.rdata::nr_areas] for details.
+#' @details Type `?bcmaps.rdata::nr_areas` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -233,7 +233,7 @@ nr_areas <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `nr_districts` in the desired class
 #'
-#' @details See [bcmaps.rdata::nr_districts] for details.
+#' @details Type `?bcmaps.rdata::nr_districts` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -254,7 +254,7 @@ nr_districts <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `nr_regions` in the desired class
 #'
-#' @details See [bcmaps.rdata::nr_regions] for details.
+#' @details Type `?bcmaps.rdata::nr_regions` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -275,7 +275,7 @@ nr_regions <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `regional_districts` in the desired class
 #'
-#' @details See [bcmaps.rdata::regional_districts] for details.
+#' @details Type `?bcmaps.rdata::regional_districts` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -296,7 +296,7 @@ regional_districts <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `water_districts` in the desired class
 #'
-#' @details See [bcmaps.rdata::water_districts] for details.
+#' @details Type `?bcmaps.rdata::water_districts` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -317,7 +317,7 @@ water_districts <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `water_precincts` in the desired class
 #'
-#' @details See [bcmaps.rdata::water_precincts] for details.
+#' @details Type `?bcmaps.rdata::water_precincts` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -338,7 +338,7 @@ water_precincts <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `watercourses_15M` in the desired class
 #'
-#' @details See [bcmaps.rdata::watercourses_15M] for details.
+#' @details Type `?bcmaps.rdata::watercourses_15M` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -359,7 +359,7 @@ watercourses_15M <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `watercourses_5M` in the desired class
 #'
-#' @details See [bcmaps.rdata::watercourses_5M] for details.
+#' @details Type `?bcmaps.rdata::watercourses_5M` for details.
 #'
 #' @examples
 #' \dontrun{
@@ -380,7 +380,7 @@ watercourses_5M <- function(class = 'sf') {
 #'
 #' @return The spatial layer of `wsc_drainages` in the desired class
 #'
-#' @details See [bcmaps.rdata::wsc_drainages] for details.
+#' @details Type `?bcmaps.rdata::wsc_drainages` for details.
 #'
 #' @examples
 #' \dontrun{

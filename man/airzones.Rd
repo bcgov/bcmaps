@@ -16,7 +16,7 @@ The spatial layer of \code{airzones} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:airzones]{bcmaps.rdata::airzones} for details.
+Type \code{?bcmaps.rdata::airzones} for details.
 }
 \examples{
 \dontrun{

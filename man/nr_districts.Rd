@@ -16,7 +16,7 @@ The spatial layer of \code{nr_districts} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:nr_districts]{bcmaps.rdata::nr_districts} for details.
+Type \code{?bcmaps.rdata::nr_districts} for details.
 }
 \examples{
 \dontrun{

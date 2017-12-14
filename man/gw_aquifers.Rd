@@ -16,7 +16,7 @@ The spatial layer of \code{gw_aquifers} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:gw_aquifers]{bcmaps.rdata::gw_aquifers} for details.
+Type \code{?bcmaps.rdata::gw_aquifers} for details.
 }
 \examples{
 \dontrun{

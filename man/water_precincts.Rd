@@ -16,7 +16,7 @@ The spatial layer of \code{water_precincts} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:water_precincts]{bcmaps.rdata::water_precincts} for details.
+Type \code{?bcmaps.rdata::water_precincts} for details.
 }
 \examples{
 \dontrun{

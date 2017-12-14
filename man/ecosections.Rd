@@ -16,7 +16,7 @@ The spatial layer of \code{ecosections} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:ecosections]{bcmaps.rdata::ecosections} for details.
+Type \code{?bcmaps.rdata::ecosections} for details.
 }
 \examples{
 \dontrun{

@@ -16,7 +16,7 @@ The spatial layer of \code{regional_districts} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:regional_districts]{bcmaps.rdata::regional_districts} for details.
+Type \code{?bcmaps.rdata::regional_districts} for details.
 }
 \examples{
 \dontrun{

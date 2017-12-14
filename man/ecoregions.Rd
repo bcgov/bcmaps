@@ -16,7 +16,7 @@ The spatial layer of \code{ecoregions} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:ecoregions]{bcmaps.rdata::ecoregions} for details.
+Type \code{?bcmaps.rdata::ecoregions} for details.
 }
 \examples{
 \dontrun{

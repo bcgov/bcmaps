@@ -16,7 +16,7 @@ The spatial layer of \code{watercourses_5M} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:watercourses_5M]{bcmaps.rdata::watercourses_5M} for details.
+Type \code{?bcmaps.rdata::watercourses_5M} for details.
 }
 \examples{
 \dontrun{

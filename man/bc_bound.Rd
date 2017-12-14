@@ -16,7 +16,7 @@ The spatial layer of \code{bc_bound} in the desired class
 You must have the \code{bcmaps.rdata} package installed to use this function.
 }
 \details{
-See \link[bcmaps.rdata:bc_bound]{bcmaps.rdata::bc_bound} for details.
+Type \code{?bcmaps.rdata::bc_bound} for details.
 }
 \examples{
 \dontrun{
