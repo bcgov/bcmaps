@@ -23,7 +23,7 @@
   } else {
     msg <- check_for_data_pkg_update()
   }
-  if (!is.null(msg)) packageStartupMessage(msg)
+  if (!is.null(msg) && interactive()) packageStartupMessage(msg)
 }
 
 hasData <- function() {
