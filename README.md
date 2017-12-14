@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
-bcmaps <img src="inst/sticker/bcmaps.png" height="139" align="right"/>
-======================================================================
+bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
+==============================================================================
 
-### Version 0.15.1
+### Version 0.16.0
 
 <a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
 
@@ -89,7 +89,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
