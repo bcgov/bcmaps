@@ -6,3 +6,4 @@ CONTRIBUTING.md
 ^CODE_OF_CONDUCT\.md$
 ^\.travis\.yml$
 ^inst/sticker$
+^cran-comments\.md$
