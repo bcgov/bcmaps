@@ -81,8 +81,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
   }
 
   add_license_header(file)
-  message("Running devtools::document to rebuild documentation.")
-  devtools::document()
+  message("Don't forget to run devtools::document to rebuild documentation.")
 
   invisible(TRUE)
 }
