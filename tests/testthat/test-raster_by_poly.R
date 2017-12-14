@@ -18,7 +18,8 @@ if (require("raster") && require("sp")) {
 
   test_that("raster_by_poly works", {
     expect_is(r_by_p, "list")
-    lapply(r_by_p, expect_is, "RasterLayer")
+    expect_is(r_by_p[[1]], "RasterLayer")
+    expect_is(r_by_p[[2]], "RasterLayer")
   })
 
   test_that("raster_by_poly works with sf", {
