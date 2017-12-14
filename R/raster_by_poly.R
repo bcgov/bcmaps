@@ -63,6 +63,7 @@ check_inputs <- function(parallel, cores, ...) {
   # Make this work on windows:
   # https://stackoverflow.com/questions/6780091/simple-working-example-of-ddply-in-parallel-on-windows
   if (parallel) {
+    if (.Platform$OS.type == "windows") stop("Parallel is currently not supported on Windows")
     if (!requireNamespace("doMC")) stop("package doMC required for parallel processing")
     doMC::registerDoMC(cores = cores, ...)
   }
