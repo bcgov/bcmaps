@@ -6,13 +6,12 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 2 notes
 
 * This is a new submission.
-
-On win-builder, there was one additional NOTE: 
+* On win-builder, there was one additional NOTE:
     "Packages suggested but not available for checking: 'bcmaps.rdata' 'doMC'"
-    - bcmaps.rdata - a package containing data that is used by bcmaps - It is hosted for installation at: https://bcgov.github.io/drat.
+    - bcmaps.rdata - A suggested package that is in a non-mainstream repository (a drat repository).
     - doMC - Not available for Windows
 
 ## Reverse dependencies
