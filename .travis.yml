@@ -18,7 +18,6 @@ r:
   - release
   - devel
 
+matrix:
   allow_failures:
-    - os: linux
-      dist: trusty
-      r: devel
+    - r: devel
