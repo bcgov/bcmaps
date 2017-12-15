@@ -18,5 +18,7 @@ r:
   - release
   - devel
 
-allow_failures:
-  - r: devel
+  allow_failures:
+    - os: linux
+      dist: trusty
+      r: devel
