@@ -1,5 +1,6 @@
 ## Test environments
 * local OS X install, R 3.4.3
+* local Windows 7, R 3.4.3
 * ubuntu 14.04 (on travis-ci), R 3.4.3
 * win-builder (devel and release)
 * Debian Linux, R-patched, GCC (on R-Hub)
