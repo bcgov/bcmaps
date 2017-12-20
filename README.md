@@ -5,7 +5,7 @@ bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
 ### Version 0.16.0
 
-<a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
+<a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps)
 
 Overview
 --------
@@ -22,11 +22,17 @@ Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) p
 Installation
 ------------
 
-The package is not available on CRAN, but can be installed from github:
+You can install `bcmaps` from CRAN:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("bcgov/bcmaps")
+install.packages("bcmaps")
+```
+
+To install the development version of the `bcmaps` package, you need to install the `remotes` package then the `bcmaps` package.
+
+``` r
+install.packages("remotes")
+remotes::install_github("bcgov/bcmaps")
 ```
 
 Usage
@@ -34,7 +40,7 @@ Usage
 
 To get full usage of the package, you will also need to install the [**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which holds all of the datasets.
 
-*Note that unlike most package it is not necessary to actually load the **bcmaps.rdata** package (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't.*
+*Note that unlike most packages it is not necessary to actually load the **bcmaps.rdata** package (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't.*
 
 ``` r
 install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
@@ -95,7 +101,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-5-1.png)
+![](tools/readme/unnamed-chunk-6-1.png)
 
 Alternatively, you can use the `get_layer` function - simply type `get_layer('layer_name')`, where `'layer_name'` is the name of the layer of interest. The `get_layer` function is useful if the back-end `bcmaps.rdata` package has had a layer added to it, but there is as yet no shortcut function created in `bcmaps`.
 
@@ -108,7 +114,7 @@ ws <- get_layer("wsc_drainages", class = "sf")
 plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
 ```
 
-![](tools/readme/unnamed-chunk-6-1.png)
+![](tools/readme/unnamed-chunk-7-1.png)
 
 ### Simple Features objects
 
@@ -165,7 +171,7 @@ ggplot() +
 
 ### Vignettes
 
-We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
+We have written a short vignette on plotting points on one of the layers from `bcmaps`. You can view the vignette online [here](https://cran.r-project.org/web/packages/bcmaps/vignettes/add_points.html) or if you installed the package you can open it using `browseVignettes("bcmaps")`.
 
 ### Utility Functions
 
@@ -174,11 +180,6 @@ The package also contains a couple of handy utility functions:
 1.  `fix_geo_problems()` for fixing invalid topologies in `sf` or `Spatial` objects such as orphaned holes and self-intersections
 2.  `transform_bc_albers()` for transforming any `sf` or `Spatial` object to [BC Albers](https://epsg.io/3005) projection.
 3.  `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
-
-Project Status
---------------
-
-Under active development
 
 Getting Help or Reporting an Issue
 ----------------------------------
