@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 0.16.0
+Version: 0.16.0.9999
 Date: 2017-12-08
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
@@ -22,6 +22,8 @@ Imports:
     rappdirs (>= 0.3.1),
     httr (>= 1.3.1)
 License: Apache License (== 2.0) | file LICENSE
+URL: https://github.com/bcgov/bcmaps
+BugReports: https://github.com/bcgov/bcmaps/issues
 LazyData: true
 RoxygenNote: 6.0.1
 Suggests:
