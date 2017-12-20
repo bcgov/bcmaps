@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 ### Version `r read.dcf("DESCRIPTION", "Version")`
 
 <a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
-[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
+[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps) 
 
 
 ## Overview
@@ -38,19 +38,25 @@ and loaded by this package, following the strategy recommended by [Anderson and 
 
 ## Installation
 
-The package is not available on CRAN, but can be installed from github: 
-
-```{r eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("bcgov/bcmaps")
+You can install `bcmaps` from CRAN:
+```{r, echo=TRUE, eval=FALSE}
+install.packages("bcmaps")
 ```
+
+To install the development version of the `bcmaps` package, you need to install the `remotes` package then the `bcmaps` package.
+
+```{r, echo=TRUE, eval=FALSE}
+install.packages("remotes")
+remotes::install_github("bcgov/bcmaps")
+```
+
 ## Usage
 
 To get full usage of the package, you will also need to install the 
 [**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which holds 
 all of the datasets. 
 
-_Note that unlike most package it is not necessary to actually load the **bcmaps.rdata** package
+_Note that unlike most packages it is not necessary to actually load the **bcmaps.rdata** package
 (i.e., with `library(bcmaps.rdata)`) - in fact it is less likely to cause problems if you don't._
 
 ```{r, eval=FALSE}
@@ -66,6 +72,7 @@ available_layers()
 
 Most layers are accessible by a shortcut function by the same name as the object. 
 Then you can use the data as you would any `sf` or `Spatial` object. For example:
+
 ```{r}
 library(sf)
 
@@ -145,7 +152,7 @@ ggplot() +
 ### Vignettes
 
 We have written a short vignette on plotting points on one of the layers from `bcmaps`.
-You can view the vignette online [here](/vignettes/add_points.md) or if you installed the package using `devtools::install_github("bcgov/bcmaps", build_vignettes = TRUE)` you can open it using `browseVignettes("bcmaps")`.
+You can view the vignette online [here](https://cran.r-project.org/web/packages/bcmaps/vignettes/add_points.html) or if you installed the package you can open it using `browseVignettes("bcmaps")`.
 
 ### Utility Functions
 
@@ -157,9 +164,6 @@ such as orphaned holes and self-intersections
 [BC Albers](https://epsg.io/3005) projection.
 3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
 
-## Project Status
-
-Under active development
 
 ## Getting Help or Reporting an Issue
 
