@@ -78,5 +78,15 @@ available_layers <- function() {
   layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
   layers_df$shortcut_function <- layers_df[["Item"]] %in% getNamespaceExports("bcmaps")
   names(layers_df)[1:2] <- c("layer_name", "title")
-  layers_df
+  structure(layers_df, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
+}
+
+print.avail_layers <- function(x) {
+  print(structure(x, class = setdiff(class(x), "avail_layers")))
+  cat("\n------------------------\n")
+  cat("Layers with a vale of TRUE in the shortcut_function column can be accessed\n")
+  cat("with a function with the same name as the layer (e.g., `bc_bound()`)\n")
+  cat("\n")
+  cat("*NOTE: layers with an asterisk (*) are not stored in the bcmpas.rdata package\n")
+  cat("but will be downloaded from the internet and cached on your hard drive.")
 }
