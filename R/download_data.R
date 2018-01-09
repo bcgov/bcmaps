@@ -35,6 +35,19 @@ bec <- function(class = c("sf", "sp"), ...) {
   get_big_data("bec", class, ...)
 }
 
+#' This generates a data frame of layers that are stored as assets on the bcmaps.rdata release.
+#' It needs to be updated manually when you add a new big (>100MB) layer.
+#' @noRd
+big_data_layers <- function() {
+  data.frame(
+    layer_name = "bec",
+    title = "British Columbia BEC Map",
+    shortcut_function = TRUE,
+    local = FALSE,
+    stringsAsFactors = FALSE
+  )
+}
+
 #' Download a large data file
 #'
 #' @param what The name of the object to download
@@ -158,3 +171,4 @@ auth_url <- function(url) {
 }
 
 base_url <- function() "https://api.github.com/repos/bcgov/bcmaps.rdata/releases"
+

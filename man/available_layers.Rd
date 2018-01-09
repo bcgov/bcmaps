@@ -7,11 +7,15 @@
 available_layers()
 }
 \value{
-A \code{data.frame} of layers, with Titles, and a \code{shortcut_function} column
+A \code{data.frame} of layers, with titles, and a \code{shortcut_function} column
 denoting whether or not a shortcut function exists that can be used to return the
 layer. If \code{TRUE}, the name of the shortcut function is the same as the \code{layer_name}.
 A value of \code{FALSE} in this column means the layer is available via \code{get_data()} but
 there is no shortcut function for it.
+
+A value of \code{FALSE} in the \code{local} column means that the layer is not stored in the
+bcmpas.rdata package but will be downloaded from the internet and cached
+on your hard drive.
 }
 \description{
 A data.frame of all available layers in the bcmaps package. This drawn

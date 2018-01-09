@@ -15,6 +15,8 @@
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
 #' @param class The class of the layer returned. Can be either `"sf"` (default) or `"sp"`
+#' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded. Ignored if the
+#' layer is available locally in `bcmaps.rdata`.
 #'
 #' @return the layer requested
 #' @export
@@ -26,23 +28,29 @@
 #'  # As a "Spatial" (sp) object
 #'  get_layer("watercourses_15M")
 #' }
-get_layer <- function(layer, class = c("sf", "sp")) {
+get_layer <- function(layer, class = c("sf", "sp"), ...) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n
          Use the function available_layers() to get a list of layers")
 
   class <- match.arg(class)
-  available <- available_layers()[["layer_name"]]
+  available <- available_layers()
 
-  if (!layer %in% available) {
+  available_row <- available[available[["layer_name"]] == layer, ]
+
+  if (nrow(available_row) != 1L) {
     stop(layer, " is not an available layer")
   }
 
-  ret <- getExportedValue("bcmaps.rdata", layer)
+  if (!available_row[["local"]]) {
+    ret <- get_big_data(layer, class, ...)
+  } else {
+    ret <- getExportedValue("bcmaps.rdata", layer)
 
-  if (class == "sp") {
-    ret <- convert_to_sp(ret)
+    if (class == "sp") {
+      ret <- convert_to_sp(ret)
+    }
   }
 
   ret
@@ -61,11 +69,15 @@ convert_to_sp <- function(sf_obj) {
 #' directly from the bcmaps.rdata package and will therefore be the most current list
 #' layers available.
 #'
-#' @return A `data.frame` of layers, with Titles, and a `shortcut_function` column
+#' @return A `data.frame` of layers, with titles, and a `shortcut_function` column
 #' denoting whether or not a shortcut function exists that can be used to return the
 #' layer. If `TRUE`, the name of the shortcut function is the same as the `layer_name`.
 #' A value of `FALSE` in this column means the layer is available via `get_data()` but
 #' there is no shortcut function for it.
+#'
+#' A value of `FALSE` in the `local` column means that the layer is not stored in the
+#' bcmpas.rdata package but will be downloaded from the internet and cached
+#' on your hard drive.
 #'
 #' @examples
 #' \dontrun{
@@ -77,17 +89,20 @@ available_layers <- function() {
   datas <- utils::data(package = "bcmaps.rdata")
   layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
   layers_df$shortcut_function <- layers_df[["Item"]] %in% getNamespaceExports("bcmaps")
+  layers_df$local <- TRUE
   names(layers_df)[1:2] <- c("layer_name", "title")
+  layers_df <- rbind(layers_df, big_data_layers())
   structure(layers_df, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
 }
 
 print.avail_layers <- function(x) {
   print(structure(x, class = setdiff(class(x), "avail_layers")))
   cat("\n------------------------\n")
-  cat("Layers with a vale of TRUE in the shortcut_function column can be accessed\n")
+  cat("Layers with a vale of TRUE in the 'shortcut_function' column can be accessed\n")
   cat("with a function with the same name as the layer (e.g., `bc_bound()`),\n")
   cat("otherwise it needs to be accessed with the get_layer function.\n")
   cat("\n")
-  cat("*NOTE: layers with an asterisk (*) are not stored in the bcmpas.rdata package\n")
-  cat("but will be downloaded from the internet and cached on your hard drive.")
+  cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
+  cat("bcmpas.rdata package but will be downloaded from the internet and cached\n")
+  cat("on your hard drive.")
 }
