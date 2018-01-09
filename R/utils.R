@@ -153,7 +153,7 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
 
 
   if (requireNamespace("lwgeom", quietly = TRUE)) {
-    return(sf::st_make_valid(obj))
+    return(lwgeom::st_make_valid(obj))
   } else {
     message("package lwgeom not available for the st_make_valid function, sf::st_buffer(dist = 0)")
     i <- 1
