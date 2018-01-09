@@ -39,11 +39,11 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
 
   available_row <- available[available[["layer_name"]] == layer, ]
 
-  if (nrow(available_row) != 1L) {
+  if (nrow(available_row) != 1L && layer != "test") {
     stop(layer, " is not an available layer")
   }
 
-  if (!available_row[["local"]]) {
+  if (!available_row[["local"]] || layer == "test") {
     ret <- get_big_data(layer, class, ...)
   } else {
     ret <- getExportedValue("bcmaps.rdata", layer)

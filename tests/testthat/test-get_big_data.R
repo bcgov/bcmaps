@@ -6,6 +6,10 @@ test <- function(class = c("sf", "sp"), ...) {
   get_big_data("test", class, ...)
 }
 
+test_that("get_layer works with downloadable data", {
+  expect_equal(get_layer("test", force = TRUE, ask = FALSE), "test")
+})
+
 test_that("get_big_data works with specific release", {
   skip_on_cran()
   expect_equal(get_big_data("test", "sf", "0.1.1", force = TRUE, ask = FALSE), "test")
