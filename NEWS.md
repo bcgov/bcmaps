@@ -1,4 +1,5 @@
 # bcmaps 0.16.0.9999
+* Output of `available_layers()` has changed: `shortcut_function` column is now logical, uses better column names (#34)
 
 # bcmaps 0.16.0
 * First release to CRAN
