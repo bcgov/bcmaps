@@ -83,10 +83,6 @@ transform_bc_albers.Spatial <- function(obj) {
 
 #' @export
 transform_bc_albers.sf <- function(obj) {
-  if (!requireNamespace("sf", quietly = TRUE)) {
-    stop("Package sf could not be loaded", call. = FALSE)
-  }
-
   sf::st_transform(obj, 3005)
 }
 
@@ -95,7 +91,7 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
-#' For `sf` objects, uses `sf::st_make_valid` if `sf` was installed linking to `lwgeom`.
+#' For `sf` objects, uses `lwgeom::st_make_valid` if `lwgeom` is installed.
 #' Otherwise, uses the common method of buffering by zero.
 #'
 #' `fix_self_intersect` has been removed and will no longer work. Use
@@ -113,7 +109,7 @@ fix_geo_problems <- function(obj, tries = 5) {
 #' @export
 fix_geo_problems.Spatial <- function(obj, tries = 5) {
   if (!requireNamespace("rgeos", quietly = TRUE)) {
-    stop("Package rgdal could not be loaded", call. = FALSE)
+    stop("Package rgeos required but not available", call. = FALSE)
   }
 
   is_valid <- suppressWarnings(rgeos::gIsValid(obj))
@@ -143,9 +139,6 @@ fix_geo_problems.Spatial <- function(obj, tries = 5) {
 
 #' @export
 fix_geo_problems.sf <- function(obj, tries = 5) {
-  if (!requireNamespace("sf", quietly = TRUE)) {
-    stop("Package sf could not be loaded", call. = FALSE)
-  }
 
   ## Check if the overall geomtry is valid, if it is, exit and return input
   is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
@@ -157,9 +150,12 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
 
   message("Problems found - Attempting to repair...")
 
-  if (!is.na(sf::sf_extSoftVersion()["lwgeom"])) {
+
+
+  if (requireNamespace("lwgeom", quietly = TRUE)) {
     return(sf::st_make_valid(obj))
   } else {
+    message("package lwgeom not available for the st_make_valid function, sf::st_buffer(dist = 0)")
     i <- 1
     while (i <= tries) { # Try three times
       message("Attempt ", i, " of ", tries)
