@@ -33,10 +33,10 @@ get_layer <- function(layer, class = c("sf", "sp")) {
          Use the function available_layers() to get a list of layers")
 
   class <- match.arg(class)
-  available <- available_layers()[["Item"]]
+  available <- available_layers()[["layer_name"]]
 
   if (!layer %in% available) {
-    stop(layer, "is not an available layer")
+    stop(layer, " is not an available layer")
   }
 
   ret <- getExportedValue("bcmaps.rdata", layer)
@@ -61,9 +61,10 @@ convert_to_sp <- function(sf_obj) {
 #' directly from the bcmaps.rdata package and will therefore be the most current list
 #' layers available.
 #'
-#' @return A data.frame of layers, with Titles, and an additional column `shortcut_function`
-#' containing the name of the shortcut function that can be used to return the
-#' layer. A value of `NA` in this column means the layer is available via `get_data()` but
+#' @return A `data.frame` of layers, with Titles, and a `shortcut_function` column
+#' denoting whether or not a shortcut function exists that can be used to return the
+#' layer. If `TRUE`, the name of the shortcut function is the same as the `layer_name`.
+#' A value of `FALSE` in this column means the layer is available via `get_data()` but
 #' there is no shortcut function for it.
 #'
 #' @examples
@@ -75,7 +76,7 @@ available_layers <- function() {
   hasData()
   datas <- utils::data(package = "bcmaps.rdata")
   layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
-  layers_df$shortcut_function <- ifelse(layers_df[["Item"]] %in% getNamespaceExports("bcmaps"),
-                                        layers_df[["Item"]], NA_character_)
+  layers_df$shortcut_function <- layers_df[["Item"]] %in% getNamespaceExports("bcmaps")
+  names(layers_df)[1:2] <- c("layer_name", "title")
   layers_df
 }

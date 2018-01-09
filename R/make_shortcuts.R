@@ -48,8 +48,8 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
     file = file, append = FALSE)
 
   for (i in seq_len(nrow(available_layers))) {
-    fn_name <- available_layers[i, "Item"]
-    fn_title <- available_layers[i, "Title"]
+    fn_name <- available_layers[i, "layer_name"]
+    fn_title <- available_layers[i, "title"]
 
     fn_defn <- glue::glue("
 

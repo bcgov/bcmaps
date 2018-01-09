@@ -3,7 +3,7 @@
 bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 ==============================================================================
 
-### Version 0.16.0
+### Version 0.16.0.9999
 
 <a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps)
 
@@ -51,7 +51,7 @@ To see the layers that are available, run the `available_layers()` function:
 ``` r
 library(bcmaps)
 available_layers()
-#>                  Item                                              Title
+#>            layer_name                                              title
 #> 1            airzones                         British Columbia Air Zones
 #> 2            bc_bound                                        BC Boundary
 #> 3       bc_bound_hres                      BC Boundary - High Resolution
@@ -70,32 +70,32 @@ available_layers()
 #> 16   watercourses_15M       British Columbia watercourses at 1:15M scale
 #> 17    watercourses_5M        British Columbia watercourses at 1:5M scale
 #> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
-#>     shortcut_function
-#> 1            airzones
-#> 2            bc_bound
-#> 3       bc_bound_hres
-#> 4        ecoprovinces
-#> 5          ecoregions
-#> 6         ecosections
-#> 7         gw_aquifers
-#> 8          hydrozones
-#> 9      municipalities
-#> 10           nr_areas
-#> 11       nr_districts
-#> 12         nr_regions
-#> 13 regional_districts
-#> 14    water_districts
-#> 15    water_precincts
-#> 16   watercourses_15M
-#> 17    watercourses_5M
-#> 18      wsc_drainages
+#>    shortcut_function
+#> 1               TRUE
+#> 2               TRUE
+#> 3               TRUE
+#> 4               TRUE
+#> 5               TRUE
+#> 6               TRUE
+#> 7               TRUE
+#> 8               TRUE
+#> 9               TRUE
+#> 10              TRUE
+#> 11              TRUE
+#> 12              TRUE
+#> 13              TRUE
+#> 14              TRUE
+#> 15              TRUE
+#> 16              TRUE
+#> 17              TRUE
+#> 18              TRUE
 ```
 
 Most layers are accessible by a shortcut function by the same name as the object. Then you can use the data as you would any `sf` or `Spatial` object. For example:
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
+#> Linking to GEOS 3.6.2, GDAL 2.2.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))

@@ -7,9 +7,10 @@
 available_layers()
 }
 \value{
-A data.frame of layers, with Titles, and an additional column \code{shortcut_function}
-containing the name of the shortcut function that can be used to return the
-layer. A value of \code{NA} in this column means the layer is available via \code{get_data()} but
+A \code{data.frame} of layers, with Titles, and a \code{shortcut_function} column
+denoting whether or not a shortcut function exists that can be used to return the
+layer. If \code{TRUE}, the name of the shortcut function is the same as the \code{layer_name}.
+A value of \code{FALSE} in this column means the layer is available via \code{get_data()} but
 there is no shortcut function for it.
 }
 \description{
