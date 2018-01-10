@@ -70,25 +70,36 @@ available_layers()
 #> 16   watercourses_15M       British Columbia watercourses at 1:15M scale
 #> 17    watercourses_5M        British Columbia watercourses at 1:5M scale
 #> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
-#>    shortcut_function
-#> 1               TRUE
-#> 2               TRUE
-#> 3               TRUE
-#> 4               TRUE
-#> 5               TRUE
-#> 6               TRUE
-#> 7               TRUE
-#> 8               TRUE
-#> 9               TRUE
-#> 10              TRUE
-#> 11              TRUE
-#> 12              TRUE
-#> 13              TRUE
-#> 14              TRUE
-#> 15              TRUE
-#> 16              TRUE
-#> 17              TRUE
-#> 18              TRUE
+#> 19                bec                           British Columbia BEC Map
+#>    shortcut_function local
+#> 1               TRUE  TRUE
+#> 2               TRUE  TRUE
+#> 3               TRUE  TRUE
+#> 4               TRUE  TRUE
+#> 5               TRUE  TRUE
+#> 6               TRUE  TRUE
+#> 7               TRUE  TRUE
+#> 8               TRUE  TRUE
+#> 9               TRUE  TRUE
+#> 10              TRUE  TRUE
+#> 11              TRUE  TRUE
+#> 12              TRUE  TRUE
+#> 13              TRUE  TRUE
+#> 14              TRUE  TRUE
+#> 15              TRUE  TRUE
+#> 16              TRUE  TRUE
+#> 17              TRUE  TRUE
+#> 18              TRUE  TRUE
+#> 19              TRUE FALSE
+#> 
+#> ------------------------
+#> Layers with a value of TRUE in the 'shortcut_function' column can be accessed
+#> with a function with the same name as the layer (e.g., `bc_bound()`),
+#> otherwise it needs to be accessed with the get_layer function.
+#> 
+#> Layers with a value of FALSE in the 'local' column are not stored in the
+#> bcmaps.rdata package but will be downloaded from the internet and cached
+#> on your hard drive.
 ```
 
 Most layers are accessible by a shortcut function by the same name as the object. Then you can use the data as you would any `sf` or `Spatial` object. For example:
