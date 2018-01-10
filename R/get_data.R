@@ -95,14 +95,15 @@ available_layers <- function() {
   structure(layers_df, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
 }
 
+#' @export
 print.avail_layers <- function(x) {
   print(structure(x, class = setdiff(class(x), "avail_layers")))
   cat("\n------------------------\n")
-  cat("Layers with a vale of TRUE in the 'shortcut_function' column can be accessed\n")
+  cat("Layers with a value of TRUE in the 'shortcut_function' column can be accessed\n")
   cat("with a function with the same name as the layer (e.g., `bc_bound()`),\n")
   cat("otherwise it needs to be accessed with the get_layer function.\n")
   cat("\n")
   cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
-  cat("bcmpas.rdata package but will be downloaded from the internet and cached\n")
+  cat("bcmaps.rdata package but will be downloaded from the internet and cached\n")
   cat("on your hard drive.")
 }
