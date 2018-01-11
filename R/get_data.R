@@ -96,7 +96,7 @@ available_layers <- function() {
 }
 
 #' @export
-print.avail_layers <- function(x) {
+print.avail_layers <- function(x, ...) {
   print(structure(x, class = setdiff(class(x), "avail_layers")))
   cat("\n------------------------\n")
   cat("Layers with a value of TRUE in the 'shortcut_function' column can be accessed\n")
