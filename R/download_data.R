@@ -10,6 +10,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
+#' This generates a data frame of layers that are stored as assets on the bcmaps.rdata release.
+#' It needs to be updated manually when you add a new big (>100MB) layer.
+#' @noRd
+big_data_layers <- function() {
+  data.frame(
+    layer_name = c("bec", "tsa"),
+    title = c("British Columbia BEC Map", "B.C. Timber Supply Areas & TSA Blocks"),
+    shortcut_function = TRUE,
+    local = FALSE,
+    stringsAsFactors = FALSE
+  )
+}
+
 #' British Columbia BEC Map
 #'
 #' The current and most detailed version of the approved corporate provincial
@@ -35,18 +48,34 @@ bec <- function(class = c("sf", "sp"), ...) {
   get_big_data("bec", class, ...)
 }
 
-#' This generates a data frame of layers that are stored as assets on the bcmaps.rdata release.
-#' It needs to be updated manually when you add a new big (>100MB) layer.
-#' @noRd
-big_data_layers <- function() {
-  data.frame(
-    layer_name = "bec",
-    title = "British Columbia BEC Map",
-    shortcut_function = TRUE,
-    local = FALSE,
-    stringsAsFactors = FALSE
-  )
+#' British Columbia Timber Supply Areas and TSA Blocks
+#'
+#' The spatial representation for a Timber Supply Area or TSA Supply Block:
+#' A Timber Supply Area is the primary unit for allowable annual cut (AAC)
+#' determination. A TSA Supply Block is a designated area within the TSA
+#' where the Ministry approves the allowable annual cuts.
+#'
+#' Updated 2017-11-03
+#'
+#' @inheritParams get_big_data
+#' @param ... arguments passed on to [get_big_data]
+#'
+#' @format An `sf` or `Spatial` polygons object with B.C.'s Timber Supply
+#' Areas and TSA Blocks
+#'
+#' @source Original data from the
+#'   \href{https://catalogue.data.gov.bc.ca/dataset/8daa29da-d7f4-401c-83ae-d962e3a28980}{B.C. Data Catalogue},
+#'    under the
+#'   \href{https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61}{Open
+#'   Government Licence - British Columbia}.
+#'
+#' @export
+#'
+tsa <- function(class = c("sf", "sp"), ...) {
+  class <- match.arg(class)
+  get_big_data("tsa", class, ...)
 }
+
 
 #' Download a large data file
 #'
