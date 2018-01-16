@@ -3,7 +3,7 @@
 * Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalites to create a full provinicial layer of 'Regional-District-like' polygons.
 * Added Timber Supply Areas shortcut function and to `available_layers()`
 * `bec` (and other large downloadable layers) show up in the output of `available_layers()`, `bec()` works, and `get_layer("bec")` works so that getting downloadable datasets is indistinguishable from getting local datasets. (#32)
-* Some utility functions use `sf` functions that have been moved to the `lwgeom` package. They now use the `lwgeom` function (#33).
+* Some utility functions use `sf` functions that have been moved to the `lwgeom` package. They now use the `lwgeom` function (Fixes CRAN CHECK NOTE; #33).
 
 # bcmaps 0.16.0
 * First release to CRAN
