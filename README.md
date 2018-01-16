@@ -71,6 +71,7 @@ available_layers()
 #> 17    watercourses_5M        British Columbia watercourses at 1:5M scale
 #> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
 #> 19                bec                           British Columbia BEC Map
+#> 20                tsa              B.C. Timber Supply Areas & TSA Blocks
 #>    shortcut_function local
 #> 1               TRUE  TRUE
 #> 2               TRUE  TRUE
@@ -91,6 +92,7 @@ available_layers()
 #> 17              TRUE  TRUE
 #> 18              TRUE  TRUE
 #> 19              TRUE FALSE
+#> 20              TRUE FALSE
 #> 
 #> ------------------------
 #> Layers with a value of TRUE in the 'shortcut_function' column can be accessed
