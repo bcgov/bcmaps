@@ -1,4 +1,4 @@
-# Copyright 2017 Province of British Columbia
+# Copyright 2018 Province of British Columbia
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -25,6 +25,8 @@
 #'
 #' @details Type `?bcmaps.rdata::airzones` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- airzones()
@@ -45,6 +47,8 @@ airzones <- function(class = 'sf') {
 #' @return The spatial layer of `bc_bound` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::bc_bound` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -67,6 +71,8 @@ bc_bound <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::bc_bound_hres` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_bound_hres()
@@ -87,6 +93,8 @@ bc_bound_hres <- function(class = 'sf') {
 #' @return The spatial layer of `ecoprovinces` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::ecoprovinces` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -109,6 +117,8 @@ ecoprovinces <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::ecoregions` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- ecoregions()
@@ -129,6 +139,8 @@ ecoregions <- function(class = 'sf') {
 #' @return The spatial layer of `ecosections` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::ecosections` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -151,6 +163,8 @@ ecosections <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::gw_aquifers` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- gw_aquifers()
@@ -171,6 +185,8 @@ gw_aquifers <- function(class = 'sf') {
 #' @return The spatial layer of `hydrozones` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::hydrozones` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -193,6 +209,8 @@ hydrozones <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::municipalities` for details.
 #'
+#' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- municipalities()
@@ -213,6 +231,8 @@ municipalities <- function(class = 'sf') {
 #' @return The spatial layer of `nr_areas` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::nr_areas` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -235,6 +255,8 @@ nr_areas <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::nr_districts` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- nr_districts()
@@ -255,6 +277,8 @@ nr_districts <- function(class = 'sf') {
 #' @return The spatial layer of `nr_regions` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::nr_regions` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -277,6 +301,8 @@ nr_regions <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::regional_districts` for details.
 #'
+#' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- regional_districts()
@@ -297,6 +323,8 @@ regional_districts <- function(class = 'sf') {
 #' @return The spatial layer of `water_districts` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::water_districts` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -319,6 +347,8 @@ water_districts <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::water_precincts` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- water_precincts()
@@ -339,6 +369,8 @@ water_precincts <- function(class = 'sf') {
 #' @return The spatial layer of `watercourses_15M` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::watercourses_15M` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{
@@ -361,6 +393,8 @@ watercourses_15M <- function(class = 'sf') {
 #'
 #' @details Type `?bcmaps.rdata::watercourses_5M` for details.
 #'
+#' 
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- watercourses_5M()
@@ -381,6 +415,8 @@ watercourses_5M <- function(class = 'sf') {
 #' @return The spatial layer of `wsc_drainages` in the desired class
 #'
 #' @details Type `?bcmaps.rdata::wsc_drainages` for details.
+#'
+#' 
 #'
 #' @examples
 #' \dontrun{

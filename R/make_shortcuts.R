@@ -34,7 +34,8 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
     stop("bcmaps, bcmaps.rdata, and glue all need to be installed.")
   }
 
-  available_layers <- bcmaps::available_layers()
+  layers <- bcmaps::available_layers()
+  layers <- layers[layers$local, ]
 
   cat(
     glue::glue("
@@ -47,9 +48,15 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
     ),
     file = file, append = FALSE)
 
-  for (i in seq_len(nrow(available_layers))) {
-    fn_name <- available_layers[i, "layer_name"]
-    fn_title <- available_layers[i, "title"]
+  for (i in seq_len(nrow(layers))) {
+    fn_name <- layers[i, "layer_name"]
+    fn_title <- layers[i, "title"]
+
+    if (fn_name %in% c("regional_districts", "municipalities")) {
+      seealso <- "@seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer"
+    } else {
+      seealso <- ""
+    }
 
     fn_defn <- glue::glue("
 
@@ -62,6 +69,8 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
          roxygen_blocker#'
          roxygen_blocker#' @details Type `?bcmaps.rdata::{fn_name}` for details.
+         roxygen_blocker#'
+         roxygen_blocker#' {seealso}
          roxygen_blocker#'
          roxygen_blocker#' @examples
          roxygen_blocker#' \\dontrun{{

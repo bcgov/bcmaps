@@ -25,3 +25,6 @@ my_layer_sp <- regional_districts(class = 'sp')
 }
 
 }
+\seealso{
+\code{\link[=combine_nr_rd]{combine_nr_rd()}} to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
+}
