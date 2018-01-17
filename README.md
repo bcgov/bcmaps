@@ -51,27 +51,50 @@ To see the layers that are available, run the `available_layers()` function:
 ``` r
 library(bcmaps)
 available_layers()
-#>            layer_name                                              title
-#> 1            airzones                         British Columbia Air Zones
-#> 2            bc_bound                                        BC Boundary
-#> 3       bc_bound_hres                      BC Boundary - High Resolution
-#> 4        ecoprovinces                      British Columbia Ecoprovinces
-#> 5          ecoregions                        British Columbia Ecoregions
-#> 6         ecosections                       British Columbia Ecosections
-#> 7         gw_aquifers British Columbia's developed ground water aquifers
-#> 8          hydrozones     Hydrologic Zone Boundaries of British Columbia
-#> 9      municipalities                    British Columbia Municipalities
-#> 10           nr_areas       British Columbia Natural Resource (NR) Areas
-#> 11       nr_districts   British Columbia Natural Resource (NR) Districts
-#> 12         nr_regions     British Columbia Natural Resource (NR) Regions
-#> 13 regional_districts                British Columbia Regional Districts
-#> 14    water_districts      British Columbia's Water Management Districts
-#> 15    water_precincts      British Columbia's Water Management Precincts
-#> 16   watercourses_15M       British Columbia watercourses at 1:15M scale
-#> 17    watercourses_5M        British Columbia watercourses at 1:5M scale
-#> 18      wsc_drainages      Water Survey of Canada Sub-Sub-Drainage Areas
-#> 19                bec                           British Columbia BEC Map
-#> 20                tsa              B.C. Timber Supply Areas & TSA Blocks
+#>            layer_name
+#> 1            airzones
+#> 2            bc_bound
+#> 3       bc_bound_hres
+#> 4           bc_cities
+#> 5        ecoprovinces
+#> 6          ecoregions
+#> 7         ecosections
+#> 8         gw_aquifers
+#> 9          hydrozones
+#> 10     municipalities
+#> 11           nr_areas
+#> 12       nr_districts
+#> 13         nr_regions
+#> 14 regional_districts
+#> 15    water_districts
+#> 16    water_precincts
+#> 17   watercourses_15M
+#> 18    watercourses_5M
+#> 19      wsc_drainages
+#> 20                bec
+#> 21                tsa
+#>                                                            title
+#> 1                                     British Columbia Air Zones
+#> 2                                                    BC Boundary
+#> 3                                  BC Boundary - High Resolution
+#> 4  BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
+#> 5                                  British Columbia Ecoprovinces
+#> 6                                    British Columbia Ecoregions
+#> 7                                   British Columbia Ecosections
+#> 8             British Columbia's developed ground water aquifers
+#> 9                 Hydrologic Zone Boundaries of British Columbia
+#> 10                               British Columbia Municipalities
+#> 11                  British Columbia Natural Resource (NR) Areas
+#> 12              British Columbia Natural Resource (NR) Districts
+#> 13                British Columbia Natural Resource (NR) Regions
+#> 14                           British Columbia Regional Districts
+#> 15                 British Columbia's Water Management Districts
+#> 16                 British Columbia's Water Management Precincts
+#> 17                  British Columbia watercourses at 1:15M scale
+#> 18                   British Columbia watercourses at 1:5M scale
+#> 19                 Water Survey of Canada Sub-Sub-Drainage Areas
+#> 20                                      British Columbia BEC Map
+#> 21                         B.C. Timber Supply Areas & TSA Blocks
 #>    shortcut_function local
 #> 1               TRUE  TRUE
 #> 2               TRUE  TRUE
@@ -91,8 +114,9 @@ available_layers()
 #> 16              TRUE  TRUE
 #> 17              TRUE  TRUE
 #> 18              TRUE  TRUE
-#> 19              TRUE FALSE
+#> 19              TRUE  TRUE
 #> 20              TRUE FALSE
+#> 21              TRUE FALSE
 #> 
 #> ------------------------
 #> Layers with a value of TRUE in the 'shortcut_function' column can be accessed
@@ -108,7 +132,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.2, GDAL 2.2.3, proj.4 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
