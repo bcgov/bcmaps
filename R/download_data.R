@@ -145,9 +145,9 @@ download_file_from_release <- function(file, path, release = "latest", force = F
       download <- FALSE
     } else {
       ans <- ask(paste0("There is a newer version of ", basename(file),
-                        "available. Would you like to download it and store it at ",
+                        " available. Would you like to download it and store it at ",
                         path, "?"))
-      download <- !ans
+      download <- ans
     }
   } else {
     # Hasn't been downloaded before, so must download it now
