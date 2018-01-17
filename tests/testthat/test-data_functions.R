@@ -1,7 +1,9 @@
 context("test layer load from bcmaps.rdata")
 
-avail <- available_layers()
-fn_names <- avail[avail$local & avail$shortcut_function, "layer_name"]
+if (requireNamespace("bcmaps.rdata", quietly = TRUE)) {
+  avail <- available_layers()
+  fn_names <- avail[avail$local & avail$shortcut_function, "layer_name"]
+}
 
 test_that("test that all sf layer function work without error and returns an sf object as default", {
   skip_on_cran()
@@ -13,7 +15,6 @@ test_that("test that all sf layer function work without error and returns an sf 
   }
 })
 
-
 test_that("test that all sp layer function work without error and return a Spatial* object ", {
   skip_on_cran()
   skip_if_not_installed("bcmaps.rdata")
@@ -23,7 +24,3 @@ test_that("test that all sp layer function work without error and return a Spati
     expect_is(layer, "Spatial")
   }
 })
-
-
-
-
