@@ -9,9 +9,9 @@ Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
 Description: Provides access to various spatial layers for B.C., such as 
     administrative boundaries, natural resource management boundaries, etc. 
     All layers are imported from the 'bcmaps.rdata' package as 'sf' or 'Spatial' objects
-    through function calls in this package. All layers are in B.C. 'Albers' projection 
+    through function calls in this package. All layers are in B.C. 'Albers' equal-area projection 
     <http://spatialreference.org/ref/epsg/nad83-bc-albers/>, which is the B.C. 
-    government standard <https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm>.
+    government standard.
 Depends:
     R (>= 3.4.0)
 Imports: 
