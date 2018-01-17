@@ -84,6 +84,29 @@ bc_bound_hres <- function(class = 'sf') {
    get_layer('bc_bound_hres', class = class)
 }
 
+#' BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `bc_cities` in the desired class
+#'
+#' @details Type `?bcmaps.rdata::bc_cities` for details.
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- bc_cities()
+#' my_layer_sp <- bc_cities(class = 'sp')
+#' }
+#'
+#' @export
+bc_cities <- function(class = 'sf') {
+   get_layer('bc_cities', class = class)
+}
+
 #' British Columbia Ecoprovinces
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
