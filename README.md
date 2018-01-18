@@ -3,7 +3,7 @@
 bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 ==============================================================================
 
-### Version 0.16.0.9999
+### Version 0.17.0
 
 <a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a> [![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps)
 
@@ -15,7 +15,7 @@ An [R](http://r-project.org) package of spatial map layers for British Columbia.
 Features
 --------
 
-Provides access to various spatial layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available in the [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm) as `sf` or `Spatial` objects.
+Provides access to various spatial layers of British Columbia, such as administrative boundaries, natural resource management boundaries, watercourses etc. All layers are available in the [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the B.C. Government standard as `sf` or `Spatial` objects.
 
 Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) package and loaded by this package, following the strategy recommended by [Anderson and Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html).
 
@@ -132,7 +132,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.2.0, proj.4 4.9.3
+#> Linking to GEOS 3.6.2, GDAL 2.2.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))

@@ -16,8 +16,7 @@
 #' resource management boundaries, etc. All layers are available as both [sf](https://CRAN.R-project.org/package=sf )
 #' and [Spatial](https://CRAN.R-project.org/package=sp)  objects, and are in
 #' [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/)
-#' projection, which is the
-#' [B.C. government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm).
+#' equal-area projection, which is the B.C. government standard.
 #' The layers are sourced from the British Columbia and Canadian government under open licenses, including
 #' [DataBC](http://data.gov.bc.ca), the Government of Canada
 #' [Open Data Portal](http://open.canada.ca/en/open-data), and

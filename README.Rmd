@@ -31,7 +31,7 @@ An [R](http://r-project.org) package of spatial map layers for British Columbia.
 Provides access to various spatial layers of British Columbia, such as 
 administrative boundaries, natural resource management boundaries, watercourses etc. 
 All layers are available in the
-[BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the [B.C. Government standard](https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm) as `sf` or `Spatial` objects. 
+[BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the B.C. Government standard as `sf` or `Spatial` objects. 
 
 Layers are stored in the [bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) package 
 and loaded by this package, following the strategy recommended by [Anderson and Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html). 

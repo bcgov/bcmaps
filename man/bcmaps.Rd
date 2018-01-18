@@ -10,8 +10,7 @@ Various layers of B.C., including administrative boundaries, natural
 resource management boundaries, etc. All layers are available as both \href{https://CRAN.R-project.org/package=sf}{sf}
 and \href{https://CRAN.R-project.org/package=sp}{Spatial}  objects, and are in
 \href{http://spatialreference.org/ref/epsg/nad83-bc-albers/}{BC Albers}
-projection, which is the
-\href{https://www.for.gov.bc.ca/hts/risc/pubs/other/mappro/index.htm}{B.C. government standard}.
+equal-area projection, which is the B.C. government standard.
 The layers are sourced from the British Columbia and Canadian government under open licenses, including
 \href{http://data.gov.bc.ca}{DataBC}, the Government of Canada
 \href{http://open.canada.ca/en/open-data}{Open Data Portal}, and
