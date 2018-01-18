@@ -4,6 +4,7 @@
 * Added Timber Supply Areas and BC cities shortcut function and to `available_layers()`
 * `bec` (and other large downloadable layers) show up in the output of `available_layers()`, `bec()` works, and `get_layer("bec")` works so that getting downloadable datasets is indistinguishable from getting local datasets. (#32)
 * Some utility functions use `sf` functions that have been moved to the `lwgeom` package. They now use the `lwgeom` function (Fixes CRAN CHECK NOTE; #33).
+* Added new layer: `bc_cities()` which is a point layer of B.C.'s major cities.
 
 # bcmaps 0.16.0
 * First release to CRAN
