@@ -76,7 +76,7 @@ convert_to_sp <- function(sf_obj) {
 #' there is no shortcut function for it.
 #'
 #' A value of `FALSE` in the `local` column means that the layer is not stored in the
-#' bcmpas.rdata package but will be downloaded from the internet and cached
+#' bcmaps.rdata package but will be downloaded from the internet and cached
 #' on your hard drive.
 #'
 #' @examples

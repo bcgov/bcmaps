@@ -13,7 +13,7 @@ get_poly_attribute(x, col, fun, ...)
 
 \item{fun}{function to determine the resulting single attribute from overlapping polygons}
 
-\item{...}{other paramaters passed on to \code{fun}}
+\item{...}{other parameters passed on to \code{fun}}
 }
 \value{
 An atomic vector of the same length as x

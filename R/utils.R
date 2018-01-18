@@ -278,7 +278,7 @@ get_unioned_ids <- function(unioned_sp) {
 #' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
 #' @param col the column in the nested data frames from which to retrieve/calculate attributes
 #' @param fun function to determine the resulting single attribute from overlapping polygons
-#' @param ... other paramaters passed on to `fun`
+#' @param ... other parameters passed on to `fun`
 #'
 #' @return An atomic vector of the same length as x
 #' @export
