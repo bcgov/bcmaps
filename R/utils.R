@@ -248,7 +248,9 @@ raster_union <- function(x) {
   f <- methods::getMethod("union", c("SpatialPolygons", "missing"))
   # Find the offending block in the body, and replace it with NULL
   the_prob <- which(grepl("!rgeos::gIntersects(x)", body(f), fixed = TRUE))
-  body(f)[[the_prob]] <- NULL
+  if (length(the_prob)) {
+    body(f)[[the_prob]] <- NULL
+  }
   # Call the modified function with the input
   f(x)
 }
