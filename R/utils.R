@@ -217,7 +217,7 @@ self_union <- function(x) {
     stop("Package raster could not be loaded", call. = FALSE)
   }
 
-  unioned <- raster_union(x)
+  unioned <- raster::union(x)
   unioned$union_ids <- get_unioned_ids(unioned)
 
   export_cols <- c("union_count", "union_ids")
@@ -229,30 +229,6 @@ self_union <- function(x) {
 
   names(unioned)[names(unioned) == "count"] <- "union_count"
   unioned[, export_cols]
-}
-
-#' Modified raster::union method for a single SpatialPolygons(DataFrame)
-#'
-#' Modify raster::union to remove the expression:
-#'   if (!rgeos::gIntersects(x)) {
-#'     return(x)
-#'   }
-#' As it throws an error:
-#'   Error in RGEOSBinPredFunc(spgeom1, spgeom2, byid, func) :
-#'    TopologyException: side location conflict
-#'
-#' @param x a single SpatialPolygons(DataFrame) object
-#' @noRd
-raster_union <- function(x) {
-  # First get the function (method)
-  f <- methods::getMethod("union", c("SpatialPolygons", "missing"))
-  # Find the offending block in the body, and replace it with NULL
-  the_prob <- which(grepl("!rgeos::gIntersects(x)", body(f), fixed = TRUE))
-  if (length(the_prob)) {
-    body(f)[[the_prob]] <- NULL
-  }
-  # Call the modified function with the input
-  f(x)
 }
 
 ## For each new polygon in a SpatialPolygonsDataFrame that has been unioned with
