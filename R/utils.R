@@ -356,7 +356,7 @@ combine_nr_rd <- function(class = c("sf", "sp")) {
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
 
-
+#' @noRd
 ask <- function(...) {
   choices <- c("Yes", "No")
   cat(paste0(..., collapse = ""))

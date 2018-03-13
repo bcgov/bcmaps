@@ -9,9 +9,11 @@ summarize_raster_list(raster_list, parallel = FALSE, cores = NULL, ...)
 \arguments{
 \item{raster_list}{list of rasters}
 
-\item{parallel}{process in parallel? Default \code{FALSE}}
+\item{parallel}{process in parallel? Default \code{FALSE}. Not currently
+available on Windows.}
 
-\item{cores}{number of cores if doing parallel. Default \code{NULL} uses half the number detected}
+\item{cores}{number of cores if doing parallel. Default \code{NULL} uses half the
+number detected}
 
 \item{...}{passed on to \code{doMC::registerDoMC}}
 }

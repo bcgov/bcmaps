@@ -1,16 +1,20 @@
-#' Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer and clip the raster to each polygon.
+#' Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+#' and clip the raster to each polygon.
 #'
 #' @param raster_layer the raster layer
 #' @param poly a `SpatialPolygonsDataFrame` layer or `sf` layer
 #' @param poly_field the field on which to split the `SpatialPolygonsDataFrame`
-#' @param summarize Should the function summarise the raster values in each polygon to a vector? Default `FALSE`
-#' @param parallel process in parallel? Default `FALSE`
-#' @param cores number of cores if doing parallel. Default `NULL` uses half the number detected
+#' @param summarize Should the function summarise the raster values in each
+#'     polygon to a vector? Default `FALSE`
+#' @param parallel process in parallel? Default `FALSE`. Not currently
+#'     available on Windows.
+#' @param cores number of cores if doing parallel. Default `NULL` uses half the
+#'     number detected
 #' @param ... passed on to `doMC::registerDoMC`
 #'
-#' @return a list of `RasterLayers` if `summarize = FALSE` otherwise a list of vectors.
+#' @return a list of `RasterLayers` if `summarize = FALSE` otherwise a list of
+#'     vectors.
 #' @export
-#'
 raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
                            parallel = FALSE, cores = NULL, ...) {
 
@@ -63,8 +67,12 @@ check_inputs <- function(parallel, cores, ...) {
   # Make this work on windows:
   # https://stackoverflow.com/questions/6780091/simple-working-example-of-ddply-in-parallel-on-windows
   if (parallel) {
-    if (.Platform$OS.type == "windows") stop("Parallel is currently not supported on Windows")
-    if (!requireNamespace("doMC")) stop("package doMC required for parallel processing")
+    if (.Platform$OS.type == "windows") {
+      stop("Parallel is currently not supported on Windows")
+    }
+    if (!requireNamespace("doMC")) {
+      stop("package doMC required for parallel processing")
+    }
     doMC::registerDoMC(cores = cores, ...)
   }
 }
