@@ -11,8 +11,6 @@ Description: Provides access to various spatial layers for B.C., such as
     through function calls in this package. All layers are in B.C. 'Albers' equal-area projection 
     <http://spatialreference.org/ref/epsg/nad83-bc-albers/>, which is the B.C. 
     government standard.
-Depends:
-    R (>= 3.4.0)
 Imports: 
     methods,
     utils,
