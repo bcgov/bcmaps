@@ -30,8 +30,8 @@
 #' ## Get the area of the land only, in hectares:
 #' bc_area("land", "ha")
 bc_area <- function(what = "total", units = "km2") {
-  what = match.arg(what, c("total", "land", "freshwater"))
-  units = match.arg(units, c("km2", "m2", "ha", "acres", "sq_mi"))
+  what <- match.arg(what, c("total", "land", "freshwater"))
+  units <- match.arg(units, c("km2", "m2", "ha", "acres", "sq_mi"))
 
   val_km2 <- switch(what, total = 944735, land = 925186, freshwater = 19549)
   ret <- switch(units, km2 = val_km2, m2 = km2_m2(val_km2), ha = km2_ha(val_km2),
@@ -248,7 +248,9 @@ raster_union <- function(x) {
   f <- methods::getMethod("union", c("SpatialPolygons", "missing"))
   # Find the offending block in the body, and replace it with NULL
   the_prob <- which(grepl("!rgeos::gIntersects(x)", body(f), fixed = TRUE))
-  body(f)[[the_prob]] <- NULL
+  if (length(the_prob)) {
+    body(f)[[the_prob]] <- NULL
+  }
   # Call the modified function with the input
   f(x)
 }
@@ -348,13 +350,13 @@ get_return_type <- function(x) {
 #' combined with the Regional Districts to form a full provincial coverage.
 #' @export
 combine_nr_rd <- function(class = c("sf", "sp")) {
-  class = match.arg(class)
+  class <- match.arg(class)
   rd <- get_layer("regional_districts", class = class)
   mun <- get_layer("municipalities", class = class)
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
 
-
+#' @noRd
 ask <- function(...) {
   choices <- c("Yes", "No")
   cat(paste0(..., collapse = ""))

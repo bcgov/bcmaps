@@ -4,7 +4,6 @@
 * local Windows 7, R 3.4.3
 * ubuntu 14.04 (on travis-ci), R 3.4.3
 * win-builder (R-devel)
-* Debian Linux, R-patched, GCC (on R-Hub)
 
 ## R CMD check results
 

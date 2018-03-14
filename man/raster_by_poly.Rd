@@ -2,7 +2,8 @@
 % Please edit documentation in R/raster_by_poly.R
 \name{raster_by_poly}
 \alias{raster_by_poly}
-\title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer and clip the raster to each polygon.}
+\title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+and clip the raster to each polygon.}
 \usage{
 raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
   parallel = FALSE, cores = NULL, ...)
@@ -14,17 +15,22 @@ raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
 
 \item{poly_field}{the field on which to split the \code{SpatialPolygonsDataFrame}}
 
-\item{summarize}{Should the function summarise the raster values in each polygon to a vector? Default \code{FALSE}}
+\item{summarize}{Should the function summarise the raster values in each
+polygon to a vector? Default \code{FALSE}}
 
-\item{parallel}{process in parallel? Default \code{FALSE}}
+\item{parallel}{process in parallel? Default \code{FALSE}. Not currently
+available on Windows.}
 
-\item{cores}{number of cores if doing parallel. Default \code{NULL} uses half the number detected}
+\item{cores}{number of cores if doing parallel. Default \code{NULL} uses half the
+number detected}
 
 \item{...}{passed on to \code{doMC::registerDoMC}}
 }
 \value{
-a list of \code{RasterLayers} if \code{summarize = FALSE} otherwise a list of vectors.
+a list of \code{RasterLayers} if \code{summarize = FALSE} otherwise a list of
+vectors.
 }
 \description{
-Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer and clip the raster to each polygon.
+Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+and clip the raster to each polygon.
 }
