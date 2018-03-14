@@ -1,3 +1,5 @@
+# bcmaps 0.17.1.9000
+
 # bcmaps v0.17.1
 * Fixed an issue where `self_union()` would fail due to a change in the `raster` package (30cef3438)
 
