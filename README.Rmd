@@ -135,9 +135,8 @@ bec <- bec(force = TRUE, ask = FALSE)
 ```
 
 ```{r bec, message=FALSE}
-# This example requires the development version of ggplot2 which has the 
-# `geom_sf()` function:
-# remotes::install_github("tidyverse/ggplot2")
+# This example requires ggplot2 3.0.0 or greater, which has the 
+# `geom_sf()` function (see https://ggplot2.tidyverse.org/reference/ggsf.html):
 bec <- bec()
 library(ggplot2)
 ggplot() +
