@@ -11,6 +11,7 @@ Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
 [![CRAN
 Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Overview
 
@@ -150,7 +151,7 @@ object. For example:
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.2.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
@@ -216,13 +217,11 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 
 As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem
 Classification) map is available via the `bec()` function, and an
-accompanying function `bec_colours()` function to colour
-it:
+accompanying function `bec_colours()` function to colour it:
 
 ``` r
-# This example requires the development version of ggplot2 which has the 
-# `geom_sf()` function:
-# remotes::install_github("tidyverse/ggplot2")
+# This example requires ggplot2 3.0.0 or greater, which has the 
+# `geom_sf()` function (see https://ggplot2.tidyverse.org/reference/ggsf.html):
 bec <- bec()
 library(ggplot2)
 ggplot() +
