@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{bc_neighbours}
 \alias{bc_neighbours}
-\title{Boundary of British Columbia and provinces/states that border British Columbia}
+\title{Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia}
 \usage{
 bc_neighbours(class = "sf")
 }

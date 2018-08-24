@@ -107,7 +107,7 @@ bc_cities <- function(class = 'sf') {
    get_layer('bc_cities', class = class)
 }
 
-#' Boundary of British Columbia and provinces/states that border British Columbia
+#' Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.
 #'
