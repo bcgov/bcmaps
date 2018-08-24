@@ -5,13 +5,14 @@
 
 ### Version 0.17.1.9000
 
-<a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
-[![Travis-CI Build
-Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
-[![CRAN
-Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps)
+[![dev](https://assets.bcdevexchange.org/images/badges/delivery.svg)](https://github.com/BCDevExchange/assets/blob/master/README.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Travis-CI Build
+Status](http://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/ropensci/bcmaps)
+
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
+[![CRAN
+Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps)
 
 ## Overview
 
@@ -73,45 +74,47 @@ available_layers()
 #> 2            bc_bound
 #> 3       bc_bound_hres
 #> 4           bc_cities
-#> 5        ecoprovinces
-#> 6          ecoregions
-#> 7         ecosections
-#> 8         gw_aquifers
-#> 9          hydrozones
-#> 10     municipalities
-#> 11           nr_areas
-#> 12       nr_districts
-#> 13         nr_regions
-#> 14 regional_districts
-#> 15    water_districts
-#> 16    water_precincts
-#> 17   watercourses_15M
-#> 18    watercourses_5M
-#> 19      wsc_drainages
-#> 20                bec
-#> 21                tsa
-#>                                                            title
-#> 1                                     British Columbia Air Zones
-#> 2                                                    BC Boundary
-#> 3                                  BC Boundary - High Resolution
-#> 4  BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
-#> 5                                  British Columbia Ecoprovinces
-#> 6                                    British Columbia Ecoregions
-#> 7                                   British Columbia Ecosections
-#> 8             British Columbia's developed ground water aquifers
-#> 9                 Hydrologic Zone Boundaries of British Columbia
-#> 10                               British Columbia Municipalities
-#> 11                  British Columbia Natural Resource (NR) Areas
-#> 12              British Columbia Natural Resource (NR) Districts
-#> 13                British Columbia Natural Resource (NR) Regions
-#> 14                           British Columbia Regional Districts
-#> 15                 British Columbia's Water Management Districts
-#> 16                 British Columbia's Water Management Precincts
-#> 17                  British Columbia watercourses at 1:15M scale
-#> 18                   British Columbia watercourses at 1:5M scale
-#> 19                 Water Survey of Canada Sub-Sub-Drainage Areas
-#> 20                                      British Columbia BEC Map
-#> 21                         B.C. Timber Supply Areas & TSA Blocks
+#> 5       bc_neighbours
+#> 6        ecoprovinces
+#> 7          ecoregions
+#> 8         ecosections
+#> 9         gw_aquifers
+#> 10         hydrozones
+#> 11     municipalities
+#> 12           nr_areas
+#> 13       nr_districts
+#> 14         nr_regions
+#> 15 regional_districts
+#> 16    water_districts
+#> 17    water_precincts
+#> 18   watercourses_15M
+#> 19    watercourses_5M
+#> 20      wsc_drainages
+#> 21                bec
+#> 22                tsa
+#>                                                                                                                title
+#> 1                                                                                         British Columbia Air Zones
+#> 2                                                                                                        BC Boundary
+#> 3                                                                                      BC Boundary - High Resolution
+#> 4                                                      BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
+#> 5  Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia
+#> 6                                                                                      British Columbia Ecoprovinces
+#> 7                                                                                        British Columbia Ecoregions
+#> 8                                                                                       British Columbia Ecosections
+#> 9                                                                 British Columbia's developed ground water aquifers
+#> 10                                                                    Hydrologic Zone Boundaries of British Columbia
+#> 11                                                                                   British Columbia Municipalities
+#> 12                                                                      British Columbia Natural Resource (NR) Areas
+#> 13                                                                  British Columbia Natural Resource (NR) Districts
+#> 14                                                                    British Columbia Natural Resource (NR) Regions
+#> 15                                                                               British Columbia Regional Districts
+#> 16                                                                     British Columbia's Water Management Districts
+#> 17                                                                     British Columbia's Water Management Precincts
+#> 18                                                                      British Columbia watercourses at 1:15M scale
+#> 19                                                                       British Columbia watercourses at 1:5M scale
+#> 20                                                                     Water Survey of Canada Sub-Sub-Drainage Areas
+#> 21                                                                                          British Columbia BEC Map
+#> 22                                                                             B.C. Timber Supply Areas & TSA Blocks
 #>    shortcut_function local
 #> 1               TRUE  TRUE
 #> 2               TRUE  TRUE
@@ -132,8 +135,9 @@ available_layers()
 #> 17              TRUE  TRUE
 #> 18              TRUE  TRUE
 #> 19              TRUE  TRUE
-#> 20              TRUE FALSE
+#> 20              TRUE  TRUE
 #> 21              TRUE FALSE
+#> 22              TRUE FALSE
 #> 
 #> ------------------------
 #> Layers with a value of TRUE in the 'shortcut_function' column can be accessed
@@ -151,6 +155,96 @@ object. For example:
 
 ``` r
 library(sf)
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
+#> 193: %1 is not a valid Win32 application.
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
+#> 193: %1 is not a valid Win32 application.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
+#> 193: %1 is not a valid Win32 application.
 #> Linking to GEOS 3.6.1, GDAL 2.2.3, proj.4 4.9.3
 
 bc <- bc_bound()
