@@ -125,6 +125,18 @@ plot(get_layer("bc_bound", class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
+### It's a beautiful day in the neighbourhood
+
+A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name:
+
+```{r bc_neighbours}
+library(ggplot2)
+ggplot() + 
+  geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
+  geom_sf(data = bc_cities())
+```
+
+
 ### Biogeoclimatic Zones
 
 As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem Classification) map

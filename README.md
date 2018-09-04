@@ -155,97 +155,7 @@ object. For example:
 
 ``` r
 library(sf)
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_BAG.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_FITS.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_GMT.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF4Image.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_HDF5Image.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_KEA.dll
-#> 193: %1 is not a valid Win32 application.
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
-#> 193: %1 is not a valid Win32 application.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files (x86)\GDAL\gdalplugins\gdal_netCDF.dll
-#> 193: %1 is not a valid Win32 application.
-#> Linking to GEOS 3.6.1, GDAL 2.2.3, proj.4 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
@@ -306,6 +216,20 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
 ![](tools/readme/watercourses-1.png)<!-- -->
+
+### It’s a beautiful day in the neighbourhood
+
+A handy layer for creating maps for display is the `bc_neighbours`
+layer, accessible with the function by the same name:
+
+``` r
+library(ggplot2)
+ggplot() + 
+  geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
+  geom_sf(data = bc_cities())
+```
+
+![](tools/readme/bc_neighbours-1.png)<!-- -->
 
 ### Biogeoclimatic Zones
 
