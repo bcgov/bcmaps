@@ -107,6 +107,29 @@ bc_cities <- function(class = 'sf') {
    get_layer('bc_cities', class = class)
 }
 
+#' Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia
+#'
+#' You must have the `bcmaps.rdata` package installed to use this function.
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `bc_neighbours` in the desired class
+#'
+#' @details Type `?bcmaps.rdata::bc_neighbours` for details.
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- bc_neighbours()
+#' my_layer_sp <- bc_neighbours(class = 'sp')
+#' }
+#'
+#' @export
+bc_neighbours <- function(class = 'sf') {
+   get_layer('bc_neighbours', class = class)
+}
+
 #' British Columbia Ecoprovinces
 #'
 #' You must have the `bcmaps.rdata` package installed to use this function.

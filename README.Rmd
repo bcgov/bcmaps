@@ -18,9 +18,10 @@ knitr::opts_chunk$set(
 
 ### Version `r read.dcf("DESCRIPTION", "Version")`
 
-<a id="devex-badge" rel="Delivery" href="https://github.com/BCDevExchange/assets/blob/master/README.md"><img alt="In production, but maybe in Alpha or Beta. Intended to persist and be supported." style="border-width:0" src="https://assets.bcdevexchange.org/images/badges/delivery.svg" title="In production, but maybe in Alpha or Beta. Intended to persist and be supported." /></a>
-[![Travis-CI Build Status](https://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](http://cranlogs.r-pkg.org/badges/grand-total/bcmaps)](https://CRAN.R-project.org/package=bcmaps) 
 
+[![dev](https://assets.bcdevexchange.org/images/badges/delivery.svg)](https://github.com/BCDevExchange/assets/blob/master/README.md) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Travis-CI Build Status](http://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/ropensci/bcmaps) 
+
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps) 
 
 ## Overview
 
@@ -123,6 +124,18 @@ library("sp")
 plot(get_layer("bc_bound", class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
+
+### It's a beautiful day in the neighbourhood
+
+A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name:
+
+```{r bc_neighbours}
+library(ggplot2)
+ggplot() + 
+  geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
+  geom_sf(data = bc_cities())
+```
+
 
 ### Biogeoclimatic Zones
 
