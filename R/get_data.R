@@ -47,6 +47,7 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
     ret <- get_big_data(layer, class, ...)
   } else {
     ret <- getExportedValue("bcmaps.rdata", layer)
+    ret <- rename_sf_col_to_geometry(ret)
 
     if (class == "sp") {
       ret <- convert_to_sp(ret)
@@ -55,6 +56,15 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
 
   ret
 
+}
+
+rename_sf_col_to_geometry <- function(x) {
+  geom_col_name <- attr(x, "sf_column")
+  if (geom_col_name == "geometry") return(x)
+
+  names(x)[names(x) == geom_col_name] <- "geometry"
+  attr(x, "sf_column") <- "geometry"
+  x
 }
 
 convert_to_sp <- function(sf_obj) {

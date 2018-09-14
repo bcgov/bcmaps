@@ -12,6 +12,7 @@ test_that("test that all sf layer function work without error and returns an sf 
     #cat("\n", fn_names[i]) #for debugging
     expect_error(layer <- match.fun(fn_names[i])(), NA)
     expect_is(layer, "sf")
+    expect_equal(attr(layer, "sf_column"), "geometry")
   }
 })
 
