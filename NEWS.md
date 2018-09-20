@@ -1,6 +1,7 @@
 # bcmaps 0.17.1.9000
 * Added `bc_neighbours()` function to call layers containing adjacent jurisdictions.
 * Ensured the `geometry` column in all layers is consistently named `"geometry"` (Thanks @boshek)
+* Moving sf package to Depends to take advantage of sf print methods.
 
 # bcmaps v0.17.1
 * Fixed an issue where `self_union()` would fail due to a change in the `raster` package (30cef3438)

@@ -23,6 +23,8 @@
 #' [Statistics Canada](http://www.statcan.gc.ca/eng/reference/licence-eng).
 #' Each layer's individual help page contains a section describing the source for the data.
 #'
+#' @import sf
+#'
 #' @docType package
 #' @name bcmaps
 NULL
