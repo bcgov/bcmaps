@@ -397,3 +397,38 @@ bec_colours <- function() {
 #' @export
 bec_colors <- bec_colours
 
+#' Get an extent/bounding box for British Columbia
+#'
+#' @param class `"sf"`, `"sp"`, or `"raster"`
+#' @param crs coordinate reference system: integer with the EPSG code,
+#' or character with proj4string. Default `3005` (BC Albers).
+#'
+#' @return an object denoting a bouding box of British Columbia,
+#' of the corresponding class specified in `class`. The coordinates will be
+#' in lat-long WGS84 (epsg:4326).
+#' @export
+#'
+#' @examples
+#' bc_bbox("sf")
+#' bc_bbox("sp")
+#' bc_bbox("raster")
+bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
+  class <- match.arg(class)
+
+  if (class == "raster" && !requireNamespace("raster")) {
+    stop("raster package required to make an object of class Extent")
+  }
+
+  sf_bbox <- sf::st_bbox(sf::st_transform(bc_bound(), crs))
+
+  raw_bbox <- unclass(sf_bbox)
+  attr(raw_bbox, "crs") <- NULL
+
+  switch(class,
+         sf = sf_bbox,
+         sp = structure(unname(raw_bbox), .Dim = c(2L, 2L),
+                        .Dimnames = list(c("x", "y"), c("min", "max"))),
+         raster = raster::extent(unname(raw_bbox[c("xmin", "xmax", "ymin", "ymax")]))
+  )
+
+}
