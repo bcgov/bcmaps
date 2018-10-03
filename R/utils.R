@@ -397,3 +397,34 @@ bec_colours <- function() {
 #' @export
 bec_colors <- bec_colours
 
+#' Get an extent/bounding box for British Columbia
+#'
+#' @param class `"sf"`, `"sp"`, or `"raster"`
+#'
+#' @return an object denoting a bouding box of British Columbia,
+#' of the corresponding class specified in `class`
+#' @export
+#'
+#' @examples
+#' bc_bbox("sf")
+#' bc_bbox("sp")
+#' bc_bbox("raster")
+bc_bbox <- function(class = c("sf", "sp", "raster")) {
+  class <- match.arg(class)
+  if (class == "raster" && !requireNamespace("raster")) {
+    stop("raster package required to make an object of class Extent")
+  }
+  bounds <- c(xmin = -139.01451, ymin = 48.29752,
+              xmax = -114.05422, ymax = 60.00063)
+  switch(class,
+         sf = structure(bounds,
+                        class = "bbox", crs = structure(list(
+                            epsg = 4326L,
+                            proj4string = "+proj=longlat +datum=WGS84 +no_defs"),
+                            class = "crs")),
+         sp = structure(unname(bounds), .Dim = c(2L, 2L),
+                        .Dimnames = list(c("x", "y"), c("min", "max"))),
+         raster = raster::extent(unname(bounds[c("xmin", "xmax", "ymin", "ymax")]))
+  )
+
+}
