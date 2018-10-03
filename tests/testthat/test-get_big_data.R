@@ -32,7 +32,7 @@ test_that("get_big_data works with latest release", {
 test_that("get_big_data fails when file doesn't exist", {
   skip_if_not_installed("bcmaps.rdata")
   skip_on_cran()
-  expect_error(get_big_data("test", "sf", "0.1.0"), "No assets matching filename test.rds in 0.1.0 release")
+  expect_error(get_big_data("test", "sf", "0.1.0", force = TRUE, ask = FALSE), "No assets matching filename test.rds in 0.1.0 release")
 })
 
 test_that("check_write_to_data_dir works", {
