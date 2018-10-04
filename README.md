@@ -279,11 +279,11 @@ To report bugs/issues/feature requests, please file an
 
 Pull requests of new B.C. layers are welcome. If you would like to
 contribute to the package, please see our
-[CONTRIBUTING](https://github.com/bcgov/bcmaps/CONTRIBUTING.md)
+[CONTRIBUTING](CONTRIBUTING.md)
 guidelines.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](https://github.com/bcgov/bcmaps/CODE_OF_CONDUCT.md). By
+Conduct](CODE_OF_CONDUCT.md). By
 participating in this project you agree to abide by its terms.
 
 ## Source Data
