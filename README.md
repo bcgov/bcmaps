@@ -8,7 +8,7 @@
 [![dev](https://assets.bcdevexchange.org/images/badges/delivery.svg)](https://github.com/BCDevExchange/assets/blob/master/README.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Travis-CI Build
-Status](http://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/ropensci/bcmaps)
+Status](http://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
 [![CRAN
@@ -68,6 +68,8 @@ function:
 
 ``` r
 library(bcmaps)
+#> Loading required package: sf
+#> Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3
 available_layers()
 #>            layer_name
 #> 1            airzones
@@ -155,7 +157,6 @@ object. For example:
 
 ``` r
 library(sf)
-#> Linking to GEOS 3.6.1, GDAL 2.1.3, proj.4 4.9.3
 
 bc <- bc_bound()
 plot(st_geometry(bc))
@@ -279,12 +280,11 @@ To report bugs/issues/feature requests, please file an
 
 Pull requests of new B.C. layers are welcome. If you would like to
 contribute to the package, please see our
-[CONTRIBUTING](CONTRIBUTING.md)
-guidelines.
+[CONTRIBUTING](CONTRIBUTING.md) guidelines.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By
-participating in this project you agree to abide by its terms.
+Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
+to abide by its terms.
 
 ## Source Data
 
