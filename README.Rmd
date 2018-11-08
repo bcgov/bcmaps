@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bcmaps <img src="man/figures/bcmaps-sticker.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/logo.png" height="139" align="right"/>
 
 ### Version `r read.dcf("DESCRIPTION", "Version")`
 
@@ -168,14 +168,13 @@ You can view the vignette online [here](https://cran.r-project.org/web/packages/
 
 ### Utility Functions
 
-The package also contains a couple of handy utility functions:
+The package also contains a handful of utility functions, for example:
 
 1. `fix_geo_problems()` for fixing invalid topologies in `sf` or `Spatial` objects 
 such as orphaned holes and self-intersections
 2. `transform_bc_albers()` for transforming any `sf` or `Spatial` object to 
 [BC Albers](https://epsg.io/3005) projection.
-3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
-
+3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes.
 
 ## Getting Help or Reporting an Issue
 
