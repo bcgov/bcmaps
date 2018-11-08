@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
 
-# bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/bcmaps-sticker.png" height="139" align="right"/>
 
 ### Version 0.17.1.9000
 
@@ -69,7 +69,7 @@ function:
 ``` r
 library(bcmaps)
 #> Loading required package: sf
-#> Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3
 available_layers()
 #>            layer_name
 #> 1            airzones
@@ -162,7 +162,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/unnamed-chunk-6-1.png)<!-- -->
 
 Alternatively, you can use the `get_layer` function - simply type
 `get_layer('layer_name')`, where `'layer_name'` is the name of the layer
@@ -179,7 +179,7 @@ ws <- get_layer("wsc_drainages", class = "sf")
 plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
 ```
 
-![](tools/readme/unnamed-chunk-7-1.png)<!-- -->
+![](man/figures/unnamed-chunk-7-1.png)<!-- -->
 
 ### Simple Features objects
 
@@ -201,7 +201,7 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
-![](tools/readme/plot-maps-1.png)<!-- -->
+![](man/figures/plot-maps-1.png)<!-- -->
 
 ### Spatial (sp) objects
 
@@ -216,7 +216,7 @@ plot(get_layer("bc_bound", class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
-![](tools/readme/watercourses-1.png)<!-- -->
+![](man/figures/watercourses-1.png)<!-- -->
 
 ### It’s a beautiful day in the neighbourhood
 
@@ -230,7 +230,7 @@ ggplot() +
   geom_sf(data = bc_cities())
 ```
 
-![](tools/readme/bc_neighbours-1.png)<!-- -->
+![](man/figures/bc_neighbours-1.png)<!-- -->
 
 ### Biogeoclimatic Zones
 
@@ -250,7 +250,7 @@ ggplot() +
   scale_colour_manual(values = bec_colours())
 ```
 
-![](tools/readme/bec-1.png)<!-- -->
+![](man/figures/bec-1.png)<!-- -->
 
 ### Vignettes
 

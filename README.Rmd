@@ -10,11 +10,11 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "tools/readme/"
+  fig.path = "man/figures/"
 )
 ```
 
-# bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/bcmaps-sticker.png" height="139" align="right"/>
 
 ### Version `r read.dcf("DESCRIPTION", "Version")`
 
