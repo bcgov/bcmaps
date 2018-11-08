@@ -1,2 +1,53 @@
 development:
   mode: auto
+
+reference:
+- title: Available Layers
+  desc: Functions that provide map layers in sf or Spatial* format
+  contents:
+  - bc_bound
+  - bc_bound_hres
+  - bc_neighbours
+  - bc_cities
+  - municipalities
+  - nr_areas
+  - nr_districts
+  - nr_regions
+  - regional_districts
+  - combine_nr_rd
+  - ecoprovinces
+  - ecoregions
+  - ecosections
+  - airzones
+  - water_districts
+  - water_precincts
+  - watercourses_15M
+  - watercourses_5M
+  - gw_aquifers
+  - hydrozones
+  - wsc_drainages
+- title: Available Layers (large)
+  desc: These layers are not contained in the package but rather are downloaded on
+        first request and cached.
+  contents:
+  - tsa
+  - bec
+- title: Utility functions related to map layers provided in bcmaps
+  contents:
+  - available_layers
+  - get_layer
+  - get_big_data
+- title: B.C.-specific utility functions
+  contents:
+  - transform_bc_albers
+  - bec_colors
+  - bec_colours
+  - bc_bbox
+  - bc_area
+- title: General geographic utility functions
+  contents:
+  - raster_by_poly
+  - self_union
+  - summarize_raster_list
+  - fix_geo_problems
+  - get_poly_attribute
