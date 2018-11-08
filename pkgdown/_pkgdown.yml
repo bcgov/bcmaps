@@ -1,6 +1,6 @@
 navbar:
   structure:
-    left:  [bc_logo, home, intro, reference, articles, news]
+    left:  [home, intro, reference, articles, news]
     right: [cran, github]
   components:
     cran:
