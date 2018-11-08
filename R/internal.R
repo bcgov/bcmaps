@@ -6,6 +6,7 @@
 #'
 #'
 #' @return NULL
+#' @noRd
 add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_holder = "Province of British Columbia") {
 
   file_text <- readLines(file)

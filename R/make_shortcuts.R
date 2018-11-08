@@ -27,6 +27,7 @@
 #' }
 #'
 #' @return TRUE (invisibly)
+#' @noRd
 make_shortcuts <- function(file = "R/shortcuts.R") {
 
   if (!requireNamespace("bcmaps") || !requireNamespace("bcmaps.rdata") ||
