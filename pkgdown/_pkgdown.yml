@@ -6,9 +6,6 @@ navbar:
     cran:
       text: CRAN
       href: https://cran.r-project.org/package=bcmaps
-    bc_logo:
-      icon:
-      href: https://gov.bc.ca
 
 development:
   mode: auto
