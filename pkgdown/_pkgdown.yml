@@ -1,3 +1,15 @@
+navbar:
+  structure:
+    left:  [bc_logo, home, intro, reference, articles, news]
+    right: [cran, github]
+  components:
+    cran:
+      text: CRAN
+      href: https://cran.r-project.org/package=bcmaps
+    bc_logo:
+      icon:
+      href: https://gov.bc.ca
+
 development:
   mode: auto
 
