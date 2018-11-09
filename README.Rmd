@@ -66,10 +66,17 @@ install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
 
 To see the layers that are available, run the `available_layers()` function:
 
-```{r}
+```{r, eval=FALSE}
 library(bcmaps)
 available_layers()
 ```
+
+```{r,echo=FALSE}
+library(bcmaps)
+layers_table <- available_layers()
+knitr::kable(layers_table[,c("layer_name","title")])
+```
+
 
 Most layers are accessible by a shortcut function by the same name as the object. 
 Then you can use the data as you would any `sf` or `Spatial` object. For example:
