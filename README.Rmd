@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# bcmaps <img src="man/figures/logo.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/logo.png" align="right"/>
 
 ### Version `r read.dcf("DESCRIPTION", "Version")`
 
