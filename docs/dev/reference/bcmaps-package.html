@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Make shortcut functions for data objects in bcmaps.rdata — make_shortcuts • bcmaps</title>
+<title>bcmaps: Map Layers and Spatial Utilities for British Columbia — bcmaps-package • bcmaps</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,12 +30,19 @@
 
 
 
-<meta property="og:title" content="Make shortcut functions for data objects in bcmaps.rdata — make_shortcuts" />
+  <link href="../extra.css" rel="stylesheet">
+  
+<meta property="og:title" content="bcmaps: Map Layers and Spatial Utilities for British Columbia — bcmaps-package" />
 
-<meta property="og:description" content="This generates a shortcuts.R file in the R directory, with function definitions
-and roxygen blocks for each data object in bcmaps.rdata. This ensures that each
-data object in bcmaps.rdata can be accessed directly from bcmaps by a
-function such as bc_bound(), or airzones(&quot;sp&quot;)." />
+<meta property="og:description" content="
+Provides access to various spatial layers for B.C., such as 
+    administrative boundaries, natural resource management boundaries, etc. 
+    All layers are imported from the 'bcmaps.rdata' package as 'sf' or 'Spatial' objects
+    through function calls in this package. All layers are in B.C. 'Albers' equal-area projection 
+    &amp;lt;http://spatialreference.org/ref/epsg/nad83-bc-albers/&amp;gt;, which is the B.C. 
+    government standard." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -98,6 +105,9 @@ function such as bc_bound(), or airzones(&quot;sp&quot;)." />
       
       <ul class="nav navbar-nav navbar-right">
         <li>
+  <a href="https://cran.r-project.org/package=bcmaps">CRAN</a>
+</li>
+<li>
   <a href="https://github.com/bcgov/bcmaps">
     <span class="fa fa-github fa-lg"></span>
      
@@ -115,57 +125,55 @@ function such as bc_bound(), or airzones(&quot;sp&quot;)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Make shortcut functions for data objects in bcmaps.rdata</h1>
-    <small class="dont-index">Source: <a href='https://github.com/bcgov/bcmaps/blob/master/R/make_shortcuts.R'><code>R/make_shortcuts.R</code></a></small>
-    <div class="hidden name"><code>make_shortcuts.Rd</code></div>
+    <h1>bcmaps: Map Layers and Spatial Utilities for British Columbia</h1>
+    <small class="dont-index">Source: <a href='https://github.com/bcgov/bcmaps/blob/master/R/bcmaps-package.R'><code>R/bcmaps-package.R</code></a></small>
+    <div class="hidden name"><code>bcmaps-package.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This generates a <code>shortcuts.R</code> file in the <code>R</code> directory, with function definitions
-and roxygen blocks for each data object in <code>bcmaps.rdata</code>. This ensures that each
-data object in <code>bcmaps.rdata</code> can be accessed directly from <code>bcmaps</code> by a
-function such as <code><a href='bc_bound.html'>bc_bound()</a></code>, or <code><a href='airzones.html'>airzones("sp")</a></code>.</p>
+    <p><img src='figures/logo.png' align='right' /></p>
+<p>Provides access to various spatial layers for B.C., such as 
+    administrative boundaries, natural resource management boundaries, etc. 
+    All layers are imported from the 'bcmaps.rdata' package as 'sf' or 'Spatial' objects
+    through function calls in this package. All layers are in B.C. 'Albers' equal-area projection 
+    &lt;http://spatialreference.org/ref/epsg/nad83-bc-albers/&gt;, which is the B.C. 
+    government standard.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>make_shortcuts</span>(<span class='kw'>file</span> <span class='kw'>=</span> <span class='st'>"R/shortcuts.R"</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>file</th>
-      <td><p>the R file where the shortcut file is. Default "R/shortcuts.R"</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+        
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <p>TRUE (invisibly)</p>
-    
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>Run this function each time you add a new data object.</p>
+    <div class='dont-index'><p>Useful links:</p><ul>
+<li><p><a href='https://github.com/bcgov/bcmaps'>https://github.com/bcgov/bcmaps</a></p></li>
+<li><p>Report bugs at <a href='https://github.com/bcgov/bcmaps/issues'>https://github.com/bcgov/bcmaps/issues</a></p></li>
+</ul></div>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'>make_shortcut</span>()
-<span class='co'># }</span><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
+          </ul>
 
-      <li><a href="#details">Details</a></li>
-      
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+    <h2>Author</h2>
+    
+<strong>Maintainer</strong>: Andy Teucher <a href='mailto:andy.teucher@gov.bc.ca'>andy.teucher@gov.bc.ca</a>
+
+Authors:
+<ul>
+<li><p>Stephanie Hazlitt <a href='mailto:stephanie.hazlitt@gov.bc.ca'>stephanie.hazlitt@gov.bc.ca</a></p></li>
+<li><p>Sam Albers <a href='mailto:sam.albers@gov.bc.ca'>sam.albers@gov.bc.ca</a></p></li>
+</ul>
+
+Other contributors:
+<ul>
+<li><p>Province of British Columbia [copyright holder]</p></li>
+</ul>
+
 
   </div>
 </div>

@@ -96,7 +96,7 @@
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
 <div id="bcmaps" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#bcmaps" class="anchor"></a>bcmaps <img src="reference/figures/logo.png" height="139" align="right">
+<a href="#bcmaps" class="anchor"></a>bcmaps <img src="reference/figures/logo.png" align="right">
 </h1></div>
 <div id="version-0-17-1-9000" class="section level3">
 <h3 class="hasAnchor">
@@ -132,152 +132,170 @@
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">install.packages</span>(<span class="st">'bcmaps.rdata'</span>, <span class="dt">repos=</span><span class="st">'https://bcgov.github.io/drat/'</span>)</a></code></pre></div>
 <p>To see the layers that are available, run the <code><a href="reference/available_layers.html">available_layers()</a></code> function:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">library</span>(bcmaps)</a>
-<a class="sourceLine" id="cb4-2" title="2"><span class="co">#&gt; Loading required package: sf</span></a>
-<a class="sourceLine" id="cb4-3" title="3"><span class="co">#&gt; Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3</span></a>
-<a class="sourceLine" id="cb4-4" title="4"><span class="kw"><a href="reference/available_layers.html">available_layers</a></span>()</a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="co">#&gt;            layer_name</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="co">#&gt; 1            airzones</span></a>
-<a class="sourceLine" id="cb4-7" title="7"><span class="co">#&gt; 2            bc_bound</span></a>
-<a class="sourceLine" id="cb4-8" title="8"><span class="co">#&gt; 3       bc_bound_hres</span></a>
-<a class="sourceLine" id="cb4-9" title="9"><span class="co">#&gt; 4           bc_cities</span></a>
-<a class="sourceLine" id="cb4-10" title="10"><span class="co">#&gt; 5       bc_neighbours</span></a>
-<a class="sourceLine" id="cb4-11" title="11"><span class="co">#&gt; 6        ecoprovinces</span></a>
-<a class="sourceLine" id="cb4-12" title="12"><span class="co">#&gt; 7          ecoregions</span></a>
-<a class="sourceLine" id="cb4-13" title="13"><span class="co">#&gt; 8         ecosections</span></a>
-<a class="sourceLine" id="cb4-14" title="14"><span class="co">#&gt; 9         gw_aquifers</span></a>
-<a class="sourceLine" id="cb4-15" title="15"><span class="co">#&gt; 10         hydrozones</span></a>
-<a class="sourceLine" id="cb4-16" title="16"><span class="co">#&gt; 11     municipalities</span></a>
-<a class="sourceLine" id="cb4-17" title="17"><span class="co">#&gt; 12           nr_areas</span></a>
-<a class="sourceLine" id="cb4-18" title="18"><span class="co">#&gt; 13       nr_districts</span></a>
-<a class="sourceLine" id="cb4-19" title="19"><span class="co">#&gt; 14         nr_regions</span></a>
-<a class="sourceLine" id="cb4-20" title="20"><span class="co">#&gt; 15 regional_districts</span></a>
-<a class="sourceLine" id="cb4-21" title="21"><span class="co">#&gt; 16    water_districts</span></a>
-<a class="sourceLine" id="cb4-22" title="22"><span class="co">#&gt; 17    water_precincts</span></a>
-<a class="sourceLine" id="cb4-23" title="23"><span class="co">#&gt; 18   watercourses_15M</span></a>
-<a class="sourceLine" id="cb4-24" title="24"><span class="co">#&gt; 19    watercourses_5M</span></a>
-<a class="sourceLine" id="cb4-25" title="25"><span class="co">#&gt; 20      wsc_drainages</span></a>
-<a class="sourceLine" id="cb4-26" title="26"><span class="co">#&gt; 21                bec</span></a>
-<a class="sourceLine" id="cb4-27" title="27"><span class="co">#&gt; 22                tsa</span></a>
-<a class="sourceLine" id="cb4-28" title="28"><span class="co">#&gt;                                                                                                                title</span></a>
-<a class="sourceLine" id="cb4-29" title="29"><span class="co">#&gt; 1                                                                                         British Columbia Air Zones</span></a>
-<a class="sourceLine" id="cb4-30" title="30"><span class="co">#&gt; 2                                                                                                        BC Boundary</span></a>
-<a class="sourceLine" id="cb4-31" title="31"><span class="co">#&gt; 3                                                                                      BC Boundary - High Resolution</span></a>
-<a class="sourceLine" id="cb4-32" title="32"><span class="co">#&gt; 4                                                      BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)</span></a>
-<a class="sourceLine" id="cb4-33" title="33"><span class="co">#&gt; 5  Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia</span></a>
-<a class="sourceLine" id="cb4-34" title="34"><span class="co">#&gt; 6                                                                                      British Columbia Ecoprovinces</span></a>
-<a class="sourceLine" id="cb4-35" title="35"><span class="co">#&gt; 7                                                                                        British Columbia Ecoregions</span></a>
-<a class="sourceLine" id="cb4-36" title="36"><span class="co">#&gt; 8                                                                                       British Columbia Ecosections</span></a>
-<a class="sourceLine" id="cb4-37" title="37"><span class="co">#&gt; 9                                                                 British Columbia's developed ground water aquifers</span></a>
-<a class="sourceLine" id="cb4-38" title="38"><span class="co">#&gt; 10                                                                    Hydrologic Zone Boundaries of British Columbia</span></a>
-<a class="sourceLine" id="cb4-39" title="39"><span class="co">#&gt; 11                                                                                   British Columbia Municipalities</span></a>
-<a class="sourceLine" id="cb4-40" title="40"><span class="co">#&gt; 12                                                                      British Columbia Natural Resource (NR) Areas</span></a>
-<a class="sourceLine" id="cb4-41" title="41"><span class="co">#&gt; 13                                                                  British Columbia Natural Resource (NR) Districts</span></a>
-<a class="sourceLine" id="cb4-42" title="42"><span class="co">#&gt; 14                                                                    British Columbia Natural Resource (NR) Regions</span></a>
-<a class="sourceLine" id="cb4-43" title="43"><span class="co">#&gt; 15                                                                               British Columbia Regional Districts</span></a>
-<a class="sourceLine" id="cb4-44" title="44"><span class="co">#&gt; 16                                                                     British Columbia's Water Management Districts</span></a>
-<a class="sourceLine" id="cb4-45" title="45"><span class="co">#&gt; 17                                                                     British Columbia's Water Management Precincts</span></a>
-<a class="sourceLine" id="cb4-46" title="46"><span class="co">#&gt; 18                                                                      British Columbia watercourses at 1:15M scale</span></a>
-<a class="sourceLine" id="cb4-47" title="47"><span class="co">#&gt; 19                                                                       British Columbia watercourses at 1:5M scale</span></a>
-<a class="sourceLine" id="cb4-48" title="48"><span class="co">#&gt; 20                                                                     Water Survey of Canada Sub-Sub-Drainage Areas</span></a>
-<a class="sourceLine" id="cb4-49" title="49"><span class="co">#&gt; 21                                                                                          British Columbia BEC Map</span></a>
-<a class="sourceLine" id="cb4-50" title="50"><span class="co">#&gt; 22                                                                             B.C. Timber Supply Areas &amp; TSA Blocks</span></a>
-<a class="sourceLine" id="cb4-51" title="51"><span class="co">#&gt;    shortcut_function local</span></a>
-<a class="sourceLine" id="cb4-52" title="52"><span class="co">#&gt; 1               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-53" title="53"><span class="co">#&gt; 2               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-54" title="54"><span class="co">#&gt; 3               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-55" title="55"><span class="co">#&gt; 4               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-56" title="56"><span class="co">#&gt; 5               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-57" title="57"><span class="co">#&gt; 6               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-58" title="58"><span class="co">#&gt; 7               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-59" title="59"><span class="co">#&gt; 8               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-60" title="60"><span class="co">#&gt; 9               TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-61" title="61"><span class="co">#&gt; 10              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-62" title="62"><span class="co">#&gt; 11              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-63" title="63"><span class="co">#&gt; 12              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-64" title="64"><span class="co">#&gt; 13              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-65" title="65"><span class="co">#&gt; 14              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-66" title="66"><span class="co">#&gt; 15              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-67" title="67"><span class="co">#&gt; 16              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-68" title="68"><span class="co">#&gt; 17              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-69" title="69"><span class="co">#&gt; 18              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-70" title="70"><span class="co">#&gt; 19              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-71" title="71"><span class="co">#&gt; 20              TRUE  TRUE</span></a>
-<a class="sourceLine" id="cb4-72" title="72"><span class="co">#&gt; 21              TRUE FALSE</span></a>
-<a class="sourceLine" id="cb4-73" title="73"><span class="co">#&gt; 22              TRUE FALSE</span></a>
-<a class="sourceLine" id="cb4-74" title="74"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-75" title="75"><span class="co">#&gt; ------------------------</span></a>
-<a class="sourceLine" id="cb4-76" title="76"><span class="co">#&gt; Layers with a value of TRUE in the 'shortcut_function' column can be accessed</span></a>
-<a class="sourceLine" id="cb4-77" title="77"><span class="co">#&gt; with a function with the same name as the layer (e.g., `bc_bound()`),</span></a>
-<a class="sourceLine" id="cb4-78" title="78"><span class="co">#&gt; otherwise it needs to be accessed with the get_layer function.</span></a>
-<a class="sourceLine" id="cb4-79" title="79"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb4-80" title="80"><span class="co">#&gt; Layers with a value of FALSE in the 'local' column are not stored in the</span></a>
-<a class="sourceLine" id="cb4-81" title="81"><span class="co">#&gt; bcmaps.rdata package but will be downloaded from the internet and cached</span></a>
-<a class="sourceLine" id="cb4-82" title="82"><span class="co">#&gt; on your hard drive.</span></a></code></pre></div>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw"><a href="reference/available_layers.html">available_layers</a></span>()</a></code></pre></div>
+<pre><code>#&gt; Loading required package: sf
+#&gt; Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3</code></pre>
+<table class="table">
+<thead><tr class="header">
+<th align="left">layer_name</th>
+<th align="left">title</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">airzones</td>
+<td align="left">British Columbia Air Zones</td>
+</tr>
+<tr class="even">
+<td align="left">bc_bound</td>
+<td align="left">BC Boundary</td>
+</tr>
+<tr class="odd">
+<td align="left">bc_bound_hres</td>
+<td align="left">BC Boundary - High Resolution</td>
+</tr>
+<tr class="even">
+<td align="left">bc_cities</td>
+<td align="left">BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)</td>
+</tr>
+<tr class="odd">
+<td align="left">bc_neighbours</td>
+<td align="left">Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia</td>
+</tr>
+<tr class="even">
+<td align="left">ecoprovinces</td>
+<td align="left">British Columbia Ecoprovinces</td>
+</tr>
+<tr class="odd">
+<td align="left">ecoregions</td>
+<td align="left">British Columbia Ecoregions</td>
+</tr>
+<tr class="even">
+<td align="left">ecosections</td>
+<td align="left">British Columbia Ecosections</td>
+</tr>
+<tr class="odd">
+<td align="left">gw_aquifers</td>
+<td align="left">British Columbia’s developed ground water aquifers</td>
+</tr>
+<tr class="even">
+<td align="left">hydrozones</td>
+<td align="left">Hydrologic Zone Boundaries of British Columbia</td>
+</tr>
+<tr class="odd">
+<td align="left">municipalities</td>
+<td align="left">British Columbia Municipalities</td>
+</tr>
+<tr class="even">
+<td align="left">nr_areas</td>
+<td align="left">British Columbia Natural Resource (NR) Areas</td>
+</tr>
+<tr class="odd">
+<td align="left">nr_districts</td>
+<td align="left">British Columbia Natural Resource (NR) Districts</td>
+</tr>
+<tr class="even">
+<td align="left">nr_regions</td>
+<td align="left">British Columbia Natural Resource (NR) Regions</td>
+</tr>
+<tr class="odd">
+<td align="left">regional_districts</td>
+<td align="left">British Columbia Regional Districts</td>
+</tr>
+<tr class="even">
+<td align="left">water_districts</td>
+<td align="left">British Columbia’s Water Management Districts</td>
+</tr>
+<tr class="odd">
+<td align="left">water_precincts</td>
+<td align="left">British Columbia’s Water Management Precincts</td>
+</tr>
+<tr class="even">
+<td align="left">watercourses_15M</td>
+<td align="left">British Columbia watercourses at 1:15M scale</td>
+</tr>
+<tr class="odd">
+<td align="left">watercourses_5M</td>
+<td align="left">British Columbia watercourses at 1:5M scale</td>
+</tr>
+<tr class="even">
+<td align="left">wsc_drainages</td>
+<td align="left">Water Survey of Canada Sub-Sub-Drainage Areas</td>
+</tr>
+<tr class="odd">
+<td align="left">bec</td>
+<td align="left">British Columbia BEC Map</td>
+</tr>
+<tr class="even">
+<td align="left">tsa</td>
+<td align="left">B.C. Timber Supply Areas &amp; TSA Blocks</td>
+</tr>
+</tbody>
+</table>
 <p>Most layers are accessible by a shortcut function by the same name as the object. Then you can use the data as you would any <code>sf</code> or <code>Spatial</code> object. For example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">library</span>(sf)</a>
-<a class="sourceLine" id="cb5-2" title="2"></a>
-<a class="sourceLine" id="cb5-3" title="3">bc &lt;-<span class="st"> </span><span class="kw"><a href="reference/bc_bound.html">bc_bound</a></span>()</a>
-<a class="sourceLine" id="cb5-4" title="4"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_geometry</a></span>(bc))</a></code></pre></div>
-<p><img src="reference/figures/unnamed-chunk-6-1.png" width="700"></p>
-<p>Alternatively, you can use the <code>get_layer</code> function - simply type <code><a href="reference/get_layer.html">get_layer('layer_name')</a></code>, where <code>'layer_name'</code> is the name of the layer of interest. The <code>get_layer</code> function is useful if the back-end <code>bcmaps.rdata</code> package has had a layer added to it, but there is as yet no shortcut function created in <code>bcmaps</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="kw">library</span>(sf)</a>
-<a class="sourceLine" id="cb6-2" title="2"><span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb6-3" title="3"></a>
-<a class="sourceLine" id="cb6-4" title="4">ws &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_layer.html">get_layer</a></span>(<span class="st">"wsc_drainages"</span>, <span class="dt">class =</span> <span class="st">"sf"</span>)</a>
-<a class="sourceLine" id="cb6-5" title="5"></a>
-<a class="sourceLine" id="cb6-6" title="6"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(ws[<span class="st">"SUB_SUB_DRAINAGE_AREA_NAME"</span>], <span class="dt">key.pos =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb6-2" title="2"></a>
+<a class="sourceLine" id="cb6-3" title="3">bc &lt;-<span class="st"> </span><span class="kw"><a href="reference/bc_bound.html">bc_bound</a></span>()</a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_geometry</a></span>(bc))</a></code></pre></div>
 <p><img src="reference/figures/unnamed-chunk-7-1.png" width="700"></p>
+<p>Alternatively, you can use the <code>get_layer</code> function - simply type <code><a href="reference/get_layer.html">get_layer('layer_name')</a></code>, where <code>'layer_name'</code> is the name of the layer of interest. The <code>get_layer</code> function is useful if the back-end <code>bcmaps.rdata</code> package has had a layer added to it, but there is as yet no shortcut function created in <code>bcmaps</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb7-3" title="3"></a>
+<a class="sourceLine" id="cb7-4" title="4">ws &lt;-<span class="st"> </span><span class="kw"><a href="reference/get_layer.html">get_layer</a></span>(<span class="st">"wsc_drainages"</span>, <span class="dt">class =</span> <span class="st">"sf"</span>)</a>
+<a class="sourceLine" id="cb7-5" title="5"></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(ws[<span class="st">"SUB_SUB_DRAINAGE_AREA_NAME"</span>], <span class="dt">key.pos =</span> <span class="ot">NULL</span>)</a></code></pre></div>
+<p><img src="reference/figures/unnamed-chunk-8-1.png" width="700"></p>
 <div id="simple-features-objects" class="section level3">
 <h3 class="hasAnchor">
 <a href="#simple-features-objects" class="anchor"></a>Simple Features objects</h3>
 <p>By default, all layers are returned as <a href="https://cran.r-project.org/package=sf"><code>sf</code> spatial objects</a>:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">library</span>(bcmaps)</a>
-<a class="sourceLine" id="cb7-2" title="2"><span class="kw">library</span>(sf)</a>
-<a class="sourceLine" id="cb7-3" title="3"></a>
-<a class="sourceLine" id="cb7-4" title="4"><span class="co"># Load and plot the boundaries of B.C.</span></a>
-<a class="sourceLine" id="cb7-5" title="5"></a>
-<a class="sourceLine" id="cb7-6" title="6">bc &lt;-<span class="st"> </span><span class="kw"><a href="reference/bc_bound.html">bc_bound</a></span>()</a>
-<a class="sourceLine" id="cb7-7" title="7"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_geometry</a></span>(bc))</a>
-<a class="sourceLine" id="cb7-8" title="8"></a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="co">## Next load the Regional Districts data, then extract and plot the Kootenays</span></a>
-<a class="sourceLine" id="cb7-10" title="10">rd &lt;-<span class="st"> </span><span class="kw"><a href="reference/regional_districts.html">regional_districts</a></span>()</a>
-<a class="sourceLine" id="cb7-11" title="11">kootenays &lt;-<span class="st"> </span>rd[rd<span class="op">$</span>ADMIN_AREA_NAME <span class="op">==</span><span class="st"> "Regional District of Central Kootenay"</span>, ]</a>
-<a class="sourceLine" id="cb7-12" title="12"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_geometry</a></span>(kootenays), <span class="dt">col =</span> <span class="st">"lightseagreen"</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">library</span>(bcmaps)</a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb8-3" title="3"></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="co"># Load and plot the boundaries of B.C.</span></a>
+<a class="sourceLine" id="cb8-5" title="5"></a>
+<a class="sourceLine" id="cb8-6" title="6">bc &lt;-<span class="st"> </span><span class="kw"><a href="reference/bc_bound.html">bc_bound</a></span>()</a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_geometry</a></span>(bc))</a>
+<a class="sourceLine" id="cb8-8" title="8"></a>
+<a class="sourceLine" id="cb8-9" title="9"><span class="co">## Next load the Regional Districts data, then extract and plot the Kootenays</span></a>
+<a class="sourceLine" id="cb8-10" title="10">rd &lt;-<span class="st"> </span><span class="kw"><a href="reference/regional_districts.html">regional_districts</a></span>()</a>
+<a class="sourceLine" id="cb8-11" title="11">kootenays &lt;-<span class="st"> </span>rd[rd<span class="op">$</span>ADMIN_AREA_NAME <span class="op">==</span><span class="st"> "Regional District of Central Kootenay"</span>, ]</a>
+<a class="sourceLine" id="cb8-12" title="12"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/st_geometry">st_geometry</a></span>(kootenays), <span class="dt">col =</span> <span class="st">"lightseagreen"</span>, <span class="dt">add =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="reference/figures/plot-maps-1.png" width="700"></p>
 </div>
 <div id="spatial-sp-objects" class="section level3">
 <h3 class="hasAnchor">
 <a href="#spatial-sp-objects" class="anchor"></a>Spatial (sp) objects</h3>
 <p>If you aren’t using the <code>sf</code> package and prefer the old standard <a href="https://cran.r-project.org/package=sp"><code>sp</code></a> way of doing things, set <code>class = "sp"</code> in either <code>get_layer</code> or the shortcut functions:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">library</span>(<span class="st">"sp"</span>)</a>
-<a class="sourceLine" id="cb8-2" title="2"><span class="co"># Load watercourse data and plot with boundaries of B.C.</span></a>
-<a class="sourceLine" id="cb8-3" title="3"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="reference/get_layer.html">get_layer</a></span>(<span class="st">"bc_bound"</span>, <span class="dt">class =</span> <span class="st">"sp"</span>))</a>
-<a class="sourceLine" id="cb8-4" title="4"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="reference/watercourses_15M.html">watercourses_15M</a></span>(<span class="dt">class =</span> <span class="st">"sp"</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">library</span>(<span class="st">"sp"</span>)</a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co"># Load watercourse data and plot with boundaries of B.C.</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="reference/get_layer.html">get_layer</a></span>(<span class="st">"bc_bound"</span>, <span class="dt">class =</span> <span class="st">"sp"</span>))</a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="kw"><a href="http://www.rdocumentation.org/packages/sf/topics/plot">plot</a></span>(<span class="kw"><a href="reference/watercourses_15M.html">watercourses_15M</a></span>(<span class="dt">class =</span> <span class="st">"sp"</span>), <span class="dt">add =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p><img src="reference/figures/watercourses-1.png" width="700"></p>
 </div>
 <div id="its-a-beautiful-day-in-the-neighbourhood" class="section level3">
 <h3 class="hasAnchor">
 <a href="#its-a-beautiful-day-in-the-neighbourhood" class="anchor"></a>It’s a beautiful day in the neighbourhood</h3>
 <p>A handy layer for creating maps for display is the <code>bc_neighbours</code> layer, accessible with the function by the same name:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb9-2" title="2"><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-3" title="3"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> <span class="kw"><a href="reference/bc_neighbours.html">bc_neighbours</a></span>(), <span class="dt">mapping =</span> <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> name)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb9-4" title="4"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> <span class="kw"><a href="reference/bc_cities.html">bc_cities</a></span>())</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> <span class="kw"><a href="reference/bc_neighbours.html">bc_neighbours</a></span>(), <span class="dt">mapping =</span> <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> name)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> <span class="kw"><a href="reference/bc_cities.html">bc_cities</a></span>())</a></code></pre></div>
 <p><img src="reference/figures/bc_neighbours-1.png" width="700"></p>
 </div>
 <div id="biogeoclimatic-zones" class="section level3">
 <h3 class="hasAnchor">
 <a href="#biogeoclimatic-zones" class="anchor"></a>Biogeoclimatic Zones</h3>
 <p>As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem Classification) map is available via the <code><a href="reference/bec.html">bec()</a></code> function, and an accompanying function <code><a href="reference/bec_colours.html">bec_colours()</a></code> function to colour it:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1"><span class="co"># This example requires ggplot2 3.0.0 or greater, which has the </span></a>
-<a class="sourceLine" id="cb10-2" title="2"><span class="co"># `geom_sf()` function (see https://ggplot2.tidyverse.org/reference/ggsf.html):</span></a>
-<a class="sourceLine" id="cb10-3" title="3">bec &lt;-<span class="st"> </span><span class="kw"><a href="reference/bec.html">bec</a></span>()</a>
-<a class="sourceLine" id="cb10-4" title="4"><span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb10-5" title="5"><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-6" title="6"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> bec[bec<span class="op">$</span>ZONE <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"BG"</span>, <span class="st">"PP"</span>),],</a>
-<a class="sourceLine" id="cb10-7" title="7">          <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> ZONE, <span class="dt">col =</span> ZONE)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-8" title="8"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="reference/bec_colours.html">bec_colors</a></span>()) <span class="op">+</span></a>
-<a class="sourceLine" id="cb10-9" title="9"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="reference/bec_colours.html">bec_colours</a></span>())</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="co"># This example requires ggplot2 3.0.0 or greater, which has the </span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="co"># `geom_sf()` function (see https://ggplot2.tidyverse.org/reference/ggsf.html):</span></a>
+<a class="sourceLine" id="cb11-3" title="3">bec &lt;-<span class="st"> </span><span class="kw"><a href="reference/bec.html">bec</a></span>()</a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/ggsf.html">geom_sf</a></span>(<span class="dt">data =</span> bec[bec<span class="op">$</span>ZONE <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">"BG"</span>, <span class="st">"PP"</span>),],</a>
+<a class="sourceLine" id="cb11-7" title="7">          <span class="kw"><a href="ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(<span class="dt">fill =</span> ZONE, <span class="dt">col =</span> ZONE)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="reference/bec_colours.html">bec_colors</a></span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="st">  </span><span class="kw"><a href="ggplot2.tidyverse.org/reference/scale_manual.html">scale_colour_manual</a></span>(<span class="dt">values =</span> <span class="kw"><a href="reference/bec_colours.html">bec_colours</a></span>())</a></code></pre></div>
 <p><img src="reference/figures/bec-1.png" width="700"></p>
 </div>
 <div id="vignettes" class="section level3">
