@@ -1,0 +1,6 @@
+pandoc: '2.4'
+pkgdown: 1.1.0
+pkgdown_sha: ~
+articles:
+  add_points: add_points.html
+

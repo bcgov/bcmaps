@@ -3,7 +3,6 @@ title: "Working with bcmaps layers with point location data"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
-    keep_md: true
     fig_width: 5
     fig_height: 5
 vignette: >
