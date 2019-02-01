@@ -69,17 +69,6 @@ function:
 ``` r
 library(bcmaps)
 #> Loading required package: sf
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
-#> 126: The specified module could not be found.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
-#> 126: The specified module could not be found.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
-#> 126: The specified module could not be found.
-
-#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
-#> 126: The specified module could not be found.
 #> Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3
 available_layers()
 #>            layer_name
@@ -105,29 +94,29 @@ available_layers()
 #> 20      wsc_drainages
 #> 21                bec
 #> 22                tsa
-#>                                                                                                                title
-#> 1                                                                                         British Columbia Air Zones
-#> 2                                                                                                        BC Boundary
-#> 3                                                                                      BC Boundary - High Resolution
-#> 4                                                      BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
-#> 5  Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia
-#> 6                                                                                      British Columbia Ecoprovinces
-#> 7                                                                                        British Columbia Ecoregions
-#> 8                                                                                       British Columbia Ecosections
-#> 9                                                                 British Columbia's developed ground water aquifers
-#> 10                                                                    Hydrologic Zone Boundaries of British Columbia
-#> 11                                                                                   British Columbia Municipalities
-#> 12                                                                      British Columbia Natural Resource (NR) Areas
-#> 13                                                                  British Columbia Natural Resource (NR) Districts
-#> 14                                                                    British Columbia Natural Resource (NR) Regions
-#> 15                                                                               British Columbia Regional Districts
-#> 16                                                                     British Columbia's Water Management Districts
-#> 17                                                                     British Columbia's Water Management Precincts
-#> 18                                                                      British Columbia watercourses at 1:15M scale
-#> 19                                                                       British Columbia watercourses at 1:5M scale
-#> 20                                                                     Water Survey of Canada Sub-Sub-Drainage Areas
-#> 21                                                                                          British Columbia BEC Map
-#> 22                                                                             B.C. Timber Supply Areas & TSA Blocks
+#>                                                            title
+#> 1                                     British Columbia Air Zones
+#> 2                                                    BC Boundary
+#> 3                                  BC Boundary - High Resolution
+#> 4  BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
+#> 5                     British Columbia and neighbouring features
+#> 6                                  British Columbia Ecoprovinces
+#> 7                                    British Columbia Ecoregions
+#> 8                                   British Columbia Ecosections
+#> 9             British Columbia's developed ground water aquifers
+#> 10                Hydrologic Zone Boundaries of British Columbia
+#> 11                               British Columbia Municipalities
+#> 12                  British Columbia Natural Resource (NR) Areas
+#> 13              British Columbia Natural Resource (NR) Districts
+#> 14                British Columbia Natural Resource (NR) Regions
+#> 15                           British Columbia Regional Districts
+#> 16                 British Columbia's Water Management Districts
+#> 17                 British Columbia's Water Management Precincts
+#> 18                  British Columbia watercourses at 1:15M scale
+#> 19                   British Columbia watercourses at 1:5M scale
+#> 20                 Water Survey of Canada Sub-Sub-Drainage Areas
+#> 21                                      British Columbia BEC Map
+#> 22                         B.C. Timber Supply Areas & TSA Blocks
 #>    shortcut_function local
 #> 1               TRUE  TRUE
 #> 2               TRUE  TRUE
