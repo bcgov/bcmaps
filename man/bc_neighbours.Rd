@@ -13,10 +13,10 @@ bc_neighbours(class = "sf")
 The spatial layer of \code{bc_neighbours} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::bc_neighbours} for details.
+Type \code{?bcmapsdata::bc_neighbours} for details.
 }
 \examples{
 \dontrun{

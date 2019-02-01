@@ -13,10 +13,10 @@ ecosections(class = "sf")
 The spatial layer of \code{ecosections} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::ecosections} for details.
+Type \code{?bcmapsdata::ecosections} for details.
 }
 \examples{
 \dontrun{

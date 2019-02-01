@@ -13,10 +13,10 @@ hydrozones(class = "sf")
 The spatial layer of \code{hydrozones} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::hydrozones} for details.
+Type \code{?bcmapsdata::hydrozones} for details.
 }
 \examples{
 \dontrun{

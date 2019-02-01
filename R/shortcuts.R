@@ -1,4 +1,4 @@
-# Copyright 2018 Province of British Columbia
+# Copyright 2019 Province of British Columbia
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -17,13 +17,13 @@
 
 #' British Columbia Air Zones
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `airzones` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::airzones` for details.
+#' @details Type `?bcmapsdata::airzones` for details.
 #'
 #' 
 #'
@@ -40,13 +40,13 @@ airzones <- function(class = 'sf') {
 
 #' BC Boundary
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `bc_bound` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::bc_bound` for details.
+#' @details Type `?bcmapsdata::bc_bound` for details.
 #'
 #' 
 #'
@@ -63,13 +63,13 @@ bc_bound <- function(class = 'sf') {
 
 #' BC Boundary - High Resolution
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `bc_bound_hres` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::bc_bound_hres` for details.
+#' @details Type `?bcmapsdata::bc_bound_hres` for details.
 #'
 #' 
 #'
@@ -86,13 +86,13 @@ bc_bound_hres <- function(class = 'sf') {
 
 #' BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `bc_cities` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::bc_cities` for details.
+#' @details Type `?bcmapsdata::bc_cities` for details.
 #'
 #' 
 #'
@@ -109,13 +109,13 @@ bc_cities <- function(class = 'sf') {
 
 #' Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `bc_neighbours` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::bc_neighbours` for details.
+#' @details Type `?bcmapsdata::bc_neighbours` for details.
 #'
 #' 
 #'
@@ -132,13 +132,13 @@ bc_neighbours <- function(class = 'sf') {
 
 #' British Columbia Ecoprovinces
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `ecoprovinces` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::ecoprovinces` for details.
+#' @details Type `?bcmapsdata::ecoprovinces` for details.
 #'
 #' 
 #'
@@ -155,13 +155,13 @@ ecoprovinces <- function(class = 'sf') {
 
 #' British Columbia Ecoregions
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `ecoregions` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::ecoregions` for details.
+#' @details Type `?bcmapsdata::ecoregions` for details.
 #'
 #' 
 #'
@@ -178,13 +178,13 @@ ecoregions <- function(class = 'sf') {
 
 #' British Columbia Ecosections
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `ecosections` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::ecosections` for details.
+#' @details Type `?bcmapsdata::ecosections` for details.
 #'
 #' 
 #'
@@ -201,13 +201,13 @@ ecosections <- function(class = 'sf') {
 
 #' British Columbia's developed ground water aquifers
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `gw_aquifers` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::gw_aquifers` for details.
+#' @details Type `?bcmapsdata::gw_aquifers` for details.
 #'
 #' 
 #'
@@ -224,13 +224,13 @@ gw_aquifers <- function(class = 'sf') {
 
 #' Hydrologic Zone Boundaries of British Columbia
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `hydrozones` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::hydrozones` for details.
+#' @details Type `?bcmapsdata::hydrozones` for details.
 #'
 #' 
 #'
@@ -247,13 +247,13 @@ hydrozones <- function(class = 'sf') {
 
 #' British Columbia Municipalities
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `municipalities` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::municipalities` for details.
+#' @details Type `?bcmapsdata::municipalities` for details.
 #'
 #' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
 #'
@@ -270,13 +270,13 @@ municipalities <- function(class = 'sf') {
 
 #' British Columbia Natural Resource (NR) Areas
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `nr_areas` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::nr_areas` for details.
+#' @details Type `?bcmapsdata::nr_areas` for details.
 #'
 #' 
 #'
@@ -293,13 +293,13 @@ nr_areas <- function(class = 'sf') {
 
 #' British Columbia Natural Resource (NR) Districts
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `nr_districts` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::nr_districts` for details.
+#' @details Type `?bcmapsdata::nr_districts` for details.
 #'
 #' 
 #'
@@ -316,13 +316,13 @@ nr_districts <- function(class = 'sf') {
 
 #' British Columbia Natural Resource (NR) Regions
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `nr_regions` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::nr_regions` for details.
+#' @details Type `?bcmapsdata::nr_regions` for details.
 #'
 #' 
 #'
@@ -339,13 +339,13 @@ nr_regions <- function(class = 'sf') {
 
 #' British Columbia Regional Districts
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `regional_districts` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::regional_districts` for details.
+#' @details Type `?bcmapsdata::regional_districts` for details.
 #'
 #' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
 #'
@@ -362,13 +362,13 @@ regional_districts <- function(class = 'sf') {
 
 #' British Columbia's Water Management Districts
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `water_districts` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::water_districts` for details.
+#' @details Type `?bcmapsdata::water_districts` for details.
 #'
 #' 
 #'
@@ -385,13 +385,13 @@ water_districts <- function(class = 'sf') {
 
 #' British Columbia's Water Management Precincts
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `water_precincts` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::water_precincts` for details.
+#' @details Type `?bcmapsdata::water_precincts` for details.
 #'
 #' 
 #'
@@ -408,13 +408,13 @@ water_precincts <- function(class = 'sf') {
 
 #' British Columbia watercourses at 1:15M scale
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `watercourses_15M` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::watercourses_15M` for details.
+#' @details Type `?bcmapsdata::watercourses_15M` for details.
 #'
 #' 
 #'
@@ -431,13 +431,13 @@ watercourses_15M <- function(class = 'sf') {
 
 #' British Columbia watercourses at 1:5M scale
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `watercourses_5M` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::watercourses_5M` for details.
+#' @details Type `?bcmapsdata::watercourses_5M` for details.
 #'
 #' 
 #'
@@ -454,13 +454,13 @@ watercourses_5M <- function(class = 'sf') {
 
 #' Water Survey of Canada Sub-Sub-Drainage Areas
 #'
-#' You must have the `bcmaps.rdata` package installed to use this function.
+#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `wsc_drainages` in the desired class
 #'
-#' @details Type `?bcmaps.rdata::wsc_drainages` for details.
+#' @details Type `?bcmapsdata::wsc_drainages` for details.
 #'
 #' 
 #'

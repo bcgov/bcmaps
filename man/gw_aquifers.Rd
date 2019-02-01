@@ -13,10 +13,10 @@ gw_aquifers(class = "sf")
 The spatial layer of \code{gw_aquifers} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::gw_aquifers} for details.
+Type \code{?bcmapsdata::gw_aquifers} for details.
 }
 \examples{
 \dontrun{

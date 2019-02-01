@@ -13,10 +13,10 @@ bc_bound(class = "sf")
 The spatial layer of \code{bc_bound} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::bc_bound} for details.
+Type \code{?bcmapsdata::bc_bound} for details.
 }
 \examples{
 \dontrun{

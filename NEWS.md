@@ -3,6 +3,7 @@
 * Ensured the `geometry` column in all layers is consistently named `"geometry"` (Thanks @boshek)
 * Moving sf package to Depends to take advantage of sf print methods.
 * Added `bc_bbox()` to get a bounding box for British Columbia (#40).
+* All references to external data package now point to `bcmapsdata` because of this R bug (https://bugs.r-project.org/bugzilla/show_bug.cgi?id=17520)
 
 # bcmaps v0.17.1
 * Fixed an issue where `self_union()` would fail due to a change in the `raster` package (30cef3438)

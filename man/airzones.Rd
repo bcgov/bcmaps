@@ -13,10 +13,10 @@ airzones(class = "sf")
 The spatial layer of \code{airzones} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::airzones} for details.
+Type \code{?bcmapsdata::airzones} for details.
 }
 \examples{
 \dontrun{

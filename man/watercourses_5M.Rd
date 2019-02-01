@@ -13,10 +13,10 @@ watercourses_5M(class = "sf")
 The spatial layer of \code{watercourses_5M} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::watercourses_5M} for details.
+Type \code{?bcmapsdata::watercourses_5M} for details.
 }
 \examples{
 \dontrun{

@@ -14,12 +14,12 @@ A value of \code{FALSE} in this column means the layer is available via \code{ge
 there is no shortcut function for it.
 
 A value of \code{FALSE} in the \code{local} column means that the layer is not stored in the
-bcmaps.rdata package but will be downloaded from the internet and cached
+bcmapsdata package but will be downloaded from the internet and cached
 on your hard drive.
 }
 \description{
 A data.frame of all available layers in the bcmaps package. This drawn
-directly from the bcmaps.rdata package and will therefore be the most current list
+directly from the bcmapsdata package and will therefore be the most current list
 layers available.
 }
 \examples{

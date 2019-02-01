@@ -13,10 +13,10 @@ nr_districts(class = "sf")
 The spatial layer of \code{nr_districts} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::nr_districts} for details.
+Type \code{?bcmapsdata::nr_districts} for details.
 }
 \examples{
 \dontrun{

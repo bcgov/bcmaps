@@ -13,10 +13,10 @@ regional_districts(class = "sf")
 The spatial layer of \code{regional_districts} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::regional_districts} for details.
+Type \code{?bcmapsdata::regional_districts} for details.
 }
 \examples{
 \dontrun{

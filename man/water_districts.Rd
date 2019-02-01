@@ -13,10 +13,10 @@ water_districts(class = "sf")
 The spatial layer of \code{water_districts} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::water_districts} for details.
+Type \code{?bcmapsdata::water_districts} for details.
 }
 \examples{
 \dontrun{

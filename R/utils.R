@@ -373,8 +373,7 @@ ask <- function(...) {
 #'
 #' @examples
 #' \dontrun{
-#' if (require("bcmaps.rdata") && #' require(sf) && require(ggplot2) &&
-#' packageVersion("ggplot2") >= '2.2.1.9000') {
+#' if (require("bcmapsdata") && #' require(sf) && require(ggplot2)) {
 #'  bec <- bec()
 #'  ggplot() +
 #'    geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],

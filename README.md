@@ -29,8 +29,8 @@ projection, which is the B.C. Government standard as `sf` or `Spatial`
 objects.
 
 Layers are stored in the
-[bcmaps.rdata](https://github.com/bcgov/bcmaps.rdata) package and loaded
-by this package, following the strategy recommended by [Anderson and
+[bcmapsdata](https://github.com/bcgov/bcmapsdata) package and loaded by
+this package, following the strategy recommended by [Anderson and
 Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html).
 
 ## Installation
@@ -52,15 +52,15 @@ remotes::install_github("bcgov/bcmaps")
 ## Usage
 
 To get full usage of the package, you will also need to install the
-[**bcmaps.rdata**](https://github.com/bcgov/bcmaps.rdata) package, which
+[**bcmapsdata**](https://github.com/bcgov/bcmapsdata) package, which
 holds all of the datasets.
 
 *Note that unlike most packages it is not necessary to actually load the
-**bcmaps.rdata** package (i.e., with `library(bcmaps.rdata)`) - in fact
-it is less likely to cause problems if you don’t.*
+**bcmapsdata** package (i.e., with `library(bcmapsdata)`) - in fact it
+is less likely to cause problems if you don’t.*
 
 ``` r
-install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')
+install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')
 ```
 
 To see the layers that are available, run the `available_layers()`
@@ -69,6 +69,17 @@ function:
 ``` r
 library(bcmaps)
 #> Loading required package: sf
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
+#> 126: The specified module could not be found.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
+#> 126: The specified module could not be found.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
+#> 126: The specified module could not be found.
+
+#> Warning in CPL_gdal_init(): GDAL Error 1: Can't load requested DLL: C:\Program Files\GDAL\gdalplugins\ogr_MSSQLSpatial.dll
+#> 126: The specified module could not be found.
 #> Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3
 available_layers()
 #>            layer_name
@@ -147,7 +158,7 @@ available_layers()
 #> otherwise it needs to be accessed with the get_layer function.
 #> 
 #> Layers with a value of FALSE in the 'local' column are not stored in the
-#> bcmaps.rdata package but will be downloaded from the internet and cached
+#> bcmapsdata package but will be downloaded from the internet and cached
 #> on your hard drive.
 ```
 
@@ -167,8 +178,8 @@ plot(st_geometry(bc))
 Alternatively, you can use the `get_layer` function - simply type
 `get_layer('layer_name')`, where `'layer_name'` is the name of the layer
 of interest. The `get_layer` function is useful if the back-end
-`bcmaps.rdata` package has had a layer added to it, but there is as yet
-no shortcut function created in `bcmaps`.
+`bcmapsdata` package has had a layer added to it, but there is as yet no
+shortcut function created in `bcmaps`.
 
 ``` r
 library(sf)
