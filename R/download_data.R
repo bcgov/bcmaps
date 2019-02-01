@@ -199,5 +199,5 @@ auth_url <- function(url) {
   url
 }
 
-base_url <- function() "https://api.github.com/repos/bcgov/bcmaps.rdata/releases"
+base_url <- function() "https://api.github.com/repos/bcgov/bcmapsdata/releases"
 
