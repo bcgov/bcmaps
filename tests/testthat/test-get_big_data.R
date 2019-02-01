@@ -44,6 +44,7 @@ test_that("check_write_to_data_dir works", {
 
 test_that("gh functions work with and without authentication", {
   skip_if_not_installed("bcmapsdata")
+  skip_on_travis()
   skip_on_cran()
   gh_pat <- ""
   if (nzchar(Sys.getenv("GITHUB_PAT"))) {
