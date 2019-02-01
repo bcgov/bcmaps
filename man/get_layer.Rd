@@ -13,7 +13,7 @@ obtained by running \code{available_layers()}}
 \item{class}{The class of the layer returned. Can be either \code{"sf"} (default) or \code{"sp"}}
 
 \item{...}{arguments passed on to \link{get_big_data} if the layer needs to be downloaded. Ignored if the
-layer is available locally in \code{bcmaps.rdata}.}
+layer is available locally in \code{bcmapsdata}.}
 }
 \value{
 the layer requested

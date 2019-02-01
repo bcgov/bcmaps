@@ -13,7 +13,7 @@
 .bcmaps_env <- new.env(parent=emptyenv())
 
 .onLoad  <- function(libname, pkgname) {
-  has_data <- requireNamespace("bcmaps.rdata", quietly = TRUE)
+  has_data <- requireNamespace("bcmapsdata", quietly = TRUE)
   .bcmaps_env[["has_data"]] <- has_data
 }
 
@@ -35,19 +35,19 @@ hasData <- function() {
 
 has_no_data_msg <- function() {
   paste("To use the data in this package, you must install the\n",
-        "bcmaps.rdata package. To install that package, run:\n",
-        "install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')")
+        "bcmapsdata package. To install that package, run:\n",
+        "install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')")
 }
 
 check_for_data_pkg_update <- function() {
   pkgs <- utils::packageStatus(.libPaths(), repositories = 'https://bcgov.github.io/drat/src/contrib')
-  bcmaps_rdata_local <- pkgs$inst[pkgs$inst$Package == "bcmaps.rdata", ]
-  bcmaps_rdata_drat <- pkgs$avail[pkgs$avail$Package == "bcmaps.rdata", ]
-  if (bcmaps_rdata_local$Status == "upgrade") {
-    msg <- paste("There is a new version of bcmaps.rdata available to install.\n",
-          "You have version", bcmaps_rdata_local$Version, "and version",
-          bcmaps_rdata_drat$Version, "is available.\n", "Install it with:\n",
-          "install.packages('bcmaps.rdata', repos='https://bcgov.github.io/drat/')")
+  bcmapsdata_local <- pkgs$inst[pkgs$inst$Package == "bcmapsdata", ]
+  bcmapsdata_drat <- pkgs$avail[pkgs$avail$Package == "bcmapsdata", ]
+  if (bcmapsdata_local$Status == "upgrade") {
+    msg <- paste("There is a new version of bcmapsdata available to install.\n",
+          "You have version", bcmapsdata_local$Version, "and version",
+          bcmapsdata_drat$Version, "is available.\n", "Install it with:\n",
+          "install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')")
   } else {
     msg <- NULL
   }

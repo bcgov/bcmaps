@@ -13,10 +13,10 @@ nr_regions(class = "sf")
 The spatial layer of \code{nr_regions} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::nr_regions} for details.
+Type \code{?bcmapsdata::nr_regions} for details.
 }
 \examples{
 \dontrun{

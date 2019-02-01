@@ -10,7 +10,7 @@ before_install:
 repos:
   bcgov_drat: https://bcgov.github.io/drat
 
-r_packages: bcmaps.rdata
+r_packages: bcmapsdata
 
 notifications:
   email:

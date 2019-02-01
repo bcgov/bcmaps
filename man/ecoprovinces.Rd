@@ -13,10 +13,10 @@ ecoprovinces(class = "sf")
 The spatial layer of \code{ecoprovinces} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::ecoprovinces} for details.
+Type \code{?bcmapsdata::ecoprovinces} for details.
 }
 \examples{
 \dontrun{

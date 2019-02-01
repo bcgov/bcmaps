@@ -13,10 +13,10 @@ water_precincts(class = "sf")
 The spatial layer of \code{water_precincts} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::water_precincts} for details.
+Type \code{?bcmapsdata::water_precincts} for details.
 }
 \examples{
 \dontrun{

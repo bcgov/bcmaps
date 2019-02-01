@@ -10,7 +10,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' This generates a data frame of layers that are stored as assets on the bcmaps.rdata release.
+#' This generates a data frame of layers that are stored as assets on the bcmapsdata release.
 #' It needs to be updated manually when you add a new big (>100MB) layer.
 #' @noRd
 big_data_layers <- function() {
@@ -81,7 +81,7 @@ tsa <- function(class = c("sf", "sp"), ...) {
 #'
 #' @param what The name of the object to download
 #' @param class class of object to import; one of `"sf"` (default) or `"sp"`.
-#' @param release Specific version of bcmaps.rdata to get the desired dataset from. Default `"latest"`
+#' @param release Specific version of bcmapsdata to get the desired dataset from. Default `"latest"`
 #' @param force Force downloading and overwriting existing dataset. Default `FALSE`
 #' @param ask Ask whether or not to write to the default data directory for bcmaps. Default `TRUE`
 #' @export
@@ -199,5 +199,5 @@ auth_url <- function(url) {
   url
 }
 
-base_url <- function() "https://api.github.com/repos/bcgov/bcmaps.rdata/releases"
+base_url <- function() "https://api.github.com/repos/bcgov/bcmapsdata/releases"
 

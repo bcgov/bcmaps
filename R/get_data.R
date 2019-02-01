@@ -16,7 +16,7 @@
 #' obtained by running `available_layers()`
 #' @param class The class of the layer returned. Can be either `"sf"` (default) or `"sp"`
 #' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded. Ignored if the
-#' layer is available locally in `bcmaps.rdata`.
+#' layer is available locally in `bcmapsdata`.
 #'
 #' @return the layer requested
 #' @export
@@ -46,7 +46,7 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
   if (!available_row[["local"]] || layer == "test") {
     ret <- get_big_data(layer, class, ...)
   } else {
-    ret <- getExportedValue("bcmaps.rdata", layer)
+    ret <- getExportedValue("bcmapsdata", layer)
     ret <- rename_sf_col_to_geometry(ret)
 
     if (class == "sp") {
@@ -76,7 +76,7 @@ convert_to_sp <- function(sf_obj) {
 #' List available data layers
 #'
 #' A data.frame of all available layers in the bcmaps package. This drawn
-#' directly from the bcmaps.rdata package and will therefore be the most current list
+#' directly from the bcmapsdata package and will therefore be the most current list
 #' layers available.
 #'
 #' @return A `data.frame` of layers, with titles, and a `shortcut_function` column
@@ -86,7 +86,7 @@ convert_to_sp <- function(sf_obj) {
 #' there is no shortcut function for it.
 #'
 #' A value of `FALSE` in the `local` column means that the layer is not stored in the
-#' bcmaps.rdata package but will be downloaded from the internet and cached
+#' bcmapsdata package but will be downloaded from the internet and cached
 #' on your hard drive.
 #'
 #' @examples
@@ -96,7 +96,7 @@ convert_to_sp <- function(sf_obj) {
 #' @export
 available_layers <- function() {
   hasData()
-  datas <- utils::data(package = "bcmaps.rdata")
+  datas <- utils::data(package = "bcmapsdata")
   layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
   layers_df$shortcut_function <- layers_df[["Item"]] %in% getNamespaceExports("bcmaps")
   layers_df$local <- TRUE
@@ -114,6 +114,6 @@ print.avail_layers <- function(x, ...) {
   cat("otherwise it needs to be accessed with the get_layer function.\n")
   cat("\n")
   cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
-  cat("bcmaps.rdata package but will be downloaded from the internet and cached\n")
+  cat("bcmapsdata package but will be downloaded from the internet and cached\n")
   cat("on your hard drive.")
 }

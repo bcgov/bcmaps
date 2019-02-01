@@ -13,10 +13,10 @@ ecoregions(class = "sf")
 The spatial layer of \code{ecoregions} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::ecoregions} for details.
+Type \code{?bcmapsdata::ecoregions} for details.
 }
 \examples{
 \dontrun{

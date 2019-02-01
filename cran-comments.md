@@ -12,14 +12,14 @@ There were no ERRORS or WARNINGS
 * There were 2 NOTEs:
 
 1. Suggests or Enhances not in mainstream repositories:
-     bcmaps.rdata
+     bcmapsdata
    Availability using Additional_repositories specification:
-     bcmaps.rdata   yes   https://bcgov.github.io/drat
+     bcmapsdata   yes   https://bcgov.github.io/drat
      
 2. Packages suggested but not available for checking: 
-      'bcmaps.rdata' 'doMC' (Windows)
+      'bcmapsdata' 'doMC' (Windows)
     
-- 'bcmaps.rdata' - A suggested package that is in a non-mainstream repository (a drat repository).
+- 'bcmapsdata' - A suggested package that is in a non-mainstream repository (a drat repository).
 - 'doMC' - Package not available for Windows
 
 ## Reverse dependencies

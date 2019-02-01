@@ -13,10 +13,10 @@ bc_cities(class = "sf")
 The spatial layer of \code{bc_cities} in the desired class
 }
 \description{
-You must have the \code{bcmaps.rdata} package installed to use this function.
+You must have the \code{bcmapsdata} package installed to use this function.
 }
 \details{
-Type \code{?bcmaps.rdata::bc_cities} for details.
+Type \code{?bcmapsdata::bc_cities} for details.
 }
 \examples{
 \dontrun{

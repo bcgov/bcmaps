@@ -12,7 +12,7 @@ get_big_data(what, class = c("sf", "sp"), release = "latest",
 
 \item{class}{class of object to import; one of \code{"sf"} (default) or \code{"sp"}.}
 
-\item{release}{Specific version of bcmaps.rdata to get the desired dataset from. Default \code{"latest"}}
+\item{release}{Specific version of bcmapsdata to get the desired dataset from. Default \code{"latest"}}
 
 \item{force}{Force downloading and overwriting existing dataset. Default \code{FALSE}}
 

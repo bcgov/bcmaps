@@ -7,7 +7,7 @@ Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   person("Province of British Columbia", role="cph"))
 Description: Provides access to various spatial layers for B.C., such as 
     administrative boundaries, natural resource management boundaries, etc. 
-    All layers are imported from the 'bcmaps.rdata' package as 'sf' or 'Spatial' objects
+    All layers are imported from the 'bcmapsdata' package as 'sf' or 'Spatial' objects
     through function calls in this package. All layers are in B.C. 'Albers' equal-area projection 
     <http://spatialreference.org/ref/epsg/nad83-bc-albers/>, which is the B.C. 
     government standard.
@@ -23,7 +23,7 @@ Imports:
     stats,
     utils
 Suggests: 
-    bcmaps.rdata (>= 0.1.5),
+    bcmapsdata (>= 0.3.0),
     doMC (>= 1.3.4),
     ggplot2 (>= 2.2.1),
     glue (>= 1.1.1),
@@ -40,6 +40,5 @@ VignetteBuilder: knitr
 Additional_repositories: https://bcgov.github.io/drat
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1
 Encoding: UTF-8
-
