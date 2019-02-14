@@ -23,6 +23,8 @@ knitr::opts_chunk$set(
 
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps) 
 
+
+
 ## Overview
 
 An [R](http://r-project.org) package of spatial map layers for British Columbia.
@@ -65,8 +67,11 @@ install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')
 ```
 
 To see the layers that are available, run the `available_layers()` function:
+```{r, echo=FALSE}
+library(bcmaps)
+```
 
-```{r}
+```{r, eval=FALSE}
 library(bcmaps)
 available_layers()
 ```
@@ -113,27 +118,19 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
-### Spatial (sp) objects
-
-If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp)
-way of doing things, set `class = "sp"` in either `get_layer` or the shortcut functions:
-
-```{r watercourses, warning=FALSE}
-library("sp")
-# Load watercourse data and plot with boundaries of B.C.
-plot(get_layer("bc_bound", class = "sp"))
-plot(watercourses_15M(class = "sp"), add = TRUE)
-```
 
 ### It's a beautiful day in the neighbourhood
 
-A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name:
+A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name. This example also illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/) package to plot maps in R using `geom_sf`:
 
 ```{r bc_neighbours}
 library(ggplot2)
 ggplot() + 
   geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
-  geom_sf(data = bc_cities())
+  geom_sf(data = bc_cities()) +
+  coord_sf(datum = NA) +
+  scale_fill_discrete(name = "Jurisdiction") +
+  theme_minimal()
 ```
 
 
@@ -148,8 +145,6 @@ bec <- bec(force = TRUE, ask = FALSE)
 ```
 
 ```{r bec, message=FALSE}
-# This example requires ggplot2 3.0.0 or greater, which has the 
-# `geom_sf()` function (see https://ggplot2.tidyverse.org/reference/ggsf.html):
 bec <- bec()
 library(ggplot2)
 ggplot() +
@@ -160,6 +155,17 @@ ggplot() +
 
 ```
 
+### Spatial (sp) objects
+
+If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp)
+way of doing things, set `class = "sp"` in either `get_layer` or the shortcut functions:
+
+```{r watercourses, warning=FALSE}
+library("sp")
+# Load watercourse data and plot with boundaries of B.C.
+plot(get_layer("bc_bound", class = "sp"))
+plot(watercourses_15M(class = "sp"), add = TRUE)
+```
 
 ### Vignettes
 
