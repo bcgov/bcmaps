@@ -21,7 +21,9 @@ in lat-long WGS84 (epsg:4326).
 Get an extent/bounding box for British Columbia
 }
 \examples{
-bc_bbox("sf")
-bc_bbox("sp")
-bc_bbox("raster")
+if (requireNamespace("bcmapsdata", quietly = TRUE)) {
+  bc_bbox("sf")
+  bc_bbox("sp")
+  bc_bbox("raster")
+}
 }

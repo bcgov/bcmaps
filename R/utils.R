@@ -408,9 +408,11 @@ bec_colors <- bec_colours
 #' @export
 #'
 #' @examples
-#' bc_bbox("sf")
-#' bc_bbox("sp")
-#' bc_bbox("raster")
+#' if (requireNamespace("bcmapsdata", quietly = TRUE)) {
+#'   bc_bbox("sf")
+#'   bc_bbox("sp")
+#'   bc_bbox("raster")
+#' }
 bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   class <- match.arg(class)
 
