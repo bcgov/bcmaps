@@ -402,7 +402,7 @@ bec_colors <- bec_colours
 #' @param crs coordinate reference system: integer with the EPSG code,
 #' or character with proj4string. Default `3005` (BC Albers).
 #'
-#' @return an object denoting a bouding box of British Columbia,
+#' @return an object denoting a bounding box of British Columbia,
 #' of the corresponding class specified in `class`. The coordinates will be
 #' in lat-long WGS84 (epsg:4326).
 #' @export

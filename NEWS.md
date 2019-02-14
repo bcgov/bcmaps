@@ -10,7 +10,7 @@
 
 # bcmaps 0.17.0
 * Output of `available_layers()` has changed: `shortcut_function` column is now logical, uses better column names, and has a custom print function that gives more information. (#34)
-* Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalites to create a full provincial layer of 'Regional-District-like' polygons.
+* Add links to `combine_nr_rd()` function from `regional_districts()` and `municipalities()`. This function combines Regional Districts with the Northern Rockies Regional Municipalities to create a full provincial layer of 'Regional-District-like' polygons.
 * Added Timber Supply Areas and BC cities shortcut function and to `available_layers()`
 * `bec` (and other large downloadable layers) show up in the output of `available_layers()`, `bec()` works, and `get_layer("bec")` works so that getting downloadable datasets is indistinguishable from getting local datasets. (#32)
 * Some utility functions use `sf` functions that have been moved to the `lwgeom` package. They now use the `lwgeom` function (Fixes CRAN CHECK NOTE; #33).
@@ -71,7 +71,7 @@ functions (E.g., `bc_bound(class = "sp")` or `get_layer("bc_bound", class = "sp"
 
 # bcmaps 0.10.1
 
-* Fixed ring self-intersctions in `bc_bound_hres` and `airzones` (#13)
+* Fixed ring self-intersections in `bc_bound_hres` and `airzones` (#13)
 
 # bcmaps 0.10.0
 

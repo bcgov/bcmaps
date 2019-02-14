@@ -13,7 +13,7 @@ bc_bbox(class = c("sf", "sp", "raster"), crs = 3005)
 or character with proj4string. Default \code{3005} (BC Albers).}
 }
 \value{
-an object denoting a bouding box of British Columbia,
+an object denoting a bounding box of British Columbia,
 of the corresponding class specified in \code{class}. The coordinates will be
 in lat-long WGS84 (epsg:4326).
 }
