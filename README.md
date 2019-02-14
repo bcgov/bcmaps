@@ -3,7 +3,7 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 0.17.1.9000
+### Version 0.18
 
 [![dev](https://assets.bcdevexchange.org/images/badges/delivery.svg)](https://github.com/BCDevExchange/assets/blob/master/README.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -69,7 +69,7 @@ function:
 ``` r
 library(bcmaps)
 #> Loading required package: sf
-#> Linking to GEOS 3.6.1, GDAL 2.2.3, PROJ 4.9.3
+#> Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3
 available_layers()
 #>            layer_name
 #> 1            airzones
