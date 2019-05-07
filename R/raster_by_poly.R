@@ -20,6 +20,11 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
 
   check_inputs(parallel, cores, ...)
 
+  if (any(is.na(poly[[poly_field]]))) {
+    stop("NA values exist in the '", poly_field, "' column in ",
+         deparse(substitute(poly)), call. = FALSE)
+  }
+
   if (inherits(poly, "sf")) poly <- methods::as(poly, "Spatial")
 
   # Split spdf into a list with an element for each polygon, and index

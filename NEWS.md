@@ -1,3 +1,7 @@
+# bcmaps 0.18.0.999999
+* `raster_by_poly()` fails informatively when there are `NA` values in 
+the column on which the polygons are to be split (#48, thanks @j-galloway)
+
 # bcmaps 0.18.0
 * Added `bc_neighbours()` function to call layers containing adjacent jurisdictions.
 * Ensured the `geometry` column in all layers is consistently named `"geometry"` (Thanks @boshek)

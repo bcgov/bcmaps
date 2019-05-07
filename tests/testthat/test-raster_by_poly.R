@@ -6,9 +6,11 @@ if (require("raster") && require("sp")) {
 
   # Make a SPDF of two polygons that covers the raster
   rl <- crop(r, extent(c(178400, 180000, 329400, 334000)))
-  pl <- SpatialPolygonsDataFrame(aggregate(rasterToPolygons(rl)), data = data.frame(name = "Left"))
+  pl <- SpatialPolygonsDataFrame(aggregate(rasterToPolygons(rl)),
+                                 data = data.frame(name = "Left", stringsAsFactors = FALSE))
   rr <- mask(r, pl, inverse = TRUE)
-  pr <- SpatialPolygonsDataFrame(aggregate(rasterToPolygons(rr)), data = data.frame(name = "Right"))
+  pr <- SpatialPolygonsDataFrame(aggregate(rasterToPolygons(rr)),
+                                 data = data.frame(name = "Right", stringsAsFactors = FALSE))
   p <- raster::bind(pl, pr)
 
   ex <- raster::extract(r, p)
@@ -20,6 +22,12 @@ if (require("raster") && require("sp")) {
     expect_is(r_by_p, "list")
     expect_is(r_by_p[[1]], "RasterLayer")
     expect_is(r_by_p[[2]], "RasterLayer")
+  })
+
+  test_that("raster_by_poly fails when a name is NA", {
+    p$name[2] <- NA
+    expect_error(raster_by_poly(r, p, "name"),
+                 "NA values exist in the 'name' column in p")
   })
 
   test_that("raster_by_poly works with sf", {
