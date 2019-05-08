@@ -21,8 +21,9 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
                            parallel = FALSE, future_strategy = "multiprocess",
                            workers = NULL, ...) {
   if (!requireNamespace("raster", quietly = TRUE) &&
-      !requireNamespace("sp", quietly = TRUE))
+      !requireNamespace("sp", quietly = TRUE)) {
     stop("packages sp and raster are required")
+  }
 
   if (any(is.na(poly[[poly_field]]))) {
     stop("NA values exist in the '", poly_field, "' column in ",
@@ -76,7 +77,7 @@ summarize_raster_list <- function(raster_list, parallel = FALSE,
                                   future_strategy = "multiprocess",
                                   workers = NULL, ...) {
   if (!requireNamespace("raster", quietly = TRUE) &&
-      !requireNamespace("sp", quietly = TRUE))
+      !requireNamespace("sp", quietly = TRUE)) {
     stop("packages sp and raster are required")
 
   lply <- get_lapply_function(parallel, future_strategy, workers, ...)
