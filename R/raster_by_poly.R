@@ -8,17 +8,20 @@
 #'     polygon to a vector? Default `FALSE`
 #' @param parallel process in parallel? Default `FALSE`. Not currently
 #'     available on Windows.
-#' @param cores number of cores if doing parallel. Default `NULL` uses half the
-#'     number detected
-#' @param ... passed on to `doMC::registerDoMC`
+#' @param future_strategy the strategy to use in `future::plan()` for parallel
+#' computation. Defaults to `"multisession"`.
+#' @param workers number of workers if doing parallel. Default `NULL` uses
+#' `future::availableCores()`
+#' @param ... passed on to `future::plan()`
 #'
 #' @return a list of `RasterLayers` if `summarize = FALSE` otherwise a list of
 #'     vectors.
 #' @export
 raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
-                           parallel = FALSE, cores = NULL, ...) {
+                           parallel = FALSE, future_strategy = "multisession",
+                           workers = NULL, ...) {
 
-  check_inputs(parallel, cores, ...)
+  lply <- check_inputs(parallel, future_strategy, workers, ...)
 
   if (any(is.na(poly[[poly_field]]))) {
     stop("NA values exist in the '", poly_field, "' column in ",
@@ -31,13 +34,18 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
   # by original names so order is preserved
   poly_list <- sp::split(poly, poly[[poly_field]])[poly[[poly_field]]]
 
-  raster_list <- plyr::llply(poly_list, function(x) {
-    r <- raster::crop(raster_layer, raster::extent(x))
-    raster::mask(r, x)
-  },
-  .parallel = parallel,
-  .paropts = list(.packages = c("raster", "sp"))
-  )
+  arg_list <- list(
+    poly_list,
+    function(x) {
+      r <- raster::crop(raster_layer, raster::extent(x))
+      raster::mask(r, x)
+    })
+
+  if (parallel) {
+    arg_list <- c(arg_list, list(future.packages = c("raster", "sp")))
+  }
+
+  raster_list <- do.call(lply, arg_list)
 
   if (summarize) {
     return(summarize_raster_list(raster_list, parallel))
@@ -54,30 +62,34 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
 #' @return a list of numeric vectors
 #' @export
 #'
-summarize_raster_list <- function(raster_list, parallel = FALSE, cores = NULL, ...) {
+summarize_raster_list <- function(raster_list, parallel = FALSE,
+                                  future_strategy = "multisession", workers = NULL, ...) {
 
-  check_inputs(parallel, cores, ...)
+  lply <- check_inputs(parallel, future_strategy, workers, ...)
 
-  plyr::llply(raster_list, function(x) {
-    as.numeric(stats::na.omit(as.vector(x)))
-  },
-  .parallel = parallel,
-  .paropts = list(.packages = c("raster", "sp")))
+  arg_list <- list(
+    raster_list,
+    function(x) {
+      as.numeric(stats::na.omit(as.vector(x)))
+    })
+
+  if (parallel) {
+    arg_list <- c(arg_list, list(future.packages = c("raster", "sp")))
+  }
+
+  do.call(lply, arg_list)
 }
 
-check_inputs <- function(parallel, cores, ...) {
-  if (!requireNamespace("raster", quietly = TRUE) && !requireNamespace("sp", quietly = TRUE))
+check_inputs <- function(parallel, future_strategy, workers, ...) {
+  if (!requireNamespace("raster", quietly = TRUE) &&
+      !requireNamespace("sp", quietly = TRUE))
     stop("packages sp and raster are required")
-  if (!requireNamespace("plyr", quietly = TRUE)) stop("plyr package required")
-  # Make this work on windows:
-  # https://stackoverflow.com/questions/6780091/simple-working-example-of-ddply-in-parallel-on-windows
   if (parallel) {
-    if (.Platform$OS.type == "windows") {
-      stop("Parallel is currently not supported on Windows")
-    }
-    if (!requireNamespace("doMC")) {
-      stop("package doMC required for parallel processing")
-    }
-    doMC::registerDoMC(cores = cores, ...)
+    if (!requireNamespace("future.apply", quietly = TRUE))
+      stop("future.apply package required")
+    if (is.null(workers)) workers <- future::availableCores()
+    future::plan(future_strategy, workers = workers, ..., substitute = FALSE)
+    return(future.apply::future_lapply)
   }
+  lapply
 }

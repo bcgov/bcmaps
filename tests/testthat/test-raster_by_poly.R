@@ -39,10 +39,10 @@ if (require("raster") && require("sp")) {
     expect_equal(lapply(ex, sort), unname(lapply(r_by_p_sum, sort)))
   })
 
-  if (requireNamespace("doMC", quietly = TRUE)) {
-    test_that("parallel works", {
-      skip("skipping parallel test") # This fails in R CMD check but not running testthat::test_package()
-      expect_equal(r_by_p_sum, raster_by_poly(r, p, "name", summarize = TRUE, parallel = TRUE, cores = 2))
-    })
-  }
+  # if (requireNamespace("doMC", quietly = TRUE)) {
+  #   test_that("parallel works", {
+  #     skip("skipping parallel test") # This fails in R CMD check but not running testthat::test_package()
+  #     expect_equal(r_by_p_sum, raster_by_poly(r, p, "name", summarize = TRUE, parallel = TRUE, cores = 2))
+  #   })
+  # }
 }
