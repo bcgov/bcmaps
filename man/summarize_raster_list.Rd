@@ -5,16 +5,15 @@
 \title{Summarize a list of rasters into a list of numeric vectors}
 \usage{
 summarize_raster_list(raster_list, parallel = FALSE,
-  future_strategy = "multisession", workers = NULL, ...)
+  future_strategy = "multiprocess", workers = NULL, ...)
 }
 \arguments{
 \item{raster_list}{list of rasters}
 
-\item{parallel}{process in parallel? Default \code{FALSE}. Not currently
-available on Windows.}
+\item{parallel}{process in parallel? Default \code{FALSE}.}
 
 \item{future_strategy}{the strategy to use in \code{future::plan()} for parallel
-computation. Defaults to \code{"multisession"}.}
+computation. Defaults to \code{"multiprocess"}.}
 
 \item{workers}{number of workers if doing parallel. Default \code{NULL} uses
 \code{future::availableCores()}}

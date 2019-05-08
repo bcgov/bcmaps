@@ -3,10 +3,10 @@
 \name{raster_by_poly}
 \alias{raster_by_poly}
 \title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
-and clip the raster to each polygon.}
+and clip the raster to each polygon. Optionally done in parallel}
 \usage{
 raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
-  parallel = FALSE, future_strategy = "multisession", workers = NULL,
+  parallel = FALSE, future_strategy = "multiprocess", workers = NULL,
   ...)
 }
 \arguments{
@@ -19,11 +19,10 @@ raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
 \item{summarize}{Should the function summarise the raster values in each
 polygon to a vector? Default \code{FALSE}}
 
-\item{parallel}{process in parallel? Default \code{FALSE}. Not currently
-available on Windows.}
+\item{parallel}{process in parallel? Default \code{FALSE}.}
 
 \item{future_strategy}{the strategy to use in \code{future::plan()} for parallel
-computation. Defaults to \code{"multisession"}.}
+computation. Defaults to \code{"multiprocess"}.}
 
 \item{workers}{number of workers if doing parallel. Default \code{NULL} uses
 \code{future::availableCores()}}
@@ -36,5 +35,5 @@ vectors.
 }
 \description{
 Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
-and clip the raster to each polygon.
+and clip the raster to each polygon. Optionally done in parallel
 }
