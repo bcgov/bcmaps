@@ -25,9 +25,15 @@ if (require("raster") && require("sp")) {
   })
 
  test_that("raster_by_poly works with parallel", {
+   skip_if_not_installed("future.apply")
+   # Ensure options that are changed inside the functions are restored
+   omax_global_size <- getOption("future.globals.maxSize")
+   oplan <- future::plan()
    expect_equal(raster_by_poly(r, p, "name", parallel = TRUE), r_by_p)
    expect_equal(raster_by_poly(r, p, "name", summarize = TRUE, parallel = TRUE),
                 r_by_p_sum)
+   expect_equal(omax_global_size, getOption("future.globals.maxSize"))
+   expect_equal(class(future::plan()), class(oplan))
  })
 
   test_that("raster_by_poly fails when a name is NA", {
