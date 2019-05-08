@@ -9,7 +9,7 @@
 #' @param parallel process in parallel? Default `FALSE`. Not currently
 #'     available on Windows.
 #' @param future_strategy the strategy to use in `future::plan()` for parallel
-#' computation. Defaults to `"multisession"`.
+#' computation. Defaults to `"multiprocess"`.
 #' @param workers number of workers if doing parallel. Default `NULL` uses
 #' `future::availableCores()`
 #' @param ... passed on to `future::plan()`
@@ -18,7 +18,7 @@
 #'     vectors.
 #' @export
 raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
-                           parallel = FALSE, future_strategy = "multisession",
+                           parallel = FALSE, future_strategy = "multiprocess",
                            workers = NULL, ...) {
   if (!requireNamespace("raster", quietly = TRUE) &&
       !requireNamespace("sp", quietly = TRUE))
@@ -73,7 +73,7 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
 #' @export
 #'
 summarize_raster_list <- function(raster_list, parallel = FALSE,
-                                  future_strategy = "multisession",
+                                  future_strategy = "multiprocess",
                                   workers = NULL, ...) {
   if (!requireNamespace("raster", quietly = TRUE) &&
       !requireNamespace("sp", quietly = TRUE))
