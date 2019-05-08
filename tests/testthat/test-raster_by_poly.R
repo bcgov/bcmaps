@@ -24,6 +24,12 @@ if (require("raster") && require("sp")) {
     expect_is(r_by_p[[2]], "RasterLayer")
   })
 
+ test_that("raster_by_poly works with parallel", {
+   expect_equal(raster_by_poly(r, p, "name", parallel = TRUE), r_by_p)
+   expect_equal(raster_by_poly(r, p, "name", summarize = TRUE, parallel = TRUE),
+                r_by_p_sum)
+ })
+
   test_that("raster_by_poly fails when a name is NA", {
     p$name[2] <- NA
     expect_error(raster_by_poly(r, p, "name"),
@@ -38,11 +44,4 @@ if (require("raster") && require("sp")) {
     expect_equal(r_by_p_sum, summarize_raster_list(r_by_p))
     expect_equal(lapply(ex, sort), unname(lapply(r_by_p_sum, sort)))
   })
-
-  # if (requireNamespace("doMC", quietly = TRUE)) {
-  #   test_that("parallel works", {
-  #     skip("skipping parallel test") # This fails in R CMD check but not running testthat::test_package()
-  #     expect_equal(r_by_p_sum, raster_by_poly(r, p, "name", summarize = TRUE, parallel = TRUE, cores = 2))
-  #   })
-  # }
 }
