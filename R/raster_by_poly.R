@@ -20,13 +20,15 @@
 raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
                            parallel = FALSE, future_strategy = "multisession",
                            workers = NULL, ...) {
-
-  lply <- check_inputs(parallel, future_strategy, workers, ...)
+  if (!requireNamespace("raster", quietly = TRUE) &&
+      !requireNamespace("sp", quietly = TRUE))
+    stop("packages sp and raster are required")
 
   if (any(is.na(poly[[poly_field]]))) {
     stop("NA values exist in the '", poly_field, "' column in ",
          deparse(substitute(poly)), call. = FALSE)
   }
+
 
   if (inherits(poly, "sf")) poly <- methods::as(poly, "Spatial")
 
@@ -41,14 +43,22 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
       raster::mask(r, x)
     })
 
+  lply <- get_lapply_function(parallel, future_strategy, workers, ...)
+
   if (parallel) {
     arg_list <- c(arg_list, list(future.packages = c("raster", "sp")))
+    # Reset pre-existing parallel option when function exits
+    oopts <- options(future.globals.maxSize = +Inf)
+    oplan <- future::plan()
+    on.exit(options(oopts), add = TRUE)
+    on.exit(future::plan(oplan), add = TRUE)
   }
 
   raster_list <- do.call(lply, arg_list)
 
   if (summarize) {
-    return(summarize_raster_list(raster_list, parallel))
+    return(summarize_raster_list(raster_list, parallel, future_strategy,
+                                 workers, ...))
   } else {
     return(raster_list)
   }
@@ -63,9 +73,13 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
 #' @export
 #'
 summarize_raster_list <- function(raster_list, parallel = FALSE,
-                                  future_strategy = "multisession", workers = NULL, ...) {
+                                  future_strategy = "multisession",
+                                  workers = NULL, ...) {
+  if (!requireNamespace("raster", quietly = TRUE) &&
+      !requireNamespace("sp", quietly = TRUE))
+    stop("packages sp and raster are required")
 
-  lply <- check_inputs(parallel, future_strategy, workers, ...)
+  lply <- get_lapply_function(parallel, future_strategy, workers, ...)
 
   arg_list <- list(
     raster_list,
@@ -75,20 +89,24 @@ summarize_raster_list <- function(raster_list, parallel = FALSE,
 
   if (parallel) {
     arg_list <- c(arg_list, list(future.packages = c("raster", "sp")))
+    # Reset pre-existing parallel option when function exits
+    oopts <- options(future.globals.maxSize = +Inf)
+    oplan <- future::plan()
+    on.exit(options(oopts), add = TRUE)
+    on.exit(future::plan(oplan), add = TRUE)
   }
 
   do.call(lply, arg_list)
 }
 
-check_inputs <- function(parallel, future_strategy, workers, ...) {
-  if (!requireNamespace("raster", quietly = TRUE) &&
-      !requireNamespace("sp", quietly = TRUE))
-    stop("packages sp and raster are required")
+get_lapply_function <- function(parallel, future_strategy, workers, ...) {
   if (parallel) {
     if (!requireNamespace("future.apply", quietly = TRUE))
       stop("future.apply package required")
     if (is.null(workers)) workers <- future::availableCores()
     future::plan(future_strategy, workers = workers, ..., substitute = FALSE)
+    message("Running in parallel using ", future::nbrOfWorkers(),
+            " workers using a ", future_strategy, " strategy")
     return(future.apply::future_lapply)
   }
   lapply
