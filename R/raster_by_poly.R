@@ -7,17 +7,19 @@
 #' @param summarize Should the function summarise the raster values in each
 #'     polygon to a vector? Default `FALSE`
 #' @param parallel process in parallel? Default `FALSE`.
-#' @param future_strategy the strategy to use in `future::plan()` for parallel
-#' computation. Defaults to `"multiprocess"`.
-#' @param workers number of workers if doing parallel. Default `NULL` uses
-#' `future::availableCores()`
-#' @param ... passed on to `future::plan()`
+#' @param future_strategy the strategy to use in [future::plan()] for parallel
+#' computation. Default `NULL` respects if user has already set a plan using
+#' [future::plan()] or an [option][future::future.options],
+#' otherwise uses `"multiprocess"`.
+#' @param workers number of workers if doing parallel. Default `NULL` uses the
+#' default of the future stragey chosed (usually [future::availableCores()]).
+#' @param ... passed on to [future::plan()]
 #'
 #' @return a list of `RasterLayers` if `summarize = FALSE` otherwise a list of
 #'     vectors.
 #' @export
 raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
-                           parallel = FALSE, future_strategy = "multiprocess",
+                           parallel = FALSE, future_strategy = NULL,
                            workers = NULL, ...) {
   if (!requireNamespace("raster", quietly = TRUE) &&
       !requireNamespace("sp", quietly = TRUE)) {
@@ -36,7 +38,7 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
   poly_list <- sp::split(poly, poly[[poly_field]])[poly[[poly_field]]]
 
   if (parallel) {
-    setup_parallel(future_strategy, workers, ...)
+    setup_future(future_strategy, workers, ...)
     lply <- future.apply::future_lapply
   } else {
     lply <- base::lapply
@@ -65,7 +67,7 @@ raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
 #' @export
 #'
 summarize_raster_list <- function(raster_list, parallel = FALSE,
-                                  future_strategy = "multiprocess",
+                                  future_strategy = NULL,
                                   workers = NULL, ...) {
   if (!requireNamespace("raster", quietly = TRUE) &&
       !requireNamespace("sp", quietly = TRUE)) {
@@ -73,7 +75,7 @@ summarize_raster_list <- function(raster_list, parallel = FALSE,
   }
 
   if (parallel) {
-    setup_parallel(future_strategy, workers, ...)
+    setup_future(future_strategy, workers, ...)
     lply <- future.apply::future_lapply
   } else {
     lply <- base::lapply
@@ -85,7 +87,7 @@ summarize_raster_list <- function(raster_list, parallel = FALSE,
        })
 }
 
-setup_parallel <- function(future_strategy, workers, ...) {
+setup_future <- function(future_strategy, workers, ...) {
   if (!requireNamespace("future.apply", quietly = TRUE))
     stop("future.apply package required")
 
@@ -103,10 +105,26 @@ setup_parallel <- function(future_strategy, workers, ...) {
           list(substitute(future::plan(oplan)), add = TRUE),
           envir = parent.frame())
 
-  if (is.null(workers)) workers <- future::availableCores()
-  future::plan(future_strategy, workers = workers, ...,
-               substitute = FALSE)
+  # Respect if user has already set a default plan (other than sequential)
+  if (is.null(future_strategy)) {
+    if (get_future_strategy(oplan) == "sequential") {
+      future_strategy <- "multiprocess"
+    }
+  }
+  future::plan(future_strategy, ..., substitute = FALSE)
 
-  message("Running in parallel using ", future::nbrOfWorkers(),
-          " workers using a '", future_strategy, "' strategy")
+  if (!is.null(workers)) {
+    future::plan(future::tweak(future::plan(), workers = workers),
+                 substitute = FALSE)
+  }
+
+  strategy <- get_future_strategy(future::plan())
+
+  message("Running in parallel using a '", strategy, "' strategy with ",
+          future::nbrOfWorkers(), " workers.")
+}
+
+get_future_strategy <- function(plan) {
+  setdiff(class(plan),
+          c("FutureStrategy", "tweaked", "function"))[1]
 }

@@ -6,8 +6,7 @@
 and clip the raster to each polygon. Optionally done in parallel}
 \usage{
 raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
-  parallel = FALSE, future_strategy = "multiprocess", workers = NULL,
-  ...)
+  parallel = FALSE, future_strategy = NULL, workers = NULL, ...)
 }
 \arguments{
 \item{raster_layer}{the raster layer}
@@ -21,13 +20,15 @@ polygon to a vector? Default \code{FALSE}}
 
 \item{parallel}{process in parallel? Default \code{FALSE}.}
 
-\item{future_strategy}{the strategy to use in \code{future::plan()} for parallel
-computation. Defaults to \code{"multiprocess"}.}
+\item{future_strategy}{the strategy to use in \code{\link[future:plan]{future::plan()}} for parallel
+computation. Default \code{NULL} respects if user has already set a plan using
+\code{\link[future:plan]{future::plan()}} or an \link[future:future.options]{option},
+otherwise uses \code{"multiprocess"}.}
 
-\item{workers}{number of workers if doing parallel. Default \code{NULL} uses
-\code{future::availableCores()}}
+\item{workers}{number of workers if doing parallel. Default \code{NULL} uses the
+default of the future stragey chosed (usually \code{\link[future:availableCores]{future::availableCores()}}).}
 
-\item{...}{passed on to \code{future::plan()}}
+\item{...}{passed on to \code{\link[future:plan]{future::plan()}}}
 }
 \value{
 a list of \code{RasterLayers} if \code{summarize = FALSE} otherwise a list of
