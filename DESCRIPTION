@@ -35,7 +35,7 @@ Suggests:
     rgeos (>= 0.3-25),
     rmarkdown,
     sp (>= 1.2-5),
-    testthat
+    testthat (>= 2.1.0)
 VignetteBuilder: knitr
 Additional_repositories: https://bcgov.github.io/drat
 LazyData: true
