@@ -3,10 +3,10 @@
 \name{raster_by_poly}
 \alias{raster_by_poly}
 \title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
-and clip the raster to each polygon.}
+and clip the raster to each polygon. Optionally done in parallel}
 \usage{
 raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
-  parallel = FALSE, cores = NULL, ...)
+  parallel = FALSE, future_strategy = NULL, workers = NULL, ...)
 }
 \arguments{
 \item{raster_layer}{the raster layer}
@@ -18,13 +18,17 @@ raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
 \item{summarize}{Should the function summarise the raster values in each
 polygon to a vector? Default \code{FALSE}}
 
-\item{parallel}{process in parallel? Default \code{FALSE}. Not currently
-available on Windows.}
+\item{parallel}{process in parallel? Default \code{FALSE}.}
 
-\item{cores}{number of cores if doing parallel. Default \code{NULL} uses half the
-number detected}
+\item{future_strategy}{the strategy to use in \code{\link[future:plan]{future::plan()}} for parallel
+computation. Default \code{NULL} respects if user has already set a plan using
+\code{\link[future:plan]{future::plan()}} or an \link[future:future.options]{option},
+otherwise uses \code{"multiprocess"}.}
 
-\item{...}{passed on to \code{doMC::registerDoMC}}
+\item{workers}{number of workers if doing parallel. Default \code{NULL} uses the
+default of the future strategy chosen (usually \code{\link[future:availableCores]{future::availableCores()}}).}
+
+\item{...}{passed on to \code{\link[future:plan]{future::plan()}}}
 }
 \value{
 a list of \code{RasterLayers} if \code{summarize = FALSE} otherwise a list of
@@ -32,5 +36,5 @@ vectors.
 }
 \description{
 Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
-and clip the raster to each polygon.
+and clip the raster to each polygon. Optionally done in parallel
 }
