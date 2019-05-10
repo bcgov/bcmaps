@@ -18,7 +18,7 @@ computation. Default \code{NULL} respects if user has already set a plan using
 otherwise uses \code{"multiprocess"}.}
 
 \item{workers}{number of workers if doing parallel. Default \code{NULL} uses the
-default of the future stragey chosed (usually \code{\link[future:availableCores]{future::availableCores()}}).}
+default of the future strategy chosen (usually \code{\link[future:availableCores]{future::availableCores()}}).}
 
 \item{...}{passed on to \code{\link[future:plan]{future::plan()}}}
 }
