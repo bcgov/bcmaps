@@ -12,7 +12,7 @@
 #' [future::plan()] or an [option][future::future.options],
 #' otherwise uses `"multiprocess"`.
 #' @param workers number of workers if doing parallel. Default `NULL` uses the
-#' default of the future stragey chosed (usually [future::availableCores()]).
+#' default of the future strategy chosen (usually [future::availableCores()]).
 #' @param ... passed on to [future::plan()]
 #'
 #' @return a list of `RasterLayers` if `summarize = FALSE` otherwise a list of
