@@ -25,4 +25,4 @@ sticker(p, package = "bcmaps",
         s_x = 1, s_y = 1.05,
         s_width = 1.3, s_height = 1.3,
         h_fill = "white",h_color = "#482475",
-        filename = file.path("inst/sticker/bcmaps.png"))
+        filename = file.path("inst/sticker/bcmaps.svg"))
