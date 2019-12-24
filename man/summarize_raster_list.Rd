@@ -4,8 +4,13 @@
 \alias{summarize_raster_list}
 \title{Summarize a list of rasters into a list of numeric vectors}
 \usage{
-summarize_raster_list(raster_list, parallel = FALSE,
-  future_strategy = NULL, workers = NULL, ...)
+summarize_raster_list(
+  raster_list,
+  parallel = FALSE,
+  future_strategy = NULL,
+  workers = NULL,
+  ...
+)
 }
 \arguments{
 \item{raster_list}{list of rasters}

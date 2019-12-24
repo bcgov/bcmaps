@@ -3,7 +3,6 @@
 \docType{package}
 \name{bcmaps}
 \alias{bcmaps}
-\alias{bcmaps-package}
 \title{bcmaps: A data package providing various map layers for British Columbia}
 \description{
 Various layers of B.C., including administrative boundaries, natural

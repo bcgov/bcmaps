@@ -4,8 +4,13 @@
 \alias{get_big_data}
 \title{Download a large data file}
 \usage{
-get_big_data(what, class = c("sf", "sp"), release = "latest",
-  force = FALSE, ask = TRUE)
+get_big_data(
+  what,
+  class = c("sf", "sp"),
+  release = "latest",
+  force = FALSE,
+  ask = TRUE
+)
 }
 \arguments{
 \item{what}{The name of the object to download}

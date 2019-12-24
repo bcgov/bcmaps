@@ -4,8 +4,11 @@
 \alias{add_license_header}
 \title{Add the boilerplate Apache header to the top of a source code file}
 \usage{
-add_license_header(file, year = format(Sys.Date(), "\%Y"),
-  copyright_holder = "Province of British Columbia")
+add_license_header(
+  file,
+  year = format(Sys.Date(), "\%Y"),
+  copyright_holder = "Province of British Columbia"
+)
 }
 \arguments{
 \item{file}{Path to the file}

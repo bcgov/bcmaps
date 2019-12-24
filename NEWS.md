@@ -4,6 +4,9 @@ the column on which the polygons are to be split (#48, thanks @j-galloway)
 * `raster_by_poly()` (and `summarize_raster_list()`) now uses the
 [`future.apply`](https://cran.r-project.org/package=future.apply) package
 for parallelism, enabling easy parallelization across platforms (#49)
+* `get_layer()` (and in turn, any of the individual layer functions) now sets
+the `crs` so the `crs` representation will always be up to date with the user's 
+`sf` version (#51, https://github.com/r-spatial/sf/issues/1225)
 
 # bcmaps 0.18.0
 * Added `bc_neighbours()` function to call layers containing adjacent jurisdictions.

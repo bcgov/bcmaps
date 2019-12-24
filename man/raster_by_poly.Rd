@@ -5,8 +5,16 @@
 \title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
 and clip the raster to each polygon. Optionally done in parallel}
 \usage{
-raster_by_poly(raster_layer, poly, poly_field, summarize = FALSE,
-  parallel = FALSE, future_strategy = NULL, workers = NULL, ...)
+raster_by_poly(
+  raster_layer,
+  poly,
+  poly_field,
+  summarize = FALSE,
+  parallel = FALSE,
+  future_strategy = NULL,
+  workers = NULL,
+  ...
+)
 }
 \arguments{
 \item{raster_layer}{the raster layer}
