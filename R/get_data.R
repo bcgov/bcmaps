@@ -48,6 +48,7 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
   } else {
     ret <- getExportedValue("bcmapsdata", layer)
     ret <- rename_sf_col_to_geometry(ret)
+    ret <- set_bc_albers(ret)
 
     if (class == "sp") {
       ret <- convert_to_sp(ret)
@@ -70,7 +71,7 @@ rename_sf_col_to_geometry <- function(x) {
 convert_to_sp <- function(sf_obj) {
   if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
   ret <- sf::st_zm(sf_obj, drop = TRUE)
-  ret <- methods::as(ret, "Spatial")
+  methods::as(ret, "Spatial")
 }
 
 #' List available data layers

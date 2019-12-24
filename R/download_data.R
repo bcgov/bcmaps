@@ -102,6 +102,8 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
 
   ret <- readRDS(fpath)
 
+  ret <- set_bc_albers(ret)
+
   if (class == "sp") {
     ret <- convert_to_sp(ret)
   }

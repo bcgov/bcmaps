@@ -433,3 +433,12 @@ bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   )
 
 }
+
+set_bc_albers <- function(x) {
+  # Only try to set crs if it is sf/sfc, otherwise just return it.
+  # This should always be sf/sfc except for in a test of `get_big_data()`
+  if (!inherits(x, c("sf", "sfc"))) {
+    return(x)
+  }
+  suppressWarnings(sf::st_set_crs(x, 3005))
+}
