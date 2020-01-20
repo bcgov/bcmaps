@@ -8,3 +8,4 @@ CONTRIBUTING.md
 ^\.travis\.yml$
 ^inst/sticker$
 ^cran-comments\.md$
+^COMPLIANCE.yaml$
