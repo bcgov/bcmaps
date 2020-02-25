@@ -202,9 +202,5 @@ add_auth_header <- function() {
   invisible(NULL)
 }
 
-auth_url <- function(url) {
-  url
-}
-
 base_url <- function() "https://api.github.com/repos/bcgov/bcmapsdata/releases"
 
