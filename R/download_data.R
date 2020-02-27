@@ -195,6 +195,7 @@ download_release_asset <- function(asset_url, path) {
 }
 
 add_auth_header <- function() {
+  ## downloading with authentication raises the rate-limiting
   pat <- Sys.getenv("GITHUB_PAT")
   if (nzchar(pat)) {
     return(httr::add_headers(Authentication = paste0("token ", pat)))
@@ -203,4 +204,3 @@ add_auth_header <- function() {
 }
 
 base_url <- function() "https://api.github.com/repos/bcgov/bcmapsdata/releases"
-
