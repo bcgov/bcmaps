@@ -170,7 +170,7 @@ download_file_from_release <- function(file, path, release = "latest", force = F
 
 get_gh_release <- function(release) {
   # List releases
-  rels_resp <- httr::GET(auth_url(base_url()))
+  rels_resp <- httr::GET(base_url(), add_auth_header())
   httr::stop_for_status(rels_resp)
 
   rels <- httr::content(rels_resp)
@@ -183,8 +183,9 @@ get_gh_release <- function(release) {
 }
 
 download_release_asset <- function(asset_url, path) {
-  resp <- httr::GET(auth_url(asset_url),
+  resp <- httr::GET(asset_url,
                     httr::add_headers(Accept = "application/octet-stream"),
+                    add_auth_header(),
                     httr::write_disk(path, overwrite = TRUE),
                     httr::progress("down"))
 
@@ -193,13 +194,13 @@ download_release_asset <- function(asset_url, path) {
   invisible(path)
 }
 
-auth_url <- function(url) {
+add_auth_header <- function() {
+  ## downloading with authentication raises the rate-limiting
   pat <- Sys.getenv("GITHUB_PAT")
   if (nzchar(pat)) {
-    return(paste0(url, "?access_token=", pat))
+    return(httr::add_headers(Authentication = paste0("token ", pat)))
   }
-  url
+  invisible(NULL)
 }
 
 base_url <- function() "https://api.github.com/repos/bcgov/bcmapsdata/releases"
-
