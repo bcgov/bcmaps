@@ -91,16 +91,16 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
-#' For `sf` objects, uses `lwgeom::st_make_valid` if `lwgeom` is installed.
+#' For `sf` objects, uses `sf::st_make_valid`.
 #' Otherwise, uses the common method of buffering by zero.
 #'
 #' `fix_self_intersect` has been removed and will no longer work. Use
 #' `fix_geo_problems` instead
 #'
 #' @param obj The SpatialPolygons* or sf object to check/fix
-#' @param tries The maximum number of attempts to repair the geometry.
+#' @param tries The maximum number of attempts to repair the geometry. Ignored for `sf` objects.
 #'
-#' @return The SpatialPolygons* or sf object, repaired if necessary
+#' @return The `SpatialPolygons*` or `sf` object, repaired if necessary
 #' @export
 fix_geo_problems <- function(obj, tries = 5) {
   UseMethod("fix_geo_problems")
@@ -150,28 +150,7 @@ fix_geo_problems.sf <- function(obj, tries = 5) {
 
   message("Problems found - Attempting to repair...")
 
-
-
-  if (requireNamespace("lwgeom", quietly = TRUE)) {
-    return(lwgeom::st_make_valid(obj))
-  } else {
-    message("package lwgeom not available for the st_make_valid function, sf::st_buffer(dist = 0)")
-    i <- 1
-    while (i <= tries) { # Try three times
-      message("Attempt ", i, " of ", tries)
-      obj <- sf::st_buffer(obj, dist = 0)
-      is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
-      if (all(is_valid)) {
-        message("Geometry is valid")
-        return(obj)
-      } else {
-        i <- i + 1
-      }
-    }
-  }
-
-  warning("tried ", tries, " times but could not repair all geometries")
-  obj
+  make_valid(obj)
 }
 
 #' @export
@@ -441,4 +420,15 @@ set_bc_albers <- function(x) {
     return(x)
   }
   suppressWarnings(sf::st_set_crs(x, 3005))
+}
+
+make_valid <- function(x) {
+  if (old_sf_geos() && !requireNamespace("lwgeom")) {
+    stop("sf built with old GEOS, lwgeom package required.", call. = FALSE)
+  }
+  sf::st_make_valid(x)
+}
+
+old_sf_geos <- function() {
+  unname(numeric_version(sf::sf_extSoftVersion()["GEOS"]) < numeric_version("3.8"))
 }

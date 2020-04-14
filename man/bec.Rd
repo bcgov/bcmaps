@@ -3,8 +3,10 @@
 \name{bec}
 \alias{bec}
 \title{British Columbia BEC Map}
-\format{An \code{sf} or \code{Spatial} polygons object with B.C.'s Biogeoclimatic Ecosystem
-Classification (BEC) Zone/Subzone/Variant/Phase map}
+\format{
+An \code{sf} or \code{Spatial} polygons object with B.C.'s Biogeoclimatic Ecosystem
+Classification (BEC) Zone/Subzone/Variant/Phase map
+}
 \source{
 Original data from the
 \href{https://catalogue.data.gov.bc.ca/dataset/f358a53b-ffde-4830-a325-a5a03ff672c3}{B.C. Data Catalogue},

@@ -9,13 +9,13 @@ fix_geo_problems(obj, tries = 5)
 \arguments{
 \item{obj}{The SpatialPolygons* or sf object to check/fix}
 
-\item{tries}{The maximum number of attempts to repair the geometry.}
+\item{tries}{The maximum number of attempts to repair the geometry. Ignored for \code{sf} objects.}
 }
 \value{
-The SpatialPolygons* or sf object, repaired if necessary
+The \verb{SpatialPolygons*} or \code{sf} object, repaired if necessary
 }
 \description{
-For \code{sf} objects, uses \code{lwgeom::st_make_valid} if \code{lwgeom} is installed.
+For \code{sf} objects, uses \code{sf::st_make_valid}.
 Otherwise, uses the common method of buffering by zero.
 }
 \details{

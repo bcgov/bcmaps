@@ -3,8 +3,10 @@
 \name{tsa}
 \alias{tsa}
 \title{British Columbia Timber Supply Areas and TSA Blocks}
-\format{An \code{sf} or \code{Spatial} polygons object with B.C.'s Timber Supply
-Areas and TSA Blocks}
+\format{
+An \code{sf} or \code{Spatial} polygons object with B.C.'s Timber Supply
+Areas and TSA Blocks
+}
 \source{
 Original data from the
 \href{https://catalogue.data.gov.bc.ca/dataset/8daa29da-d7f4-401c-83ae-d962e3a28980}{B.C. Data Catalogue},
