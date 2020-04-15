@@ -9,3 +9,4 @@ CONTRIBUTING.md
 ^inst/sticker$
 ^cran-comments\.md$
 ^COMPLIANCE.yaml$
+^\.github$

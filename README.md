@@ -3,16 +3,20 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 0.18.0
+### Version 0.18.0.999999
+
+<!-- badges: start -->
 
 [![dev](https://assets.bcdevexchange.org/images/badges/delivery.svg)](https://github.com/BCDevExchange/assets/blob/master/README.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Travis-CI Build
 Status](http://travis-ci.org/bcgov/bcmaps.svg?branch=master)](https://travis-ci.org/bcgov/bcmaps)
-
+[![R build
+status](https://github.com/bcgov/bcmaps/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcmaps/actions)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
 [![CRAN
 Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps)
+<!-- badges: end -->
 
 ## Overview
 
@@ -67,7 +71,7 @@ To see the layers that are available, run the `available_layers()`
 function:
 
     #> Loading required package: sf
-    #> Linking to GEOS 3.6.1, GDAL 2.1.3, PROJ 4.9.3
+    #> Linking to GEOS 3.8.1, GDAL 2.4.4, PROJ 7.0.0
 
 ``` r
 library(bcmaps)
