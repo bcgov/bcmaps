@@ -170,7 +170,7 @@ download_file_from_release <- function(file, path, release = "latest", force = F
 
 get_gh_release <- function(release) {
   # List releases
-  rels_resp <- httr::GET(base_url(), add_auth_header())
+  rels_resp <- httr::GET(base_url(), add_auth_header(), add_user_agent())
   httr::stop_for_status(rels_resp)
 
   rels <- httr::content(rels_resp)
@@ -186,6 +186,7 @@ download_release_asset <- function(asset_url, path) {
   resp <- httr::GET(asset_url,
                     httr::add_headers(Accept = "application/octet-stream"),
                     add_auth_header(),
+                    add_user_agent(),
                     httr::write_disk(path, overwrite = TRUE),
                     httr::progress("down"))
 
@@ -201,6 +202,10 @@ add_auth_header <- function() {
     return(httr::add_headers(Authentication = paste0("token ", pat)))
   }
   invisible(NULL)
+}
+
+add_user_agent <- function() {
+  httr::user_agent("https://github.com/bcgov/bcmaps")
 }
 
 base_url <- function() "https://api.github.com/repos/bcgov/bcmapsdata/releases"
