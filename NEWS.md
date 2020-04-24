@@ -1,4 +1,5 @@
-# bcmaps 0.18.0.999999
+# bcmaps 0.18.1
+
 * `raster_by_poly()` fails informatively when there are `NA` values in 
 the column on which the polygons are to be split (#48, thanks @j-galloway)
 * `raster_by_poly()` (and `summarize_raster_list()`) now uses the
