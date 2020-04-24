@@ -9,12 +9,14 @@ test <- function(class = c("sf", "sp"), ...) {
 test_that("get_layer works with downloadable data", {
   skip_if_not_installed("bcmapsdata")
   skip_on_cran()
+  skip_on_actions()
   expect_equal(get_layer("test", force = TRUE, ask = FALSE), "test")
 })
 
 test_that("get_big_data works with specific release", {
   skip_if_not_installed("bcmapsdata")
   skip_on_cran()
+  skip_on_actions()
   expect_equal(get_big_data("test", "sf", "0.1.1", force = TRUE, ask = FALSE), "test")
   expect_equal(test(release = "0.1.1", force = TRUE, ask = FALSE), "test")
   test_gh_assid_file <- file.path(data_dir(), "test.gh_asset_id")
@@ -25,6 +27,7 @@ test_that("get_big_data works with specific release", {
 test_that("get_big_data works with latest release", {
   skip_if_not_installed("bcmapsdata")
   skip_on_cran()
+  skip_on_actions()
   expect_equal(get_big_data("test", "sf", "latest", force = TRUE, ask = FALSE), "test")
   expect_equal(test(force = TRUE, ask = FALSE), "test")
 })
@@ -32,12 +35,14 @@ test_that("get_big_data works with latest release", {
 test_that("get_big_data fails when file doesn't exist", {
   skip_if_not_installed("bcmapsdata")
   skip_on_cran()
+  skip_on_actions()
   expect_error(get_big_data("test", "sf", "0.1.0", force = TRUE, ask = FALSE), "No assets matching filename test.rds in 0.1.0 release")
 })
 
 test_that("check_write_to_data_dir works", {
   skip_if_not_installed("bcmapsdata")
   skip_on_cran()
+  skip_on_actions()
   expect_message(check_write_to_data_dir(data_dir(), ask = FALSE), "Creating directory to hold bcmaps data")
   expect_true(dir.exists(rappdirs::user_data_dir("bcmaps")))
 })
@@ -46,6 +51,7 @@ test_that("gh functions work with and without authentication", {
   skip_if_not_installed("bcmapsdata")
   skip_on_travis()
   skip_on_cran()
+  skip_on_actions()
   gh_pat <- ""
   if (nzchar(Sys.getenv("GITHUB_PAT"))) {
     expect_is(get_gh_release("latest"), "list")
