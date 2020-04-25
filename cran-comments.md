@@ -10,25 +10,21 @@ I have made the use of `st_make_valid()` conditional upon these factors.
 * local OS X install (Mojave), R 3.6.2
 * ubuntu 16.04 (on GitHub Actions): R 3.5 and R 3.6.3
 * Windows Server 2019 (on github actions), R 3.6.3
-* macOS Catalina 10.15 (on github actions), R-devel
+* macOS Catalina 10.15 (on github actions), R-devel (2020-04-21 r78269)
 * win-builder (R-devel)
 
 ## R CMD check results
 
 There were no ERRORS or WARNINGS
 
-* There were 2 NOTEs:
+* There was 1 NOTE:
 
 1. Suggests or Enhances not in mainstream repositories:
      bcmapsdata
    Availability using Additional_repositories specification:
      bcmapsdata   yes   https://bcgov.github.io/drat
-     
-2. Packages suggested but not available for checking: 
-      'bcmapsdata' 'doMC' (Windows)
-    
+
 - 'bcmapsdata' - A suggested package that is in a non-mainstream repository (a drat repository).
-- 'doMC' - Package not available for Windows
 
 ## Reverse dependencies
 
