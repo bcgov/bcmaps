@@ -36,7 +36,7 @@ jobs:
           r-version: ${{ matrix.config.r }}
 
       - uses: actions/setup-tinytex@v1
-        if: contains(matrix.config.args, "no-manul") == true
+        if: contains(matrix.config.args, 'no-manual') == true
 
       - uses: r-lib/actions/setup-pandoc@master
 
