@@ -1,8 +1,16 @@
+## CRAN check issues
+
+* Fixed CRAN errors that were occurring on most check platforms (eg https://www.r-project.org/nosvn/R.check/r-release-linux-x86_64/bcmaps-00check.html). 
+`st_make_valid()`, previously exported from package `lwgeom` is now exported from `sf` 
+and its use is dependent on the version of `GEOS` upon which `sf` was built.
+I have made the use of `st_make_valid()` conditional upon these factors.
+
 ## Test environments
 
-* local OS X install (Mojave), R 3.5.2
-* local Windows 10, R 3.5.2
-* ubuntu 14.04 (on travis-ci): R 3.5.2 and R-devel (2019-02-01 r76041)
+* local OS X install (Mojave), R 3.6.2
+* ubuntu 16.04 (on GitHub Actions): R 3.5 and R 3.6.3
+* Windows Server 2019 (on github actions), R 3.6.3
+* macOS Catalina 10.15 (on github actions), R-devel
 * win-builder (R-devel)
 
 ## R CMD check results

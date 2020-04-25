@@ -21,7 +21,7 @@ jobs:
         - { os: windows-latest, r: 'release', args: "'--no-manual'"}
         - { os: macOS-latest, r: 'release', args: "'--no-manual'", sf_args: "--with-proj-lib=/usr/local/lib/"}
         - { os: macOS-latest, r: 'devel', args: "'--no-manual'", sf_args: "--with-proj-lib=/usr/local/lib/"}
-        - { os: ubuntu-16.04, r: '3.6', args: "'--no-manual'"}
+        - { os: ubuntu-16.04, r: '3.5', args: "'--no-manual'"}
         - { os: ubuntu-16.04, r: 'release'}
 
     env:

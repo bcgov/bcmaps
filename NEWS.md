@@ -1,5 +1,7 @@
 # bcmaps 0.18.1
 
+* Fixed an error where `fix_geo_problems()` would fail unexpectedly depending on 
+the version of `GEOS` upon which `sf` was built.
 * `raster_by_poly()` fails informatively when there are `NA` values in 
 the column on which the polygons are to be split (#48, thanks @j-galloway)
 * `raster_by_poly()` (and `summarize_raster_list()`) now uses the
