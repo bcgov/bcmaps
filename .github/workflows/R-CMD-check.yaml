@@ -35,6 +35,9 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
+      - uses: actions/setup-tinytex@v1
+        if: contains(matrix.config.args, "no-manul") == true
+
       - uses: r-lib/actions/setup-pandoc@master
 
       - name: Query dependencies
