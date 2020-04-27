@@ -1,5 +1,8 @@
 ## CRAN check issues
 
+* This is a submission for bcmaps which was archived on 2020-04-27 due to failing
+checks on CRAN
+
 * Fixed CRAN errors that were occurring on most check platforms (eg https://www.r-project.org/nosvn/R.check/r-release-linux-x86_64/bcmaps-00check.html). 
 `st_make_valid()`, previously exported from package `lwgeom` is now exported from `sf` 
 and its use is dependent on the version of `GEOS` upon which `sf` was built.
