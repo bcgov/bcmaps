@@ -11,10 +11,9 @@ I have made the use of `st_make_valid()` conditional upon these factors.
 ## Test environments
 
 * local OS X install (Mojave), R 3.6.2
-* ubuntu 16.04 (on GitHub Actions): R 3.5 and R 3.6.3
-* Windows Server 2019 (on github actions), R 3.6.3
-* macOS Catalina 10.15 (on github actions), R-devel (2020-04-21 r78269)
-* win-builder (R-devel)
+* ubuntu 16.04 (on GitHub Actions): R 3.5 and R 4.0
+* Windows Server 2019 (on github actions), R 4.0
+* macOS Catalina 10.15 (on github actions), R 3.6.3 and R-devel (2020-04-21 r78269)
 
 ## R CMD check results
 
