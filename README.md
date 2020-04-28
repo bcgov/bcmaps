@@ -182,11 +182,8 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 
 ### Vignettes
 
-We have written a short vignette on plotting points on one of the layers
-from `bcmaps`. You can view the vignette online
-[here](https://cran.r-project.org/web/packages/bcmaps/vignettes/add_points.html)
-or if you installed the package you can open it using
-`browseVignettes("bcmaps")`.
+After installing the package you can view vignettes by typing
+`browseVignettes("bcmaps")` in your R session.
 
 ### Utility Functions
 
@@ -208,11 +205,12 @@ To report bugs/issues/feature requests, please file an
 
 Pull requests of new B.C. layers are welcome. If you would like to
 contribute to the package, please see our
-[CONTRIBUTING](CONTRIBUTING.md) guidelines.
+[CONTRIBUTING](https://github.com/bcgov/bcmaps/blob/master/CONTRIBUTING.md)
+guidelines.
 
 Please note that this project is released with a [Contributor Code of
-Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree
-to abide by its terms.
+Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.
 
 ## Source Data
 

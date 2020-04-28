@@ -172,8 +172,7 @@ plot(watercourses_15M(class = "sp"), add = TRUE)
 
 ### Vignettes
 
-We have written a short vignette on plotting points on one of the layers from `bcmaps`.
-You can view the vignette online [here](https://cran.r-project.org/web/packages/bcmaps/vignettes/add_points.html) or if you installed the package you can open it using `browseVignettes("bcmaps")`.
+After installing the package you can view vignettes by typing `browseVignettes("bcmaps")` in your R session.
 
 ### Utility Functions
 
@@ -194,9 +193,9 @@ To report bugs/issues/feature requests, please file an [issue](https://github.co
 
 Pull requests of new B.C. layers are welcome.
 If you would like to contribute to the package, please see our 
-[CONTRIBUTING](CONTRIBUTING.md) guidelines.
+[CONTRIBUTING](https://github.com/bcgov/bcmaps/blob/master/CONTRIBUTING.md) guidelines.
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Source Data
 The source datasets used in this package come from various sources under open licences, including [DataBC](http://data.gov.bc.ca) ([Open Government Licence - British Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html) ([Statistics Canada Open Licence Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the `data-raw` folder for details on each source dataset.

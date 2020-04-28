@@ -1,3 +1,8 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Fixed/removed invalid URLs in README.md
+
 ## CRAN check issues
 
 * This is a submission for bcmaps which was archived on 2020-04-27 due to failing
