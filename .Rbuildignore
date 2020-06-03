@@ -10,3 +10,4 @@ CONTRIBUTING.md
 ^cran-comments\.md$
 ^COMPLIANCE.yaml$
 ^\.github$
+^data-raw$
