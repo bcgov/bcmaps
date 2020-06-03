@@ -1,0 +1,4 @@
+layer_name,title,record,resource, local
+nr_areas,British Columbia Natural Resource (NR) Areas,c1861ba4-abb8-4947-b3e5-7f7c4d7257d5,4b317896-1a42-4c03-9dbd-bff996d5ea0c, FALSE
+bc_cities,BC Major Cities Points, b678c432-c5c1-4341-88db-0d6befa0c7f8, 443dd858-2e37-4a8f-937a-f53359f16e64, FALSE
+bc_bound_hres, High Resolution BC Boundary, NA, NA, TRUE
