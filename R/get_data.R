@@ -43,16 +43,11 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
     stop(layer, " is not an available layer")
   }
 
-  if (!available_row[["local"]] || layer == "test") {
-    ret <- get_big_data(layer, class, ...)
-  } else {
-    ret <- getExportedValue("bcmapsdata", layer)
-    ret <- rename_sf_col_to_geometry(ret)
-    ret <- set_bc_albers(ret)
+  ret <- get_catalogue_data(layer, class, ...)
 
-    if (class == "sp") {
-      ret <- convert_to_sp(ret)
-    }
+
+  if (class == "sp") {
+    ret <- convert_to_sp(ret)
   }
 
   ret
@@ -95,14 +90,11 @@ convert_to_sp <- function(sf_obj) {
 #' available_layers()
 #' }
 #' @export
+
 available_layers <- function() {
-  hasData()
-  datas <- utils::data(package = "bcmapsdata")
-  layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
-  layers_df$shortcut_function <- layers_df[["Item"]] %in% getNamespaceExports("bcmaps")
-  layers_df$local <- TRUE
+
+  layers_df
   names(layers_df)[1:2] <- c("layer_name", "title")
-  layers_df <- rbind(layers_df, big_data_layers())
   structure(layers_df, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
 }
 
@@ -117,4 +109,32 @@ print.avail_layers <- function(x, ...) {
   cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
   cat("bcmapsdata package but will be downloaded from the internet and cached\n")
   cat("on your hard drive.")
+}
+
+
+
+
+get_catalogue_data <- function(what, class= c("sf", "sp"), release = "latest", force = FALSE, ask = TRUE) {
+  class <- match.arg(class)
+  fname <- paste0(what, ".rds")
+  dir <- data_dir()
+  fpath <- file.path(dir, fname)
+
+  if (!file.exists(fpath) | force) {
+    check_write_to_data_dir(dir, ask)
+    recordid <- layers_df$record[layers_df$layer_name == what]
+    resourceid <- layers_df$resource[layers_df$layer_name == what]
+    ret <- bcdc_get_data(recordid, resourceid)
+    saveRDS(ret, fpath)
+  } else {
+    ret <- readRDS(fpath)
+    time <- attributes(ret)$time_downloaded
+    message(paste0(what, ' was updated on ', format(time, "%Y-%m-%d")))
+  }
+
+  if (class == "sp") {
+    ret <- convert_to_sp(ret)
+  }
+
+  ret
 }
