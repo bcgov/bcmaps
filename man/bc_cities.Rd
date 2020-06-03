@@ -2,7 +2,7 @@
 % Please edit documentation in R/shortcuts.R
 \name{bc_cities}
 \alias{bc_cities}
-\title{BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)}
+\title{BC Major Cities Points}
 \usage{
 bc_cities(class = "sf")
 }

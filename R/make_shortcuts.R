@@ -28,6 +28,7 @@
 #'
 #' @return TRUE (invisibly)
 make_shortcuts <- function(file = "R/shortcuts.R") {
+  #browser()
 
   if (!requireNamespace("bcmaps") || !requireNamespace("bcmapsdata") ||
       !requireNamespace("glue")) {
@@ -35,7 +36,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
   }
 
   layers <- bcmaps::available_layers()
-  layers <- layers[layers$local, ]
+  layers <- layers[!layers$local, ]
 
   cat(
     glue::glue("
