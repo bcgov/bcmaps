@@ -432,3 +432,9 @@ make_valid <- function(x) {
 old_sf_geos <- function() {
   unname(numeric_version(sf::sf_extSoftVersion()["GEOS"]) < numeric_version("3.8"))
 }
+
+
+make_bcdata_fn <- function(fn_title) {
+  fn_meta <- layers_df[layers_df$title == fn_title$title,]
+  glue::glue("bcdc_get_data(record = '{fn_meta$record}', resource = '{fn_meta$resource}')")
+}

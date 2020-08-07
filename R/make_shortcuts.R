@@ -28,10 +28,8 @@
 #'
 #' @return TRUE (invisibly)
 make_shortcuts <- function(file = "R/shortcuts.R") {
-  #browser()
 
-  if (!requireNamespace("bcmaps") || !requireNamespace("bcmapsdata") ||
-      !requireNamespace("glue")) {
+  if (!requireNamespace("bcmaps") || !requireNamespace("glue")) {
     stop("bcmaps, bcmapsdata, and glue all need to be installed.")
   }
 
@@ -63,13 +61,12 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
 
          roxygen_blocker#' {fn_title}
          roxygen_blocker#'
-         roxygen_blocker#' You must have the `bcmapsdata` package installed to use this function.
          roxygen_blocker#'
          roxygen_blocker#' @param class what class you want the object in? `\"sf\"` (default) or `\"sp\"`.
          roxygen_blocker#'
          roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
          roxygen_blocker#'
-         roxygen_blocker#' @details Type `?bcmapsdata::{fn_name}` for details.
+         roxygen_blocker#' @source `bcdata::{make_bcdata_fn(fn_title)}`
          roxygen_blocker#'
          roxygen_blocker#' {seealso}
          roxygen_blocker#'
