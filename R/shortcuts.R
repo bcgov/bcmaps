@@ -15,38 +15,14 @@
 # bcmaps:::make_shortcuts(). Do not edit by hand.
 #############################################################
 
-#' British Columbia Natural Resource (NR) Areas
-#'
-#' You must have the `bcmapsdata` package installed to use this function.
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#'
-#' @return The spatial layer of `nr_areas` in the desired class
-#'
-#' @details Type `?bcmapsdata::nr_areas` for details.
-#'
-#' 
-#'
-#' @examples
-#' \dontrun{
-#' my_layer <- nr_areas()
-#' my_layer_sp <- nr_areas(class = 'sp')
-#' }
-#'
-#' @export
-nr_areas <- function(class = 'sf') {
-   get_layer('nr_areas', class = class)
-}
-
 #' BC Major Cities Points
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `bc_cities` in the desired class
 #'
-#' @details Type `?bcmapsdata::bc_cities` for details.
+#' @source `bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')` for direct access to the B.C. Data Catalogue.
 #'
 #' 
 #'
@@ -59,4 +35,70 @@ nr_areas <- function(class = 'sf') {
 #' @export
 bc_cities <- function(class = 'sf') {
    get_layer('bc_cities', class = class)
+}
+
+#' British Columbia Air Zones
+#'
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `airzones` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'e8eeefc4-2826-47bc-8430-85703d328516', resource = 'c495d082-b586-4df0-9e06-bd6b66a8acd9')` for direct access to the B.C. Data Catalogue.
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- airzones()
+#' my_layer_sp <- airzones(class = 'sp')
+#' }
+#'
+#' @export
+airzones <- function(class = 'sf') {
+   get_layer('airzones', class = class)
+}
+
+#' British Columbia Ecoprovinces
+#'
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `ecoprovinces` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '51832f47-efdf-4956-837a-45fc2c9032dd', resource = '811fcedb-1a53-4574-8149-454f4a740682')` for direct access to the B.C. Data Catalogue.
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- ecoprovinces()
+#' my_layer_sp <- ecoprovinces(class = 'sp')
+#' }
+#'
+#' @export
+ecoprovinces <- function(class = 'sf') {
+   get_layer('ecoprovinces', class = class)
+}
+
+#' British Columbia Natural Resource (NR) Areas
+#'
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `nr_areas` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')` for direct access to the B.C. Data Catalogue.
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- nr_areas()
+#' my_layer_sp <- nr_areas(class = 'sp')
+#' }
+#'
+#' @export
+nr_areas <- function(class = 'sf') {
+   get_layer('nr_areas', class = class)
 }

@@ -3,6 +3,9 @@
 \name{bc_cities}
 \alias{bc_cities}
 \title{BC Major Cities Points}
+\source{
+\code{bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')} for direct access to the B.C. Data Catalogue.
+}
 \usage{
 bc_cities(class = "sf")
 }
@@ -13,10 +16,7 @@ bc_cities(class = "sf")
 The spatial layer of \code{bc_cities} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::bc_cities} for details.
+BC Major Cities Points
 }
 \examples{
 \dontrun{

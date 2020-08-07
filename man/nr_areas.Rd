@@ -3,6 +3,9 @@
 \name{nr_areas}
 \alias{nr_areas}
 \title{British Columbia Natural Resource (NR) Areas}
+\source{
+\code{bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')} for direct access to the B.C. Data Catalogue.
+}
 \usage{
 nr_areas(class = "sf")
 }
@@ -13,10 +16,7 @@ nr_areas(class = "sf")
 The spatial layer of \code{nr_areas} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::nr_areas} for details.
+British Columbia Natural Resource (NR) Areas
 }
 \examples{
 \dontrun{
