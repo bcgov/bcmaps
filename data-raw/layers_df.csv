@@ -1,4 +1,23 @@
 layer_name,title,record,resource, local
-nr_areas,British Columbia Natural Resource (NR) Areas,c1861ba4-abb8-4947-b3e5-7f7c4d7257d5,4b317896-1a42-4c03-9dbd-bff996d5ea0c, FALSE
 bc_cities,BC Major Cities Points, b678c432-c5c1-4341-88db-0d6befa0c7f8, 443dd858-2e37-4a8f-937a-f53359f16e64, FALSE
-bc_bound_hres, High Resolution BC Boundary, NA, NA, TRUE
+bc_bound_hres,High Resolution BC Boundary, NA, NA, TRUE
+airzones,British Columbia Air Zones,e8eeefc4-2826-47bc-8430-85703d328516,c495d082-b586-4df0-9e06-bd6b66a8acd9,FALSE
+ecoprovinces,British Columbia Ecoprovinces,51832f47-efdf-4956-837a-45fc2c9032dd,811fcedb-1a53-4574-8149-454f4a740682,FALSE
+ecoregions,British Columbia Ecoregions,,,
+ecosections,British Columbia Ecosections,,,
+gw_aquifers,British Columbia's developed ground water aquifers,,,
+hydrozones,Hydrologic Zone Boundaries of British Columbia,,,
+munipalities,British Columbia Municipalities,,,
+nr_areas,British Columbia Natural Resource (NR) Areas,c1861ba4-abb8-4947-b3e5-7f7c4d7257d5,4b317896-1a42-4c03-9dbd-bff996d5ea0c, FALSE
+nr_districts,British Columbia Natural Resource (NR) Districts,,,
+nr_regions,British Columbia Natural Resource (NR) Regions,,,
+regional_districts,British Columbia Regional Districts,,,
+water_districts,British Columbia's Water Management Districts,,,
+water_precincts,British Columbia's Water Management Precincts,,,
+watercourses_15M,British Columbia's Water Management Precincts,,,
+watercourses_5M,British Columbia watercourses at 1:5M scale,,,
+wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,,,
+bc_bound,BC Boundary,,,
+bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",,,
+bec,,,,
+tsa,,,,
