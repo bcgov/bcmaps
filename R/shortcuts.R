@@ -19,10 +19,12 @@
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `bc_cities` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')`
 #'
 #' 
 #'
@@ -33,18 +35,20 @@
 #' }
 #'
 #' @export
-bc_cities <- function(class = 'sf') {
-   get_layer('bc_cities', class = class)
+bc_cities <- function(class = 'sf', ask = interactive()) {
+   get_layer('bc_cities', class = class, ask = ask)
 }
 
 #' British Columbia Air Zones
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `airzones` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'e8eeefc4-2826-47bc-8430-85703d328516', resource = 'c495d082-b586-4df0-9e06-bd6b66a8acd9')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'e8eeefc4-2826-47bc-8430-85703d328516', resource = 'c495d082-b586-4df0-9e06-bd6b66a8acd9')`
 #'
 #' 
 #'
@@ -55,18 +59,20 @@ bc_cities <- function(class = 'sf') {
 #' }
 #'
 #' @export
-airzones <- function(class = 'sf') {
-   get_layer('airzones', class = class)
+airzones <- function(class = 'sf', ask = interactive()) {
+   get_layer('airzones', class = class, ask = ask)
 }
 
 #' British Columbia Ecoprovinces
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `ecoprovinces` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = '51832f47-efdf-4956-837a-45fc2c9032dd', resource = '811fcedb-1a53-4574-8149-454f4a740682')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = '51832f47-efdf-4956-837a-45fc2c9032dd', resource = '811fcedb-1a53-4574-8149-454f4a740682')`
 #'
 #' 
 #'
@@ -77,18 +83,20 @@ airzones <- function(class = 'sf') {
 #' }
 #'
 #' @export
-ecoprovinces <- function(class = 'sf') {
-   get_layer('ecoprovinces', class = class)
+ecoprovinces <- function(class = 'sf', ask = interactive()) {
+   get_layer('ecoprovinces', class = class, ask = ask)
 }
 
 #' British Columbia Ecoregions
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `ecoregions` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'd00389e0-66da-4895-bd56-39a0dd64aa78', resource = 'bd816a86-4f5e-4989-b1df-0b2f3f4a5f86')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'd00389e0-66da-4895-bd56-39a0dd64aa78', resource = 'bd816a86-4f5e-4989-b1df-0b2f3f4a5f86')`
 #'
 #' 
 #'
@@ -99,18 +107,20 @@ ecoprovinces <- function(class = 'sf') {
 #' }
 #'
 #' @export
-ecoregions <- function(class = 'sf') {
-   get_layer('ecoregions', class = class)
+ecoregions <- function(class = 'sf', ask = interactive()) {
+   get_layer('ecoregions', class = class, ask = ask)
 }
 
 #' British Columbia Ecosections
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `ecosections` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'ccc01f43-860d-4583-8ba4-e72d8379441e', resource = '6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'ccc01f43-860d-4583-8ba4-e72d8379441e', resource = '6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6')`
 #'
 #' 
 #'
@@ -121,18 +131,20 @@ ecoregions <- function(class = 'sf') {
 #' }
 #'
 #' @export
-ecosections <- function(class = 'sf') {
-   get_layer('ecosections', class = class)
+ecosections <- function(class = 'sf', ask = interactive()) {
+   get_layer('ecosections', class = class, ask = ask)
 }
 
 #' British Columbia's developed ground water aquifers
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `gw_aquifers` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = '099d69c5-1401-484d-9e19-c121ccb7977c', resource = '8f421e3a-ccd3-4fab-8198-53ad6e9e2af2')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = '099d69c5-1401-484d-9e19-c121ccb7977c', resource = '8f421e3a-ccd3-4fab-8198-53ad6e9e2af2')`
 #'
 #' 
 #'
@@ -143,18 +155,20 @@ ecosections <- function(class = 'sf') {
 #' }
 #'
 #' @export
-gw_aquifers <- function(class = 'sf') {
-   get_layer('gw_aquifers', class = class)
+gw_aquifers <- function(class = 'sf', ask = interactive()) {
+   get_layer('gw_aquifers', class = class, ask = ask)
 }
 
 #' Hydrologic Zone Boundaries of British Columbia
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `hydrozones` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = '329fd234-8835-4d44-9aaa-97c37bfc8d92', resource = 'baeb665e-85c7-4a7b-8e67-8b956785490a')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = '329fd234-8835-4d44-9aaa-97c37bfc8d92', resource = 'baeb665e-85c7-4a7b-8e67-8b956785490a')`
 #'
 #' 
 #'
@@ -165,18 +179,20 @@ gw_aquifers <- function(class = 'sf') {
 #' }
 #'
 #' @export
-hydrozones <- function(class = 'sf') {
-   get_layer('hydrozones', class = class)
+hydrozones <- function(class = 'sf', ask = interactive()) {
+   get_layer('hydrozones', class = class, ask = ask)
 }
 
 #' British Columbia Municipalities
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `munipalities` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')`
 #'
 #' 
 #'
@@ -187,18 +203,20 @@ hydrozones <- function(class = 'sf') {
 #' }
 #'
 #' @export
-munipalities <- function(class = 'sf') {
-   get_layer('munipalities', class = class)
+munipalities <- function(class = 'sf', ask = interactive()) {
+   get_layer('munipalities', class = class, ask = ask)
 }
 
 #' British Columbia Natural Resource (NR) Areas
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `nr_areas` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')`
 #'
 #' 
 #'
@@ -209,18 +227,20 @@ munipalities <- function(class = 'sf') {
 #' }
 #'
 #' @export
-nr_areas <- function(class = 'sf') {
-   get_layer('nr_areas', class = class)
+nr_areas <- function(class = 'sf', ask = interactive()) {
+   get_layer('nr_areas', class = class, ask = ask)
 }
 
 #' British Columbia Natural Resource (NR) Districts
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `nr_districts` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = '0bc73892-e41f-41d0-8d8e-828c16139337', resource = 'e6676e55-2a6f-4b2b-91ad-3caf291ac5d4')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = '0bc73892-e41f-41d0-8d8e-828c16139337', resource = 'e6676e55-2a6f-4b2b-91ad-3caf291ac5d4')`
 #'
 #' 
 #'
@@ -231,18 +251,20 @@ nr_areas <- function(class = 'sf') {
 #' }
 #'
 #' @export
-nr_districts <- function(class = 'sf') {
-   get_layer('nr_districts', class = class)
+nr_districts <- function(class = 'sf', ask = interactive()) {
+   get_layer('nr_districts', class = class, ask = ask)
 }
 
 #' British Columbia Natural Resource (NR) Regions
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `nr_regions` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'dfc492c0-69c5-4c20-a6de-2c9bc999301f', resource = 'ec636f64-9c5f-4704-8e66-2dd43032c9b5')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'dfc492c0-69c5-4c20-a6de-2c9bc999301f', resource = 'ec636f64-9c5f-4704-8e66-2dd43032c9b5')`
 #'
 #' 
 #'
@@ -253,18 +275,20 @@ nr_districts <- function(class = 'sf') {
 #' }
 #'
 #' @export
-nr_regions <- function(class = 'sf') {
-   get_layer('nr_regions', class = class)
+nr_regions <- function(class = 'sf', ask = interactive()) {
+   get_layer('nr_regions', class = class, ask = ask)
 }
 
 #' British Columbia Regional Districts
 #'
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param ask Should the function ask the user before downloading the data to a cache?
+#' Defaults to the value of interactive()
 #'
 #' @return The spatial layer of `regional_districts` in the desired class
 #'
-#' @source `bcdata::bcdc_get_data(record = 'd1aff64e-dbfe-45a6-af97-582b7f6418b9', resource = '57c7f719-dc87-415c-8be7-ef2f95289397')` for direct access to the B.C. Data Catalogue.
+#' @source `bcdata::bcdc_get_data(record = 'd1aff64e-dbfe-45a6-af97-582b7f6418b9', resource = '57c7f719-dc87-415c-8be7-ef2f95289397')`
 #'
 #' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
 #'
@@ -275,6 +299,6 @@ nr_regions <- function(class = 'sf') {
 #' }
 #'
 #' @export
-regional_districts <- function(class = 'sf') {
-   get_layer('regional_districts', class = class)
+regional_districts <- function(class = 'sf', ask = interactive()) {
+   get_layer('regional_districts', class = class, ask = ask)
 }

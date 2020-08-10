@@ -15,6 +15,7 @@
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
 #' @param class The class of the layer returned. Can be either `"sf"` (default) or `"sp"`
+#' @param ask Should the function ask the user before downloading the data to a cache?
 #' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded. Ignored if the
 #' layer is available locally in `bcmapsdata`.
 #'
@@ -28,7 +29,7 @@
 #'  # As a "Spatial" (sp) object
 #'  get_layer("watercourses_15M")
 #' }
-get_layer <- function(layer, class = c("sf", "sp"), ...) {
+get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, ...) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n
@@ -43,7 +44,7 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
     stop(layer, " is not an available layer")
   }
 
-  ret <- get_catalogue_data(layer, class, ...)
+  ret <- get_catalogue_data(layer, ask = ask, ...)
 
 
   if (class == "sp") {
@@ -114,8 +115,7 @@ print.avail_layers <- function(x, ...) {
 
 
 
-get_catalogue_data <- function(what, class= c("sf", "sp"), release = "latest", force = FALSE, ask = TRUE) {
-  class <- match.arg(class)
+get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TRUE) {
   fname <- paste0(what, ".rds")
   dir <- data_dir()
   fpath <- file.path(dir, fname)
@@ -124,16 +124,12 @@ get_catalogue_data <- function(what, class= c("sf", "sp"), release = "latest", f
     check_write_to_data_dir(dir, ask)
     recordid <- layers_df$record[layers_df$layer_name == what]
     resourceid <- layers_df$resource[layers_df$layer_name == what]
-    ret <- bcdc_get_data(recordid, resourceid)
+    ret <- bcdata::bcdc_get_data(recordid, resourceid)
     saveRDS(ret, fpath)
   } else {
     ret <- readRDS(fpath)
     time <- attributes(ret)$time_downloaded
     message(paste0(what, ' was updated on ', format(time, "%Y-%m-%d")))
-  }
-
-  if (class == "sp") {
-    ret <- convert_to_sp(ret)
   }
 
   ret

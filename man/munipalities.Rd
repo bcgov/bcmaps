@@ -4,13 +4,16 @@
 \alias{munipalities}
 \title{British Columbia Municipalities}
 \source{
-\code{bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')} for direct access to the B.C. Data Catalogue.
+\code{bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')}
 }
 \usage{
-munipalities(class = "sf")
+munipalities(class = "sf", ask = interactive())
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache?
+Defaults to the value of interactive()}
 }
 \value{
 The spatial layer of \code{munipalities} in the desired class

@@ -13,10 +13,7 @@ bc_bound_hres(class = "sf")
 The spatial layer of \code{bc_bound_hres} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::bc_bound_hres} for details.
+BC Boundary - High Resolution
 }
 \examples{
 \dontrun{

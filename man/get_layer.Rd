@@ -4,13 +4,15 @@
 \alias{get_layer}
 \title{Get a B.C. spatial layer}
 \usage{
-get_layer(layer, class = c("sf", "sp"), ...)
+get_layer(layer, class = c("sf", "sp"), ask = TRUE, ...)
 }
 \arguments{
 \item{layer}{the name of the layer. The list of available layers can be
 obtained by running \code{available_layers()}}
 
 \item{class}{The class of the layer returned. Can be either \code{"sf"} (default) or \code{"sp"}}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache?}
 
 \item{...}{arguments passed on to \link{get_big_data} if the layer needs to be downloaded. Ignored if the
 layer is available locally in \code{bcmapsdata}.}
