@@ -63,8 +63,8 @@ All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005]
 If we look at the `proj4string` for `bc_bound` and our `spp_df`, we see that they are different:
 
 ```{r collapse=TRUE}
-bc_bound <- get_layer("bc_bound")
-st_crs(bc_bound)
+bc_bound_data <- bc_bound()
+st_crs(bc_bound_data)
 st_crs(spp)
 ```
 
