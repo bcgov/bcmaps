@@ -28,7 +28,7 @@
 #'
 #' @export
 bc_bound_hres <- function(class = 'sf') {
-  if (class == "sp") convert_to_sp(bc_bound_hres_raw)
+  if (class == "sp") bc_bound_hres_raw <- convert_to_sp(bc_bound_hres_raw)
 
   bc_bound_hres_raw
 
@@ -52,7 +52,7 @@ bc_bound_hres <- function(class = 'sf') {
 #'
 #' @export
 bc_bound <- function(class = 'sf') {
-  if (class == "sp") convert_to_sp(bc_bound_raw)
+  if (class == "sp") bc_bound_raw <- convert_to_sp(bc_bound_raw)
 
   bc_bound_raw
 }
