@@ -30,4 +30,6 @@ if (!file.exists(shp_path)) {
 
 bc_bound_hres_raw <- process_file(shp_path, filter_stmt = PRUID == 59)
 
-use_data(bc_bound_hres_raw, overwrite = TRUE, compress = "xz")
+
+use_data(bc_bound_hres_raw, bc_bound_raw, layers_df,
+         overwrite = TRUE, internal = TRUE, compress = "xz")

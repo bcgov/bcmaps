@@ -33,13 +33,12 @@ unzip(bc_bound_zip, files = files_to_extract, exdir = bc_bound_dir)
 # proj4string(bc_bound) <- CRS("+init=epsg:4267")
 
 
-bc_bound <- process_file(file.path(bc_bound_dir, "pvp.shp"),
+bc_bound_raw <- process_file(file.path(bc_bound_dir, "pvp.shp"),
              filter_stmt = NAME_E == "British Columbia", crs = 4267)
 
 ## Combine ISLAND with ISLAND_E to get one island column
-bc_bound$island <- with(bc_bound, pmax(ISLAND, ISLAND_E, na.rm = TRUE))
+bc_bound_raw$island <- with(bc_bound_raw, pmax(ISLAND, ISLAND_E, na.rm = TRUE))
 
-bc_bound_raw <- bc_bound[, "island", drop = FALSE]
+bc_bound_raw <- bc_bound_raw[, "island", drop = FALSE]
 
-use_data(bc_bound_raw, overwrite = TRUE, compress = "xz")
 
