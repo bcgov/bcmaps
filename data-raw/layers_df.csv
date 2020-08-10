@@ -17,7 +17,7 @@ water_precincts,British Columbia's Water Management Precincts,,,
 watercourses_15M,British Columbia's Water Management Precincts,,,
 watercourses_5M,British Columbia watercourses at 1:5M scale,,,
 wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,,,
-bc_bound,BC Boundary,,,
+bc_bound,BC Boundary, NA, NA, TRUE
 bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",,,
 bec,,,,
 tsa,,,,

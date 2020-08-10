@@ -12,13 +12,11 @@
 
 #' BC Boundary - High Resolution
 #'
-#' You must have the `bcmapsdata` package installed to use this function.
 #'
 #' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
 #'
 #' @return The spatial layer of `bc_bound_hres` in the desired class
 #'
-#' @details Type `?bcmapsdata::bc_bound_hres` for details.
 #'
 #'
 #'
@@ -30,5 +28,31 @@
 #'
 #' @export
 bc_bound_hres <- function(class = 'sf') {
+  if (class == "sp") convert_to_sp(bc_bound_hres_raw)
+
   bc_bound_hres_raw
+
+}
+
+
+#' BC Boundary
+#'
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#'
+#' @return The spatial layer of `bc_bound` in the desired class
+#'
+#'
+#'
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- bc_bound()
+#' my_layer_sp <- bc_bound(class = 'sp')
+#' }
+#'
+#' @export
+bc_bound <- function(class = 'sf') {
+  if (class == "sp") convert_to_sp(bc_bound_raw)
+
+  bc_bound_raw
 }
