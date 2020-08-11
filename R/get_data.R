@@ -73,7 +73,7 @@ convert_to_sp <- function(sf_obj) {
 #' List available data layers
 #'
 #' A data.frame of all available layers in the bcmaps package. This drawn
-#' directly from the bcmapsdata package and will therefore be the most current list
+#' directly from the B.C. Data Catalogue and will therefore be the most current list
 #' layers available.
 #'
 #' @return A `data.frame` of layers, with titles, and a `shortcut_function` column

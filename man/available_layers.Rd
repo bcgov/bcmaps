@@ -19,7 +19,7 @@ on your hard drive.
 }
 \description{
 A data.frame of all available layers in the bcmaps package. This drawn
-directly from the bcmapsdata package and will therefore be the most current list
+directly from the B.C. Data Catalogue and will therefore be the most current list
 layers available.
 }
 \examples{
