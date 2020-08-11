@@ -10,11 +10,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Make shortcut functions for data objects in bcmapsdata
+#' Make shortcut functions for data objects in bcmaps from B.C. Data Catalogue
 #'
 #' This generates a `shortcuts.R` file in the `R` directory, with function definitions
-#' and roxygen blocks for each data object in `bcmapsdata`. This ensures that each
-#' data object in `bcmapsdata` can be accessed directly from `bcmaps` by a
+#' and roxygen blocks for each data object in `bcmaps`. This ensures that each
+#' data object can be accessed directly from `bcmaps` by a
 #' function such as `bc_bound()`, or `airzones("sp")`.
 #'
 #' Run this function each time you add a new data object.
@@ -30,7 +30,7 @@
 make_shortcuts <- function(file = "R/shortcuts.R") {
 
   if (!requireNamespace("bcmaps") || !requireNamespace("glue")) {
-    stop("bcmaps, bcmapsdata, and glue all need to be installed.")
+    stop("bcmaps, and glue all need to be installed.")
   }
 
   layers <- bcmaps::available_layers()

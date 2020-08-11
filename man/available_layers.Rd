@@ -14,7 +14,7 @@ A value of \code{FALSE} in this column means the layer is available via \code{ge
 there is no shortcut function for it.
 
 A value of \code{FALSE} in the \code{local} column means that the layer is not stored in the
-bcmapsdata package but will be downloaded from the internet and cached
+bcmaps package but will be downloaded from the internet and cached
 on your hard drive.
 }
 \description{

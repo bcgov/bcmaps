@@ -83,7 +83,7 @@ convert_to_sp <- function(sf_obj) {
 #' there is no shortcut function for it.
 #'
 #' A value of `FALSE` in the `local` column means that the layer is not stored in the
-#' bcmapsdata package but will be downloaded from the internet and cached
+#' bcmaps package but will be downloaded from the internet and cached
 #' on your hard drive.
 #'
 #' @examples
@@ -103,12 +103,8 @@ available_layers <- function() {
 print.avail_layers <- function(x, ...) {
   print(structure(x, class = setdiff(class(x), "avail_layers")))
   cat("\n------------------------\n")
-  cat("Layers with a value of TRUE in the 'shortcut_function' column can be accessed\n")
-  cat("with a function with the same name as the layer (e.g., `bc_bound()`),\n")
-  cat("otherwise it needs to be accessed with the get_layer function.\n")
-  cat("\n")
   cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
-  cat("bcmapsdata package but will be downloaded from the internet and cached\n")
+  cat("bcmaps package but will be downloaded from the internet and cached\n")
   cat("on your hard drive.")
 }
 

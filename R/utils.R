@@ -352,7 +352,7 @@ ask <- function(...) {
 #'
 #' @examples
 #' \dontrun{
-#' if (require("bcmapsdata") && #' require(sf) && require(ggplot2)) {
+#' if (require(sf) && require(ggplot2)) {
 #'  bec <- bec()
 #'  ggplot() +
 #'    geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
@@ -387,11 +387,11 @@ bec_colors <- bec_colours
 #' @export
 #'
 #' @examples
-#' if (requireNamespace("bcmapsdata", quietly = TRUE)) {
+#'\dontrun{
 #'   bc_bbox("sf")
 #'   bc_bbox("sp")
 #'   bc_bbox("raster")
-#' }
+#'   }
 bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   class <- match.arg(class)
 

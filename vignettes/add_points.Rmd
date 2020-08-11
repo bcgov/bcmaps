@@ -13,7 +13,7 @@ vignette: >
 ---
 
 ```{r options, include=FALSE}
-knitr::opts_chunk$set(eval = requireNamespace("bcmapsdata", quietly = TRUE),
+knitr::opts_chunk$set(eval = TRUE,
                       fig.width = 7, fig.height = 7)
 ```
 
