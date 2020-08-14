@@ -2,7 +2,7 @@
 % Please edit documentation in R/raster_by_poly.R
 \name{raster_by_poly}
 \alias{raster_by_poly}
-\title{Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+\title{Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
 and clip the raster to each polygon. Optionally done in parallel}
 \usage{
 raster_by_poly(
@@ -43,6 +43,6 @@ a list of \code{RasterLayers} if \code{summarize = FALSE} otherwise a list of
 vectors.
 }
 \description{
-Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
 and clip the raster to each polygon. Optionally done in parallel
 }
