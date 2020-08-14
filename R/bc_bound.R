@@ -41,6 +41,7 @@ bc_bound_hres <- function(class = 'sf', ask = interactive(), force = FALSE) {
     ret <- bcdata::bcdc_get_data(record = '30aeb5c1-4285-46c8-b60b-15b1a6f4258b',
                                  resource = '3d72cf36-ab53-4a2a-9988-a883d7488384',
                                  layer = 'BC_Boundary_Terrestrial_Multipart')
+    ret <- rename_sf_col_to_geometry(ret)
     saveRDS(ret, fpath)
   } else {
     ret <- readRDS(fpath)

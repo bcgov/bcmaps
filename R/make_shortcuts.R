@@ -33,8 +33,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
     stop("bcmaps, and glue all need to be installed.")
   }
 
-  layers <- bcmaps::available_layers()
-  layers <- layers[!layers$local, ]
+  layers <- shortcut_layers()
 
   cat(
     glue::glue("

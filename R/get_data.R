@@ -102,9 +102,17 @@ available_layers <- function() {
 print.avail_layers <- function(x, ...) {
   print(structure(x, class = setdiff(class(x), "avail_layers")))
   cat("\n------------------------\n")
-  cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
-  cat("bcmaps package but will be downloaded from the internet and cached\n")
-  cat("on your hard drive.")
+  cat("All layers are downloaded from the internet and cached\n")
+  cat(paste0("on your hard drive at ", data_dir(),"."))
+}
+
+shortcut_layers <- function(){
+  al <- available_layers()
+  al <- al[al$using_shortcuts,]
+  al <- al[!is.na(al$layer_name),]
+  names(al)[1:2] <- c("layer_name", "title")
+  #structure(al, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
+  al
 }
 
 
@@ -114,6 +122,7 @@ get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TR
   fname <- paste0(what, ".rds")
   dir <- data_dir()
   fpath <- file.path(dir, fname)
+  layers_df <- shortcut_layers()
 
   if (!file.exists(fpath) | force) {
     check_write_to_data_dir(dir, ask)
