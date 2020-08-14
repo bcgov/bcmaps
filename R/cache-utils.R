@@ -30,6 +30,8 @@ show_cached_files <- function() {
 #'        Defaults to deleting all files pausing for permission from user. If a subset
 #'        of files are specified, the files are immediately deleted.
 #'
+#' @return A logical of whether the file(s) were successful deleted
+#'
 #' @export
 #' @examples
 #' \dontrun{
@@ -56,6 +58,11 @@ delete_cache <- function(files_to_delete = NULL) {
   }
 
   unlink(rds_files)
+
+  ## return FALSE if any file isn't deleted
+  invisible(all(!file.exists(rds_files)))
+
+
 }
 
 add_rds_suffix <- function(x) {

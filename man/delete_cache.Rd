@@ -11,6 +11,9 @@ delete_cache(files_to_delete = NULL)
 Defaults to deleting all files pausing for permission from user. If a subset
 of files are specified, the files are immediately deleted.}
 }
+\value{
+A logical of whether the file(s) were successful deleted
+}
 \description{
 Delete cached files
 }
