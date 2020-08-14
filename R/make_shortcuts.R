@@ -62,9 +62,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' {fn_title}
          roxygen_blocker#'
          roxygen_blocker#'
-         roxygen_blocker#' @param class what class you want the object in? `\"sf\"` (default) or `\"sp\"`.
-         roxygen_blocker#' @param ask Should the function ask the user before downloading the data to a cache?
-         roxygen_blocker#' Defaults to the value of interactive()
+         roxygen_blocker#' @inheritParams bc_bound_hres
          roxygen_blocker#'
          roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
          roxygen_blocker#'
@@ -79,8 +77,8 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' }}
          roxygen_blocker#'
          roxygen_blocker#' @export
-         {fn_name} <- function(class = 'sf', ask = interactive()) {{
-            get_layer('{fn_name}', class = class, ask = ask)
+         {fn_name} <- function(class = 'sf', ask = interactive(), force = FALSE) {{
+            get_layer('{fn_name}', class = class, ask = ask, force = force)
          }}
 
          ")

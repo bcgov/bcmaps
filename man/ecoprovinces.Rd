@@ -7,13 +7,14 @@
 \code{bcdata::bcdc_get_data(record = '51832f47-efdf-4956-837a-45fc2c9032dd', resource = '811fcedb-1a53-4574-8149-454f4a740682')}
 }
 \usage{
-ecoprovinces(class = "sf", ask = interactive())
+ecoprovinces(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
 
-\item{ask}{Should the function ask the user before downloading the data to a cache?
-Defaults to the value of interactive()}
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{ecoprovinces} in the desired class

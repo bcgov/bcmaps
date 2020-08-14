@@ -7,13 +7,14 @@
 \code{bcdata::bcdc_get_data(record = 'ccc01f43-860d-4583-8ba4-e72d8379441e', resource = '6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6')}
 }
 \usage{
-ecosections(class = "sf", ask = interactive())
+ecosections(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
 
-\item{ask}{Should the function ask the user before downloading the data to a cache?
-Defaults to the value of interactive()}
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{ecosections} in the desired class

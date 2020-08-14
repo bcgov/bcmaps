@@ -7,13 +7,14 @@
 \code{bcdata::bcdc_get_data(record = 'e8eeefc4-2826-47bc-8430-85703d328516', resource = 'c495d082-b586-4df0-9e06-bd6b66a8acd9')}
 }
 \usage{
-airzones(class = "sf", ask = interactive())
+airzones(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
 
-\item{ask}{Should the function ask the user before downloading the data to a cache?
-Defaults to the value of interactive()}
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{airzones} in the desired class

@@ -14,8 +14,7 @@
 #'
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
-#' @param class The class of the layer returned. Can be either `"sf"` (default) or `"sp"`
-#' @param ask Should the function ask the user before downloading the data to a cache?
+#' @inheritParams bc_bound_hres
 #' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded. Ignored if the
 #' layer is available locally in `bcmapsdata`.
 #'
@@ -29,7 +28,7 @@
 #'  # As a "Spatial" (sp) object
 #'  get_layer("watercourses_15M")
 #' }
-get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, ...) {
+get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE, ...) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n
@@ -44,7 +43,7 @@ get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, ...) {
     stop(layer, " is not an available layer")
   }
 
-  ret <- get_catalogue_data(layer, ask = ask, ...)
+  ret <- get_catalogue_data(layer, ask = ask, force = force, ...)
 
 
   if (class == "sp") {

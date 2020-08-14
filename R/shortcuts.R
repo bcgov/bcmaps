@@ -18,9 +18,7 @@
 #' BC Major Cities Points
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `bc_cities` in the desired class
 #'
@@ -35,16 +33,14 @@
 #' }
 #'
 #' @export
-bc_cities <- function(class = 'sf', ask = interactive()) {
-   get_layer('bc_cities', class = class, ask = ask)
+bc_cities <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('bc_cities', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Air Zones
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `airzones` in the desired class
 #'
@@ -59,16 +55,14 @@ bc_cities <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-airzones <- function(class = 'sf', ask = interactive()) {
-   get_layer('airzones', class = class, ask = ask)
+airzones <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('airzones', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Ecoprovinces
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `ecoprovinces` in the desired class
 #'
@@ -83,16 +77,14 @@ airzones <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-ecoprovinces <- function(class = 'sf', ask = interactive()) {
-   get_layer('ecoprovinces', class = class, ask = ask)
+ecoprovinces <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ecoprovinces', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Ecoregions
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `ecoregions` in the desired class
 #'
@@ -107,16 +99,14 @@ ecoprovinces <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-ecoregions <- function(class = 'sf', ask = interactive()) {
-   get_layer('ecoregions', class = class, ask = ask)
+ecoregions <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ecoregions', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Ecosections
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `ecosections` in the desired class
 #'
@@ -131,16 +121,14 @@ ecoregions <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-ecosections <- function(class = 'sf', ask = interactive()) {
-   get_layer('ecosections', class = class, ask = ask)
+ecosections <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ecosections', class = class, ask = ask, force = force)
 }
 
 #' British Columbia's developed ground water aquifers
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `gw_aquifers` in the desired class
 #'
@@ -155,16 +143,14 @@ ecosections <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-gw_aquifers <- function(class = 'sf', ask = interactive()) {
-   get_layer('gw_aquifers', class = class, ask = ask)
+gw_aquifers <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('gw_aquifers', class = class, ask = ask, force = force)
 }
 
 #' Hydrologic Zone Boundaries of British Columbia
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `hydrozones` in the desired class
 #'
@@ -179,16 +165,14 @@ gw_aquifers <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-hydrozones <- function(class = 'sf', ask = interactive()) {
-   get_layer('hydrozones', class = class, ask = ask)
+hydrozones <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('hydrozones', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Municipalities
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `municipalities` in the desired class
 #'
@@ -203,16 +187,14 @@ hydrozones <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-municipalities <- function(class = 'sf', ask = interactive()) {
-   get_layer('municipalities', class = class, ask = ask)
+municipalities <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('municipalities', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Areas
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `nr_areas` in the desired class
 #'
@@ -227,16 +209,14 @@ municipalities <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-nr_areas <- function(class = 'sf', ask = interactive()) {
-   get_layer('nr_areas', class = class, ask = ask)
+nr_areas <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('nr_areas', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Districts
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `nr_districts` in the desired class
 #'
@@ -251,16 +231,14 @@ nr_areas <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-nr_districts <- function(class = 'sf', ask = interactive()) {
-   get_layer('nr_districts', class = class, ask = ask)
+nr_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('nr_districts', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Regions
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `nr_regions` in the desired class
 #'
@@ -275,16 +253,14 @@ nr_districts <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-nr_regions <- function(class = 'sf', ask = interactive()) {
-   get_layer('nr_regions', class = class, ask = ask)
+nr_regions <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('nr_regions', class = class, ask = ask, force = force)
 }
 
 #' British Columbia Regional Districts
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
-#' @param ask Should the function ask the user before downloading the data to a cache?
-#' Defaults to the value of interactive()
+#' @inheritParams bc_bound_hres
 #'
 #' @return The spatial layer of `regional_districts` in the desired class
 #'
@@ -299,6 +275,6 @@ nr_regions <- function(class = 'sf', ask = interactive()) {
 #' }
 #'
 #' @export
-regional_districts <- function(class = 'sf', ask = interactive()) {
-   get_layer('regional_districts', class = class, ask = ask)
+regional_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('regional_districts', class = class, ask = ask, force = force)
 }

@@ -7,13 +7,14 @@
 \code{bcdata::bcdc_get_data(record = '099d69c5-1401-484d-9e19-c121ccb7977c', resource = '8f421e3a-ccd3-4fab-8198-53ad6e9e2af2')}
 }
 \usage{
-gw_aquifers(class = "sf", ask = interactive())
+gw_aquifers(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
 
-\item{ask}{Should the function ask the user before downloading the data to a cache?
-Defaults to the value of interactive()}
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{gw_aquifers} in the desired class
