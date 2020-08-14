@@ -3,11 +3,18 @@
 \name{bc_bound_hres}
 \alias{bc_bound_hres}
 \title{BC Boundary - High Resolution}
+\source{
+\code{bcdc_get_data(record = '30aeb5c1-4285-46c8-b60b-15b1a6f4258b', resource = '3d72cf36-ab53-4a2a-9988-a883d7488384', layer = 'BC_Boundary_Terrestrial_Multipart')}
+}
 \usage{
-bc_bound_hres(class = "sf")
+bc_bound_hres(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache?}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{bc_bound_hres} in the desired class
