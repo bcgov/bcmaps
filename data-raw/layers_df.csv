@@ -12,12 +12,12 @@ nr_areas,British Columbia Natural Resource (NR) Areas,c1861ba4-abb8-4947-b3e5-7f
 nr_districts,British Columbia Natural Resource (NR) Districts,0bc73892-e41f-41d0-8d8e-828c16139337,e6676e55-2a6f-4b2b-91ad-3caf291ac5d4,FALSE,TRUE
 nr_regions,British Columbia Natural Resource (NR) Regions,dfc492c0-69c5-4c20-a6de-2c9bc999301f,ec636f64-9c5f-4704-8e66-2dd43032c9b5,FALSE,TRUE
 regional_districts,British Columbia Regional Districts,d1aff64e-dbfe-45a6-af97-582b7f6418b9,57c7f719-dc87-415c-8be7-ef2f95289397,FALSE,TRUE
-water_districts,British Columbia's Water Management Districts,,,,
-water_precincts,British Columbia's Water Management Precincts,,,,
-watercourses_15M,British Columbia's Water Management Precincts,,,,
+water_districts,British Columbia's Water Management Districts,92cb3ad8-9582-48a9-9e79-9a9d33601e50,07f9aa3f-0b66-4a49-919f-332d12bcd8f0,FALSE,TRUE
+water_precincts,British Columbia's Water Management Precincts,b5f436b4-532c-4ee2-ba27-90d55ec8c73f ,e482fd4a-be58-4541-8e0d-c39a764fd0a3,FALSE,TRUE
+watercourses_15M,British Columbia watercourses at 1:15M scale,,,,
 watercourses_5M,British Columbia watercourses at 1:5M scale,,,,
-wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,,,,
+wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,7ae18a3c-917b-4cb1-9aa8-51a172475dbb,4455072e-d33b-4685-9edd-cffda763dd45,FALSE,TRUE
 bc_bound,BC Boundary,b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
 bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
-bec,,,,,
-tsa,,,,,
+bec,British Columbia BEC Map,,,TRUE,FALSE
+tsa,British Columbia Timber Supply Areas and TSA Blocks,,,TRUE,FALSE

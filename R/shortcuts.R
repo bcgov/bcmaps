@@ -278,3 +278,69 @@ nr_regions <- function(class = 'sf', ask = interactive(), force = FALSE) {
 regional_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
    get_layer('regional_districts', class = class, ask = ask, force = force)
 }
+
+#' British Columbia's Water Management Districts
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `water_districts` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '92cb3ad8-9582-48a9-9e79-9a9d33601e50', resource = '07f9aa3f-0b66-4a49-919f-332d12bcd8f0')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- water_districts()
+#' my_layer_sp <- water_districts(class = 'sp')
+#' }
+#'
+#' @export
+water_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('water_districts', class = class, ask = ask, force = force)
+}
+
+#' British Columbia's Water Management Precincts
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `water_precincts` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'b5f436b4-532c-4ee2-ba27-90d55ec8c73f', resource = 'e482fd4a-be58-4541-8e0d-c39a764fd0a3')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- water_precincts()
+#' my_layer_sp <- water_precincts(class = 'sp')
+#' }
+#'
+#' @export
+water_precincts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('water_precincts', class = class, ask = ask, force = force)
+}
+
+#' Water Survey of Canada Sub-Sub-Drainage Areas
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `wsc_drainages` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '7ae18a3c-917b-4cb1-9aa8-51a172475dbb', resource = '4455072e-d33b-4685-9edd-cffda763dd45')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- wsc_drainages()
+#' my_layer_sp <- wsc_drainages(class = 'sp')
+#' }
+#'
+#' @export
+wsc_drainages <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('wsc_drainages', class = class, ask = ask, force = force)
+}
