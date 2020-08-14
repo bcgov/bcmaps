@@ -13,7 +13,7 @@
 ## Code to prepare the layers_df internal data
 layers_df <- readr::read_csv("data-raw/layers_df.csv")
 
-layers_df <- layers_df[!is.na(layers_df$record),]
-layers_df <- layers_df[!layers_df$local,]
+# layers_df <- layers_df[!is.na(layers_df$record),]
+# layers_df <- layers_df[!layers_df$local,]
 
 use_data(layers_df, overwrite = TRUE, internal = TRUE, compress = "xz")
