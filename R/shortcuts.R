@@ -190,21 +190,21 @@ hydrozones <- function(class = 'sf', ask = interactive()) {
 #' @param ask Should the function ask the user before downloading the data to a cache?
 #' Defaults to the value of interactive()
 #'
-#' @return The spatial layer of `munipalities` in the desired class
+#' @return The spatial layer of `municipalities` in the desired class
 #'
 #' @source `bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')`
 #'
-#' 
+#' @seealso [combine_nr_rd()] to combine Regional Districts and the Northern Rockies Regional Municipality into one layer
 #'
 #' @examples
 #' \dontrun{
-#' my_layer <- munipalities()
-#' my_layer_sp <- munipalities(class = 'sp')
+#' my_layer <- municipalities()
+#' my_layer_sp <- municipalities(class = 'sp')
 #' }
 #'
 #' @export
-munipalities <- function(class = 'sf', ask = interactive()) {
-   get_layer('munipalities', class = class, ask = ask)
+municipalities <- function(class = 'sf', ask = interactive()) {
+   get_layer('municipalities', class = class, ask = ask)
 }
 
 #' British Columbia Natural Resource (NR) Areas
