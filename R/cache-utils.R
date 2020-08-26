@@ -49,10 +49,12 @@ delete_cache <- function(files_to_delete = NULL) {
   files <- show_cached_files()
 
   if(is.null(files_to_delete)) {
-    ans <- ask(paste0("These are all the files you currently have stored locally: \n",
-               paste0(files, collapse = "\n"),
-               "\n \nAre you sure you want to delete all these files: \n"))
-    if(!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
+    if (interactive()) {
+      ans <- ask(paste0("These are all the files you currently have stored locally: \n",
+                        paste0(files, collapse = "\n"),
+                        "\n \nAre you sure you want to delete all these files: \n"))
+      if(!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
+    }
   } else {
     files <- file.path(data_dir(), add_rds_suffix(files_to_delete))
   }
