@@ -110,7 +110,9 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
   ret
 }
 
-data_dir <- function() rappdirs::user_data_dir("bcmaps")
+data_dir <- function() {
+  getOption("bcmaps.data_dir", default = rappdirs::user_data_dir("bcmaps"))
+}
 
 check_write_to_data_dir <- function(dir, ask) {
 
