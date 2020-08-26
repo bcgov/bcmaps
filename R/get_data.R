@@ -15,8 +15,8 @@
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
 #' @inheritParams bc_bound_hres
-#' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded. Ignored if the
-#' layer is available locally in `bcmapsdata`.
+#' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded from a
+#' `bcmapsdata` release.
 #'
 #' @return the layer requested
 #' @export

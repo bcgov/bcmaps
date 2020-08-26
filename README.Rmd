@@ -39,8 +39,7 @@ administrative boundaries, natural resource management boundaries, watercourses 
 All layers are available in the
 [BC Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the B.C. Government standard as `sf` or `Spatial` objects. 
 
-Layers are stored in the [bcmapsdata](https://github.com/bcgov/bcmapsdata) package 
-and loaded by this package, following the strategy recommended by [Anderson and Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html). 
+Most layers are assessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package. See each layers individual help file for more detail.
 
 ## Installation
 
@@ -58,19 +57,8 @@ remotes::install_github("bcgov/bcmaps")
 
 ## Usage
 
-To get full usage of the package, you will also need to install the 
-[**bcmapsdata**](https://github.com/bcgov/bcmapsdata) package, which holds 
-all of the datasets. 
-
-_Note that unlike most packages it is not necessary to actually load the **bcmapsdata** package
-(i.e., with `library(bcmapsdata)`) - in fact it is less likely to cause problems if you don't._
-
-```{r, eval=FALSE}
-install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')
-```
-
 To see the layers that are available, run the `available_layers()` function:
-```{r, echo=FALSE}
+```{r, echo=FALSE, warning=FALSE}
 library(bcmaps)
 ```
 
@@ -80,27 +68,15 @@ available_layers()
 ```
 
 Most layers are accessible by a shortcut function by the same name as the object. 
-Then you can use the data as you would any `sf` or `Spatial` object. For example:
+Then you can use the data as you would any `sf` or `Spatial` object. The first time
+you run try to access a layer, you will be prompted for permission to download that layer
+to your hard drive. Subsequently that layer is available locally for easy future access. For example:
 
 ```{r}
 library(sf)
 
 bc <- bc_bound()
 plot(st_geometry(bc))
-```
-
-Alternatively, you can use the `get_layer` function - simply type `get_layer('layer_name')`, 
-where `'layer_name'` is the name of the layer of interest. The `get_layer` function is
-useful if the back-end `bcmapsdata` package has had a layer added to it, but there is 
-as yet no shortcut function created in `bcmaps`.
-
-```{r, message=FALSE}
-library(sf)
-library(dplyr)
-
-ws <- get_layer("wsc_drainages", class = "sf")
-
-plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
 ```
 
 ### Simple Features objects
@@ -132,7 +108,7 @@ ggplot() +
   geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
   geom_sf(data = bc_cities()) +
   coord_sf(datum = NA) +
-  scale_fill_discrete(name = "Jurisdiction") +
+  scale_fill_viridis_d(name = "Jurisdiction") +
   theme_minimal()
 ```
 
@@ -166,7 +142,7 @@ way of doing things, set `class = "sp"` in either `get_layer` or the shortcut fu
 ```{r watercourses, warning=FALSE}
 library("sp")
 # Load watercourse data and plot with boundaries of B.C.
-plot(get_layer("bc_bound", class = "sp"))
+plot(bc_bound(class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 

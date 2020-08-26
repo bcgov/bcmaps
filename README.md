@@ -30,10 +30,10 @@ Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/)
 projection, which is the B.C. Government standard as `sf` or `Spatial`
 objects.
 
-Layers are stored in the
-[bcmapsdata](https://github.com/bcgov/bcmapsdata) package and loaded by
-this package, following the strategy recommended by [Anderson and
-Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html).
+Most layers are assessed directly from the [B.C. Data
+Catalogue](https://catalogue.data.gov.bc.ca/) using the
+[bcdata](https://github.com/bcgov/bcdata) R package. See each layers
+individual help file for more detail.
 
 ## Installation
 
@@ -53,23 +53,11 @@ remotes::install_github("bcgov/bcmaps")
 
 ## Usage
 
-To get full usage of the package, you will also need to install the
-[**bcmapsdata**](https://github.com/bcgov/bcmapsdata) package, which
-holds all of the datasets.
-
-*Note that unlike most packages it is not necessary to actually load the
-**bcmapsdata** package (i.e., with `library(bcmapsdata)`) - in fact it
-is less likely to cause problems if you don’t.*
-
-``` r
-install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')
-```
-
 To see the layers that are available, run the `available_layers()`
 function:
 
     #> Loading required package: sf
-    #> Linking to GEOS 3.8.1, GDAL 2.4.4, PROJ 7.0.0
+    #> Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
 
 ``` r
 library(bcmaps)
@@ -78,33 +66,20 @@ available_layers()
 
 Most layers are accessible by a shortcut function by the same name as
 the object. Then you can use the data as you would any `sf` or `Spatial`
-object. For example:
+object. The first time you run try to access a layer, you will be
+prompted for permission to download that layer to your hard drive.
+Subsequently that layer is available locally for easy future access. For
+example:
 
 ``` r
 library(sf)
 
 bc <- bc_bound()
+#> bc_bound was updated on 2020-08-26
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-7-1.png)<!-- -->
-
-Alternatively, you can use the `get_layer` function - simply type
-`get_layer('layer_name')`, where `'layer_name'` is the name of the layer
-of interest. The `get_layer` function is useful if the back-end
-`bcmapsdata` package has had a layer added to it, but there is as yet no
-shortcut function created in `bcmaps`.
-
-``` r
-library(sf)
-library(dplyr)
-
-ws <- get_layer("wsc_drainages", class = "sf")
-
-plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
-```
-
-![](tools/readme/unnamed-chunk-8-1.png)<!-- -->
+![](tools/readme/unnamed-chunk-6-1.png)<!-- -->
 
 ### Simple Features objects
 
@@ -118,10 +93,12 @@ library(sf)
 # Load and plot the boundaries of B.C.
 
 bc <- bc_bound()
+#> bc_bound was updated on 2020-08-26
 plot(st_geometry(bc))
 
 ## Next load the Regional Districts data, then extract and plot the Kootenays
 rd <- regional_districts()
+#> regional_districts was updated on 2020-08-26
 kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
@@ -141,8 +118,10 @@ ggplot() +
   geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
   geom_sf(data = bc_cities()) +
   coord_sf(datum = NA) +
-  scale_fill_discrete(name = "Jurisdiction") +
+  scale_fill_viridis_d(name = "Jurisdiction") +
   theme_minimal()
+#> bc_bound was updated on 2020-08-26
+#> bc_cities was updated on 2020-08-26
 ```
 
 ![](tools/readme/bc_neighbours-1.png)<!-- -->
@@ -174,8 +153,10 @@ If you aren’t using the `sf` package and prefer the old standard
 ``` r
 library("sp")
 # Load watercourse data and plot with boundaries of B.C.
-plot(get_layer("bc_bound", class = "sp"))
+plot(bc_bound(class = "sp"))
+#> bc_bound was updated on 2020-08-26
 plot(watercourses_15M(class = "sp"), add = TRUE)
+#> watercourses_15M was updated on NULL
 ```
 
 ![](tools/readme/watercourses-1.png)<!-- -->
