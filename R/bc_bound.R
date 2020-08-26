@@ -147,7 +147,9 @@ bc_neighbours <- function(class = 'sf', ask = interactive(), force = FALSE) {
 
     ## Bind the neighbours and ocean data together and aggregate
     ret <- rbind(bc_neighbours, bc_oceans)
-    ret <- stats::aggregate(ret, by = list(group = ret$name), FUN = function(x) unique(x), do_union = TRUE)
+    ret <- stats::aggregate(ret, by = list(ret$iso_a2, ret$name, ret$type),
+                            FUN = unique, do_union = TRUE)
+    ret <- ret[, !grepl("Group\\.", names(ret))]
 
 
     class(ret) <- c("sf", "tbl_df", "tbl", "data.frame")
