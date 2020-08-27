@@ -11,23 +11,11 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 
-#' Show path of which files are stored locally
-#'
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' show_cached_files()
-#' }
 
-show_cached_files <- function() {
-  file.path(list.files(data_dir(), full.names = TRUE))
-}
-
-#' Delete cached files
+#' View and delete cached files
 #'
-#' @param files_to_delete An optional argument to specify which files should be delete.
-#'        Defaults to deleting all files pausing for permission from user. If a subset
+#' @param files_to_delete An optional argument to specify which files or layers should be deleted
+#'        from the cache. Defaults to deleting all files pausing for permission from user. If a subset
 #'        of files are specified, the files are immediately deleted.
 #'
 #' @return A logical of whether the file(s) were successful deleted
@@ -66,6 +54,16 @@ delete_cache <- function(files_to_delete = NULL) {
 
 
 }
+
+#' @rdname delete_cache
+#'
+#' @export
+#'
+
+show_cached_files <- function() {
+  file.path(list.files(data_dir(), full.names = TRUE))
+}
+
 
 add_rds_suffix <- function(x) {
   exts <- tools::file_ext(x)
