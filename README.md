@@ -3,7 +3,7 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 0.18.1
+### Version 0.18.1.9000
 
 <!-- badges: start -->
 
@@ -56,9 +56,6 @@ remotes::install_github("bcgov/bcmaps")
 To see the layers that are available, run the `available_layers()`
 function:
 
-    #> Loading required package: sf
-    #> Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 6.3.1
-
 ``` r
 library(bcmaps)
 available_layers()
@@ -75,7 +72,6 @@ example:
 library(sf)
 
 bc <- bc_bound()
-#> bc_bound was updated on 2020-08-26
 plot(st_geometry(bc))
 ```
 
@@ -93,12 +89,10 @@ library(sf)
 # Load and plot the boundaries of B.C.
 
 bc <- bc_bound()
-#> bc_bound was updated on 2020-08-26
 plot(st_geometry(bc))
 
 ## Next load the Regional Districts data, then extract and plot the Kootenays
 rd <- regional_districts()
-#> regional_districts was updated on 2020-08-26
 kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
@@ -120,8 +114,6 @@ ggplot() +
   coord_sf(datum = NA) +
   scale_fill_viridis_d(name = "Jurisdiction") +
   theme_minimal()
-#> bc_bound was updated on 2020-08-26
-#> bc_cities was updated on 2020-08-26
 ```
 
 ![](tools/readme/bc_neighbours-1.png)<!-- -->
@@ -154,12 +146,29 @@ If you aren’t using the `sf` package and prefer the old standard
 library("sp")
 # Load watercourse data and plot with boundaries of B.C.
 plot(bc_bound(class = "sp"))
-#> bc_bound was updated on 2020-08-26
 plot(watercourses_15M(class = "sp"), add = TRUE)
-#> watercourses_15M was updated on NULL
 ```
 
 ![](tools/readme/watercourses-1.png)<!-- -->
+
+### Updating layers
+
+When you first call a layer function bcmaps will remind you when that
+layer was last updated in your cache with a message. For a number of
+reasons, it might be necessary to get a fresh layer in your bcmaps
+cache. The easiest way to update is to use the `force` argument:
+
+``` r
+ep <- ecoprovinces(force = TRUE)
+```
+
+Another option is to actively manage your cache by deleting the old
+layer and calling the function again:
+
+``` r
+delete_cache('ecoprovinces')
+ep <- ecoprovinces(force = TRUE)
+```
 
 ### Vignettes
 

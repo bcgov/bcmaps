@@ -10,6 +10,7 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
+  message=FALSE,
   fig.path = "tools/readme/"
 )
 ```
@@ -120,7 +121,7 @@ is available via the `bec()` function, and an accompanying function `bec_colours
 function to colour it:
 
 ```{r include=FALSE}
-bec <- bec(force = TRUE, ask = FALSE)
+bec <- bec()
 ```
 
 ```{r bec, message=FALSE}
@@ -146,6 +147,20 @@ plot(bc_bound(class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
+### Updating layers
+
+When you first call a layer function bcmaps will remind you when that layer was last updated in your cache with a message. For a number of reasons, it might be necessary to get a fresh layer in your bcmaps cache. The easiest way to update is to use the `force` argument:
+```{r, eval=FALSE}
+ep <- ecoprovinces(force = TRUE)
+```
+
+Another option is to actively manage your cache by deleting the old layer and calling the function again:
+```{r, eval=FALSE}
+delete_cache('ecoprovinces')
+ep <- ecoprovinces(force = TRUE)
+```
+
+
 ### Vignettes
 
 After installing the package you can view vignettes by typing `browseVignettes("bcmaps")` in your R session.
@@ -159,7 +174,6 @@ such as orphaned holes and self-intersections
 2. `transform_bc_albers()` for transforming any `sf` or `Spatial` object to 
 [BC Albers](https://epsg.io/3005) projection.
 3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
-
 
 ## Getting Help or Reporting an Issue
 
