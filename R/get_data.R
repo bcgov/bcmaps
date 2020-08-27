@@ -133,7 +133,7 @@ get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TR
   } else {
     ret <- readRDS(fpath)
     time <- attributes(ret)$time_downloaded
-    message(paste0(what, ' was updated on ', format(time, "%Y-%m-%d")))
+    update_message_once(paste0(what, ' was updated on ', format(time, "%Y-%m-%d")))
   }
 
   ret

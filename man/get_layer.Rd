@@ -16,8 +16,8 @@ obtained by running \code{available_layers()}}
 
 \item{force}{Should you force download the data?}
 
-\item{...}{arguments passed on to \link{get_big_data} if the layer needs to be downloaded. Ignored if the
-layer is available locally in \code{bcmapsdata}.}
+\item{...}{arguments passed on to \link{get_big_data} if the layer needs to be downloaded from a
+\code{bcmapsdata} release.}
 }
 \value{
 the layer requested
