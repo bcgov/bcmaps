@@ -439,3 +439,13 @@ make_bcdata_fn <- function(fn_title) {
   fn_meta <- layers[layers$title == fn_title$title,]
   glue::glue("bcdc_get_data(record = '{fn_meta$record}', resource = '{fn_meta$resource}')")
 }
+
+
+update_message_once <- function(...) {
+  silence <- isTRUE(getOption("silence_update_message"))
+  messaged <- bcmaps_env$bcmaps_update_message
+  if (!silence && !messaged) {
+    message(...)
+    assign("bcmaps_update_message", TRUE, envir = bcmaps_env)
+  }
+}

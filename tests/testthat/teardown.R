@@ -19,3 +19,4 @@ if (requireNamespace("future", quietly = TRUE)) {
 
 
 options('bcmaps.data_dir' = bc_data_dir)
+options('silence_update_message' = silence_update_message_value)

@@ -41,3 +41,10 @@ test_that("bc_bbox works with all classes and character crs", {
   expect_equal(sp_bbox_to_vec(bc_bbox("sp", crs = "+init=epsg:3857")), sf_out)
   expect_equal(Extent_to_vec(bc_bbox("raster", crs = "+init=epsg:3857")), sf_out)
 })
+
+test_that("update_message_once warns once and only once", {
+  options("silence_update_message" = FALSE)
+  expect_message(update_message_once("artoo"))
+  expect_silent(update_message_once("artoo"))
+  options("silence_update_message" = TRUE)
+})

@@ -19,3 +19,4 @@ if (requireNamespace("future", quietly = TRUE)) {
 
 
 bc_data_dir <- options('bcmaps.data_dir'= tempdir())
+silence_update_message_value <- options('silence_update_message' = TRUE)

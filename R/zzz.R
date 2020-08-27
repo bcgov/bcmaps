@@ -11,3 +11,17 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 
+.onAttach <- function(libname, pkgname) {
+  if (interactive()) {
+    packageStartupMessage("The bcmapsdata package is no longer required to be installed for bcmaps to function.")
+    packageStartupMessage(paste0("Layers are now cached as needed to '", data_dir(),"' using the bcdata package."))
+  }
+}
+
+
+bcmaps_env <- new.env(parent = emptyenv())
+
+.onLoad <- function(...) {
+  assign("bcmaps_update_message", FALSE, envir = bcmaps_env)
+}
+
