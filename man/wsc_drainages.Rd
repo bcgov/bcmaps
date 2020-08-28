@@ -3,20 +3,24 @@
 \name{wsc_drainages}
 \alias{wsc_drainages}
 \title{Water Survey of Canada Sub-Sub-Drainage Areas}
+\source{
+\code{bcdata::bcdc_get_data(record = '7ae18a3c-917b-4cb1-9aa8-51a172475dbb', resource = '4455072e-d33b-4685-9edd-cffda763dd45')}
+}
 \usage{
-wsc_drainages(class = "sf")
+wsc_drainages(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{wsc_drainages} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::wsc_drainages} for details.
+Water Survey of Canada Sub-Sub-Drainage Areas
 }
 \examples{
 \dontrun{

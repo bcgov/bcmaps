@@ -3,20 +3,24 @@
 \name{ecoregions}
 \alias{ecoregions}
 \title{British Columbia Ecoregions}
+\source{
+\code{bcdata::bcdc_get_data(record = 'd00389e0-66da-4895-bd56-39a0dd64aa78', resource = 'bd816a86-4f5e-4989-b1df-0b2f3f4a5f86')}
+}
 \usage{
-ecoregions(class = "sf")
+ecoregions(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{ecoregions} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::ecoregions} for details.
+British Columbia Ecoregions
 }
 \examples{
 \dontrun{

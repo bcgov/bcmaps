@@ -352,7 +352,7 @@ ask <- function(...) {
 #'
 #' @examples
 #' \dontrun{
-#' if (require("bcmapsdata") && #' require(sf) && require(ggplot2)) {
+#' if (require(sf) && require(ggplot2)) {
 #'  bec <- bec()
 #'  ggplot() +
 #'    geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
@@ -387,11 +387,11 @@ bec_colors <- bec_colours
 #' @export
 #'
 #' @examples
-#' if (requireNamespace("bcmapsdata", quietly = TRUE)) {
+#'\dontrun{
 #'   bc_bbox("sf")
 #'   bc_bbox("sp")
 #'   bc_bbox("raster")
-#' }
+#'   }
 bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   class <- match.arg(class)
 
@@ -431,4 +431,21 @@ make_valid <- function(x) {
 
 old_sf_geos <- function() {
   unname(numeric_version(sf::sf_extSoftVersion()["GEOS"]) < numeric_version("3.8"))
+}
+
+
+make_bcdata_fn <- function(fn_title) {
+  layers <- shortcut_layers()
+  fn_meta <- layers[layers$title == fn_title$title,]
+  glue::glue("bcdc_get_data(record = '{fn_meta$record}', resource = '{fn_meta$resource}')")
+}
+
+
+update_message_once <- function(...) {
+  silence <- isTRUE(getOption("silence_update_message"))
+  messaged <- bcmaps_env$bcmaps_update_message
+  if (!silence && !messaged) {
+    message(...)
+    assign("bcmaps_update_message", TRUE, envir = bcmaps_env)
+  }
 }

@@ -14,9 +14,9 @@
 #'
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
-#' @param class The class of the layer returned. Can be either `"sf"` (default) or `"sp"`
-#' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded. Ignored if the
-#' layer is available locally in `bcmapsdata`.
+#' @inheritParams bc_bound_hres
+#' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded from a
+#' `bcmapsdata` release.
 #'
 #' @return the layer requested
 #' @export
@@ -28,7 +28,7 @@
 #'  # As a "Spatial" (sp) object
 #'  get_layer("watercourses_15M")
 #' }
-get_layer <- function(layer, class = c("sf", "sp"), ...) {
+get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE, ...) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n
@@ -43,16 +43,11 @@ get_layer <- function(layer, class = c("sf", "sp"), ...) {
     stop(layer, " is not an available layer")
   }
 
-  if (!available_row[["local"]] || layer == "test") {
-    ret <- get_big_data(layer, class, ...)
-  } else {
-    ret <- getExportedValue("bcmapsdata", layer)
-    ret <- rename_sf_col_to_geometry(ret)
-    ret <- set_bc_albers(ret)
+  ret <- get_catalogue_data(layer, ask = ask, force = force, ...)
 
-    if (class == "sp") {
-      ret <- convert_to_sp(ret)
-    }
+
+  if (class == "sp") {
+    ret <- convert_to_sp(ret)
   }
 
   ret
@@ -77,7 +72,7 @@ convert_to_sp <- function(sf_obj) {
 #' List available data layers
 #'
 #' A data.frame of all available layers in the bcmaps package. This drawn
-#' directly from the bcmapsdata package and will therefore be the most current list
+#' directly from the B.C. Data Catalogue and will therefore be the most current list
 #' layers available.
 #'
 #' @return A `data.frame` of layers, with titles, and a `shortcut_function` column
@@ -87,7 +82,7 @@ convert_to_sp <- function(sf_obj) {
 #' there is no shortcut function for it.
 #'
 #' A value of `FALSE` in the `local` column means that the layer is not stored in the
-#' bcmapsdata package but will be downloaded from the internet and cached
+#' bcmaps package but will be downloaded from the internet and cached
 #' on your hard drive.
 #'
 #' @examples
@@ -95,14 +90,11 @@ convert_to_sp <- function(sf_obj) {
 #' available_layers()
 #' }
 #' @export
+
 available_layers <- function() {
-  hasData()
-  datas <- utils::data(package = "bcmapsdata")
-  layers_df <- as.data.frame(datas[["results"]][, c("Item", "Title")], stringsAsFactors = FALSE)
-  layers_df$shortcut_function <- layers_df[["Item"]] %in% getNamespaceExports("bcmaps")
-  layers_df$local <- TRUE
+
+  layers_df
   names(layers_df)[1:2] <- c("layer_name", "title")
-  layers_df <- rbind(layers_df, big_data_layers())
   structure(layers_df, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
 }
 
@@ -110,11 +102,39 @@ available_layers <- function() {
 print.avail_layers <- function(x, ...) {
   print(structure(x, class = setdiff(class(x), "avail_layers")))
   cat("\n------------------------\n")
-  cat("Layers with a value of TRUE in the 'shortcut_function' column can be accessed\n")
-  cat("with a function with the same name as the layer (e.g., `bc_bound()`),\n")
-  cat("otherwise it needs to be accessed with the get_layer function.\n")
-  cat("\n")
-  cat("Layers with a value of FALSE in the 'local' column are not stored in the\n")
-  cat("bcmapsdata package but will be downloaded from the internet and cached\n")
-  cat("on your hard drive.")
+  cat("All layers are downloaded from the internet and cached\n")
+  cat(paste0("on your hard drive at ", data_dir(),"."))
+}
+
+shortcut_layers <- function(){
+  al <- available_layers()
+  al <- al[al$using_shortcuts,]
+  al <- al[!is.na(al$layer_name),]
+  names(al)[1:2] <- c("layer_name", "title")
+  #structure(al, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
+  al
+}
+
+
+
+
+get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TRUE) {
+  fname <- paste0(what, ".rds")
+  dir <- data_dir()
+  fpath <- file.path(dir, fname)
+  layers_df <- shortcut_layers()
+
+  if (!file.exists(fpath) | force) {
+    check_write_to_data_dir(dir, ask)
+    recordid <- layers_df$record[layers_df$layer_name == what]
+    resourceid <- layers_df$resource[layers_df$layer_name == what]
+    ret <- bcdata::bcdc_get_data(recordid, resourceid)
+    saveRDS(ret, fpath)
+  } else {
+    ret <- readRDS(fpath)
+    time <- attributes(ret)$time_downloaded
+    update_message_once(paste0(what, ' was updated on ', format(time, "%Y-%m-%d")))
+  }
+
+  ret
 }

@@ -10,11 +10,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-#' Make shortcut functions for data objects in bcmapsdata
+#' Make shortcut functions for data objects in bcmaps from B.C. Data Catalogue
 #'
 #' This generates a `shortcuts.R` file in the `R` directory, with function definitions
-#' and roxygen blocks for each data object in `bcmapsdata`. This ensures that each
-#' data object in `bcmapsdata` can be accessed directly from `bcmaps` by a
+#' and roxygen blocks for each data object in `bcmaps`. This ensures that each
+#' data object can be accessed directly from `bcmaps` by a
 #' function such as `bc_bound()`, or `airzones("sp")`.
 #'
 #' Run this function each time you add a new data object.
@@ -29,13 +29,11 @@
 #' @return TRUE (invisibly)
 make_shortcuts <- function(file = "R/shortcuts.R") {
 
-  if (!requireNamespace("bcmaps") || !requireNamespace("bcmapsdata") ||
-      !requireNamespace("glue")) {
-    stop("bcmaps, bcmapsdata, and glue all need to be installed.")
+  if (!requireNamespace("bcmaps") || !requireNamespace("glue")) {
+    stop("bcmaps, and glue all need to be installed.")
   }
 
-  layers <- bcmaps::available_layers()
-  layers <- layers[layers$local, ]
+  layers <- shortcut_layers()
 
   cat(
     glue::glue("
@@ -62,13 +60,12 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
 
          roxygen_blocker#' {fn_title}
          roxygen_blocker#'
-         roxygen_blocker#' You must have the `bcmapsdata` package installed to use this function.
          roxygen_blocker#'
-         roxygen_blocker#' @param class what class you want the object in? `\"sf\"` (default) or `\"sp\"`.
+         roxygen_blocker#' @inheritParams bc_bound_hres
          roxygen_blocker#'
          roxygen_blocker#' @return The spatial layer of `{fn_name}` in the desired class
          roxygen_blocker#'
-         roxygen_blocker#' @details Type `?bcmapsdata::{fn_name}` for details.
+         roxygen_blocker#' @source `bcdata::{make_bcdata_fn(fn_title)}`
          roxygen_blocker#'
          roxygen_blocker#' {seealso}
          roxygen_blocker#'
@@ -79,8 +76,8 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' }}
          roxygen_blocker#'
          roxygen_blocker#' @export
-         {fn_name} <- function(class = 'sf') {{
-            get_layer('{fn_name}', class = class)
+         {fn_name} <- function(class = 'sf', ask = interactive(), force = FALSE) {{
+            get_layer('{fn_name}', class = class, ask = ask, force = force)
          }}
 
          ")

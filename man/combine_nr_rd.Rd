@@ -7,7 +7,7 @@
 combine_nr_rd(class = c("sf", "sp"))
 }
 \arguments{
-\item{class}{The class of the layer returned. Can be either \code{"sf"} (default) or \code{"sp"}}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
 }
 \value{
 A layer where the Northern Rockies Regional Municipality has been

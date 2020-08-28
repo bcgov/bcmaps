@@ -1,4 +1,4 @@
-#' Overlay a SpatialPolygonsDataFrmae or sf polygons layer on a raster layer
+#' Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
 #' and clip the raster to each polygon. Optionally done in parallel
 #'
 #' @param raster_layer the raster layer

@@ -3,20 +3,24 @@
 \name{nr_regions}
 \alias{nr_regions}
 \title{British Columbia Natural Resource (NR) Regions}
+\source{
+\code{bcdata::bcdc_get_data(record = 'dfc492c0-69c5-4c20-a6de-2c9bc999301f', resource = 'ec636f64-9c5f-4704-8e66-2dd43032c9b5')}
+}
 \usage{
-nr_regions(class = "sf")
+nr_regions(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{nr_regions} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::nr_regions} for details.
+British Columbia Natural Resource (NR) Regions
 }
 \examples{
 \dontrun{

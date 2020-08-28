@@ -3,20 +3,24 @@
 \name{hydrozones}
 \alias{hydrozones}
 \title{Hydrologic Zone Boundaries of British Columbia}
+\source{
+\code{bcdata::bcdc_get_data(record = '329fd234-8835-4d44-9aaa-97c37bfc8d92', resource = 'baeb665e-85c7-4a7b-8e67-8b956785490a')}
+}
 \usage{
-hydrozones(class = "sf")
+hydrozones(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{hydrozones} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::hydrozones} for details.
+Hydrologic Zone Boundaries of British Columbia
 }
 \examples{
 \dontrun{

@@ -18,7 +18,7 @@ Standard colours used to represent Biogeoclimatic Zone colours to be used in plo
 }
 \examples{
 \dontrun{
-if (require("bcmapsdata") && #' require(sf) && require(ggplot2)) {
+if (require(sf) && require(ggplot2)) {
  bec <- bec()
  ggplot() +
    geom_sf(data = bec[bec$ZONE \%in\% c("BG", "PP"),],

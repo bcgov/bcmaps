@@ -2,21 +2,25 @@
 % Please edit documentation in R/shortcuts.R
 \name{bc_cities}
 \alias{bc_cities}
-\title{BC Major Cities Points 1:2,000,000 (Digital Baseline Mapping)}
+\title{BC Major Cities Points}
+\source{
+\code{bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')}
+}
 \usage{
-bc_cities(class = "sf")
+bc_cities(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{bc_cities} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::bc_cities} for details.
+BC Major Cities Points
 }
 \examples{
 \dontrun{

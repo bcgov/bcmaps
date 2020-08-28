@@ -1,4 +1,4 @@
-# Copyright 2017 Province of British Columbia
+# Copyright 2020 Province of British Columbia
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -10,18 +10,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
+## Code to prepare the layers_df internal data
+layers_df <- readr::read_csv("data-raw/layers_df.csv")
 
-.onAttach <- function(libname, pkgname) {
-  if (interactive()) {
-    packageStartupMessage("The bcmapsdata package is no longer required to be installed for bcmaps to function.")
-    packageStartupMessage(paste0("Layers are now cached as needed to '", data_dir(),"' using the bcdata package."))
-  }
-}
+# layers_df <- layers_df[!is.na(layers_df$record),]
+# layers_df <- layers_df[!layers_df$local,]
 
-
-bcmaps_env <- new.env(parent = emptyenv())
-
-.onLoad <- function(...) {
-  assign("bcmaps_update_message", FALSE, envir = bcmaps_env)
-}
-
+usethis::use_data(layers_df, overwrite = TRUE, internal = TRUE, compress = "xz")

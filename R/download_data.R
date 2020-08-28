@@ -110,16 +110,26 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
   ret
 }
 
-data_dir <- function() rappdirs::user_data_dir("bcmaps")
+data_dir <- function() {
+  getOption("bcmaps.data_dir", default = rappdirs::user_data_dir("bcmaps"))
+}
 
 check_write_to_data_dir <- function(dir, ask) {
+
   if (ask) {
     ans <- ask(paste("bcmaps would like to store this layer in the directory:",
                      dir, "Is that okay?", sep = "\n"))
     if (!ans) stop("Exiting...", call. = FALSE)
   }
-  message("Creating directory to hold bcmaps data ", dir)
-  dir.create(dir, showWarnings = FALSE, recursive = TRUE)
+
+  if (!dir.exists(dir)) {
+    message("Creating directory to hold bcmaps data at ", dir)
+    dir.create(dir, showWarnings = FALSE, recursive = TRUE)
+  } else {
+    message("Saving to bcmaps data directory at ", dir)
+  }
+
+
 }
 
 download_file_from_release <- function(file, path, release = "latest", force = FALSE) {

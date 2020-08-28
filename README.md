@@ -3,7 +3,7 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 0.18.1
+### Version 0.18.1.9000
 
 <!-- badges: start -->
 
@@ -30,10 +30,10 @@ Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/)
 projection, which is the B.C. Government standard as `sf` or `Spatial`
 objects.
 
-Layers are stored in the
-[bcmapsdata](https://github.com/bcgov/bcmapsdata) package and loaded by
-this package, following the strategy recommended by [Anderson and
-Eddelbuettel](https://journal.r-project.org/archive/2017/RJ-2017-026/index.html).
+Most layers are assessed directly from the [B.C. Data
+Catalogue](https://catalogue.data.gov.bc.ca/) using the
+[bcdata](https://github.com/bcgov/bcdata) R package. See each layers
+individual help file for more detail.
 
 ## Installation
 
@@ -53,23 +53,8 @@ remotes::install_github("bcgov/bcmaps")
 
 ## Usage
 
-To get full usage of the package, you will also need to install the
-[**bcmapsdata**](https://github.com/bcgov/bcmapsdata) package, which
-holds all of the datasets.
-
-*Note that unlike most packages it is not necessary to actually load the
-**bcmapsdata** package (i.e., with `library(bcmapsdata)`) - in fact it
-is less likely to cause problems if you don’t.*
-
-``` r
-install.packages('bcmapsdata', repos='https://bcgov.github.io/drat/')
-```
-
 To see the layers that are available, run the `available_layers()`
 function:
-
-    #> Loading required package: sf
-    #> Linking to GEOS 3.8.1, GDAL 2.4.4, PROJ 7.0.0
 
 ``` r
 library(bcmaps)
@@ -78,7 +63,10 @@ available_layers()
 
 Most layers are accessible by a shortcut function by the same name as
 the object. Then you can use the data as you would any `sf` or `Spatial`
-object. For example:
+object. The first time you run try to access a layer, you will be
+prompted for permission to download that layer to your hard drive.
+Subsequently that layer is available locally for easy future access. For
+example:
 
 ``` r
 library(sf)
@@ -87,24 +75,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-7-1.png)<!-- -->
-
-Alternatively, you can use the `get_layer` function - simply type
-`get_layer('layer_name')`, where `'layer_name'` is the name of the layer
-of interest. The `get_layer` function is useful if the back-end
-`bcmapsdata` package has had a layer added to it, but there is as yet no
-shortcut function created in `bcmaps`.
-
-``` r
-library(sf)
-library(dplyr)
-
-ws <- get_layer("wsc_drainages", class = "sf")
-
-plot(ws["SUB_SUB_DRAINAGE_AREA_NAME"], key.pos = NULL)
-```
-
-![](tools/readme/unnamed-chunk-8-1.png)<!-- -->
+![](tools/readme/unnamed-chunk-6-1.png)<!-- -->
 
 ### Simple Features objects
 
@@ -141,7 +112,7 @@ ggplot() +
   geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
   geom_sf(data = bc_cities()) +
   coord_sf(datum = NA) +
-  scale_fill_discrete(name = "Jurisdiction") +
+  scale_fill_viridis_d(name = "Jurisdiction") +
   theme_minimal()
 ```
 
@@ -174,11 +145,30 @@ If you aren’t using the `sf` package and prefer the old standard
 ``` r
 library("sp")
 # Load watercourse data and plot with boundaries of B.C.
-plot(get_layer("bc_bound", class = "sp"))
+plot(bc_bound(class = "sp"))
 plot(watercourses_15M(class = "sp"), add = TRUE)
 ```
 
 ![](tools/readme/watercourses-1.png)<!-- -->
+
+### Updating layers
+
+When you first call a layer function bcmaps will remind you when that
+layer was last updated in your cache with a message. For a number of
+reasons, it might be necessary to get a fresh layer in your bcmaps
+cache. The easiest way to update is to use the `force` argument:
+
+``` r
+ep <- ecoprovinces(force = TRUE)
+```
+
+Another option is to actively manage your cache by deleting the old
+layer and calling the function again:
+
+``` r
+delete_cache('ecoprovinces')
+ep <- ecoprovinces(force = TRUE)
+```
 
 ### Vignettes
 

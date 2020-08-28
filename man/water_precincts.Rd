@@ -3,20 +3,24 @@
 \name{water_precincts}
 \alias{water_precincts}
 \title{British Columbia's Water Management Precincts}
+\source{
+\code{bcdata::bcdc_get_data(record = 'b5f436b4-532c-4ee2-ba27-90d55ec8c73f', resource = 'e482fd4a-be58-4541-8e0d-c39a764fd0a3')}
+}
 \usage{
-water_precincts(class = "sf")
+water_precincts(class = "sf", ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{water_precincts} in the desired class
 }
 \description{
-You must have the \code{bcmapsdata} package installed to use this function.
-}
-\details{
-Type \code{?bcmapsdata::water_precincts} for details.
+British Columbia's Water Management Precincts
 }
 \examples{
 \dontrun{
