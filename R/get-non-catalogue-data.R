@@ -113,7 +113,7 @@ watercourses_5M <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' my_layer <- fsa()
 #' my_layer_sp <- fsa(class = 'sp')
 #' }
-#'
+#' @export
 fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 
   link <- 'http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfsa000b16a_e.zip'

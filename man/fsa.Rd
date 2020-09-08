@@ -24,5 +24,4 @@ British Columbia Forward Sortation Areas
 my_layer <- fsa()
 my_layer_sp <- fsa(class = 'sp')
 }
-
 }
