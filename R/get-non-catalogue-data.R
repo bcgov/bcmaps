@@ -18,8 +18,9 @@ read_bc_watercourse <- function(x) {
   gdb_path <- gsub("_fgdb", ".gdb", tools::file_path_sans_ext(temp_zip))
   l <- "watercourse_1"
   sql_l <- sprintf("SELECT * FROM \"%s\" WHERE country = 140 AND political_division = 93", l)
-  sf::read_sf(gdb_path, layer = l,
+  s <- sf::read_sf(gdb_path, layer = l,
               query = sql_l)
+  transform_bc_albers(s)
 }
 
 
@@ -99,4 +100,47 @@ watercourses_5M <- function(class = 'sf', ask = interactive(), force = FALSE) {
   if (class == "sp") ret <- convert_to_sp(ret)
 
   ret
+}
+
+#' British Columbia Forward Sortation Areas
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @source http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfsa000b16a_e.zip
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- fsa()
+#' my_layer_sp <- fsa(class = 'sp')
+#' }
+#'
+fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
+
+  link <- 'http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfsa000b16a_e.zip'
+  x <- getOption('fsa_link', default = link)
+
+  dir <- data_dir()
+  fpath <- file.path(dir, "fsa.rds")
+
+  if (!file.exists(fpath) | force) {
+    check_write_to_data_dir(dir, ask)
+
+    temp_zip <- file.path(tempdir(), basename(x))
+    res <- httr::GET(x, httr::write_disk(temp_zip, overwrite = TRUE))
+    httr::stop_for_status(res)
+    unzip_path <- utils::unzip(temp_zip, exdir = tempdir())
+    ret <- sf::read_sf(unzip_path[grepl("\\.shp$", unzip_path)])
+    ret <- ret[ret$PRUID == '59',]
+    ret <- transform_bc_albers(ret)
+    ret <- rename_sf_col_to_geometry(ret)
+    saveRDS(ret, fpath)
+  } else {
+    ret <- readRDS(fpath)
+    time <- attributes(ret)$time_downloaded
+    message(paste0('fsa was updated on ', format(time, "%Y-%m-%d")))
+  }
+  if (class == "sp") ret <- convert_to_sp(ret)
+
+  ret
+
 }
