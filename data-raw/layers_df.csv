@@ -21,3 +21,7 @@ bc_bound,BC Boundary,b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bc
 bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
 bec,British Columbia BEC Map,,,TRUE,FALSE
 tsa,British Columbia Timber Supply Areas and TSA Blocks,,,TRUE,FALSE
+hsda,Health Service Delivery Area Boundaries,71c930b9-563a-46da-a10f-ead49ccbc390,c5dad467-229b-4378-852b-ff92479a65b6,FALSE,TRUE
+ha,Health Authority Boundaries,7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b,93b79a3c-2da4-4fd4-b953-2f5c690db430,FALSE,TRUE
+census_subdivision,Current Census Subdivision Boundaries ,4c5618c6-38dd-4a62-a3de-9408b4974bb6,98bd1222-57bb-4504-92c2-4a5857ae7671,FALSE,TRUE
+census_division,Current Census Division Boundaries ,ef17918a-597a-4012-8534-f8e71d8735b3,36b530c2-1de6-44a2-a6f6-c1fce36c53ed,FALSE,TRUE

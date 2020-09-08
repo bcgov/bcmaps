@@ -344,3 +344,91 @@ water_precincts <- function(class = 'sf', ask = interactive(), force = FALSE) {
 wsc_drainages <- function(class = 'sf', ask = interactive(), force = FALSE) {
    get_layer('wsc_drainages', class = class, ask = ask, force = force)
 }
+
+#' Health Service Delivery Area Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `hsda` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '71c930b9-563a-46da-a10f-ead49ccbc390', resource = 'c5dad467-229b-4378-852b-ff92479a65b6')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- hsda()
+#' my_layer_sp <- hsda(class = 'sp')
+#' }
+#'
+#' @export
+hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('hsda', class = class, ask = ask, force = force)
+}
+
+#' Health Authority Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `ha` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b', resource = '93b79a3c-2da4-4fd4-b953-2f5c690db430')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- ha()
+#' my_layer_sp <- ha(class = 'sp')
+#' }
+#'
+#' @export
+ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('ha', class = class, ask = ask, force = force)
+}
+
+#' Current Census Subdivision Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_subdivision` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '4c5618c6-38dd-4a62-a3de-9408b4974bb6', resource = '98bd1222-57bb-4504-92c2-4a5857ae7671')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_subdivision()
+#' my_layer_sp <- census_subdivision(class = 'sp')
+#' }
+#'
+#' @export
+census_subdivision <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_subdivision', class = class, ask = ask, force = force)
+}
+
+#' Current Census Division Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_division` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'ef17918a-597a-4012-8534-f8e71d8735b3', resource = '36b530c2-1de6-44a2-a6f6-c1fce36c53ed')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_division()
+#' my_layer_sp <- census_division(class = 'sp')
+#' }
+#'
+#' @export
+census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_division', class = class, ask = ask, force = force)
+}
