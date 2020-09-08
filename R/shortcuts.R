@@ -389,6 +389,50 @@ health_ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
    get_layer('health_ha', class = class, ask = ask, force = force)
 }
 
+#' Local Health Area Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `health_lha` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'afd021d9-7722-4410-b506-d394c66e74fc', resource = 'd6e951d3-5103-475a-8bb6-b4d275e6343f')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- health_lha()
+#' my_layer_sp <- health_lha(class = 'sp')
+#' }
+#'
+#' @export
+health_lha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_lha', class = class, ask = ask, force = force)
+}
+
+#' Community Health Service Areas - CHSA
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `health_chsa` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '68f2f577-28a7-46b4-bca9-7e9770f2f357', resource = '59065b51-511a-4976-b77f-034168365273')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- health_chsa()
+#' my_layer_sp <- health_chsa(class = 'sp')
+#' }
+#'
+#' @export
+health_chsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_chsa', class = class, ask = ask, force = force)
+}
+
 #' Current Census Subdivision Boundaries
 #'
 #'

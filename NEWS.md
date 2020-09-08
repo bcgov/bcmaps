@@ -1,5 +1,5 @@
 # bcmaps 0.18.1.9000
-- Adding forward sortation area, health boundaries and census boundaries.
+- Adding forward sortation area, health boundaries and some census boundaries.
 
 
 # bcmaps 0.18.1
