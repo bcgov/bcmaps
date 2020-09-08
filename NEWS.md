@@ -1,3 +1,7 @@
+# bcmaps 0.18.1.9000
+- Adding forward sortation area, health boundaries and census boundaries.
+
+
 # bcmaps 0.18.1
 
 * Fixed an error where `fix_geo_problems()` would fail depending on the version 
