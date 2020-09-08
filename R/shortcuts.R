@@ -350,7 +350,7 @@ wsc_drainages <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `hsda` in the desired class
+#' @return The spatial layer of `health_hsda` in the desired class
 #'
 #' @source `bcdata::bcdc_get_data(record = '71c930b9-563a-46da-a10f-ead49ccbc390', resource = 'c5dad467-229b-4378-852b-ff92479a65b6')`
 #'
@@ -358,13 +358,13 @@ wsc_drainages <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #'
 #' @examples
 #' \dontrun{
-#' my_layer <- hsda()
-#' my_layer_sp <- hsda(class = 'sp')
+#' my_layer <- health_hsda()
+#' my_layer_sp <- health_hsda(class = 'sp')
 #' }
 #'
 #' @export
-hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
-   get_layer('hsda', class = class, ask = ask, force = force)
+health_hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_hsda', class = class, ask = ask, force = force)
 }
 
 #' Health Authority Boundaries
@@ -372,7 +372,7 @@ hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `ha` in the desired class
+#' @return The spatial layer of `health_ha` in the desired class
 #'
 #' @source `bcdata::bcdc_get_data(record = '7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b', resource = '93b79a3c-2da4-4fd4-b953-2f5c690db430')`
 #'
@@ -380,13 +380,13 @@ hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #'
 #' @examples
 #' \dontrun{
-#' my_layer <- ha()
-#' my_layer_sp <- ha(class = 'sp')
+#' my_layer <- health_ha()
+#' my_layer_sp <- health_ha(class = 'sp')
 #' }
 #'
 #' @export
-ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
-   get_layer('ha', class = class, ask = ask, force = force)
+health_ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('health_ha', class = class, ask = ask, force = force)
 }
 
 #' Current Census Subdivision Boundaries
