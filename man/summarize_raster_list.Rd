@@ -4,28 +4,14 @@
 \alias{summarize_raster_list}
 \title{Summarize a list of rasters into a list of numeric vectors}
 \usage{
-summarize_raster_list(
-  raster_list,
-  parallel = FALSE,
-  future_strategy = NULL,
-  workers = NULL,
-  ...
-)
+summarize_raster_list(raster_list, parallel = FALSE)
 }
 \arguments{
 \item{raster_list}{list of rasters}
 
-\item{parallel}{process in parallel? Default \code{FALSE}.}
-
-\item{future_strategy}{the strategy to use in \code{\link[future:plan]{future::plan()}} for parallel
-computation. Default \code{NULL} respects if user has already set a plan using
-\code{\link[future:plan]{future::plan()}} or an \link[future:future.options]{option},
-otherwise uses \code{"multiprocess"}.}
-
-\item{workers}{number of workers if doing parallel. Default \code{NULL} uses the
-default of the future strategy chosen (usually \code{\link[future:availableCores]{future::availableCores()}}).}
-
-\item{...}{passed on to \code{\link[future:plan]{future::plan()}}}
+\item{parallel}{process in parallel? Default \code{FALSE}. If \code{TRUE}, it is up to
+the user to call \code{\link[future:plan]{future::plan()}} (or set \link[future:future.options]{options})
+to specify what parallel strategy to use.}
 }
 \value{
 a list of numeric vectors
