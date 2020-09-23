@@ -1,6 +1,9 @@
 # bcmaps 0.18.1.9000
 - Adding forward sortation area, health boundaries and some census boundaries.
-
+- Use of parallelism in functions that allow it (`raster_by_poly()` & 
+`summarize_raster_list()`) is now reliant on users setting up their 
+own `future::plan()` to specify strategy and number of workers, rather than setting
+defaults (this is the best practice according to the author of the future package @HenrikBengtsson, #69)
 
 # bcmaps 0.18.1
 

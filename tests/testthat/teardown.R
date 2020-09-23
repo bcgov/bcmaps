@@ -10,13 +10,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-
-
-if (requireNamespace("future", quietly = TRUE)) {
-  options("future.globals.maxSize" = omax_global_size)
-  future::plan(oplan)
-}
-
-
-options('bcmaps.data_dir' = bc_data_dir)
-options('silence_update_message' = silence_update_message_value)
+options(bc_data_dir)
+options(silence_update_message_value)

@@ -35,13 +35,6 @@ test_that("bc_bbox works with all classes and numeric crs", {
   expect_equal(Extent_to_vec(bc_bbox("raster", crs = 4326)), sf_out)
 })
 
-test_that("bc_bbox works with all classes and character crs", {
-  skip_on_cran()
-  sf_out <- sf_bbox_to_vec(bc_bbox(crs = "+init=epsg:3857"))
-  expect_equal(sp_bbox_to_vec(bc_bbox("sp", crs = "+init=epsg:3857")), sf_out)
-  expect_equal(Extent_to_vec(bc_bbox("raster", crs = "+init=epsg:3857")), sf_out)
-})
-
 test_that("update_message_once warns once and only once", {
   options("silence_update_message" = FALSE)
   expect_message(update_message_once("artoo"))

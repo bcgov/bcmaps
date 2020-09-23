@@ -26,14 +26,11 @@ if (require("raster") && require("sp")) {
 
   test_that("raster_by_poly works with parallel", {
     skip_if_not_installed("future.apply")
-    # Ensure options that are changed inside the functions are restored
-    omax_global_size <- getOption("future.globals.maxSize")
-    oplan <- future::plan()
+    oplan <- future::plan(future::multisession(workers = ifelse(future::nbrOfWorkers() > 1L, 2L, 1L)))
     expect_equal(raster_by_poly(r, p, "name", parallel = TRUE), r_by_p)
     expect_equal(raster_by_poly(r, p, "name", summarize = TRUE, parallel = TRUE),
                  r_by_p_sum)
-    expect_equal(omax_global_size, getOption("future.globals.maxSize"))
-    expect_equal(class(future::plan()), class(oplan))
+    on.exit(future::plan(oplan), add = TRUE)
   })
 
   test_that("raster_by_poly fails when a name is NA", {
@@ -51,32 +48,3 @@ if (require("raster") && require("sp")) {
     expect_equal(lapply(ex, sort), unname(lapply(r_by_p_sum, sort)))
   })
 }
-
-test_that("setup_future works", {
-  skip_if_not_installed("future")
-  # Ensure options that are changed inside the functions are restored
-  omax_global_size <- getOption("future.globals.maxSize")
-  oplan <- future::plan()
-
-  # Tester function with which to call setup_future
-  z <- function(future_strategy = NULL, workers = NULL, ...)
-    setup_future(future_strategy, workers, ...)
-
-  # With NULL defaults
-  expect_message(z(), "Running in parallel using a 'multiprocess' strategy with ",
-                 future::availableCores(), " workers")
-  expect_equal(class(future::plan()), class(oplan))
-  expect_equal(omax_global_size, getOption("future.globals.maxSize"))
-
-  # Setting explicitly
-  expect_message(z("cluster", 2), "Running in parallel using a 'cluster' strategy with 2 workers")
-  expect_equal(class(future::plan()), class(oplan))
-  expect_equal(omax_global_size, getOption("future.globals.maxSize"))
-
-  # With having a pre-set plan
-  future::plan("multisession", workers = 2)
-  oplan <- future::plan()
-  expect_message(z(), "Running in parallel using a 'multisession' strategy with 2 workers")
-  expect_equal(future::plan(), oplan)
-  expect_equal(omax_global_size, getOption("future.globals.maxSize"))
-})
