@@ -18,17 +18,17 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: windows-latest, r: 'release', args: "'--no-manual'"}
-          - {os: macOS-latest, r: 'release'}
-          - {os: ubuntu-16.04, r: 'oldrel', cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
-          - {os: ubuntu-16.04, r: 'release', cran: "https://demo.rstudiopm.com/all/__linux__/xenial/latest"}
-          - {os: ubuntu-latest, r: 'devel'}
-          - {os: ubuntu-latest, r: 'release'}
+        - { os: windows-latest, r: 'release', args: "'--no-manual'"}
+        - { os: macOS-latest,   r: 'release', args: "'--test-dontrun'"}
+        - { os: ubuntu-latest,   r: '3.5',     args: "'--no-manual'"}
+        - { os: ubuntu-latest,   r: 'oldrel',  args: "'--no-manual'"}
+        - { os: ubuntu-latest,   r: 'release', args: "'--no-manual'"}
+        - { os: ubuntu-latest,   r: 'devel',   args: "c('--no-manual', '--test-dontrun')"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
       RSPM: ${{ matrix.config.rspm }}
-      cache-version: v3
+      cache-version: v4
 
     steps:
       - uses: actions/checkout@v2
