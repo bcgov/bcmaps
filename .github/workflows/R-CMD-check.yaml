@@ -87,12 +87,6 @@ jobs:
           remotes::install_deps(dependencies = TRUE, configure.args = c('sf' = '${{ matrix.config.sf_args }}'))
         shell: Rscript {0}
 
-      - name: Workaround lwgeom Linux install
-        if: runner.os == 'Linux'
-        run: |
-          remotes::install_github("r-spatial/lwgeom")
-        shell: Rscript {0}
-
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
