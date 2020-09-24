@@ -1,5 +1,11 @@
 # bcmaps 0.18.1.9000
-- Adding forward sortation area, health boundaries and some census boundaries.
+- Drop dependency on {bcmapsdata} in favour of directly retrieving layers (where present) 
+from the B.C. Data Catalogue (via {bcdata}) and storing in a local cache. Some additional 
+layers are retrieved from Statistics Canada. 
+- Some layers may not be identical to what was previously in {bcmaps}. For example `bc_neighbours` previously used data
+from Natural Earth. The availability of a Hi-Res B.C. boundaries over WFS from the B.C. Data Catalogue
+means that the layer can now be created directly by {bcmaps}.
+- Adding forward sortation area (`fsa`), health boundaries (`health_*`) and some census boundaries (`census_*`).
 - Use of parallelism in functions that allow it (`raster_by_poly()` & 
 `summarize_raster_list()`) is now reliant on users setting up their 
 own `future::plan()` to specify strategy and number of workers, rather than setting
