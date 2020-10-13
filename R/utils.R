@@ -430,9 +430,16 @@ make_valid <- function(x) {
 }
 
 old_sf_geos <- function() {
-  unname(numeric_version(sf::sf_extSoftVersion()["GEOS"]) < numeric_version("3.8"))
+  geos_ver <- clean_geos_version()
+  unname(numeric_version(geos_ver) < numeric_version("3.8"))
 }
 
+clean_geos_version <- function(geos_version = sf::sf_extSoftVersion()["GEOS"]) {
+  # replace non-numeric version components with 9999 (eg. "dev")
+  geos_version <- gsub("[-.]?([^0-9.-])+[-.]?", "-9999-", geos_version)
+  # remove trailing "-"
+  gsub("-$", "", geos_version)
+}
 
 make_bcdata_fn <- function(fn_title) {
   layers <- shortcut_layers()

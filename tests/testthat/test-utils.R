@@ -41,3 +41,14 @@ test_that("update_message_once warns once and only once", {
   expect_silent(update_message_once("artoo"))
   options("silence_update_message" = TRUE)
 })
+
+test_that("clean_geos_version works", {
+  # https://github.com/bcgov/bcmaps/issues/71
+  expect_equal(clean_geos_version("3.9.0-dev"), "3.9.0-9999")
+  expect_equal(clean_geos_version("3.9.0.dev"), "3.9.0-9999")
+  expect_equal(clean_geos_version("3.9.0dev"), "3.9.0-9999")
+  expect_equal(clean_geos_version("3.9.0-dev-1"), "3.9.0-9999-1")
+  expect_equal(clean_geos_version("3.9.0.dev.1"), "3.9.0-9999-1")
+  expect_equal(clean_geos_version("3.9.0dev1"), "3.9.0-9999-1")
+  expect_equal(clean_geos_version("3.9.0"), "3.9.0")
+})
