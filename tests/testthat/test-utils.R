@@ -51,4 +51,7 @@ test_that("clean_geos_version works", {
   expect_equal(clean_geos_version("3.9.0.dev.1"), "3.9.0-9999-1")
   expect_equal(clean_geos_version("3.9.0dev1"), "3.9.0-9999-1")
   expect_equal(clean_geos_version("3.9.0"), "3.9.0")
+
+  expect_equal(unclass(numeric_version(clean_geos_version("3.9.0dev1"))), list(c(3, 9, 0, 9999, 1)))
+  expect_equal(unclass(numeric_version(clean_geos_version("3.9.0-dev-1"))), list(c(3, 9, 0, 9999, 1)))
 })
