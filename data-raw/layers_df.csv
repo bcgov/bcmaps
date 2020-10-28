@@ -27,3 +27,4 @@ health_lha,Local Health Area Boundaries ,afd021d9-7722-4410-b506-d394c66e74fc,d6
 health_chsa,Community Health Service Areas - CHSA,"68f2f577-28a7-46b4-bca9-7e9770f2f357	",59065b51-511a-4976-b77f-034168365273,FALSE,TRUE
 census_subdivision,Current Census Subdivision Boundaries ,4c5618c6-38dd-4a62-a3de-9408b4974bb6,98bd1222-57bb-4504-92c2-4a5857ae7671,FALSE,TRUE
 census_division,Current Census Division Boundaries ,ef17918a-597a-4012-8534-f8e71d8735b3,36b530c2-1de6-44a2-a6f6-c1fce36c53ed,FALSE,TRUE
+mapsheets_250K,"NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS) ",c50803db-7645-4da8-bce5-1bc5b501a7b3,3a8bcd6d-2414-412f-ad9f-59c69d7ed165,FALSE,TRUE

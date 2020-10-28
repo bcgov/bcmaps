@@ -476,3 +476,25 @@ census_subdivision <- function(class = 'sf', ask = interactive(), force = FALSE)
 census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
    get_layer('census_division', class = class, ask = ask, force = force)
 }
+
+#' NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `mapsheets_250K` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'c50803db-7645-4da8-bce5-1bc5b501a7b3', resource = '3a8bcd6d-2414-412f-ad9f-59c69d7ed165')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- mapsheets_250K()
+#' my_layer_sp <- mapsheets_250K(class = 'sp')
+#' }
+#'
+#' @export
+mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('mapsheets_250K', class = class, ask = ask, force = force)
+}
