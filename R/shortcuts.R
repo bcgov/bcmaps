@@ -476,3 +476,25 @@ census_subdivision <- function(class = 'sf', ask = interactive(), force = FALSE)
 census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
    get_layer('census_division', class = class, ask = ask, force = force)
 }
+
+#' Current Census Economic Region Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_economic` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '1aebc451-a41c-496f-8b18-6f414cde93b7', resource = '3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_economic()
+#' my_layer_sp <- census_economic(class = 'sp')
+#' }
+#'
+#' @export
+census_economic <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_economic', class = class, ask = ask, force = force)
+}
