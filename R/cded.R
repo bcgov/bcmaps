@@ -1,12 +1,43 @@
-cded <- function(aoi = NULL, mapsheets = NULL) {
+# Copyright 2020 Province of British Columbia
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
+
+#' Canadian Digital Elevation Model (CDED)
+#'
+#' Digital Elevation Model (DEM) for British Columbia produced by GeoBC. This data is the
+#' TRIM DEM converted to the Canadian Digital Elevation Data (CDED) format. The data consists
+#' of an ordered array of ground or reflective surface elevations, recorded in metres, at regularly
+#' spaced intervals. The spacing of the grid points is .75 arc seconds north/south. The data was
+#' converted into 1:50,000 grids for distribution. The scale of this modified data is
+#' 1:250,000 which was captured from the original source data which was at a scale of 1:20,000.
+#'
+#' @param aoi Area of Interest. An sf polygon.
+#' @param mapsheets Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K
+#' @param ... Further arguments passed to sf::st_filter so that predicates can be specified
+#'
+#' @export
+#'
+#' @examples
+#' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria",]
+#' vic_cded <- cded(aoi = vic)
+
+
+cded <- function(aoi = NULL, mapsheets = NULL, ...) {
   if (!is.null(mapsheets)) {
     mapsheets <- tolower(mapsheets)
     if (!all(mapsheets %in% bc_mapsheet_names())) {
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
-    bc_mapsheets <- mapsheets_250K()
-    mapsheets_sf <- bc_mapsheets[sf::st_intersects(aoi, bc_mapsheets)[[1]], , drop = FALSE]
+    st_filter(bc_mapsheets, aoi, ...)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
 
