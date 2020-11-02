@@ -37,7 +37,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, ...) {
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
-    st_filter(bc_mapsheets, aoi, ...)
+    mapsheets_sf <- st_filter(mapsheets_250K(), aoi, ...)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
 
@@ -47,6 +47,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, ...) {
   make_mapsheet_dirs(cache_dir)
 
   mapsheets <- lapply(mapsheets, get_mapsheet_tiles, dir = cache_dir)
+
 
 }
 
@@ -134,3 +135,5 @@ bc_mapsheet_names <- function() {
     "103g", "103f", "103c", "103b", "103a", "102p", "102o", "102i"
   )
 }
+
+
