@@ -456,3 +456,16 @@ update_message_once <- function(...) {
     assign("bcmaps_update_message", TRUE, envir = bcmaps_env)
   }
 }
+
+dem_to_tif <- function(dem_file) {
+  trans <- vapply(dem_file, function(x) {
+    sf::gdal_utils(util = "translate",
+                   source = x,
+                   destination = paste0(tools::file_path_sans_ext(x),".tif"),
+                   options = c("-ot","Int16","-of", "GTiff"))
+  }, FUN.VALUE = logical(1), USE.NAMES = FALSE)
+
+  unlink(dem_file)
+  paste0(tools::file_path_sans_ext(dem_file),".tif")
+
+}

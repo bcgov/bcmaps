@@ -115,7 +115,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
     })
   }
 
-  sub(".\\zip$", "", local_zips)
+  dem_to_tif(sub(".\\zip$", "", local_zips))
 
 }
 
