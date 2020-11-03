@@ -68,14 +68,8 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
 
   url <- dem_resources$url[grepl("zipped dem", tolower(dem_resources$name))]
   url <- paste0(url, "/", mapsheet)
-  resp <- httr::GET(url, config = httr::config(dirlistonly = 1L, ftp_use_epsv = 1L))
-  httr::stop_for_status(resp)
 
-  link_list <- xml2::xml_find_all(httr::content(resp), ".//a")
-
-  file_pattern <- ".+>([0-9a-z_]+\\.dem\\.zip(\\.md5)?)<.+"
-  files <- link_list[grepl(file_pattern, link_list)]
-  files <- gsub(file_pattern, "\\1", files)
+  files <- list_mapsheet_files(url)
 
   md5s <- files[grepl("md5$", files)]
   zips <- setdiff(files, md5s)
@@ -92,8 +86,8 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
     message(paste0("checking your existing tiles for mapsheet ", mapsheet, " are up to date"))
     lapply(zips_have, function(f) {
       md5 <- paste0(f, ".md5")
-      remote_hash <- readLines(paste0(url, "/", basename(md5)), warn = FALSE)
       local_hash <- readLines(md5, warn = FALSE)
+      remote_hash <- readLines(paste0(url, "/", basename(md5)), warn = FALSE)
       if (remote_hash != local_hash) {
         # Add to list of dems we need to download
         message("hash mismatch, re-downloading ", basename(f))
@@ -145,4 +139,14 @@ bc_mapsheet_names <- function() {
   )
 }
 
+list_mapsheet_files <- function(url) {
+  resp <- httr::GET(url, config = httr::config(dirlistonly = 1L, ftp_use_epsv = 1L))
+  httr::stop_for_status(resp)
+
+  link_list <- xml2::xml_find_all(httr::content(resp), ".//a")
+
+  file_pattern <- ".+>([0-9a-z_]+\\.dem\\.zip(\\.md5)?)<.+"
+  files <- link_list[grepl(file_pattern, link_list)]
+  gsub(file_pattern, "\\1", files)
+}
 
