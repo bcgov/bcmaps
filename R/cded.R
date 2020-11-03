@@ -84,12 +84,11 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
   local_zips <- file.path(dir, mapsheet, zips)
 
   # find which ones we have
-  zips_have <- local_zips[file.exists(sub("\\.zip$", "", local_zips))]
+  zips_have <- local_zips[file.exists(sub("\\.dem\\.zip$", "\\.tif", local_zips))]
   zips_need <- setdiff(local_zips, zips_have)
 
   # for those that we already have, check the md5 hash
   if (length(zips_have)) {
-    message("checking your existing tiles are up to date")
     lapply(zips_have, function(f) {
       md5 <- paste0(f, ".md5")
       remote_hash <- readLines(paste0(url, "/", basename(md5)), warn = FALSE)
