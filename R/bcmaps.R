@@ -24,6 +24,7 @@
 #' Each layer's individual help page contains a section describing the source for the data.
 #'
 #' @import sf
+#' @importFrom utils download.file unzip
 #'
 #' @docType package
 #' @name bcmaps
