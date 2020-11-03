@@ -104,17 +104,26 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
 
   if (length(zips_need)) {
     # download the ones we need
-    lapply(zips_need, function(f) {
+    pb <- progress::progress_bar$new(total = length(zips_need),
+                                     format = "  downloading cded tiles [:bar] :percent eta: :eta",
+                                     clear = FALSE,
+                                     width = 60)
+    pb$tick(0)
+    for (i in seq_along(zips_need)) {
+      pb$tick()
+      f <- zips_need[i]
       md5 <- paste0(f, ".md5")
-      download.file(paste0(url, "/", basename(f)),
+      download.file(paste0(url, "/", basename(f)), quiet = TRUE,
                     destfile = f)
       unzip(f, overwrite = TRUE, exdir = dirname(f))
       file.remove(f)
-      download.file(paste0(url, "/", basename(md5)),
+      download.file(paste0(url, "/", basename(md5)), quiet = TRUE,
                     destfile = md5)
-    })
+    }
+
   }
 
+  message("Translating .dem to .tif")
   dem_to_tif(sub(".\\zip$", "", local_zips))
 
 }
