@@ -89,6 +89,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
 
   # for those that we already have, check the md5 hash
   if (length(zips_have)) {
+    message(paste0("checking your existing tiles for mapsheet ", mapsheet, " are up to date"))
     lapply(zips_have, function(f) {
       md5 <- paste0(f, ".md5")
       remote_hash <- readLines(paste0(url, "/", basename(md5)), warn = FALSE)
