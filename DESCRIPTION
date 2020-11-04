@@ -38,7 +38,8 @@ Suggests:
     rmarkdown,
     sp (>= 1.2-5),
     lwgeom (>= 0.2-2),
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    withr (>= 2.3)
 VignetteBuilder: knitr
 LazyData: true
 Roxygen: list(markdown = TRUE)
