@@ -85,16 +85,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
   # for those that we already have, check the md5 hash
   if (length(tiles_have)) {
     message(paste0("checking your existing tiles for mapsheet ", mapsheet, " are up to date"))
-    lapply(zips_have, function(f) {
-      md5 <- paste0(f, ".md5")
-      local_hash <- readLines(md5, warn = FALSE)
-      remote_hash <- readLines(paste0(url, "/", basename(md5)), warn = FALSE)
-      if (remote_hash != local_hash) {
-        # Add to list of dems we need to download
-        message("hash mismatch, re-downloading ", basename(f))
-        zips_need <<- c(zips_need, basename(f))
-      }
-    })
+    tiles_need <- check_hashes(tiles_have, tiles_need, url)
   }
 
 
@@ -155,3 +146,23 @@ list_mapsheet_files <- function(url) {
   gsub(file_pattern, "\\1", files)
 }
 
+check_hashes <- function(tiles_have, tiles_need, url) {
+
+  md5_files <- paste0(tiles_have, ".md5")
+
+  local_hashes <- vapply(md5_files, readChar, character(1), nchars = 40L)
+
+  remote_hashes <- vapply(md5_files, function(f) {
+    readChar(paste0(url, "/", basename(f)), nchars = 40L)
+  }, character(1))
+
+  tiles_to_be_refreshed <- tiles_have[local_hashes != remote_hashes]
+
+  if (length(tiles_to_be_refreshed)) {
+    message("hash mismatch in tile(s) ", paste(basename(tiles_to_be_refreshed), collapse = " "),
+            ". They will be re-downloaded")
+  }
+
+  c(tiles_need, tiles_to_be_refreshed)
+
+}
