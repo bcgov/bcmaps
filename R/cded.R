@@ -46,8 +46,9 @@ cded <- function(aoi = NULL, mapsheets = NULL, ...) {
 
   make_mapsheet_dirs(cache_dir)
 
-  mapsheets <- lapply(mapsheets, get_mapsheet_tiles, dir = cache_dir)
+  tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cache_dir)
 
+  unlist(tiles)
 
 }
 
@@ -166,3 +167,4 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   c(tiles_need, tiles_to_be_refreshed)
 
 }
+
