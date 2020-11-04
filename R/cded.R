@@ -75,14 +75,15 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
   zips <- setdiff(files, md5s)
   stopifnot(length(md5s) == length(zips))
 
-  local_zips <- file.path(dir, mapsheet, zips)
+  local_tiles <- file.path(dir, mapsheet, zips)
+  local_tiffs <- sub("\\.dem\\.zip$", "\\.tif", local_tiles)
 
   # find which ones we have
-  zips_have <- local_zips[file.exists(sub("\\.dem\\.zip$", "\\.tif", local_zips))]
-  zips_need <- setdiff(local_zips, zips_have)
+  tiles_have <- local_tiles[file.exists(local_tiffs)]
+  tiles_need <- setdiff(local_tiles, tiles_have)
 
   # for those that we already have, check the md5 hash
-  if (length(zips_have)) {
+  if (length(tiles_have)) {
     message(paste0("checking your existing tiles for mapsheet ", mapsheet, " are up to date"))
     lapply(zips_have, function(f) {
       md5 <- paste0(f, ".md5")
@@ -96,16 +97,18 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
     })
   }
 
-  if (length(zips_need)) {
+
+  if (length(tiles_need)) {
+    message("downloading tiles: ", paste(basename(tiles_need), collapse = " "))
     # download the ones we need
-    pb <- progress::progress_bar$new(total = length(zips_need),
+    pb <- progress::progress_bar$new(total = length(tiles_need),
                                      format = "  downloading cded tiles [:bar] :percent eta: :eta",
                                      clear = FALSE,
                                      width = 60)
     pb$tick(0)
-    for (i in seq_along(zips_need)) {
+    for (i in seq_along(tiles_need)) {
       pb$tick()
-      f <- zips_need[i]
+      f <- tiles_need[i]
       md5 <- paste0(f, ".md5")
       download.file(paste0(url, "/", basename(f)), quiet = TRUE,
                     destfile = f)
@@ -115,10 +118,12 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
                     destfile = md5)
     }
 
+  message("Translating .dem to .tif")
+  dem_to_tif(sub(".\\zip$", "", local_tiles))
+
   }
 
-  message("Translating .dem to .tif")
-  dem_to_tif(sub(".\\zip$", "", local_zips))
+  local_tiffs
 
 }
 
