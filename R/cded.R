@@ -37,7 +37,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, ...) {
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
-    mapsheets_sf <- st_filter(mapsheets_250K(), aoi, ...)
+    mapsheets_sf <- sf::st_filter(mapsheets_250K(), aoi, ...)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
 
@@ -48,8 +48,9 @@ cded <- function(aoi = NULL, mapsheets = NULL, ...) {
 
   tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cache_dir)
 
-  unlist(tiles)
+  tiles <- unlist(tiles)
 
+  build_vrt(tiles, cache_dir)
 }
 
 make_mapsheet_dirs <- function(dest_dir) {
@@ -168,3 +169,25 @@ check_hashes <- function(tiles_have, tiles_need, url) {
 
 }
 
+build_vrt <- function(tif_files, dir) {
+  vrtfile <- tempfile(tmpdir = dir, fileext = ".vrt")
+  sf::gdal_utils(util = "buildvrt",
+                 source = tif_files,
+                 destination = vrtfile)
+  as.cded_vrt(vrtfile, tif_files)
+}
+
+as.cded_vrt <- function(vrt, tiffs) {
+  attr(vrt, "tiffs") <- tiffs
+  class(vrt) <- c("cded_vrt", class(vrt))
+  vrt
+}
+
+#' @export
+print.cded_vrt <- function(x, ...) {
+  tiffs <- attr(x, "tiffs")
+   attr(x, "tiffs") <- NULL
+   cat("VRT:", unclass(x), "\n",
+       " tiff files:\n   ",
+       paste(tiffs, collapse = "\n    "))
+}
