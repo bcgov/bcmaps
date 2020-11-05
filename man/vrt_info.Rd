@@ -9,9 +9,12 @@ vrt_info(vrt, options = character(0), quiet = FALSE)
 \arguments{
 \item{vrt}{path to a .vrt file}
 
-\item{options}{options to pass to \code{gdalinfo}. See \href{https://gdal.org/programs/gdalinfo.html}{here} for possible options.}
+\item{options}{options to pass to \code{gdalinfo}. See
+\href{https://gdal.org/programs/gdalinfo.html}{here} for
+possible options.}
 
-\item{quiet}{suppress output to the console (default \code{FALSE})}
+\item{quiet}{suppress output to the console (default
+\code{FALSE})}
 }
 \value{
 character of vrt metadata
