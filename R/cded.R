@@ -28,8 +28,6 @@
 #' @examples
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria",]
 #' vic_cded <- cded(aoi = vic)
-
-
 cded <- function(aoi = NULL, mapsheets = NULL, ...) {
   if (!is.null(mapsheets)) {
     mapsheets <- tolower(mapsheets)
@@ -173,4 +171,40 @@ build_vrt <- function(tif_files, dir) {
                  source = tif_files,
                  destination = vrtfile)
   vrtfile
+}
+
+#' Get metdata about a .vrt file
+#'
+#' @param vrt path to a .vrt file
+#' @param options options to pass to `gdalinfo`. See [here](https://gdal.org/programs/gdalinfo.html) for possible options.
+#' @param quiet suppress output to the console (default `FALSE`)
+#'
+#' @return character of vrt metadata
+#' @export
+#'
+#' @examples
+vrt_info <- function(vrt, options = character(0), quiet = FALSE) {
+  if (!file.exists(vrt)) {
+    stop("file ", vrt, " does not exist", call. = FALSE)
+  }
+
+  sf::gdal_utils("info", source = vrt, options = options, quiet = quiet)
+}
+
+#' List the files that a vrt is built on
+#'
+#' @param vrt path to a .vrt file
+#' @param omit_vrt omit the listing of the original vrt. Default `FALSE`
+#'
+#' @return character vector of tiles
+#' @export
+#'
+#' @examples
+vrt_files <- function(vrt, omit_vrt = FALSE) {
+  info <- vrt_info(vrt, options = "-json", quiet = TRUE)
+  files <- jsonlite::fromJSON(info)$files
+  if (omit_vrt) {
+    return(setdiff(files, vrt))
+  }
+  files
 }
