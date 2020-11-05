@@ -52,7 +52,7 @@ test_that("get_mapsheet_tiles works", {
     "hash mismatch"
   )
 
-  # Remove a tif
+  # Remove a tif to force a re-download
   file.remove(file.path(cache_dir, c("82o/082o05_w.tif", "82o/082o05_w.dem.zip.md5")))
 
   expect_message(
