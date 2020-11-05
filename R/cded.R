@@ -92,15 +92,15 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
 
 
   if (length(tiles_need)) {
-    message("downloading tiles: ", paste(basename(tiles_need), collapse = " "))
     # download the ones we need
     pb <- progress::progress_bar$new(total = length(tiles_need),
-                                     format = "  downloading cded tiles [:bar] :percent eta: :eta",
+                                     format = "  downloading :n cded tiles for mapsheet :tn [:bar] :percent eta: :eta",
                                      clear = FALSE,
-                                     width = 60)
+                                     width = 100)
     pb$tick(0)
     for (i in seq_along(tiles_need)) {
-      pb$tick()
+      pb$tick(tokens = list(n = length(tiles_need),
+                            tn = basename(dirname(tiles_need))[1]))
       f <- tiles_need[i]
       md5 <- paste0(f, ".md5")
       download.file(paste0(url, "/", basename(f)), quiet = TRUE,
@@ -110,8 +110,6 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
       download.file(paste0(url, "/", basename(md5)), quiet = TRUE,
                     destfile = md5)
     }
-
-  message("Translating .dem to .tif")
   dem_to_tif(sub(".\\zip$", "", local_tiles))
 
   }
