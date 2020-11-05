@@ -25,7 +25,8 @@ Imports:
     progress,
     stats,
     utils,
-    xml2
+    xml2,
+    jsonlite (>= 1.7.0)
 Suggests: 
     future.apply (>= 1.2.0),
     future (>= 1.12.0),
