@@ -40,7 +40,8 @@ Suggests:
     sp (>= 1.2-5),
     lwgeom (>= 0.2-2),
     testthat (>= 2.1.0),
-    withr (>= 2.3)
+    withr (>= 2.3),
+    stars (>= 0.4.3)
 VignetteBuilder: knitr
 LazyData: true
 Roxygen: list(markdown = TRUE)

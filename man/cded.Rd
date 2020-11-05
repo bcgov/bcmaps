@@ -4,14 +4,17 @@
 \alias{cded}
 \title{Canadian Digital Elevation Model (CDED)}
 \usage{
-cded(aoi = NULL, mapsheets = NULL, ...)
+cded(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects)
 }
 \arguments{
 \item{aoi}{Area of Interest. An sf polygon.}
 
 \item{mapsheets}{Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K}
 
-\item{...}{Further arguments passed to sf::st_filter so that predicates can be specified}
+\item{.predicate}{geometry predicate function used to find the mapsheets from your aoi. Default \link[sf:geos_binary_pred]{sf::st_intersects}.}
+}
+\value{
+path to a .vrt file of the cded tiles for the specified area of interest
 }
 \description{
 Digital Elevation Model (DEM) for British Columbia produced by GeoBC. This data is the
@@ -22,6 +25,6 @@ converted into 1:50,000 grids for distribution. The scale of this modified data 
 1:250,000 which was captured from the original source data which was at a scale of 1:20,000.
 }
 \examples{
-vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria",]
+vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 vic_cded <- cded(aoi = vic)
 }

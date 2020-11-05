@@ -20,22 +20,24 @@
 #' 1:250,000 which was captured from the original source data which was at a scale of 1:20,000.
 #'
 #' @param aoi Area of Interest. An sf polygon.
+#' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param mapsheets Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K
-#' @param ... Further arguments passed to sf::st_filter so that predicates can be specified
+#'
+#' @return path to a .vrt file of the cded tiles for the specified area of interest
 #'
 #' @export
 #'
 #' @examples
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
-cded <- function(aoi = NULL, mapsheets = NULL, ...) {
+cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects) {
   if (!is.null(mapsheets)) {
     mapsheets <- tolower(mapsheets)
     if (!all(mapsheets %in% bc_mapsheet_names())) {
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
-    mapsheets_sf <- sf::st_filter(mapsheets_250K(), aoi, ...)
+    mapsheets_sf <- sf::st_filter(mapsheets_250K(), aoi, .predicate = .predicate)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
 
@@ -49,6 +51,46 @@ cded <- function(aoi = NULL, mapsheets = NULL, ...) {
   tiles <- unlist(tiles)
 
   build_vrt(tiles, cache_dir)
+}
+
+#' Get Canadian Digital Elevation Model (CDED) as a `stars` object
+#'
+#' @inheritParams cded
+#' @param ... Further arguments passed on to [stars::read_stars]
+#'
+#' @return a `stars` object of the cded tiles for the specified area of interest
+#' @export
+#'
+#' @examples
+#' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
+#' vic_cded <- cded_stars(aoi = vic)
+cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, ...) {
+  if (!requireNamespace("stars", quietly = TRUE)) {
+    stop("stars package required to use this function. Please install it.",
+         call. = FALSE)
+  }
+  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, ...)
+  stars::read_stars(vrt, ...)
+}
+
+#' Get Canadian Digital Elevation Model (CDED) as a `raster` object
+#'
+#' @inheritParams cded
+#' @param ... Further arguments passed on to [raster::raster]
+#'
+#' @return a `raster` object of the cded tiles for the specified area of interest
+#' @export
+#'
+#' @examples
+#' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
+#' vic_cded <- cded_raster(aoi = vic)
+cded_raster <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, ...) {
+  if (!requireNamespace("stars", quietly = TRUE)) {
+    stop("stars package required to use this function. Please install it.",
+         call. = FALSE)
+  }
+  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, ...)
+  raster::raster(vrt, ...)
 }
 
 make_mapsheet_dirs <- function(dest_dir) {
