@@ -34,7 +34,7 @@ test_that("get_mapsheet_tiles works", {
 
   expect_message(
     tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
-    "downloading tiles"
+    "downloading \\d+ cded tiles for mapsheet"
   )
 
   expect_true(all(file.exists(tifs)))
@@ -53,11 +53,13 @@ test_that("get_mapsheet_tiles works", {
   )
 
   # Remove a tif to force a re-download
-  file.remove(file.path(cache_dir, c("82o/082o05_w.tif", "82o/082o05_w.dem.zip.md5")))
+  expect_true(
+    all(file.remove(file.path(cache_dir, c("82o/082o05_w.tif", "82o/082o05_w.dem.zip.md5"))))
+  )
 
   expect_message(
     tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
-    "downloading tiles"
+    "downloading \\d+ cded tiles for mapsheet"
   )
 
   expect_true(all(file.exists(tifs)))
@@ -68,9 +70,11 @@ test_that("cded works with mapsheets", {
   skip_on_cran()
   skip_if_offline()
 
-  tifs <- cded(mapsheets = c("102o", "95d"))
+  vrt <- cded(mapsheets = c("102o", "95d"))
 
-  expect_true(all(file.exists(tifs)))
+  expect_true(file.exists(vrt))
+
+  tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
   expect_equal(sort(basename(tifs)),
                c("095d01_e.tif", "095d01_w.tif", "095d02_e.tif", "095d02_w.tif",
@@ -85,9 +89,11 @@ test_that("cded works with aoi", {
 
   aoi <- st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102O", ], -100)
 
-  tifs <- cded(aoi)
+  vrt <- cded(aoi)
 
-  expect_true(all(file.exists(tifs)))
+  expect_true(file.exists(vrt))
+
+  tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
   expect_equal(sort(basename(tifs)),
                c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
