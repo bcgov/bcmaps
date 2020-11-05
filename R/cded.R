@@ -174,20 +174,5 @@ build_vrt <- function(tif_files, dir) {
   sf::gdal_utils(util = "buildvrt",
                  source = tif_files,
                  destination = vrtfile)
-  as.cded_vrt(vrtfile, tif_files)
-}
-
-as.cded_vrt <- function(vrt, tiffs) {
-  attr(vrt, "tiffs") <- tiffs
-  class(vrt) <- c("cded_vrt", class(vrt))
-  vrt
-}
-
-#' @export
-print.cded_vrt <- function(x, ...) {
-  tiffs <- attr(x, "tiffs")
-   attr(x, "tiffs") <- NULL
-   cat("VRT:", unclass(x), "\n",
-       " tiff files:\n   ",
-       paste(tiffs, collapse = "\n    "))
+  vrtfile
 }
