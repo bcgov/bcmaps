@@ -181,8 +181,6 @@ build_vrt <- function(tif_files, dir) {
 #'
 #' @return character of vrt metadata
 #' @export
-#'
-#' @examples
 vrt_info <- function(vrt, options = character(0), quiet = FALSE) {
   if (!file.exists(vrt)) {
     stop("file ", vrt, " does not exist", call. = FALSE)
@@ -198,8 +196,6 @@ vrt_info <- function(vrt, options = character(0), quiet = FALSE) {
 #'
 #' @return character vector of tiles
 #' @export
-#'
-#' @examples
 vrt_files <- function(vrt, omit_vrt = FALSE) {
   info <- vrt_info(vrt, options = "-json", quiet = TRUE)
   files <- jsonlite::fromJSON(info)$files
