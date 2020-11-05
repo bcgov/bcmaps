@@ -119,7 +119,6 @@ shortcut_layers <- function(){
 
 
 get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TRUE) {
-  browser()
   fname <- paste0(what, ".rds")
   dir <- data_dir()
   fpath <- file.path(dir, fname)
