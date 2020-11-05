@@ -1,3 +1,6 @@
+library(sf)
+mapsheets_sf <- mapsheets_250K()
+
 test_that("list_mapsheet_files works", {
   skip_on_cran()
   skip_if_offline()
@@ -73,5 +76,20 @@ test_that("cded works with mapsheets", {
                c("095d01_e.tif", "095d01_w.tif", "095d02_e.tif", "095d02_w.tif",
                  "095d03_e.tif", "095d03_w.tif", "095d04_e.tif", "095d04_w.tif",
                  "102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
+               ))
+})
+
+test_that("cded works with aoi", {
+  skip_on_cran()
+  skip_if_offline()
+
+  aoi <- st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102O", ], -100)
+
+  tifs <- cded(aoi)
+
+  expect_true(all(file.exists(tifs)))
+
+  expect_equal(sort(basename(tifs)),
+               c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
                ))
 })
