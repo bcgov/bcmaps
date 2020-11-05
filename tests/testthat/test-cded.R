@@ -34,7 +34,7 @@ test_that("get_mapsheet_tiles works", {
 
   expect_message(
     tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
-    "downloading \\d+ cded tiles for mapsheet"
+    "Fetching tiles for mapsheet 82o"
   )
 
   expect_true(all(file.exists(tifs)))
@@ -59,7 +59,7 @@ test_that("get_mapsheet_tiles works", {
 
   expect_message(
     tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
-    "downloading \\d+ cded tiles for mapsheet"
+    "Fetching tiles for mapsheet 82o"
   )
 
   expect_true(all(file.exists(tifs)))

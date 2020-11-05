@@ -132,6 +132,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
 
 
   if (length(tiles_need)) {
+    message("Fetching tiles for mapsheet ", mapsheet)
     # download the ones we need
     pb <- progress::progress_bar$new(
       total = length(tiles_need),
@@ -143,7 +144,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
     for (i in seq_along(tiles_need)) {
       pb$tick(tokens = list(
         n = length(tiles_need),
-        tn = basename(dirname(tiles_need))[1]
+        tn = mapsheet
       ))
       f <- tiles_need[i]
       md5 <- paste0(f, ".md5")
