@@ -24,9 +24,54 @@ test_that("making cded cache directory works", {
 })
 
 test_that("get_mapsheet_tiles works", {
+  skip_on_cran()
+  skip_if_offline()
+
   cache_dir <- make_local_cded_cache()
 
-  tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir)
+  expect_message(
+    tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
+    "downloading tiles"
+  )
 
   expect_true(all(file.exists(tifs)))
+
+  expect_message(
+    get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
+    "checking your existing tiles"
+  )
+
+  # edit local md5 file to force a re-download
+  cat("cccchanges!", file = file.path(cache_dir, "82o/082o05_w.dem.zip.md5"), append = TRUE)
+
+  expect_message(
+    get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
+    "hash mismatch"
+  )
+
+  # Remove a tif
+  file.remove(file.path(cache_dir, c("82o/082o05_w.tif", "82o/082o05_w.dem.zip.md5")))
+
+  expect_message(
+    tifs <- get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
+    "downloading tiles"
+  )
+
+  expect_true(all(file.exists(tifs)))
+
+})
+
+test_that("cded works with mapsheets", {
+  skip_on_cran()
+  skip_if_offline()
+
+  tifs <- cded(mapsheets = c("102o", "95d"))
+
+  expect_true(all(file.exists(tifs)))
+
+  expect_equal(sort(basename(tifs)),
+               c("095d01_e.tif", "095d01_w.tif", "095d02_e.tif", "095d02_w.tif",
+                 "095d03_e.tif", "095d03_w.tif", "095d04_e.tif", "095d04_w.tif",
+                 "102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
+               ))
 })

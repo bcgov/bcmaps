@@ -10,5 +10,5 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and limitations under the License.
 
-bc_data_dir <- options('bcmaps.data_dir'= tempdir())
+bc_data_dir <- options('bcmaps.data_dir'= tempdir(check = TRUE))
 silence_update_message_value <- options('silence_update_message' = TRUE)
