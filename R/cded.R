@@ -26,7 +26,7 @@
 #' @export
 #'
 #' @examples
-#' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria",]
+#' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
 cded <- function(aoi = NULL, mapsheets = NULL, ...) {
   if (!is.null(mapsheets)) {
@@ -91,33 +91,40 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
 
   if (length(tiles_need)) {
     # download the ones we need
-    pb <- progress::progress_bar$new(total = length(tiles_need),
-                                     format = "  downloading :n cded tiles for mapsheet :tn [:bar] :percent eta: :eta",
-                                     clear = FALSE,
-                                     width = 100)
+    pb <- progress::progress_bar$new(
+      total = length(tiles_need),
+      format = "  downloading :n cded tiles for mapsheet :tn [:bar] :percent eta: :eta",
+      clear = FALSE,
+      width = 100
+    )
     pb$tick(0)
     for (i in seq_along(tiles_need)) {
-      pb$tick(tokens = list(n = length(tiles_need),
-                            tn = basename(dirname(tiles_need))[1]))
+      pb$tick(tokens = list(
+        n = length(tiles_need),
+        tn = basename(dirname(tiles_need))[1]
+      ))
       f <- tiles_need[i]
       md5 <- paste0(f, ".md5")
-      download.file(paste0(url, "/", basename(f)), quiet = TRUE,
-                    destfile = f)
+      download.file(paste0(url, "/", basename(f)),
+        quiet = TRUE,
+        destfile = f
+      )
       unzip(f, overwrite = TRUE, exdir = dirname(f))
       file.remove(f)
-      download.file(paste0(url, "/", basename(md5)), quiet = TRUE,
-                    destfile = md5)
+      download.file(paste0(url, "/", basename(md5)),
+        quiet = TRUE,
+        destfile = md5
+      )
     }
-  dem_to_tif(sub(".\\zip$", "", local_tiles))
-
+    dem_to_tif(sub(".\\zip$", "", local_tiles))
   }
 
   local_tiffs
-
 }
 
 bc_mapsheet_names <- function() {
-  c("95d", "95c", "95b", "95a", "94p", "94o", "94n", "94m", "94l",
+  c(
+    "95d", "95c", "95b", "95a", "94p", "94o", "94n", "94m", "94l",
     "94k", "94j", "94i", "94h", "94g", "94f", "94e", "94d", "94c",
     "94b", "94a", "93p", "93o", "93n", "93m", "93l", "93k", "93j",
     "93i", "93h", "93g", "93f", "93e", "93d", "93c", "93b", "93a",
@@ -134,7 +141,10 @@ bc_mapsheet_names <- function() {
 }
 
 list_mapsheet_files <- function(url) {
-  resp <- httr::GET(url, config = httr::config(dirlistonly = 1L, ftp_use_epsv = 1L))
+  resp <- httr::GET(url, config = httr::config(
+    dirlistonly = 1L,
+    ftp_use_epsv = 1L
+  ))
   httr::stop_for_status(resp)
 
   link_list <- xml2::xml_find_all(httr::content(resp), ".//a")
@@ -145,7 +155,6 @@ list_mapsheet_files <- function(url) {
 }
 
 check_hashes <- function(tiles_have, tiles_need, url) {
-
   md5_files <- paste0(tiles_have, ".md5")
 
   local_hashes <- vapply(md5_files, readChar, character(1), nchars = 40L)
@@ -157,27 +166,34 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   tiles_to_be_refreshed <- tiles_have[local_hashes != remote_hashes]
 
   if (length(tiles_to_be_refreshed)) {
-    message("hash mismatch in tile(s) ", paste(basename(tiles_to_be_refreshed), collapse = " "),
-            ". They will be re-downloaded")
+    message(
+      "hash mismatch in tile(s) ",
+      paste(basename(tiles_to_be_refreshed), collapse = " "),
+      ". They will be re-downloaded"
+    )
   }
 
   c(tiles_need, tiles_to_be_refreshed)
-
 }
 
 build_vrt <- function(tif_files, dir) {
   vrtfile <- tempfile(tmpdir = dir, fileext = ".vrt")
-  sf::gdal_utils(util = "buildvrt",
-                 source = tif_files,
-                 destination = vrtfile)
+  sf::gdal_utils(
+    util = "buildvrt",
+    source = tif_files,
+    destination = vrtfile
+  )
   vrtfile
 }
 
 #' Get metdata about a .vrt file
 #'
 #' @param vrt path to a .vrt file
-#' @param options options to pass to `gdalinfo`. See [here](https://gdal.org/programs/gdalinfo.html) for possible options.
-#' @param quiet suppress output to the console (default `FALSE`)
+#' @param options options to pass to `gdalinfo`. See
+#'   [here](https://gdal.org/programs/gdalinfo.html) for
+#'   possible options.
+#' @param quiet suppress output to the console (default
+#'   `FALSE`)
 #'
 #' @return character of vrt metadata
 #' @export
@@ -204,3 +220,4 @@ vrt_files <- function(vrt, omit_vrt = FALSE) {
   }
   files
 }
+
