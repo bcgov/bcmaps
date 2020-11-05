@@ -119,6 +119,7 @@ shortcut_layers <- function(){
 
 
 get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TRUE) {
+  browser()
   fname <- paste0(what, ".rds")
   dir <- data_dir()
   fpath <- file.path(dir, fname)
@@ -129,6 +130,7 @@ get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TR
     recordid <- layers_df$record[layers_df$layer_name == what]
     resourceid <- layers_df$resource[layers_df$layer_name == what]
     ret <- bcdata::bcdc_get_data(recordid, resourceid)
+    class(ret) <- setdiff(class(ret), 'bcdc_sf')
     saveRDS(ret, fpath)
   } else {
     ret <- readRDS(fpath)
