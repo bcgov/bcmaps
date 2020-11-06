@@ -22,6 +22,7 @@
 #' @param aoi Area of Interest. An sf polygon.
 #' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param mapsheets Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K
+#' @param dest_vrt The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project
 #'
 #' @return path to a .vrt file of the cded tiles for the specified area of interest
 #'
@@ -30,7 +31,11 @@
 #' @examples
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
-cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects) {
+cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt")) {
+  if (!grepl("\\.vrt$", dest_vrt)) {
+    stop("You have specified an invalid filename for your vrt file", call. = FALSE)
+  }
+
   if (!is.null(mapsheets)) {
     mapsheets <- tolower(mapsheets)
     if (!all(mapsheets %in% bc_mapsheet_names())) {
@@ -50,7 +55,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects) {
 
   tiles <- unlist(tiles)
 
-  build_vrt(tiles, cache_dir)
+  build_vrt(tiles, dest_vrt)
 }
 
 #' Get Canadian Digital Elevation Model (CDED) as a `stars` object
@@ -64,12 +69,12 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects) {
 #' @examples
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_stars(aoi = vic)
-cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, ...) {
+cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, ...)
+  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, dest_vrt = dest_vrt, ...)
   stars::read_stars(vrt, ...)
 }
 
@@ -84,12 +89,12 @@ cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_interse
 #' @examples
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_raster(aoi = vic)
-cded_raster <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, ...) {
+cded_raster <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, ...)
+  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, dest_vrt = dest_vrt, ...)
   raster::raster(vrt, ...)
 }
 
@@ -149,14 +154,14 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
       f <- tiles_need[i]
       md5 <- paste0(f, ".md5")
       download.file(paste0(url, "/", basename(f)),
-        quiet = TRUE,
-        destfile = f
+                    quiet = TRUE,
+                    destfile = f
       )
       unzip(f, overwrite = TRUE, exdir = dirname(f))
       file.remove(f)
       download.file(paste0(url, "/", basename(md5)),
-        quiet = TRUE,
-        destfile = md5
+                    quiet = TRUE,
+                    destfile = md5
       )
     }
     dem_to_tif(sub(".\\zip$", "", local_tiles))
@@ -219,14 +224,13 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   c(tiles_need, tiles_to_be_refreshed)
 }
 
-build_vrt <- function(tif_files, dir) {
-  vrtfile <- tempfile(tmpdir = dir, fileext = ".vrt")
+build_vrt <- function(tif_files, dest_vrt) {
   sf::gdal_utils(
     util = "buildvrt",
     source = tif_files,
-    destination = vrtfile
+    destination = dest_vrt
   )
-  vrtfile
+  dest_vrt
 }
 
 #' Get metdata about a .vrt file
@@ -263,4 +267,3 @@ vrt_files <- function(vrt, omit_vrt = FALSE) {
   }
   files
 }
-

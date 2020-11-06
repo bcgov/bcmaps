@@ -4,7 +4,12 @@
 \alias{cded}
 \title{Canadian Digital Elevation Model (CDED)}
 \usage{
-cded(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects)
+cded(
+  aoi = NULL,
+  mapsheets = NULL,
+  .predicate = sf::st_intersects,
+  dest_vrt = tempfile(fileext = ".vrt")
+)
 }
 \arguments{
 \item{aoi}{Area of Interest. An sf polygon.}
@@ -12,6 +17,8 @@ cded(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects)
 \item{mapsheets}{Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K}
 
 \item{.predicate}{geometry predicate function used to find the mapsheets from your aoi. Default \link[sf:geos_binary_pred]{sf::st_intersects}.}
+
+\item{dest_vrt}{The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project}
 }
 \value{
 path to a .vrt file of the cded tiles for the specified area of interest
