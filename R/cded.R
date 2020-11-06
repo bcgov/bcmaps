@@ -34,11 +34,15 @@
 #' vic_cded <- cded(aoi = vic)
 #' }
 cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt")) {
+cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ask = interactive()) {
   if (!grepl("\\.vrt$", dest_vrt)) {
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
   }
 
   cded_dir <- file.path(data_dir(), "cded")
+
+  if(!dir.exists(cded_dir)) check_write_to_data_dir(cded_dir, ask)
+
   if (!is.null(mapsheets)) {
     mapsheets <- tolower(mapsheets)
     if (!all(mapsheets %in% bc_mapsheet_names())) {
