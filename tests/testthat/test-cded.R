@@ -87,7 +87,7 @@ test_that("cded works with aoi", {
   skip_on_cran()
   skip_if_offline()
 
-  aoi <- st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102O", ], -100)
+  aoi <- st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ], -100)
 
   vrt <- cded(aoi)
 
