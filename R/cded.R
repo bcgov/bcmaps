@@ -23,6 +23,7 @@
 #' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param mapsheets Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K
 #' @param dest_vrt The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project
+#' @inheritParams bc_bound_hres
 #'
 #' @return path to a .vrt file of the cded tiles for the specified area of interest
 #'
@@ -33,7 +34,6 @@
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
 #' }
-cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt")) {
 cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ask = interactive()) {
   if (!grepl("\\.vrt$", dest_vrt)) {
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
@@ -49,17 +49,13 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
-    mapsheets_sf <- sf::st_filter(mapsheets_250K(), aoi, .predicate = .predicate)
+    mapsheets_sf <- sf::st_filter(mapsheets_250K(ask = FALSE), aoi, .predicate = .predicate)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
 
 
-  cache_dir <- file.path(data_dir(), "cded")
-
-  make_mapsheet_dirs(cache_dir)
   make_mapsheet_dirs(cded_dir)
 
-  tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cache_dir)
   tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cded_dir)
 
   tiles <- unlist(tiles)

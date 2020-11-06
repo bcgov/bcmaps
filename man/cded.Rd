@@ -8,7 +8,8 @@ cded(
   aoi = NULL,
   mapsheets = NULL,
   .predicate = sf::st_intersects,
-  dest_vrt = tempfile(fileext = ".vrt")
+  dest_vrt = tempfile(fileext = ".vrt"),
+  ask = interactive()
 )
 }
 \arguments{
@@ -19,6 +20,8 @@ cded(
 \item{.predicate}{geometry predicate function used to find the mapsheets from your aoi. Default \link[sf:geos_binary_pred]{sf::st_intersects}.}
 
 \item{dest_vrt}{The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project}
+
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 }
 \value{
 path to a .vrt file of the cded tiles for the specified area of interest
