@@ -192,5 +192,7 @@ mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
     time <- attributes(ret)$time_downloaded
     update_message_once(paste0('bc_mapsheets_250 was updated on ', format(time, "%Y-%m-%d")))
   }
+  if (class == "sp") ret <- convert_to_sp(ret)
+
   ret
 }
