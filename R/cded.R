@@ -38,6 +38,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
   }
 
+  cded_dir <- file.path(data_dir(), "cded")
   if (!is.null(mapsheets)) {
     mapsheets <- tolower(mapsheets)
     if (!all(mapsheets %in% bc_mapsheet_names())) {
@@ -52,8 +53,10 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
   cache_dir <- file.path(data_dir(), "cded")
 
   make_mapsheet_dirs(cache_dir)
+  make_mapsheet_dirs(cded_dir)
 
   tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cache_dir)
+  tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cded_dir)
 
   tiles <- unlist(tiles)
 
