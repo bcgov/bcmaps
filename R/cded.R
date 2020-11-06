@@ -29,8 +29,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
+#' }
 cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt")) {
   if (!grepl("\\.vrt$", dest_vrt)) {
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
@@ -67,8 +69,10 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_stars(aoi = vic)
+#' }
 cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
@@ -87,8 +91,10 @@ cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_interse
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_raster(aoi = vic)
+#' }
 cded_raster <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",

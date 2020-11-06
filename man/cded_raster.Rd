@@ -30,6 +30,8 @@ a \code{raster} object of the cded tiles for the specified area of interest
 Get Canadian Digital Elevation Model (CDED) as a \code{raster} object
 }
 \examples{
+\dontrun{
 vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 vic_cded <- cded_raster(aoi = vic)
+}
 }
