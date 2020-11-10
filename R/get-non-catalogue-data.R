@@ -179,7 +179,7 @@ mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
     res <- jsonlite::read_json(meta, simplifyVector = TRUE)
     zip <- res$result$resources$url[res$result$resources$format == "SHP"]
     zip <- sub("^https?","https", zip)
-    httr::GET(zip, httr::write_disk(zipfile))
+    download.file(zip, destfile = zipfile, method = "libcurl", quiet = TRUE)
     unzip(zipfile = zipfile, exdir = shp_dir)
     canada_250k_shp <- list.files(shp_dir, pattern = ".*250.*shp$", full.names = TRUE)
     canada_250 <- sf::read_sf(canada_250k_shp)
