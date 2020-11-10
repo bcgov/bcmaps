@@ -90,7 +90,7 @@ jobs:
 
       - name: Set httr options
         run: httr::set_config(config(ssl_verifypeer = FALSE))
-        shell: Rscript{0}
+        shell: Rscript {0}
 
       - name: Check
         env:
