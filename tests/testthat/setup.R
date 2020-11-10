@@ -12,3 +12,7 @@
 
 bc_data_dir <- options('bcmaps.data_dir'= tempdir(check = TRUE))
 silence_update_message_value <- options('silence_update_message' = TRUE)
+
+if (identical(Sys.getenv("GITHUB_ACTIONS"), "true")) {
+  httr::set_config(httr::config(ssl_verifypeer = FALSE))
+}
