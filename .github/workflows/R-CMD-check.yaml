@@ -88,6 +88,10 @@ jobs:
           remotes::install_deps(dependencies = TRUE, configure.args = c('sf' = '${{ matrix.config.sf_args }}'))
         shell: Rscript {0}
 
+      - name: Set httr options
+        run: httr::set_config(config(ssl_verifypeer = FALSE))
+        shell: Rscript{0}
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
