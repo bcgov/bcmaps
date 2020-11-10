@@ -172,14 +172,14 @@ mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
   if (!file.exists(fpath) | force) {
     check_write_to_data_dir(dir, ask)
     meta = tempfile(fileext = ".json")
-    zipfile = tempfile(fileext = "zip")
+    zipfile = tempfile(fileext = ".zip")
     shp_dir = file.path(tempdir(), "canada_250k")
     on.exit(unlink(c(meta, zipfile, shp_dir)), add = TRUE)
     download.file("https://open.canada.ca/data/api/action/package_show?id=055919c2-101e-4329-bfd7-1d0c333c0e62", destfile =  meta)
     res <- jsonlite::read_json(meta, simplifyVector = TRUE)
     zip <- res$result$resources$url[res$result$resources$format == "SHP"]
     zip <- sub("^https?","https", zip)
-    download.file(zip, destfile = zipfile)
+    httr::GET(zip, httr::write_disk(zipfile))
     unzip(zipfile = zipfile, exdir = shp_dir)
     canada_250k_shp <- list.files(shp_dir, pattern = ".*250.*shp$", full.names = TRUE)
     canada_250 <- sf::read_sf(canada_250k_shp)
