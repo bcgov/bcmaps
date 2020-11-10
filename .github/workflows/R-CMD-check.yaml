@@ -91,7 +91,7 @@ jobs:
       - name: Set httr options
         run: |
           install.packages('httr')
-          httr::set_config(config(ssl_verifypeer = FALSE))
+          httr::set_config(httr::config(ssl_verifypeer = FALSE))
         shell: Rscript {0}
 
       - name: Check
