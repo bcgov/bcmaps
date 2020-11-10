@@ -167,7 +167,7 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
 
   dir <- data_dir()
-  fpath <- file.path(dir, "bc_mapsheets_250.rds")
+  fpath <- file.path(dir, "mapsheets_250K.rds")
 
   if (!file.exists(fpath) | force) {
     check_write_to_data_dir(dir, ask)
