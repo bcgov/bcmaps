@@ -13,7 +13,7 @@ cded(
 )
 }
 \arguments{
-\item{aoi}{Area of Interest. An sf polygon.}
+\item{aoi}{Area of Interest. Needs to be an sf polygon.}
 
 \item{mapsheets}{Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K}
 

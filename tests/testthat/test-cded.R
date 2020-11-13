@@ -99,3 +99,21 @@ test_that("cded works with aoi", {
                c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
                ))
 })
+
+test_that("cded works with aoi with a different projection as mapsheets_250K", {
+  skip_on_cran()
+  skip_if_offline()
+
+  aoi <- st_transform(st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ], -100), 4326)
+
+
+  vrt <- cded(aoi)
+
+  expect_true(file.exists(vrt))
+
+  tifs <- vrt_files(vrt, omit_vrt = TRUE)
+
+  expect_equal(sort(basename(tifs)),
+               c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
+               ))
+})

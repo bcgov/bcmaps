@@ -19,7 +19,7 @@
 #' converted into 1:50,000 grids for distribution. The scale of this modified data is
 #' 1:250,000 which was captured from the original source data which was at a scale of 1:20,000.
 #'
-#' @param aoi Area of Interest. An sf polygon.
+#' @param aoi Area of Interest. Needs to be an sf polygon.
 #' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param mapsheets Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K
 #' @param dest_vrt The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project
@@ -35,6 +35,7 @@
 #' vic_cded <- cded(aoi = vic)
 #' }
 cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ask = interactive()) {
+
   if (!grepl("\\.vrt$", dest_vrt)) {
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
   }
@@ -49,6 +50,8 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
+    if (sf::st_crs(aoi)$input != "EPSG:3005") aoi <- st_transform(aoi, sf::st_crs(mapsheets_250K()))
+
     mapsheets_sf <- sf::st_filter(mapsheets_250K(ask = FALSE), aoi, .predicate = .predicate)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
