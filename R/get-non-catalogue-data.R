@@ -165,7 +165,6 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #'
 #' @export
 mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
-
   dir <- data_dir()
   fpath <- file.path(dir, "mapsheets_250K.rds")
 
@@ -183,7 +182,7 @@ mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
     unzip(zipfile = zipfile, exdir = shp_dir)
     canada_250k_shp <- list.files(shp_dir, pattern = ".*250.*shp$", full.names = TRUE)
     canada_250 <- sf::read_sf(canada_250k_shp)
-    canada_250$MAP_TILE_DISPLAY_NAME <- tolower(trimws(canada_250$NTS_SNRC, which = "left", whitespace = "0"))
+    canada_250$MAP_TILE_DISPLAY_NAME <- tolower(sub("^0+", "", canada_250$NTS_SNRC))
     ret <- canada_250[canada_250$MAP_TILE_DISPLAY_NAME %in% bc_mapsheet_names(), ]
     ret <- transform_bc_albers(ret)
     attr(ret, 'time_downloaded') <- Sys.time()
