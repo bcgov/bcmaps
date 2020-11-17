@@ -27,4 +27,4 @@ canada_250$MAP_TILE_DISPLAY_NAME <- tolower(sub("^0+", "", canada_250$NTS_SNRC))
 mapsheets_250K_data <- canada_250[canada_250$MAP_TILE_DISPLAY_NAME %in% bc_mapsheet_names(), ]
 mapsheets_250K_data <- transform_bc_albers(mapsheets_250K_data)
 
-usethis::use_data(mapsheets_250K_data, overwrite = TRUE, compress = "xz")
+# usethis::use_data(mapsheets_250K_data, internal = TRUE, overwrite = TRUE, compress = "xz")

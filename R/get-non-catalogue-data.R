@@ -150,6 +150,7 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #'
 #' Internal data.
 #'
+#' @noRd
 "mapsheets_250K_data"
 
 #' NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
@@ -173,7 +174,7 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 mapsheets_250K <- function(class = 'sf') {
 
 
-  ret <- bcmaps::mapsheets_250K_data
+  ret <- mapsheets_250K_data
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
