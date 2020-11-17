@@ -50,8 +50,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
   } else {
-    if (sf::st_crs(aoi)$input != "EPSG:3005") aoi <- st_transform(aoi, sf::st_crs(mapsheets_250K()))
-
+    aoi <- transform_bc_albers(aoi)
     mapsheets_sf <- sf::st_filter(mapsheets_250K(ask = FALSE), aoi, .predicate = .predicate)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
