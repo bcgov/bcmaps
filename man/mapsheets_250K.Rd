@@ -7,14 +7,10 @@
 https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
 }
 \usage{
-mapsheets_250K(class = "sf", ask = interactive(), force = FALSE)
+mapsheets_250K(class = "sf")
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
-
-\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
-
-\item{force}{Should you force download the data?}
 }
 \value{
 The spatial layer of \code{mapsheets_250K} in the desired class

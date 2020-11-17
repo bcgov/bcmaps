@@ -146,6 +146,12 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 }
 
 
+#' Raw NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
+#'
+#' Internal data.
+#'
+"mapsheets_250K_data"
+
 #' NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
 #'
 #'
@@ -164,34 +170,11 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-mapsheets_250K <- function(class = 'sf', ask = interactive(), force = FALSE) {
-  dir <- data_dir()
-  fpath <- file.path(dir, "mapsheets_250K.rds")
+mapsheets_250K <- function(class = 'sf') {
 
-  if (!file.exists(fpath) | force) {
-    check_write_to_data_dir(dir, ask)
-    meta = tempfile(fileext = ".json")
-    zipfile = tempfile(fileext = ".zip")
-    shp_dir = file.path(tempdir(), "canada_250k")
-    on.exit(unlink(c(meta, zipfile, shp_dir)), add = TRUE)
-    download.file("https://open.canada.ca/data/api/action/package_show?id=055919c2-101e-4329-bfd7-1d0c333c0e62", destfile =  meta)
-    res <- jsonlite::read_json(meta, simplifyVector = TRUE)
-    zip <- res$result$resources$url[res$result$resources$format == "SHP"]
-    zip <- sub("^https?","https", zip)
-    httr::GET(zip, httr::write_disk(zipfile))
-    unzip(zipfile = zipfile, exdir = shp_dir)
-    canada_250k_shp <- list.files(shp_dir, pattern = ".*250.*shp$", full.names = TRUE)
-    canada_250 <- sf::read_sf(canada_250k_shp)
-    canada_250$MAP_TILE_DISPLAY_NAME <- tolower(sub("^0+", "", canada_250$NTS_SNRC))
-    ret <- canada_250[canada_250$MAP_TILE_DISPLAY_NAME %in% bc_mapsheet_names(), ]
-    ret <- transform_bc_albers(ret)
-    attr(ret, 'time_downloaded') <- Sys.time()
-    saveRDS(ret, fpath)
-  } else {
-    ret <- readRDS(fpath)
-    time <- attributes(ret)$time_downloaded
-    update_message_once(paste0('mapsheets_250K was updated on ', format(time, "%Y-%m-%d")))
-  }
+
+  ret <- bcmaps::mapsheets_250K_data
+
   if (class == "sp") ret <- convert_to_sp(ret)
 
   ret

@@ -51,7 +51,7 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
     }
   } else {
     aoi <- transform_bc_albers(aoi)
-    mapsheets_sf <- sf::st_filter(mapsheets_250K(ask = FALSE), aoi, .predicate = .predicate)
+    mapsheets_sf <- sf::st_filter(mapsheets_250K(), aoi, .predicate = .predicate)
     mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
   }
 
