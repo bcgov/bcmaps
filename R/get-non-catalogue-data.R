@@ -145,14 +145,6 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 
 }
 
-
-#' Raw NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
-#'
-#' Internal data.
-#'
-#' @noRd
-"mapsheets_250K_data"
-
 #' NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
 #'
 #'
