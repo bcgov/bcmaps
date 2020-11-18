@@ -21,7 +21,7 @@
 #'
 #' @param aoi Area of Interest. Needs to be an sf polygon.
 #' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
-#' @param mapsheets Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K
+#' @param tiles_50K a character vector of 1:50,000 NTS mapsheet tiles
 #' @param dest_vrt The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project
 #' @inheritParams bc_bound_hres
 #'
@@ -34,7 +34,7 @@
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
 #' }
-cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ask = interactive()) {
+cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ask = interactive()) {
 
   if (!grepl("\\.vrt$", dest_vrt)) {
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
@@ -42,25 +42,32 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
 
   cded_dir <- file.path(data_dir(), "cded")
 
-  if(!dir.exists(cded_dir)) check_write_to_data_dir(cded_dir, ask)
+  if (!dir.exists(cded_dir)) check_write_to_data_dir(cded_dir, ask)
 
-  if (!is.null(mapsheets)) {
-    mapsheets <- tolower(mapsheets)
-    if (!all(mapsheets %in% bc_mapsheet_names())) {
+  if (!is.null(tiles_50K)) {
+    # Make lowercase and make sure padding zeroes are there so 50K
+    # mapsheet is always 6 characters
+    tiles_50K <- tolower(sprintf("%06s", tiles_50K))
+
+    # Remove leading zeros and 50k identifiers to make 250K mapsheets
+    mapsheets <- unique(gsub("(^0)|([0-9]{2}$)", "", substr(tiles_50K, 1, 4)))
+
+    if (!all(mapsheets %in% bc_mapsheet_250K_names())) {
       stop("You have entered invalid mapsheets", call. = FALSE)
     }
+
   } else {
     aoi <- transform_bc_albers(aoi)
-    mapsheets_sf <- sf::st_filter(mapsheets_250K(), aoi, .predicate = .predicate)
-    mapsheets <- tolower(mapsheets_sf$MAP_TILE_DISPLAY_NAME)
+    tiles_50K_sf <- sf::st_filter(mapsheets_50K_data, aoi, .predicate = .predicate)
+    tiles_50K <- tolower(tiles_50K_sf$NTS_SNRC)
+    mapsheets <- unique(tolower(tiles_50K_sf$grid_250K))
   }
-
 
   make_mapsheet_dirs(cded_dir)
 
-  tiles <- lapply(mapsheets, get_mapsheet_tiles, dir = cded_dir)
+  all_tiles <- unlist(lapply(mapsheets, get_mapsheet_tiles, dir = cded_dir))
 
-  tiles <- unlist(tiles)
+  tiles <- all_tiles[substr(basename(all_tiles), 1, 6) %in% tiles_50K]
 
   build_vrt(tiles, dest_vrt)
 }
@@ -78,12 +85,12 @@ cded <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, d
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_stars(aoi = vic)
 #' }
-cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
+cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, dest_vrt = dest_vrt, ...)
+  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K, .predicate = .predicate, dest_vrt = dest_vrt, ...)
   stars::read_stars(vrt, ...)
 }
 
@@ -100,23 +107,23 @@ cded_stars <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_interse
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_raster(aoi = vic)
 #' }
-cded_raster <- function(aoi = NULL, mapsheets = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
+cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, mapsheets = mapsheets, .predicate = .predicate, dest_vrt = dest_vrt, ...)
+  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K, .predicate = .predicate, dest_vrt = dest_vrt, ...)
   raster::raster(vrt, ...)
 }
 
 make_mapsheet_dirs <- function(dest_dir) {
-  dir_list <- file.path(dest_dir, bc_mapsheet_names())
+  dir_list <- file.path(dest_dir, bc_mapsheet_250K_names())
   lapply(dir_list, dir.create, showWarnings = FALSE, recursive = TRUE)
   dir_list
 }
 
 get_mapsheet_tiles <- function(mapsheet, dir) {
-  if (!mapsheet %in% bc_mapsheet_names()) {
+  if (!mapsheet %in% bc_mapsheet_250K_names()) {
     stop("invalid mapsheet")
   }
 
@@ -181,7 +188,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
   local_tiffs
 }
 
-bc_mapsheet_names <- function() {
+bc_mapsheet_250K_names <- function() {
   c(
     "95d", "95c", "95b", "95a", "94p", "94o", "94n", "94m", "94l",
     "94k", "94j", "94i", "94h", "94g", "94f", "94e", "94d", "94c",

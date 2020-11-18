@@ -1,5 +1,6 @@
 library(sf)
 mapsheets_sf <- mapsheets_250K()
+mapsheets_50_sf <- mapsheets_50K()
 
 test_that("list_mapsheet_files works", {
   skip_on_cran()
@@ -22,7 +23,7 @@ test_that("making cded cache directory works", {
   dirs <- make_mapsheet_dirs(mapsheet_dir)
 
   on.exit(unlink(mapsheet_dir, recursive = TRUE, force = TRUE), add = TRUE)
-  expect_equal(sort(basename(dirs)), sort(bc_mapsheet_names()))
+  expect_equal(sort(basename(dirs)), sort(bc_mapsheet_250K_names()))
   expect_true(all(dir.exists(dirs)))
 })
 
@@ -66,20 +67,19 @@ test_that("get_mapsheet_tiles works", {
 
 })
 
-test_that("cded works with mapsheets", {
+test_that("cded works with tiles_50K", {
   skip_on_cran()
   skip_if_offline()
 
-  vrt <- cded(mapsheets = c("102o", "95d"))
+  vrt <- cded(tiles_50K = c("102o14", "095d01"))
 
   expect_true(file.exists(vrt))
 
   tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
   expect_equal(sort(basename(tifs)),
-               c("095d01_e.tif", "095d01_w.tif", "095d02_e.tif", "095d02_w.tif",
-                 "095d03_e.tif", "095d03_w.tif", "095d04_e.tif", "095d04_w.tif",
-                 "102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
+               c("095d01_e.tif", "095d01_w.tif",
+                 "102o14_e.tif", "102o14_w.tif"
                ))
 })
 
@@ -98,6 +98,18 @@ test_that("cded works with aoi", {
   expect_equal(sort(basename(tifs)),
                c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
                ))
+
+  # With an aoi smaller than a single 50K tile
+  aoi <- st_buffer(mapsheets_50_sf[mapsheets_50_sf$NTS_SNRC == "095B04", ], -100)
+
+  vrt <- cded(aoi)
+
+  expect_true(file.exists(vrt))
+
+  tifs <- vrt_files(vrt, omit_vrt = TRUE)
+
+  expect_equal(sort(basename(tifs)),
+               c("095b04_e.tif", "095b04_w.tif"))
 })
 
 test_that("cded works with aoi with a different projection as mapsheets_250K", {

@@ -6,7 +6,7 @@
 \usage{
 cded(
   aoi = NULL,
-  mapsheets = NULL,
+  tiles_50K = NULL,
   .predicate = sf::st_intersects,
   dest_vrt = tempfile(fileext = ".vrt"),
   ask = interactive()
@@ -15,7 +15,7 @@ cded(
 \arguments{
 \item{aoi}{Area of Interest. Needs to be an sf polygon.}
 
-\item{mapsheets}{Mapsheets grid to retrieve raster tiles. Defaults to mapsheets_250K}
+\item{tiles_50K}{a character vector of 1:50,000 NTS mapsheet tiles}
 
 \item{.predicate}{geometry predicate function used to find the mapsheets from your aoi. Default \link[sf:geos_binary_pred]{sf::st_intersects}.}
 
