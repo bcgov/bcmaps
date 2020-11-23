@@ -9,6 +9,7 @@ cded_raster(
   tiles_50K = NULL,
   .predicate = sf::st_intersects,
   dest_vrt = tempfile(fileext = ".vrt"),
+  check_tiles = TRUE,
   ...
 )
 }
@@ -20,6 +21,10 @@ cded_raster(
 \item{.predicate}{geometry predicate function used to find the mapsheets from your aoi. Default \link[sf:geos_binary_pred]{sf::st_intersects}.}
 
 \item{dest_vrt}{The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project}
+
+\item{check_tiles}{Should the tiles that you already have in your cache be checked to see if they need updating? Default \code{TRUE}.
+If you are running the same code frequently and are confident the tiles haven't changed, setting this to \code{FALSE}
+will speed things up.}
 
 \item{...}{Further arguments passed on to \link[raster:raster]{raster::raster}}
 }

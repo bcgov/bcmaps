@@ -9,7 +9,8 @@ cded(
   tiles_50K = NULL,
   .predicate = sf::st_intersects,
   dest_vrt = tempfile(fileext = ".vrt"),
-  ask = interactive()
+  ask = interactive(),
+  check_tiles = TRUE
 )
 }
 \arguments{
@@ -22,6 +23,10 @@ cded(
 \item{dest_vrt}{The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
+\item{check_tiles}{Should the tiles that you already have in your cache be checked to see if they need updating? Default \code{TRUE}.
+If you are running the same code frequently and are confident the tiles haven't changed, setting this to \code{FALSE}
+will speed things up.}
 }
 \value{
 path to a .vrt file of the cded tiles for the specified area of interest
