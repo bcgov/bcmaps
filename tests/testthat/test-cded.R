@@ -45,6 +45,10 @@ test_that("get_mapsheet_tiles works", {
     "checking your existing tiles"
   )
 
+  expect_silent(
+    get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir, check_tiles = FALSE)
+  )
+
   # edit local md5 file to force a re-download
   cat("cccchanges!", file = file.path(cache_dir, "82o/082o05_w.dem.zip.md5"), append = TRUE)
 

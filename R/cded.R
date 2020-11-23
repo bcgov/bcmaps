@@ -20,9 +20,12 @@
 #' 1:250,000 which was captured from the original source data which was at a scale of 1:20,000.
 #'
 #' @param aoi Area of Interest. Needs to be an sf polygon.
-#' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param tiles_50K a character vector of 1:50,000 NTS mapsheet tiles
+#' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param dest_vrt The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project
+#' @param check_tiles Should the tiles that you already have in your cache be checked to see if they need updating? Default `TRUE`.
+#'                    If you are running the same code frequently and are confident the tiles haven't changed, setting this to `FALSE`
+#'                    will speed things up.
 #' @inheritParams bc_bound_hres
 #'
 #' @return path to a .vrt file of the cded tiles for the specified area of interest
@@ -34,7 +37,9 @@
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded(aoi = vic)
 #' }
-cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ask = interactive()) {
+cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
+                 dest_vrt = tempfile(fileext = ".vrt"), ask = interactive(),
+                 check_tiles = TRUE) {
 
   if (!grepl("\\.vrt$", dest_vrt)) {
     stop("You have specified an invalid filename for your vrt file", call. = FALSE)
@@ -65,7 +70,8 @@ cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, d
 
   make_mapsheet_dirs(cded_dir)
 
-  all_tiles <- unlist(lapply(mapsheets, get_mapsheet_tiles, dir = cded_dir))
+  all_tiles <- unlist(lapply(mapsheets, get_mapsheet_tiles,
+                             dir = cded_dir, check_tiles = check_tiles))
 
   tiles <- all_tiles[substr(basename(all_tiles), 1, 6) %in% tiles_50K]
 
@@ -87,13 +93,17 @@ cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, d
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_stars(aoi = vic)
 #' }
-cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
+cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
+                       dest_vrt = tempfile(fileext = ".vrt"),
+                       check_tiles = TRUE, ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K, .predicate = .predicate, dest_vrt = dest_vrt, ...)
-  stars::read_stars(vrt, ...)
+  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K,
+              .predicate = .predicate, dest_vrt = dest_vrt,
+              check_tiles = check_tiles, ...)
+
   stats::setNames(stars::read_stars(vrt, ...), "elevation")
 }
 
@@ -110,13 +120,17 @@ cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_interse
 #' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
 #' vic_cded <- cded_raster(aoi = vic)
 #' }
-cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, dest_vrt = tempfile(fileext = ".vrt"), ...) {
+cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
+                        dest_vrt = tempfile(fileext = ".vrt"),
+                        check_tiles = TRUE, ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K, .predicate = .predicate, dest_vrt = dest_vrt, ...)
-  raster::raster(vrt, ...)
+  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K,
+              .predicate = .predicate, dest_vrt = dest_vrt,
+              check_tiles = check_tiles, ...)
+
   stats::setNames(raster::raster(vrt, ...), "elevation")
 }
 
@@ -126,7 +140,7 @@ make_mapsheet_dirs <- function(dest_dir) {
   dir_list
 }
 
-get_mapsheet_tiles <- function(mapsheet, dir) {
+get_mapsheet_tiles <- function(mapsheet, dir, check_tiles = TRUE) {
   if (!mapsheet %in% bc_mapsheet_250K_names()) {
     stop("invalid mapsheet")
   }
@@ -152,7 +166,7 @@ get_mapsheet_tiles <- function(mapsheet, dir) {
   tiles_need <- setdiff(local_tiles, tiles_have)
 
   # for those that we already have, check the md5 hash
-  if (length(tiles_have)) {
+  if (length(tiles_have) && check_tiles) {
     message(paste0("checking your existing tiles for mapsheet ", mapsheet, " are up to date"))
     tiles_need <- check_hashes(tiles_have, tiles_need, url)
   }
