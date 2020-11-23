@@ -69,7 +69,9 @@ cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects, d
 
   tiles <- all_tiles[substr(basename(all_tiles), 1, 6) %in% tiles_50K]
 
-  build_vrt(tiles, dest_vrt)
+  bbox <- if (!is.null(aoi)) sf::st_bbox(sf::st_transform(aoi, 4269))
+
+  build_vrt(tiles, dest_vrt, bbox = bbox)
 }
 
 #' Get Canadian Digital Elevation Model (CDED) as a `stars` object
@@ -242,11 +244,19 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   c(tiles_need, tiles_to_be_refreshed)
 }
 
-build_vrt <- function(tif_files, dest_vrt) {
+build_vrt <- function(tif_files, dest_vrt, bbox = NULL) {
+
+  opts <- if (!is.null(bbox)) {
+    c("-te", unname(bbox))
+  } else {
+    character(0)
+  }
+
   sf::gdal_utils(
     util = "buildvrt",
     source = tif_files,
-    destination = dest_vrt
+    destination = dest_vrt,
+    options = opts
   )
   dest_vrt
 }
