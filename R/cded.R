@@ -94,6 +94,7 @@ cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_interse
   }
   vrt <- cded(aoi = aoi, tiles_50K = tiles_50K, .predicate = .predicate, dest_vrt = dest_vrt, ...)
   stars::read_stars(vrt, ...)
+  stats::setNames(stars::read_stars(vrt, ...), "elevation")
 }
 
 #' Get Canadian Digital Elevation Model (CDED) as a `raster` object
@@ -116,6 +117,7 @@ cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_inters
   }
   vrt <- cded(aoi = aoi, tiles_50K = tiles_50K, .predicate = .predicate, dest_vrt = dest_vrt, ...)
   raster::raster(vrt, ...)
+  stats::setNames(raster::raster(vrt, ...), "elevation")
 }
 
 make_mapsheet_dirs <- function(dest_dir) {
