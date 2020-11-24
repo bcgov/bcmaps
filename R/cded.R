@@ -150,7 +150,7 @@ get_mapsheet_tiles <- function(mapsheet, dir, check_tiles = TRUE) {
   )
 
   url <- dem_resources$url[grepl("zipped dem", tolower(dem_resources$name))]
-  url <- paste0(url, "/", mapsheet)
+  url <- paste0(url, "/", mapsheet,"/")
 
   files <- list_mapsheet_files(url)
 
