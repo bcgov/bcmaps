@@ -6,6 +6,7 @@
 ### Version 0.18.1.9000
 
 <!-- badges: start -->
+
 [![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![R build
@@ -38,21 +39,27 @@ individual help file for more detail.
 
 You can install `bcmaps` from CRAN:
 
-    install.packages("bcmaps")
+``` r
+install.packages("bcmaps")
+```
 
 To install the development version of the `bcmaps` package, you need to
 install the `remotes` package then the `bcmaps` package.
 
-    install.packages("remotes")
-    remotes::install_github("bcgov/bcmaps")
+``` r
+install.packages("remotes")
+remotes::install_github("bcgov/bcmaps")
+```
 
 ## Usage
 
 To see the layers that are available, run the `available_layers()`
 function:
 
-    library(bcmaps)
-    available_layers()
+``` r
+library(bcmaps)
+available_layers()
+```
 
 Most layers are accessible by a shortcut function by the same name as
 the object. Then you can use the data as you would any `sf` or `Spatial`
@@ -61,10 +68,12 @@ prompted for permission to download that layer to your hard drive.
 Subsequently that layer is available locally for easy future access. For
 example:
 
-    library(sf)
+``` r
+library(sf)
 
-    bc <- bc_bound()
-    plot(st_geometry(bc))
+bc <- bc_bound()
+plot(st_geometry(bc))
+```
 
 ![](tools/readme/unnamed-chunk-6-1.png)<!-- -->
 
@@ -73,20 +82,39 @@ example:
 By default, all layers are returned as [`sf` spatial
 objects](https://cran.r-project.org/package=sf):
 
-    library(bcmaps)
-    library(sf)
+``` r
+library(bcmaps)
+library(sf)
 
-    # Load and plot the boundaries of B.C.
+# Load and plot the boundaries of B.C.
 
-    bc <- bc_bound()
-    plot(st_geometry(bc))
+bc <- bc_bound()
+plot(st_geometry(bc))
 
-    ## Next load the Regional Districts data, then extract and plot the Kootenays
-    rd <- regional_districts()
-    kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
-    plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
+## Next load the Regional Districts data, then extract and plot the Kootenays
+rd <- regional_districts()
+kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
+plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
+```
 
 ![](tools/readme/plot-maps-1.png)<!-- -->
+
+### Digital Elevation Model for British Columbia 1:250,000
+
+The `cded_raster` and `cded_stars` functions return the 1:250,000
+digital elevation model for British Columbia bounded by some area of
+interest. Here we are retrieving the area bounded by the *Logan Lake*
+census subdivision:
+
+``` r
+library(raster)
+
+aoi <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Logan Lake", ]
+aoi_raster <- cded_raster(aoi)
+plot(aoi_raster)
+```
+
+![](tools/readme/cded-1.png)<!-- -->
 
 ### It’s a beautiful day in the neighbourhood
 
@@ -95,13 +123,15 @@ layer, accessible with the function by the same name. This example also
 illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/)
 package to plot maps in R using `geom_sf`:
 
-    library(ggplot2)
-    ggplot() + 
-      geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
-      geom_sf(data = bc_cities()) +
-      coord_sf(datum = NA) +
-      scale_fill_viridis_d(name = "Jurisdiction") +
-      theme_minimal()
+``` r
+library(ggplot2)
+ggplot() + 
+  geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
+  geom_sf(data = bc_cities()) +
+  coord_sf(datum = NA) +
+  scale_fill_viridis_d(name = "Jurisdiction") +
+  theme_minimal()
+```
 
 ![](tools/readme/bc_neighbours-1.png)<!-- -->
 
@@ -111,13 +141,15 @@ As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem
 Classification) map is available via the `bec()` function, and an
 accompanying function `bec_colours()` function to colour it:
 
-    bec <- bec()
-    library(ggplot2)
-    ggplot() +
-      geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
-              aes(fill = ZONE, col = ZONE)) +
-      scale_fill_manual(values = bec_colors()) +
-      scale_colour_manual(values = bec_colours())
+``` r
+bec <- bec()
+library(ggplot2)
+ggplot() +
+  geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+          aes(fill = ZONE, col = ZONE)) +
+  scale_fill_manual(values = bec_colors()) +
+  scale_colour_manual(values = bec_colours())
+```
 
 ![](tools/readme/bec-1.png)<!-- -->
 
@@ -127,10 +159,12 @@ If you aren’t using the `sf` package and prefer the old standard
 [`sp`](https://cran.r-project.org/package=sp) way of doing things, set
 `class = "sp"` in either `get_layer` or the shortcut functions:
 
-    library("sp")
-    # Load watercourse data and plot with boundaries of B.C.
-    plot(bc_bound(class = "sp"))
-    plot(watercourses_15M(class = "sp"), add = TRUE)
+``` r
+library("sp")
+# Load watercourse data and plot with boundaries of B.C.
+plot(bc_bound(class = "sp"))
+plot(watercourses_15M(class = "sp"), add = TRUE)
+```
 
 ![](tools/readme/watercourses-1.png)<!-- -->
 
@@ -141,13 +175,17 @@ layer was last updated in your cache with a message. For a number of
 reasons, it might be necessary to get a fresh layer in your bcmaps
 cache. The easiest way to update is to use the `force` argument:
 
-    ep <- ecoprovinces(force = TRUE)
+``` r
+ep <- ecoprovinces(force = TRUE)
+```
 
 Another option is to actively manage your cache by deleting the old
 layer and calling the function again:
 
-    delete_cache('ecoprovinces')
-    ep <- ecoprovinces(force = TRUE)
+``` r
+delete_cache('ecoprovinces')
+ep <- ecoprovinces(force = TRUE)
+```
 
 ### Vignettes
 
