@@ -123,8 +123,8 @@ cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_interse
 cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
                         dest_vrt = tempfile(fileext = ".vrt"),
                         check_tiles = TRUE, ...) {
-  if (!requireNamespace("stars", quietly = TRUE)) {
-    stop("stars package required to use this function. Please install it.",
+  if (!requireNamespace("raster", quietly = TRUE)) {
+    stop("raster package required to use this function. Please install it.",
          call. = FALSE)
   }
   vrt <- cded(aoi = aoi, tiles_50K = tiles_50K,
