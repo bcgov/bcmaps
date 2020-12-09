@@ -469,3 +469,26 @@ dem_to_tif <- function(dem_file) {
   paste0(tools::file_path_sans_ext(dem_file),".tif")
 
 }
+
+
+convert_to_sf <- function(obj) {
+  UseMethod("convert_to_sf")
+}
+
+convert_to_sf.sf <- function(obj) {
+  obj
+}
+
+convert_to_sf.Spatial <- function(obj) {
+  sf::st_as_sf(obj)
+}
+
+convert_to_sf.Raster <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
+}
+
+convert_to_sf.stars <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
+}

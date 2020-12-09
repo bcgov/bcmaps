@@ -19,7 +19,7 @@
 #' converted into 1:50,000 grids for distribution. The scale of this modified data is
 #' 1:250,000 which was captured from the original source data which was at a scale of 1:20,000.
 #'
-#' @param aoi Area of Interest. Needs to be an sf polygon.
+#' @param aoi Area of Interest. Currently supports sf and sp polygons, stars and raster objects.
 #' @param tiles_50K a character vector of 1:50,000 NTS mapsheet tiles
 #' @param .predicate geometry predicate function used to find the mapsheets from your aoi. Default [sf::st_intersects].
 #' @param dest_vrt The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project
@@ -29,6 +29,7 @@
 #' @inheritParams bc_bound_hres
 #'
 #' @return path to a .vrt file of the cded tiles for the specified area of interest
+#'
 #'
 #' @export
 #'
@@ -62,6 +63,7 @@ cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
     }
 
   } else {
+    aoi <- convert_to_sf(aoi)
     aoi <- transform_bc_albers(aoi)
     tiles_50K_sf <- sf::st_filter(mapsheets_50K_data, aoi, .predicate = .predicate)
     tiles_50K <- tolower(tiles_50K_sf$NTS_SNRC)

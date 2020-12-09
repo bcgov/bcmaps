@@ -14,7 +14,7 @@ cded_stars(
 )
 }
 \arguments{
-\item{aoi}{Area of Interest. Needs to be an sf polygon.}
+\item{aoi}{Area of Interest. Currently supports sf and sp polygons, stars and raster objects.}
 
 \item{tiles_50K}{a character vector of 1:50,000 NTS mapsheet tiles}
 

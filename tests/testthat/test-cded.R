@@ -133,3 +133,29 @@ test_that("cded works with aoi with a different projection as mapsheets_250K", {
                c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
                ))
 })
+
+
+if (require("raster") && require("stars")) {
+  pol1 <- mapsheets_50K()[1,]
+  pol2 <- mapsheets_50K(class = "sp")[1,]
+  r <- raster(mapsheets_50K()[1,])
+  s <- st_as_stars(r)
+
+
+
+  test_that("cded_raster accepts all inputs", {
+    expect_is(cded_raster(r), "RasterLayer")
+    expect_is(cded_raster(s), "RasterLayer")
+    expect_is(cded_raster(pol1), "RasterLayer")
+    expect_is(cded_raster(pol2), "RasterLayer")
+  })
+
+  test_that("cded_raster accepts all inputs", {
+    expect_is(cded_stars(r), "stars")
+    expect_is(cded_stars(s), "stars")
+    expect_is(cded_stars(pol1), "stars")
+    expect_is(cded_stars(pol2), "stars")
+  })
+
+}
+
