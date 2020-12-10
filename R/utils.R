@@ -478,7 +478,7 @@ convert_to_sf <- function(obj) {
 convert_to_sf.sf <- function(obj) {
   obj
 }
-
+convert_to_sf.sfc <- convert_to_sf.sf
 convert_to_sf.Spatial <- function(obj) {
   sf::st_as_sf(obj)
 }
