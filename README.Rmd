@@ -98,6 +98,17 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
+### Digital Elevation Model for British Columbia 1:250,000 
+
+The `cded_raster` and `cded_stars` functions return the 1:250,000 digital elevation model for British Columbia bounded by some area of interest. Here we are retrieving the area bounded by the _Logan Lake_ census subdivision:
+
+```{r cded}
+library(raster)
+
+aoi <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Logan Lake", ]
+aoi_raster <- cded_raster(aoi)
+plot(aoi_raster)
+```
 
 ### It's a beautiful day in the neighbourhood
 

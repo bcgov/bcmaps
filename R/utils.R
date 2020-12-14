@@ -456,3 +456,39 @@ update_message_once <- function(...) {
     assign("bcmaps_update_message", TRUE, envir = bcmaps_env)
   }
 }
+
+dem_to_tif <- function(dem_file) {
+  trans <- vapply(dem_file, function(x) {
+    sf::gdal_utils(util = "translate",
+                   source = x,
+                   destination = paste0(tools::file_path_sans_ext(x),".tif"),
+                   options = c("-ot","Int16","-of", "GTiff"))
+  }, FUN.VALUE = logical(1), USE.NAMES = FALSE)
+
+  unlink(dem_file)
+  paste0(tools::file_path_sans_ext(dem_file),".tif")
+
+}
+
+
+convert_to_sf <- function(obj) {
+  UseMethod("convert_to_sf")
+}
+
+convert_to_sf.sf <- function(obj) {
+  obj
+}
+convert_to_sf.sfc <- convert_to_sf.sf
+convert_to_sf.Spatial <- function(obj) {
+  sf::st_as_sf(obj)
+}
+
+convert_to_sf.Raster <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
+}
+
+convert_to_sf.stars <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
+}

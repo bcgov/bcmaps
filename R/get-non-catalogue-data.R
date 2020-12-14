@@ -144,3 +144,58 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
   ret
 
 }
+
+#' NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `mapsheets_250K` in the desired class
+#'
+#' @source https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
+#'
+#'
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- mapsheets_250K()
+#' my_layer_sp <- mapsheets_250K(class = 'sp')
+#' }
+#'
+#' @export
+mapsheets_250K <- function(class = 'sf') {
+
+
+  ret <- mapsheets_250K_data
+
+  if (class == "sp") ret <- convert_to_sp(ret)
+
+  ret
+}
+#' NTS 50K Grid - Digital Baseline Mapping at 1:50,000 (NTS)
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `mapsheets_50K` in the desired class
+#'
+#' @source https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
+#'
+#'
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- mapsheets_50K()
+#' my_layer_sp <- mapsheets_50K(class = 'sp')
+#' }
+#'
+#' @export
+mapsheets_50K <- function(class = 'sf') {
+
+
+  ret <- mapsheets_50K_data
+
+  if (class == "sp") ret <- convert_to_sp(ret)
+
+  ret
+}

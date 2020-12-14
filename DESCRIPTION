@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 0.18.1.9000
+Version: 1.0
 Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
   role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
   role = "aut"), person("Sam", "Albers", email = "sam.albers@gov.bc.ca", role = "aut"),
@@ -8,9 +8,7 @@ Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
 Description: Provides access to various spatial layers for B.C., such as 
     administrative boundaries, natural resource management boundaries, etc. 
     Most layers are imported from the 'bcdata' package as 'sf' or 'Spatial' objects
-    through function calls in this package. All layers are in B.C. 'Albers' equal-area projection 
-    <http://spatialreference.org/ref/epsg/nad83-bc-albers/>, which is the B.C. 
-    government standard.
+    through function calls in this package. 
 License: Apache License (== 2.0) | file LICENSE
 URL: https://github.com/bcgov/bcmaps
 BugReports: https://github.com/bcgov/bcmaps/issues
@@ -22,8 +20,11 @@ Imports:
     httr (>= 1.3.1),
     methods,
     rappdirs (>= 0.3.1),
+    progress,
     stats,
-    utils
+    utils,
+    xml2,
+    jsonlite (>= 1.7.0)
 Suggests: 
     future.apply (>= 1.2.0),
     future (>= 1.12.0),
@@ -36,7 +37,9 @@ Suggests:
     rmarkdown,
     sp (>= 1.2-5),
     lwgeom (>= 0.2-2),
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    withr (>= 2.3),
+    stars (>= 0.4.3)
 VignetteBuilder: knitr
 LazyData: true
 Roxygen: list(markdown = TRUE)

@@ -115,9 +115,6 @@ shortcut_layers <- function(){
   al
 }
 
-
-
-
 get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TRUE) {
   fname <- paste0(what, ".rds")
   dir <- data_dir()

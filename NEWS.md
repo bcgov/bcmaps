@@ -6,6 +6,7 @@ layers are retrieved from Statistics Canada.
 from Natural Earth. The availability of a Hi-Res B.C. boundaries over WFS from the B.C. Data Catalogue
 means that the layer can now be created directly by {bcmaps}.
 - Adding forward sortation area (`fsa`), health boundaries (`health_*`) and some census boundaries (`census_*`).
+- Adding ability to retrieve and cache CDED data return either `stars` or `raster` objects (#73)
 - Use of parallelism in functions that allow it (`raster_by_poly()` & 
 `summarize_raster_list()`) is now reliant on users setting up their 
 own `future::plan()` to specify strategy and number of workers, rather than setting
