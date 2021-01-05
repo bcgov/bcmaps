@@ -13,3 +13,4 @@
 unlink(getOption("bcmaps.data_dir"), recursive = TRUE, force = TRUE)
 options(bc_data_dir)
 options(silence_update_message_value)
+if (nzchar(bcdc_key)) Sys.setenv(BCDC_KEY = bcdc_key)

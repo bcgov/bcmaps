@@ -16,3 +16,7 @@ silence_update_message_value <- options('silence_update_message' = TRUE)
 if (identical(Sys.getenv("GITHUB_ACTIONS"), "true")) {
   httr::set_config(httr::config(ssl_verifypeer = FALSE, timeout = 40))
 }
+
+# Unset BCDC_KEY env var so no 'authenticating with your API Key messages'
+bcdc_key <- Sys.getenv("BCDC_KEY")
+Sys.unsetenv("BCDC_KEY")
