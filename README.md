@@ -18,7 +18,7 @@ Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://
 
 ## Overview
 
-An [R](http://r-project.org) package of spatial map layers for British
+An [R](https://www.r-project.org/) package of spatial map layers for British
 Columbia.
 
 ## Features
@@ -26,7 +26,7 @@ Columbia.
 Provides access to various spatial layers of British Columbia, such as
 administrative boundaries, natural resource management boundaries,
 watercourses etc. All layers are available in the [BC
-Albers](http://spatialreference.org/ref/epsg/nad83-bc-albers/)
+Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/)
 projection, which is the B.C. Government standard as `sf` or `Spatial`
 objects.
 
@@ -222,13 +222,13 @@ By participating in this project you agree to abide by its terms.
 ## Source Data
 
 The source datasets used in this package come from various sources under
-open licences, including [DataBC](http://data.gov.bc.ca) ([Open
+open licences, including [DataBC](https://data.gov.bc.ca) ([Open
 Government Licence - British
-Columbia](http://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
-and [Statistics Canada](http://www.statcan.gc.ca/start-debut-eng.html)
+Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+and [Statistics Canada](https://www.statcan.gc.ca/eng/start)
 ([Statistics Canada Open Licence
-Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the
-`data-raw` folder for details on each source dataset.
+Agreement](https://www.statcan.gc.ca/eng/reference/licence)). See
+the `data-raw` folder for details on each source dataset.
 
 ## Licence
 
@@ -245,6 +245,6 @@ Agreement](http://www.statcan.gc.ca/eng/reference/licence-eng)). See the
     # See the License for the specific language governing permissions and limitations under the License.
 
 This repository is maintained by [Environmental Reporting
-BC](http://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B).
-Click [here](https://github.com/bcgov/EnvReportBC-RepoList) for a
+BC](https://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B).
+Click [here](https://github.com/bcgov/EnvReportBC) for a
 complete list of our repositories on GitHub.

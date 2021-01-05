@@ -19,7 +19,7 @@ The area of B.C. in the desired units (numeric vector).
 Total area, Land area only, or Freshwater area only, in the units of your choosing.
 }
 \details{
-The sizes are from \href{http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/phys01-eng.htm}{Statistics Canada}
+The sizes are from \href{https://www150.statcan.gc.ca/cgi-bin/tableviewer.pl?page=l01/cst01/phys01-eng.htm}{Statistics Canada}
 }
 \examples{
 ## With no arguments, gives the total area in km^2:

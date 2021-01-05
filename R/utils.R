@@ -14,7 +14,7 @@
 #'
 #' Total area, Land area only, or Freshwater area only, in the units of your choosing.
 #'
-#' The sizes are from \href{http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/phys01-eng.htm}{Statistics Canada}
+#' The sizes are from \href{https://www150.statcan.gc.ca/cgi-bin/tableviewer.pl?page=l01/cst01/phys01-eng.htm}{Statistics Canada}
 #'
 #' @param what Which part of BC? One of `'total'` (default), `'land'`, or `'freshwater'`.
 #' @param units One of `'km2'` (square kilometres; default), `'m2'` (square metres),
