@@ -1,16 +1,16 @@
-# bcmaps 0.18.1.9000
+# bcmaps 1.0
+
 - Drop dependency on {bcmapsdata} in favour of directly retrieving layers (where present) 
 from the B.C. Data Catalogue (via {bcdata}) and storing in a local cache. Some additional 
 layers are retrieved from Statistics Canada. 
-- Some layers may not be identical to what was previously in {bcmaps}. For example `bc_neighbours` previously used data
-from Natural Earth. The availability of a Hi-Res B.C. boundaries over WFS from the B.C. Data Catalogue
-means that the layer can now be created directly by {bcmaps}.
-- Adding forward sortation area (`fsa`), health boundaries (`health_*`) and some census boundaries (`census_*`).
-- Adding ability to retrieve and cache CDED data return either `stars` or `raster` objects (#73)
+- Some layers may not be identical to what was previously in {bcmaps}. For example `bc_neighbours` previously used data from Natural Earth. The availability of a Hi-Res B.C. boundaries over WFS from the B.C. Data Catalogue means that the layer can now be created directly by {bcmaps}.
+- Added forward sortation area (`fsa`), health boundaries (`health_*`) and some census boundaries (`census_*`).
+- Added ability to retrieve and cache CDED ([BC Digital Elevation Model](https://catalogue.data.gov.bc.ca/dataset/digital-elevation-model-for-british-columbia-cded-1-250-000) data, returning either `stars` or `raster` objects (#73)
 - Use of parallelism in functions that allow it (`raster_by_poly()` & 
 `summarize_raster_list()`) is now reliant on users setting up their 
 own `future::plan()` to specify strategy and number of workers, rather than setting
 defaults (this is the best practice according to the author of the future package @HenrikBengtsson, #69)
+- Fixed bug where errors would occur if a user's system GEOS was a development version (e.g., 3.9.0dev; #71)
 
 # bcmaps 0.18.1
 
