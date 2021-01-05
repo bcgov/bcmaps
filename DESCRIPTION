@@ -26,15 +26,15 @@ Imports:
     xml2,
     jsonlite (>= 1.7.0)
 Suggests: 
+    knitr,
+    rmarkdown,
     future.apply (>= 1.2.0),
     future (>= 1.12.0),
     ggplot2 (>= 3.0),
     glue (>= 1.1.1),
-    knitr,
     raster (>= 2.5-8),
     rgdal (>= 1.2-13),
     rgeos (>= 0.3-25),
-    rmarkdown,
     sp (>= 1.2-5),
     lwgeom (>= 0.2-2),
     testthat (>= 2.1.0),
