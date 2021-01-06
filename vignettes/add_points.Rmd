@@ -7,7 +7,7 @@ output:
     fig_width: 5
     fig_height: 5
 vignette: >
-  %\VignetteIndexEntry{bcmaps layers and point data}
+  %\VignetteIndexEntry{Working with bcmaps layers with point location data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -78,7 +78,7 @@ Now we can overlay the points on the provincial boundary dataset:
 
 ```{r fig.height=4, fig.width=6, warning=FALSE}
 plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
-plot(st_geometry(bc_bound), add = TRUE)
+plot(st_geometry(bc_bound_data), add = TRUE)
 ```
 
 Now we want to know what ecoregion of the province each of these observations
