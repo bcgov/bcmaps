@@ -279,7 +279,7 @@ build_vrt <- function(tif_files, dest_vrt, bbox = NULL) {
   dest_vrt
 }
 
-#' Get metdata about a .vrt file
+#' Get metadata about a .vrt file
 #'
 #' @param vrt path to a .vrt file
 #' @param options options to pass to `gdalinfo`. See

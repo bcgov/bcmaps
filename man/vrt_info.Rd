@@ -2,7 +2,7 @@
 % Please edit documentation in R/cded.R
 \name{vrt_info}
 \alias{vrt_info}
-\title{Get metdata about a .vrt file}
+\title{Get metadata about a .vrt file}
 \usage{
 vrt_info(vrt, options = character(0), quiet = FALSE)
 }
@@ -20,5 +20,5 @@ possible options.}
 character of vrt metadata
 }
 \description{
-Get metdata about a .vrt file
+Get metadata about a .vrt file
 }
