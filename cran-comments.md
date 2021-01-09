@@ -5,7 +5,7 @@
 ## Test environments
 
 * local OS X install (Mojave), R 4.0.2
-* ubuntu 18.04 (on GitHub Actions): R 3.5, R 3.6.3, R 4.0.3, and R-devel (2021-01-04 r79789)
+* ubuntu 18.04 (on GitHub Actions): R 3.5, R 3.6.3, R 4.0.3, and R-devel (2021-01-08 r79812)
 * Windows Server 2019 (on GitHub Actions), R 4.0.3
 * macOS Catalina 10.15 (on GitHub Actions), R 4.0.3
 * win-builder (R-devel)
