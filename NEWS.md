@@ -1,3 +1,5 @@
+# bcmaps (development version)
+
 # bcmaps 1.0
 
 - Drop dependency on {bcmapsdata} in favour of directly retrieving layers (where present) 
