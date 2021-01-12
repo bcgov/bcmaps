@@ -18,8 +18,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - { os: windows-latest, r: 'release', args: "'--no-manual'"}
-        - { os: macOS-latest,   r: 'release', args: "'--no-manual'"}
+        - { os: windows-latest,  r: 'release', args: "'--no-manual'"}
+        - { os: macOS-latest,    r: 'release', args: "'--no-manual'"}
+        - { os: macOS-latest,    r: 'oldrel',  args: "''"}
         - { os: ubuntu-latest,   r: '3.5',     args: "'--no-manual'"}
         - { os: ubuntu-latest,   r: 'oldrel',  args: "'--no-manual'"}
         - { os: ubuntu-latest,   r: 'release', args: "''"}
