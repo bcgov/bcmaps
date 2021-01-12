@@ -1,4 +1,4 @@
-# Copyright 2020 Province of British Columbia
+# Copyright 2021 Province of British Columbia
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -497,4 +497,70 @@ census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @export
 census_economic <- function(class = 'sf', ask = interactive(), force = FALSE) {
    get_layer('census_economic', class = class, ask = ask, force = force)
+}
+
+#' Current Census Tract Boundaries
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_tract` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = '539aae5b-12f6-4934-9592-9b27acc827f8', resource = 'be767db6-0d4e-4906-a89b-564637f14db9')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_tract()
+#' my_layer_sp <- census_tract(class = 'sp')
+#' }
+#'
+#' @export
+census_tract <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_tract', class = class, ask = ask, force = force)
+}
+
+#' Current Census Metropolitan Areas
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_metropolitan_area` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'a6fb34b7-0937-4718-8f1f-43dba2c0f407', resource = 'f129a965-363e-4d7e-8319-a4010e002fdb')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_metropolitan_area()
+#' my_layer_sp <- census_metropolitan_area(class = 'sp')
+#' }
+#'
+#' @export
+census_metropolitan_area <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_metropolitan_area', class = class, ask = ask, force = force)
+}
+
+#' Current Census Dissemination Areas
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_dissemination_area` in the desired class
+#'
+#' @source `bcdata::bcdc_get_data(record = 'a091fd65-d682-4a24-8c0e-68de7c87e3a3', resource = 'a7fa66d4-0f95-4c58-861d-42d875e5b79f')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_dissemination_area()
+#' my_layer_sp <- census_dissemination_area(class = 'sp')
+#' }
+#'
+#' @export
+census_dissemination_area <- function(class = 'sf', ask = interactive(), force = FALSE) {
+   get_layer('census_dissemination_area', class = class, ask = ask, force = force)
 }
