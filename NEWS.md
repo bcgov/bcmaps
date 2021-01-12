@@ -1,4 +1,13 @@
 # bcmaps (development version)
+- When R version is >= 4.0, bcmaps will use `tools::R_user_dir("bcmaps",
+"cache")` to determine the cache directory, while when R version is < 4.0, it
+will use `rappdirs::user_cache_dir("bcmaps")`. This is to align with CRAN's
+storage policy using the `tools` approach while maintaining backwards
+compatibility with older R versions. Unfortunately this will require users who
+updated to version 1.0 to re-download layers because we are caching layers in a
+different location on your file system from that version. Users wishing to clear
+the old cache location could run `bcmaps::delete_cache()` before updating to bcmaps 1.0.1.
+#83
 
 # bcmaps 1.0
 

@@ -111,7 +111,12 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
 }
 
 data_dir <- function() {
-  getOption("bcmaps.data_dir", default = rappdirs::user_data_dir("bcmaps"))
+  if (R.Version()$major >= 4) {
+    getOption("bcmaps.data_dir", default = tools::R_user_dir("bcmaps", "cache"))
+  } else {
+    getOption("bcmaps.data_dir", default = rappdirs::user_cache_dir("bcmaps"))
+  }
+
 }
 
 check_write_to_data_dir <- function(dir, ask) {
