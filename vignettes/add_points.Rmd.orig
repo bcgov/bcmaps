@@ -1,0 +1,100 @@
+---
+title: "Working with bcmaps layers with point location data"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    keep_md: true
+    fig_width: 5
+    fig_height: 5
+vignette: >
+  %\VignetteIndexEntry{bcmaps layers and point data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r options, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE,
+  comment = "#>",
+  warning = FALSE,
+  message = FALSE,
+  fig.path = "vignette-fig-",
+  out.width = "100%",
+  fig.width = 7,
+  fig.height = 4,
+  dev = "CairoPNG",
+  dpi = 400)
+```
+
+We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitude pairs into a `SpatialPointsDataFrame`, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.
+
+For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
+
+First, load the packages we will need:
+
+- `sf` for working with spatial layers in the *simple features* format
+- `bcmaps` for accessing spatial files of B.C.
+- `ggplot2` for plotting
+
+```{r message=FALSE}
+library(sf)
+library(bcmaps)
+```
+
+We will create a mock dataframe of locations of species presence/absences (in real life these would probably be in a csv or Excel file that we would import):
+
+```{r}
+set.seed(42)
+spp <- data.frame(site_num = LETTERS[1:10], spp_present = sample(c("yes", "no"), 10, replace = TRUE),
+                 lat = runif(10, 49, 60), long = runif(10, -128, -120),
+                 stringsAsFactors = FALSE)
+head(spp)
+```
+
+Next we convert this to a `SpatialPointsDataFrame` using the `sp` package. The syntax for doing this is a little obscure - you specify the columns that hold the x and y data in a character vector on the right hand side of the `<-`:
+
+```{r convert, warning=FALSE}
+spp <- st_as_sf(spp, coords = c("long", "lat"))
+summary(spp)
+plot(spp["spp_present"])
+```
+
+In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf.
+
+We know that our occurrence data are in decimal degrees in [NAD83](https://epsg.io/4269), so we will assign the corresponding `proj4string`. You can specify the projection using a full proj4 string (`"+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"`) or the EPSG code (4269). We will use the EPSG code because it's shorter and less likely to make a typo with.
+
+```{r warning=FALSE}
+spp <- st_set_crs(spp, 4326)
+```
+
+All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005](http://epsg.io/3005)), which is the B.C. government standard. It is an 'equal area' projection, meaning that the size of areas is not distorted, and thus is suitable for analyses on large areas.
+
+If we look at the `proj4string` for `bc_bound` and our `spp_df`, we see that they are different:
+
+```{r collapse=TRUE}
+bc_bound_data <- bc_bound()
+st_crs(bc_bound_data)
+st_crs(spp)
+```
+
+So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound`:
+
+```{r}
+spp <- transform_bc_albers(spp)
+```
+
+Now we can overlay the points on the provincial boundary dataset:
+
+```{r overlay, fig.height=4, fig.width=6, warning=FALSE}
+plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
+plot(st_geometry(bc_bound), add = TRUE)
+```
+
+Now we want to know what ecoregion of the province each of these observations
+was in. We can use the `ecoregions` data from bcmaps, and the `st_join` function
+from the `sf` package to extract ecoregions from the point data and add that information:
+
+```{r}
+ecoreg <- ecoregions()
+st_join(spp, ecoreg["ECOREGION_NAME"])
+```
+
