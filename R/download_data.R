@@ -104,6 +104,10 @@ get_big_data <- function(what, class= c("sf", "sp"), release = "latest", force =
 
   ret <- set_bc_albers(ret)
 
+  # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
+  # in a format usable by that stack
+  suppressWarnings(sf::st_crs(ret) <- 3005)
+
   if (class == "sp") {
     ret <- convert_to_sp(ret)
   }
