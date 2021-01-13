@@ -165,8 +165,8 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @export
 mapsheets_250K <- function(class = 'sf') {
 
-
   ret <- mapsheets_250K_data
+  suppressWarnings(sf::st_crs(ret) <- 3005)
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
@@ -192,8 +192,8 @@ mapsheets_250K <- function(class = 'sf') {
 #' @export
 mapsheets_50K <- function(class = 'sf') {
 
-
   ret <- mapsheets_50K_data
+  suppressWarnings(sf::st_crs(ret) <- 3005)
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
