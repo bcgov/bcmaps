@@ -32,3 +32,8 @@ census_tract,Current Census Tract Boundaries,539aae5b-12f6-4934-9592-9b27acc827f
 census_metropolitan_area,Current Census Metropolitan Areas ,a6fb34b7-0937-4718-8f1f-43dba2c0f407,"	f129a965-363e-4d7e-8319-a4010e002fdb",FALSE,TRUE
 census_dissemination_area,Current Census Dissemination Areas ,a091fd65-d682-4a24-8c0e-68de7c87e3a3,a7fa66d4-0f95-4c58-861d-42d875e5b79f,FALSE,TRUE
 mapsheets_250K,"NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)",,,,FALSE
+mapsheets_50K,"NTS 50K Grid - Digital Baseline Mapping at 1:50,000 (NTS)",,,,
+fsa,British Columbia Forward Sortation Area,,,,FALSE
+bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",,,,FALSE
+cded_raster,Get Canadian Digital Elevation Model (CDED) as a 'raster' object,,,,
+cded_stars,Get Canadian Digital Elevation Model (CDED) as a 'stars' object,,,,
