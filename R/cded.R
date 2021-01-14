@@ -65,7 +65,7 @@ cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
   } else {
     aoi <- convert_to_sf(aoi)
     aoi <- transform_bc_albers(aoi)
-    tiles_50K_sf <- sf::st_filter(mapsheets_50K_data, aoi, .predicate = .predicate)
+    tiles_50K_sf <- sf::st_filter(mapsheets_50K(), aoi, .predicate = .predicate)
     tiles_50K <- tolower(tiles_50K_sf$NTS_SNRC)
     mapsheets <- unique(tolower(tiles_50K_sf$grid_250K))
   }

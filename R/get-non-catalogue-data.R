@@ -166,7 +166,10 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 mapsheets_250K <- function(class = 'sf') {
 
   ret <- mapsheets_250K_data
-  suppressWarnings(sf::st_crs(ret) <- 3005)
+
+  # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
+  # in a format usable by that stack
+  ret <- set_bc_albers(ret)
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
@@ -193,7 +196,9 @@ mapsheets_250K <- function(class = 'sf') {
 mapsheets_50K <- function(class = 'sf') {
 
   ret <- mapsheets_50K_data
-  suppressWarnings(sf::st_crs(ret) <- 3005)
+  # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
+  # in a format usable by that stack
+  ret <- set_bc_albers(ret)
 
   if (class == "sp") ret <- convert_to_sp(ret)
 
