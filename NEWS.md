@@ -12,7 +12,7 @@ the old cache location could run `bcmaps::delete_cache()` before updating to bcm
 - Fixed a bug where bundled datasets (e.g., `mapsheets_50K()`, `mapsheets_250K()`) would not work if `sf` was linked to older GDAL/PROJ libraries due to different formats of coordinate reference systems. (#85)
 - Added new census boundary layers: `census_dissemination_area()`, `census_metropolitan_area()`, `census_tract()` (#82).
 - Add missing layers to `available_layers`
->>>>>>> master
+
 
 # bcmaps 1.0
 
