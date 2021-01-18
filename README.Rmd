@@ -132,7 +132,7 @@ is available via the `bec()` function, and an accompanying function `bec_colours
 function to colour it:
 
 ```{r include=FALSE}
-bec <- bec()
+bec <- bec(ask = FALSE)
 ```
 
 ```{r bec, message=FALSE}
