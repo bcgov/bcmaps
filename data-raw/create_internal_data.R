@@ -11,7 +11,8 @@
 # See the License for the specific language governing permissions and limitations under the License.
 
 ## Code to prepare the layers_df internal data
-layers_df <- readr::read_csv("data-raw/layers_df.csv")
+layers_df <- dplyr::arrange(readr::read_csv("data-raw/layers_df.csv"), layer_name)
+
 
 source("data-raw/mapsheets_250K/process_mapsheet_250K.R")
 

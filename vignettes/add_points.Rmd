@@ -1,6 +1,6 @@
 ---
 title: "Working with bcmaps layers with point location data"
-date: "2021-01-13"
+date: "2021-01-18"
 output:
   rmarkdown::html_vignette:
     keep_md: true
@@ -63,7 +63,7 @@ plot(spp["spp_present"])
 
 <img src="vignette-fig-convert-1.png" title="plot of chunk convert" alt="plot of chunk convert" width="100%" />
 
-In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf.
+In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf.
 
 We know that our occurrence data are in decimal degrees in [NAD83](https://epsg.io/4269), so we will assign the corresponding `proj4string`. You can specify the projection using a full proj4 string (`"+proj=longlat +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +no_defs"`) or the EPSG code (4269). We will use the EPSG code because it's shorter and less likely to make a typo with.
 
@@ -120,8 +120,8 @@ st_crs(bc_bound_data)
 #>             ORDER[2],
 #>             LENGTHUNIT["metre",1]],
 #>     USAGE[
-#>         SCOPE["unknown"],
-#>         AREA["Canada - British Columbia"],
+#>         SCOPE["Province-wide spatial data management."],
+#>         AREA["Canada - British Columbia."],
 #>         BBOX[48.25,-139.04,60.01,-114.08]],
 #>     ID["EPSG",3005]]
 st_crs(spp)
@@ -142,8 +142,8 @@ st_crs(spp)
 #>             ORDER[2],
 #>             ANGLEUNIT["degree",0.0174532925199433]],
 #>     USAGE[
-#>         SCOPE["unknown"],
-#>         AREA["World"],
+#>         SCOPE["Horizontal component of 3D system."],
+#>         AREA["World."],
 #>         BBOX[-90,-180,90,180]],
 #>     ID["EPSG",4326]]
 ```
@@ -176,6 +176,30 @@ from the `sf` package to extract ecoregions from the point data and add that inf
 
 ```r
 ecoreg <- ecoregions()
+#> bcmaps would like to store this layer in the directory:
+#> /Users/ateucher/Library/Caches/org.R-project.R/R/bcmaps
+#> Is that okay?
+#> 1: Yes
+#> 2: No
+#> 
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
+#> Enter an item from the menu, or 0 to exit
 st_join(spp, ecoreg["ECOREGION_NAME"])
 #> Simple feature collection with 10 features and 3 fields
 #> geometry type:  POINT
