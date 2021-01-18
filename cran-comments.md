@@ -1,8 +1,14 @@
 ## CRAN check issues
 
-* Fixed failure with a GEOS system library with non-numeric version components (e.g. GEOS 3.9.0dev) - this was occurring on new M1 Mac checks on CRAN, though it was also reported as an issue (https://github.com/bcgov/bcmaps/issues/71).
+* Fixed WARNING on r-oldrel-MacOS where vignette building failed. This was due 
+to bundled `sf` data having CRS attributes incompatible with the older GDAL/PROJ system
+libraries on that particular check machine. This is fixed by generating the CRS of bundled
+data when they are loaded, using the installed GDAL/PROJ stack.
 
-* There is currently a NOTE in CRAN checks: "package suggested but not available for checking: 'bcmapsdata'". 'bcmapsdata' was in a non-mainstream repository but is no longer needed - this release of 'bcmaps' drops 'bcmapsdata' from 'Suggests'.
+* bcmaps is now using `tools::R_user_dir("bcmaps", "cache")` to store cached data on R >=
+4.0, and `rappdirs::user_cache_dir("bcmaps")` otherwise, to comply with CRAN policy.
+Data are only cached when the user consents, and users can remove all or some of the 
+cached data with the `bcmaps::delete_cache` function.
 
 ## Test environments
 
