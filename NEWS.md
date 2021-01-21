@@ -1,3 +1,5 @@
+# bcmaps (development version)
+
 # bcmaps 1.0.1
 - When R version is >= 4.0, bcmaps will use `tools::R_user_dir("bcmaps",
 "cache")` to determine the cache directory, while when R version is < 4.0, it
