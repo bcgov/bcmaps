@@ -34,14 +34,14 @@
 #' }
 
 delete_cache <- function(files_to_delete = NULL) {
-  files <- show_cached_files()
+  files <- list_cached_files()
 
   if(is.null(files_to_delete)) {
     if (interactive()) {
       ans <- ask(paste0("These are all the files you currently have stored locally: \n",
                         paste0(files, collapse = "\n"),
                         "\n \nAre you sure you want to delete all these files: \n"))
-      if(!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
+      if (!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
     }
   } else {
     files <- file.path(data_dir(), add_rds_suffix(files_to_delete))
@@ -59,9 +59,25 @@ delete_cache <- function(files_to_delete = NULL) {
 #'
 #' @export
 #'
-
-show_cached_files <- function() {
+list_cached_files <- function() {
   file.path(list.files(data_dir(), full.names = TRUE))
+}
+
+#' Show the files you have in your cache
+#'
+#' @return
+#' @export
+show_cached_files <- function() {
+  files <- list_cached_files()
+  tbl <- file.info(files)
+  tbl$file <- rownames(tbl)
+  rownames(tbl) <- NULL
+  tbl$size_MB <- tbl$size / 1e6
+  tbl$modified <- tbl$mtime
+  tbl$is_dir <- tbl$isdir
+  tbl <- tbl[, c("file", "size_MB", "is_dir", "modified")]
+  class(tbl) <-  c("tbl_df", "tbl", "data.frame")
+  tbl
 }
 
 
@@ -69,3 +85,4 @@ add_rds_suffix <- function(x) {
   exts <- tools::file_ext(x)
   ifelse(exts == "" , paste0(x, ".rds"), x)
 }
+
