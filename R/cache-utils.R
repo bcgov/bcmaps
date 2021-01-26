@@ -55,15 +55,13 @@ delete_cache <- function(files_to_delete = NULL) {
 
 }
 
-#' @rdname delete_cache
-#'
-#' @export
-#'
 list_cached_files <- function() {
   file.path(list.files(data_dir(), full.names = TRUE))
 }
 
 #' Show the files you have in your cache
+#'
+#' @rdname delete_cache
 #'
 #' @return
 #' @export

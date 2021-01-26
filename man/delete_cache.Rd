@@ -16,9 +16,13 @@ of files are specified, the files are immediately deleted.}
 }
 \value{
 A logical of whether the file(s) were successful deleted
+
+
 }
 \description{
 View and delete cached files
+
+Show the files you have in your cache
 }
 \examples{
 \dontrun{
