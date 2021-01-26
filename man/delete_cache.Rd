@@ -15,9 +15,15 @@ from the cache. Defaults to deleting all files pausing for permission from user.
 of files are specified, the files are immediately deleted.}
 }
 \value{
-A logical of whether the file(s) were successful deleted
+\code{delete_cache()}: A logical of whether the file(s) were successful deleted
 
-
+\code{show_cached_files()}: a data.frame with the columns:
+\itemize{
+\item \code{file}, the name of the file,
+\item \code{size_MB}, file size in MB,
+\item \code{is_dir}, is it a directory
+\item \code{modified}, date and time last modified
+}
 }
 \description{
 View and delete cached files

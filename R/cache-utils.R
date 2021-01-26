@@ -18,7 +18,7 @@
 #'        from the cache. Defaults to deleting all files pausing for permission from user. If a subset
 #'        of files are specified, the files are immediately deleted.
 #'
-#' @return A logical of whether the file(s) were successful deleted
+#' @return `delete_cache()`: A logical of whether the file(s) were successful deleted
 #'
 #' @export
 #' @examples
@@ -63,7 +63,12 @@ list_cached_files <- function() {
 #'
 #' @rdname delete_cache
 #'
-#' @return
+#' @return `show_cached_files()`: a data.frame with the columns:
+#'  - `file`, the name of the file,
+#'  - `size_MB`, file size in MB,
+#'  - `is_dir`, is it a directory
+#'  - `modified`, date and time last modified
+#'
 #' @export
 show_cached_files <- function() {
   files <- list_cached_files()
