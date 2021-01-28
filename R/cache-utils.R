@@ -36,7 +36,7 @@
 delete_cache <- function(files_to_delete = NULL) {
   files <- list_cached_files()
 
-  if(is.null(files_to_delete)) {
+  if (is.null(files_to_delete)) {
     if (interactive()) {
       ans <- ask(paste0("These are all the files you currently have stored locally: \n",
                         paste0(files, collapse = "\n"),
@@ -44,10 +44,11 @@ delete_cache <- function(files_to_delete = NULL) {
       if (!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
     }
   } else {
-    files <- file.path(data_dir(), add_rds_suffix(files_to_delete))
+    files <- file.path(data_dir(), files_to_delete)
+    files <- add_rds_suffix(files)
   }
 
-  unlink(files)
+  unlink(files, recursive = TRUE)
 
   ## return FALSE if any file isn't deleted
   invisible(all(!file.exists(files)))
@@ -98,6 +99,6 @@ list_cded_files <- function() {
 
 add_rds_suffix <- function(x) {
   exts <- tools::file_ext(x)
-  ifelse(exts == "" , paste0(x, ".rds"), x)
+  ifelse(exts == "" & !dir.exists(x), paste0(x, ".rds"), x)
 }
 
