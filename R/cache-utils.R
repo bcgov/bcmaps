@@ -55,10 +55,6 @@ delete_cache <- function(files_to_delete = NULL) {
 
 }
 
-list_cached_files <- function() {
-  file.path(list.files(data_dir(), full.names = TRUE))
-}
-
 #' Show the files you have in your cache
 #'
 #' @rdname delete_cache
@@ -71,18 +67,34 @@ list_cached_files <- function() {
 #'
 #' @export
 show_cached_files <- function() {
-  files <- list_cached_files()
+  files <- tidy_files(list_cached_files())
+  if (any(grepl("cded", files$file))) {
+    cded_files <- tidy_files(list_cded_files())
+    total_cded_size <- sum(cded_files$size_MB, na.rm = TRUE)
+    files$size_MB[grepl("cded", files$file)] <- total_cded_size
+  }
+  files
+}
+
+tidy_files <- function(files) {
   tbl <- file.info(files)
   tbl$file <- rownames(tbl)
   rownames(tbl) <- NULL
   tbl$size_MB <- tbl$size / 1e6
   tbl$modified <- tbl$mtime
   tbl$is_dir <- tbl$isdir
-  tbl <- tbl[, c("file", "size_MB", "is_dir", "modified")]
+  tbl <- tbl[, c("file", "is_dir", "size_MB", "modified")]
   class(tbl) <-  c("tbl_df", "tbl", "data.frame")
   tbl
 }
 
+list_cached_files <- function() {
+  list.files(data_dir(), full.names = TRUE)
+}
+
+list_cded_files <- function() {
+  list.files(file.path(data_dir(), "cded"), full.names = TRUE, recursive = TRUE)
+}
 
 add_rds_suffix <- function(x) {
   exts <- tools::file_ext(x)
