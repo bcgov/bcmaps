@@ -18,7 +18,7 @@
 #'        from the cache. Defaults to deleting all files pausing for permission from user. If a subset
 #'        of files are specified, the files are immediately deleted.
 #'
-#' @return A logical of whether the file(s) were successful deleted
+#' @return `delete_cache()`: A logical of whether the file(s) were successful deleted
 #'
 #' @export
 #' @examples
@@ -34,20 +34,21 @@
 #' }
 
 delete_cache <- function(files_to_delete = NULL) {
-  files <- show_cached_files()
+  files <- list_cached_files()
 
-  if(is.null(files_to_delete)) {
+  if (is.null(files_to_delete)) {
     if (interactive()) {
       ans <- ask(paste0("These are all the files you currently have stored locally: \n",
                         paste0(files, collapse = "\n"),
                         "\n \nAre you sure you want to delete all these files: \n"))
-      if(!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
+      if (!ans) stop("Phewf! Glad you re-considered.", call. = FALSE)
     }
   } else {
-    files <- file.path(data_dir(), add_rds_suffix(files_to_delete))
+    files <- file.path(data_dir(), files_to_delete)
+    files <- add_rds_suffix(files)
   }
 
-  unlink(files)
+  unlink(files, recursive = TRUE)
 
   ## return FALSE if any file isn't deleted
   invisible(all(!file.exists(files)))
@@ -55,17 +56,49 @@ delete_cache <- function(files_to_delete = NULL) {
 
 }
 
+#' Show the files you have in your cache
+#'
 #' @rdname delete_cache
 #'
-#' @export
+#' @return `show_cached_files()`: a data.frame with the columns:
+#'  - `file`, the name of the file,
+#'  - `size_MB`, file size in MB,
+#'  - `is_dir`, is it a directory
+#'  - `modified`, date and time last modified
 #'
-
+#' @export
 show_cached_files <- function() {
-  file.path(list.files(data_dir(), full.names = TRUE))
+  files <- tidy_files(list_cached_files())
+  if (any(grepl("cded", files$file))) {
+    cded_files <- tidy_files(list_cded_files())
+    total_cded_size <- sum(cded_files$size_MB, na.rm = TRUE)
+    files$size_MB[grepl("cded", files$file)] <- total_cded_size
+  }
+  files
 }
 
+tidy_files <- function(files) {
+  tbl <- file.info(files)
+  tbl$file <- rownames(tbl)
+  rownames(tbl) <- NULL
+  tbl$size_MB <- tbl$size / 1e6
+  tbl$modified <- tbl$mtime
+  tbl$is_dir <- tbl$isdir
+  tbl <- tbl[, c("file", "is_dir", "size_MB", "modified")]
+  class(tbl) <-  c("tbl_df", "tbl", "data.frame")
+  tbl
+}
+
+list_cached_files <- function() {
+  list.files(data_dir(), full.names = TRUE)
+}
+
+list_cded_files <- function() {
+  list.files(file.path(data_dir(), "cded"), full.names = TRUE, recursive = TRUE)
+}
 
 add_rds_suffix <- function(x) {
   exts <- tools::file_ext(x)
-  ifelse(exts == "" , paste0(x, ".rds"), x)
+  ifelse(exts == "" & !dir.exists(x), paste0(x, ".rds"), x)
 }
+

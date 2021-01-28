@@ -175,6 +175,7 @@ get_mapsheet_tiles <- function(mapsheet, dir, check_tiles = TRUE) {
 
 
   if (length(tiles_need)) {
+    dir.create(dirname(tiles_need[1]), showWarnings = FALSE)
     message("Fetching tiles for mapsheet ", mapsheet)
     # download the ones we need
     pb <- progress::progress_bar$new(

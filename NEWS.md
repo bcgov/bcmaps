@@ -1,5 +1,7 @@
 # bcmaps (development version)
 
+* New helper function `show_cached_files()` to show the files that you have cached (and how much space they're taking up on your computer). (#92, #93)
+
 # bcmaps 1.0.1
 - When R version is >= 4.0, bcmaps will use `tools::R_user_dir("bcmaps",
 "cache")` to determine the cache directory, while when R version is < 4.0, it
