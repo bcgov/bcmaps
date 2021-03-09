@@ -21,10 +21,10 @@ jobs:
         - { os: windows-latest,  r: 'release', args: "'--no-manual'"}
         - { os: macOS-latest,    r: 'release', args: "'--no-manual'"}
         - { os: macOS-latest,    r: 'oldrel',  args: "''"}
-        - { os: ubuntu-latest,   r: '3.5',     args: "'--no-manual'"}
-        - { os: ubuntu-latest,   r: 'oldrel',  args: "'--no-manual'"}
-        - { os: ubuntu-latest,   r: 'release', args: "''"}
-        - { os: ubuntu-latest,   r: 'devel',   args: "'--no-manual'"}
+        - { os: ubuntu-18.04,   r: '3.5',     rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest", args: "'--no-manual'"}
+        - { os: ubuntu-18.04,   r: 'oldrel',  rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest", args: "'--no-manual'"}
+        - { os: ubuntu-18.04,   r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest", args: "''"}
+        - { os: ubuntu-18.04,   r: 'devel',   rspm: "https://packagemanager.rstudio.com/cran/__linux__/bionic/latest", args: "'--no-manual'"}
 
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
