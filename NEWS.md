@@ -1,4 +1,4 @@
-# bcmaps (development version)
+# bcmaps 1.0.2
 
 * New helper function `show_cached_files()` to show the files that you have cached (and how much space they're taking up on your computer). (#92, #93)
 
