@@ -12,6 +12,8 @@ test_that("test that all sf layer function work without error and returns an sf 
     expect_error(layer <- match.fun(fn_names[i])(ask = FALSE), NA)
     expect_is(layer, "sf")
     expect_equal(attr(layer, "sf_column"), "geometry")
+    expect_true(all(sf::st_is_valid(layer)))
+    expect_equal(st_crs(layer)$wkt, st_crs("EPSG:3005")$wkt)
   }
 })
 
