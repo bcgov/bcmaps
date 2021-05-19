@@ -63,7 +63,9 @@ delete_cache <- function(files_to_delete = NULL) {
 #' @return `show_cached_files()`: a data.frame with the columns:
 #'  - `file`, the name of the file,
 #'  - `size_MB`, file size in MB,
-#'  - `is_dir`, is it a directory
+#'  - `is_dir`, is it a directory? If you have cached tiles from the [cded()] functions,
+#'  there will be a row in the data frame showing the total size
+#'  of the cded tiles cache directory.
 #'  - `modified`, date and time last modified
 #'
 #' @export

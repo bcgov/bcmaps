@@ -23,7 +23,7 @@ sf_bbox_to_vec <- function(x) {
 test_that("bc_bbox works with all classes", {
   skip_on_cran()
   sf_out <- sf_bbox_to_vec(bc_bbox())
-  expect_equal(bc_bbox(), sf::st_bbox(bc_bound()))
+  expect_equivalent(bc_bbox(), sf::st_bbox(bc_bound()))
   expect_equal(sp_bbox_to_vec(bc_bbox("sp")), sf_out)
   expect_equal(Extent_to_vec(bc_bbox("raster")), sf_out)
 })

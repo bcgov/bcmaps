@@ -21,7 +21,9 @@ of files are specified, the files are immediately deleted.}
 \itemize{
 \item \code{file}, the name of the file,
 \item \code{size_MB}, file size in MB,
-\item \code{is_dir}, is it a directory
+\item \code{is_dir}, is it a directory? If you have cached tiles from the \code{\link[=cded]{cded()}} functions,
+there will be a row in the data frame showing the total size
+of the cded tiles cache directory.
 \item \code{modified}, date and time last modified
 }
 }

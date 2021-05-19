@@ -3,7 +3,7 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 1.0.1
+### Version 1.0.2
 
 <!-- badges: start -->
 

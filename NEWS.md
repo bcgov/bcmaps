@@ -1,5 +1,10 @@
 # bcmaps (development version)
 
+* New behaviour of shortcut functions ensures that all spatial objects (`sf` or `Spatial`) returned
+are topologically valid and in the standard CRS of "EPSG:3005" (BC Albers). #96
+
+# bcmaps 1.0.2
+
 * New helper function `show_cached_files()` to show the files that you have cached (and how much space they're taking up on your computer). (#92, #93)
 
 # bcmaps 1.0.1
