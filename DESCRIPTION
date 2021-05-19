@@ -41,7 +41,6 @@ Suggests:
     withr (>= 2.3),
     stars (>= 0.4.3)
 VignetteBuilder: knitr
-LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Encoding: UTF-8
