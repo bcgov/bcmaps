@@ -3,7 +3,7 @@
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
 
-### Version 1.0.2
+### Version 1.0.2.9000
 
 <!-- badges: start -->
 
@@ -144,8 +144,9 @@ accompanying function `bec_colours()` function to colour it:
 ``` r
 bec <- bec()
 library(ggplot2)
+bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
 ggplot() +
-  geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+  geom_sf(data = bec_sub,
           aes(fill = ZONE, col = ZONE)) +
   scale_fill_manual(values = bec_colors()) +
   scale_colour_manual(values = bec_colours())

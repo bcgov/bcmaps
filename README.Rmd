@@ -11,8 +11,11 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   message=FALSE,
-  fig.path = "tools/readme/"
+  fig.path = "tools/readme/",
+  dpi = 150
 )
+
+ggplot2::theme_set(ggplot2::theme_minimal())
 ```
 
 # bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
@@ -138,8 +141,9 @@ bec <- bec(ask = FALSE)
 ```{r bec, message=FALSE}
 bec <- bec()
 library(ggplot2)
+bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
 ggplot() +
-  geom_sf(data = bec[bec$ZONE %in% c("BG", "PP"),],
+  geom_sf(data = bec_sub,
           aes(fill = ZONE, col = ZONE)) +
   scale_fill_manual(values = bec_colors()) +
   scale_colour_manual(values = bec_colours())
