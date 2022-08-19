@@ -247,7 +247,7 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   local_hashes <- vapply(md5_files, readChar, character(1), nchars = 40L)
 
   remote_hashes <- vapply(md5_files, function(f) {
-    con <- url(paste0(url, "/", basename(f)))
+    con <- url(paste0(url, "/", basename(f)), method = "libcurl")
     on.exit(close(con))
     readChar(con, nchars = 40L)
   }, character(1))
