@@ -247,7 +247,9 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   local_hashes <- vapply(md5_files, readChar, character(1), nchars = 40L)
 
   remote_hashes <- vapply(md5_files, function(f) {
-    readChar(paste0(url, "/", basename(f)), nchars = 40L)
+    con <- url(paste0(url, "/", basename(f)))
+    on.exit(close(con))
+    readChar(con, nchars = 40L)
   }, character(1))
 
   tiles_to_be_refreshed <- tiles_have[local_hashes != remote_hashes]
