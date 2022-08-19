@@ -14,11 +14,11 @@ if (suppressPackageStartupMessages(require("sp"))) {
   unioned_spdf <- self_union(spdf)
 
   test_that("works with numbers", {
-    expect_equivalent(get_poly_attribute(unioned_spdf$union_df, "a", sum), c(1,2,3))
+    expect_setequal(get_poly_attribute(unioned_spdf$union_df, "a", sum), c(1,2,3))
   })
 
   test_that("works with factors", {
-    expect_equal(get_poly_attribute(unioned_spdf$union_df, "c", max),
+    expect_setequal(get_poly_attribute(unioned_spdf$union_df, "c", max),
                  factor(c("high", "low", "high"), ordered = TRUE, levels = c("low", "high")))
   })
 }
