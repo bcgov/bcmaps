@@ -7,7 +7,7 @@ output:
     fig_width: 5
     fig_height: 5
 vignette: >
-  %\VignetteIndexEntry{bcmaps layers and point data}
+  %\VignetteIndexEntry{Working with bcmaps layers with point location data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
