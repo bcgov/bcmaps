@@ -247,9 +247,12 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   local_hashes <- vapply(md5_files, readChar, character(1), nchars = 40L)
 
   remote_hashes <- vapply(md5_files, function(f) {
-    con <- url(paste0(url, "/", basename(f)), method = "libcurl")
-    on.exit(close(con))
-    readChar(con, nchars = 40L)
+    tmp <- tempfile()
+    on.exit(unlink(tmp), add = TRUE)
+    res <- httr::GET(paste0(url, "/", basename(f)),
+               httr::write_disk(tmp))
+    httr::stop_for_status(res)
+    readChar(tmp, nchars = 40)
   }, character(1))
 
   tiles_to_be_refreshed <- tiles_have[local_hashes != remote_hashes]
