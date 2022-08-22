@@ -18,16 +18,15 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macOS-latest,   r: 'release', compile: 'never'}
-          - {os: windows-latest, r: 'release', compile: 'never'}
+          - {os: macOS-latest,   r: 'release'}
+          - {os: windows-latest, r: 'release'}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release'}
           - {os: ubuntu-latest,   r: 'release'}
-          - {os: ubuntu-latest,   r: 'oldrel-1', compile: 'never'}
+          - {os: ubuntu-latest,   r: 'oldrel-1'}
 
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
-      R_COMPILE_AND_INSTALL_PACKAGES: ${{ matrix.config.compile }}
 
     steps:
       - uses: actions/checkout@v2
@@ -39,6 +38,12 @@ jobs:
           r-version: ${{ matrix.config.r }}
           http-user-agent: ${{ matrix.config.http-user-agent }}
           use-public-rspm: true
+
+      - name: install macOS system dependencies
+        if: runner.os == 'macOS'
+        continue-on-error: true
+        run: |
+          brew install pkg-config gdal udunits
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
