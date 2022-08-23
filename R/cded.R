@@ -152,7 +152,7 @@ get_mapsheet_tiles <- function(mapsheet, dir, check_tiles = TRUE) {
   )
 
   url <- dem_resources$url[grepl("zipped dem", tolower(dem_resources$name))]
-  url <- paste0(url, "/", mapsheet,"/")
+  url <- paste_url(url, "/", mapsheet,"/")
 
   files <- list_mapsheet_files(url)
 
@@ -192,13 +192,13 @@ get_mapsheet_tiles <- function(mapsheet, dir, check_tiles = TRUE) {
       ))
       f <- tiles_need[i]
       md5 <- paste0(f, ".md5")
-      download.file(paste0(url, "/", basename(f)),
+      download.file(paste_url(url, "/", basename(f)),
                     quiet = TRUE,
                     destfile = f
       )
       unzip(f, overwrite = TRUE, exdir = dirname(f))
       file.remove(f)
-      download.file(paste0(url, "/", basename(md5)),
+      download.file(paste_url(url, "/", basename(md5)),
                     quiet = TRUE,
                     destfile = md5
       )
@@ -249,9 +249,7 @@ check_hashes <- function(tiles_have, tiles_need, url) {
   remote_hashes <- vapply(md5_files, function(f) {
     tmp <- tempfile()
     on.exit(unlink(tmp), add = TRUE)
-    res <- httr::GET(gsub("(?<!:)/+", "/",
-                          paste0(url, "/", basename(f)),
-                          perl = TRUE),
+    res <- httr::GET(paste_url(url, "/", basename(f)),
                      httr::write_disk(tmp))
     httr::stop_for_status(res)
     readChar(tmp, nchars = 40)
@@ -320,4 +318,9 @@ vrt_files <- function(vrt, omit_vrt = FALSE) {
     return(setdiff(files, vrt))
   }
   files
+}
+
+paste_url <- function(...) {
+  url <- paste0(...)
+  gsub("(?<!:)/+", "/", url, perl = TRUE)
 }
