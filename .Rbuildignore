@@ -11,3 +11,5 @@ CONTRIBUTING.md
 ^COMPLIANCE.yaml$
 ^\.github$
 ^data-raw$
+^revdep$
+^CRAN-SUBMISSION$
