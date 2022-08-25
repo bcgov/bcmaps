@@ -1,14 +1,10 @@
-## CRAN check issues
+## Release summary
 
-* Fixed issue where a test requiring internet access caused a CRAN check ERROR when the internet resource was not available.
+This is a patch release, primarily to address changes in the raster package that were causing test failures in this package.
 
-## Test environments
+### CRAN check issues
 
-* local OS X install (Mojave), R 4.0.4
-* ubuntu 18.04 (on GitHub Actions): R 3.5, R 3.6.3, R 4.0.4, and R-devel (2021-03-07 r80079)
-* Windows Server 2019 (on GitHub Actions), R 4.0.4
-* macOS Catalina 10.15 (on GitHub Actions), R 4.0.4
-* win-builder (R-devel 2021-03-05 r80073)
+All CRAN check issues have been fixed - previous tests compared both order and values of a return value to an expected result. Changes in raster made the order unreliable, so we now only test the value.
 
 ## R CMD check results
 
@@ -16,4 +12,7 @@ There were no ERRORS, WARNINGS, or NOTEs.
 
 ## Reverse dependencies
 
-There are no reverse dependencies.
+We checked 1 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
+
+ * We saw 0 new problems
+ * We failed to check 0 packages
