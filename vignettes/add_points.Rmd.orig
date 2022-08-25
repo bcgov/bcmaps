@@ -66,7 +66,7 @@ We know that our occurrence data are in decimal degrees in [NAD83](https://epsg.
 spp <- st_set_crs(spp, 4326)
 ```
 
-All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005](http://epsg.io/3005)), which is the B.C. government standard. It is an 'equal area' projection, meaning that the size of areas is not distorted, and thus is suitable for analyses on large areas.
+All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005](https://epsg.io/3005)), which is the B.C. government standard. It is an 'equal area' projection, meaning that the size of areas is not distorted, and thus is suitable for analyses on large areas.
 
 If we look at the `proj4string` for `bc_bound` and our `spp_df`, we see that they are different:
 
