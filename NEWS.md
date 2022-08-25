@@ -2,6 +2,7 @@
 
 * New behaviour of shortcut functions ensures that all spatial objects (`sf` or `Spatial`) returned
 are topologically valid and in the standard CRS of "EPSG:3005" (BC Albers). #96
+* More robust behaviour of getting and checking cache of `cded` files.
 
 # bcmaps 1.0.2
 
