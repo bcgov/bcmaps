@@ -1,3 +1,5 @@
+# bcmaps (development version)
+
 # bcmaps 1.0.3
 
 * New behaviour of shortcut functions ensures that all spatial objects (`sf` or `Spatial`) returned
