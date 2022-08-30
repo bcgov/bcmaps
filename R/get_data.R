@@ -15,8 +15,6 @@
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
 #' @inheritParams bc_bound_hres
-#' @param ... arguments passed on to [get_big_data] if the layer needs to be downloaded from a
-#' `bcmapsdata` release.
 #'
 #' @return the layer requested
 #' @export
@@ -28,7 +26,7 @@
 #'  # As a "Spatial" (sp) object
 #'  get_layer("watercourses_15M")
 #' }
-get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE, ...) {
+get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n
@@ -43,7 +41,7 @@ get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE, .
     stop(layer, " is not an available layer")
   }
 
-  ret <- get_catalogue_data(layer, ask = ask, force = force, ...)
+  ret <- get_catalogue_data(layer, ask = ask, force = force)
 
 
   if (class == "sp") {
