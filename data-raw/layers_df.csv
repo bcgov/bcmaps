@@ -19,12 +19,12 @@ watercourses_5M,British Columbia watercourses at 1:5M scale,,,,
 wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,7ae18a3c-917b-4cb1-9aa8-51a172475dbb,4455072e-d33b-4685-9edd-cffda763dd45,FALSE,TRUE
 bc_bound,BC Boundary,b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
 bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
-bec,British Columbia BEC Map,,,TRUE,FALSE
-tsa,British Columbia Timber Supply Areas and TSA Blocks,,,TRUE,FALSE
+bec,British Columbia BEC Map,f358a53b-ffde-4830-a325-a5a03ff672c3,3ec24cb4-f78d-48a9-87e7-516763f00cc8,FALSE,TRUE
+tsa,British Columbia Timber Supply Areas and TSA Blocks,8daa29da-d7f4-401c-83ae-d962e3a28980,6851f8a6-77b9-4555-9f60-3d2bd8e039be,FALSE,TRUE
 health_hsda,Health Service Delivery Area Boundaries,71c930b9-563a-46da-a10f-ead49ccbc390,c5dad467-229b-4378-852b-ff92479a65b6,FALSE,TRUE
 health_ha,Health Authority Boundaries,7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b,93b79a3c-2da4-4fd4-b953-2f5c690db430,FALSE,TRUE
 health_lha,Local Health Area Boundaries ,afd021d9-7722-4410-b506-d394c66e74fc,d6e951d3-5103-475a-8bb6-b4d275e6343f,FALSE,TRUE
-health_chsa,Community Health Service Areas - CHSA,"68f2f577-28a7-46b4-bca9-7e9770f2f357	",59065b51-511a-4976-b77f-034168365273,FALSE,TRUE
+health_chsa,Community Health Service Areas - CHSA,68f2f577-28a7-46b4-bca9-7e9770f2f357,59065b51-511a-4976-b77f-034168365273,FALSE,TRUE
 census_subdivision,Current Census Subdivision Boundaries ,4c5618c6-38dd-4a62-a3de-9408b4974bb6,98bd1222-57bb-4504-92c2-4a5857ae7671,FALSE,TRUE
 census_division,Current Census Division Boundaries ,ef17918a-597a-4012-8534-f8e71d8735b3,36b530c2-1de6-44a2-a6f6-c1fce36c53ed,FALSE,TRUE
 census_economic,Current Census Economic Region Boundaries,1aebc451-a41c-496f-8b18-6f414cde93b7,3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96,FALSE,TRUE
