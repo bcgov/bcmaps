@@ -1,5 +1,8 @@
 # bcmaps (development version)
 
+* `bec` and `tsa` layers are now downloaded directly from the BC Data Catalogue. This ensures that these are up-to-date and means that we do not rely on the manual updating of these layers at  https://github.com/bcgov/bcmapsdata. (#62, #115)
+
+
 # bcmaps 1.0.3
 
 * New behaviour of shortcut functions ensures that all spatial objects (`sf` or `Spatial`) returned
