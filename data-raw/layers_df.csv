@@ -1,39 +1,39 @@
-layer_name,title,record,resource, local,using_shortcuts
-bc_cities,BC Major Cities Points, b678c432-c5c1-4341-88db-0d6befa0c7f8,443dd858-2e37-4a8f-937a-f53359f16e64,FALSE,TRUE
-bc_bound_hres,High Resolution BC Boundary,30aeb5c1-4285-46c8-b60b-15b1a6f4258b,3d72cf36-ab53-4a2a-9988-a883d7488384,TRUE,FALSE
-airzones,British Columbia Air Zones,e8eeefc4-2826-47bc-8430-85703d328516,c495d082-b586-4df0-9e06-bd6b66a8acd9,FALSE,TRUE
-ecoprovinces,British Columbia Ecoprovinces,51832f47-efdf-4956-837a-45fc2c9032dd,811fcedb-1a53-4574-8149-454f4a740682,FALSE,TRUE
-ecoregions,British Columbia Ecoregions,d00389e0-66da-4895-bd56-39a0dd64aa78,bd816a86-4f5e-4989-b1df-0b2f3f4a5f86,FALSE,TRUE
-ecosections,British Columbia Ecosections,ccc01f43-860d-4583-8ba4-e72d8379441e,6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6,FALSE,TRUE
-gw_aquifers,British Columbia's developed ground water aquifers,099d69c5-1401-484d-9e19-c121ccb7977c,8f421e3a-ccd3-4fab-8198-53ad6e9e2af2,FALSE,TRUE
-hydrozones,Hydrologic Zone Boundaries of British Columbia,329fd234-8835-4d44-9aaa-97c37bfc8d92,baeb665e-85c7-4a7b-8e67-8b956785490a,FALSE,TRUE
-municipalities,British Columbia Municipalities,e3c3c580-996a-4668-8bc5-6aa7c7dc4932,25c95b07-5882-47ff-970d-36cb243b8355,FALSE,TRUE
-nr_areas,British Columbia Natural Resource (NR) Areas,c1861ba4-abb8-4947-b3e5-7f7c4d7257d5,4b317896-1a42-4c03-9dbd-bff996d5ea0c,FALSE,TRUE
-nr_districts,British Columbia Natural Resource (NR) Districts,0bc73892-e41f-41d0-8d8e-828c16139337,e6676e55-2a6f-4b2b-91ad-3caf291ac5d4,FALSE,TRUE
-nr_regions,British Columbia Natural Resource (NR) Regions,dfc492c0-69c5-4c20-a6de-2c9bc999301f,ec636f64-9c5f-4704-8e66-2dd43032c9b5,FALSE,TRUE
-regional_districts,British Columbia Regional Districts,d1aff64e-dbfe-45a6-af97-582b7f6418b9,57c7f719-dc87-415c-8be7-ef2f95289397,FALSE,TRUE
-water_districts,British Columbia's Water Management Districts,92cb3ad8-9582-48a9-9e79-9a9d33601e50,07f9aa3f-0b66-4a49-919f-332d12bcd8f0,FALSE,TRUE
-water_precincts,British Columbia's Water Management Precincts,b5f436b4-532c-4ee2-ba27-90d55ec8c73f ,e482fd4a-be58-4541-8e0d-c39a764fd0a3,FALSE,TRUE
-watercourses_15M,British Columbia watercourses at 1:15M scale,,,,
-watercourses_5M,British Columbia watercourses at 1:5M scale,,,,
-wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,7ae18a3c-917b-4cb1-9aa8-51a172475dbb,4455072e-d33b-4685-9edd-cffda763dd45,FALSE,TRUE
-bc_bound,BC Boundary,b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
-bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,TRUE,FALSE
-bec,British Columbia BEC Map,f358a53b-ffde-4830-a325-a5a03ff672c3,3ec24cb4-f78d-48a9-87e7-516763f00cc8,FALSE,TRUE
-tsa,British Columbia Timber Supply Areas and TSA Blocks,8daa29da-d7f4-401c-83ae-d962e3a28980,6851f8a6-77b9-4555-9f60-3d2bd8e039be,FALSE,TRUE
-health_hsda,Health Service Delivery Area Boundaries,71c930b9-563a-46da-a10f-ead49ccbc390,c5dad467-229b-4378-852b-ff92479a65b6,FALSE,TRUE
-health_ha,Health Authority Boundaries,7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b,93b79a3c-2da4-4fd4-b953-2f5c690db430,FALSE,TRUE
-health_lha,Local Health Area Boundaries ,afd021d9-7722-4410-b506-d394c66e74fc,d6e951d3-5103-475a-8bb6-b4d275e6343f,FALSE,TRUE
-health_chsa,Community Health Service Areas - CHSA,68f2f577-28a7-46b4-bca9-7e9770f2f357,59065b51-511a-4976-b77f-034168365273,FALSE,TRUE
-census_subdivision,Current Census Subdivision Boundaries ,4c5618c6-38dd-4a62-a3de-9408b4974bb6,98bd1222-57bb-4504-92c2-4a5857ae7671,FALSE,TRUE
-census_division,Current Census Division Boundaries ,ef17918a-597a-4012-8534-f8e71d8735b3,36b530c2-1de6-44a2-a6f6-c1fce36c53ed,FALSE,TRUE
-census_economic,Current Census Economic Region Boundaries,1aebc451-a41c-496f-8b18-6f414cde93b7,3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96,FALSE,TRUE
-census_tract,Current Census Tract Boundaries,539aae5b-12f6-4934-9592-9b27acc827f8,be767db6-0d4e-4906-a89b-564637f14db9,FALSE,TRUE
-census_metropolitan_area,Current Census Metropolitan Areas ,a6fb34b7-0937-4718-8f1f-43dba2c0f407,"	f129a965-363e-4d7e-8319-a4010e002fdb",FALSE,TRUE
-census_dissemination_area,Current Census Dissemination Areas ,a091fd65-d682-4a24-8c0e-68de7c87e3a3,a7fa66d4-0f95-4c58-861d-42d875e5b79f,FALSE,TRUE
-mapsheets_250K,"NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)",,,,FALSE
-mapsheets_50K,"NTS 50K Grid - Digital Baseline Mapping at 1:50,000 (NTS)",,,,
-fsa,British Columbia Forward Sortation Area,,,,FALSE
-bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",,,,FALSE
-cded_raster,Get Canadian Digital Elevation Model (CDED) as a 'raster' object,,,,
-cded_stars,Get Canadian Digital Elevation Model (CDED) as a 'stars' object,,,,
+layer_name,title,record,resource,using_shortcuts
+bc_cities,BC Major Cities Points,b678c432-c5c1-4341-88db-0d6befa0c7f8,443dd858-2e37-4a8f-937a-f53359f16e64,TRUE
+bc_bound_hres,High Resolution BC Boundary,30aeb5c1-4285-46c8-b60b-15b1a6f4258b,3d72cf36-ab53-4a2a-9988-a883d7488384,FALSE
+airzones,British Columbia Air Zones,e8eeefc4-2826-47bc-8430-85703d328516,c495d082-b586-4df0-9e06-bd6b66a8acd9,TRUE
+ecoprovinces,British Columbia Ecoprovinces,51832f47-efdf-4956-837a-45fc2c9032dd,811fcedb-1a53-4574-8149-454f4a740682,TRUE
+ecoregions,British Columbia Ecoregions,d00389e0-66da-4895-bd56-39a0dd64aa78,bd816a86-4f5e-4989-b1df-0b2f3f4a5f86,TRUE
+ecosections,British Columbia Ecosections,ccc01f43-860d-4583-8ba4-e72d8379441e,6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6,TRUE
+gw_aquifers,British Columbia's developed ground water aquifers,099d69c5-1401-484d-9e19-c121ccb7977c,8f421e3a-ccd3-4fab-8198-53ad6e9e2af2,TRUE
+hydrozones,Hydrologic Zone Boundaries of British Columbia,329fd234-8835-4d44-9aaa-97c37bfc8d92,baeb665e-85c7-4a7b-8e67-8b956785490a,TRUE
+municipalities,British Columbia Municipalities,e3c3c580-996a-4668-8bc5-6aa7c7dc4932,25c95b07-5882-47ff-970d-36cb243b8355,TRUE
+nr_areas,British Columbia Natural Resource (NR) Areas,c1861ba4-abb8-4947-b3e5-7f7c4d7257d5,4b317896-1a42-4c03-9dbd-bff996d5ea0c,TRUE
+nr_districts,British Columbia Natural Resource (NR) Districts,0bc73892-e41f-41d0-8d8e-828c16139337,e6676e55-2a6f-4b2b-91ad-3caf291ac5d4,TRUE
+nr_regions,British Columbia Natural Resource (NR) Regions,dfc492c0-69c5-4c20-a6de-2c9bc999301f,ec636f64-9c5f-4704-8e66-2dd43032c9b5,TRUE
+regional_districts,British Columbia Regional Districts,d1aff64e-dbfe-45a6-af97-582b7f6418b9,57c7f719-dc87-415c-8be7-ef2f95289397,TRUE
+water_districts,British Columbia's Water Management Districts,92cb3ad8-9582-48a9-9e79-9a9d33601e50,07f9aa3f-0b66-4a49-919f-332d12bcd8f0,TRUE
+water_precincts,British Columbia's Water Management Precincts,b5f436b4-532c-4ee2-ba27-90d55ec8c73f,e482fd4a-be58-4541-8e0d-c39a764fd0a3,TRUE
+watercourses_15M,British Columbia watercourses at 1:15M scale,,,FALSE
+watercourses_5M,British Columbia watercourses at 1:5M scale,,,FALSE
+wsc_drainages,Water Survey of Canada Sub-Sub-Drainage Areas,7ae18a3c-917b-4cb1-9aa8-51a172475dbb,4455072e-d33b-4685-9edd-cffda763dd45,TRUE
+bc_bound,BC Boundary,b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,FALSE
+bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",b9bd93e1-0226-4351-b943-05c6f80bd5da,f591698f-b153-4a9f-8bce-f62de39bab07,FALSE
+bec,British Columbia BEC Map,f358a53b-ffde-4830-a325-a5a03ff672c3,3ec24cb4-f78d-48a9-87e7-516763f00cc8,TRUE
+tsa,British Columbia Timber Supply Areas and TSA Blocks,8daa29da-d7f4-401c-83ae-d962e3a28980,6851f8a6-77b9-4555-9f60-3d2bd8e039be,TRUE
+health_hsda,Health Service Delivery Area Boundaries,71c930b9-563a-46da-a10f-ead49ccbc390,c5dad467-229b-4378-852b-ff92479a65b6,TRUE
+health_ha,Health Authority Boundaries,7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b,93b79a3c-2da4-4fd4-b953-2f5c690db430,TRUE
+health_lha,Local Health Area Boundaries,afd021d9-7722-4410-b506-d394c66e74fc,d6e951d3-5103-475a-8bb6-b4d275e6343f,TRUE
+health_chsa,Community Health Service Areas - CHSA,68f2f577-28a7-46b4-bca9-7e9770f2f357,59065b51-511a-4976-b77f-034168365273,TRUE
+census_subdivision,Current Census Subdivision Boundaries,4c5618c6-38dd-4a62-a3de-9408b4974bb6,98bd1222-57bb-4504-92c2-4a5857ae7671,TRUE
+census_division,Current Census Division Boundaries,ef17918a-597a-4012-8534-f8e71d8735b3,36b530c2-1de6-44a2-a6f6-c1fce36c53ed,TRUE
+census_economic,Current Census Economic Region Boundaries,1aebc451-a41c-496f-8b18-6f414cde93b7,3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96,TRUE
+census_tract,Current Census Tract Boundaries,539aae5b-12f6-4934-9592-9b27acc827f8,be767db6-0d4e-4906-a89b-564637f14db9,TRUE
+census_metropolitan_area,Current Census Metropolitan Areas,a6fb34b7-0937-4718-8f1f-43dba2c0f407,f129a965-363e-4d7e-8319-a4010e002fdb,TRUE
+census_dissemination_area,Current Census Dissemination Areas,a091fd65-d682-4a24-8c0e-68de7c87e3a3,a7fa66d4-0f95-4c58-861d-42d875e5b79f,TRUE
+mapsheets_250K,"NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)",,,FALSE
+mapsheets_50K,"NTS 50K Grid - Digital Baseline Mapping at 1:50,000 (NTS)",,,FALSE
+fsa,British Columbia Forward Sortation Area,,,FALSE
+bc_neighbours,"Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia",,,FALSE
+cded_raster,Get Canadian Digital Elevation Model (CDED) as a 'raster' object,,,FALSE
+cded_stars,Get Canadian Digital Elevation Model (CDED) as a 'stars' object,,,FALSE
