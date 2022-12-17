@@ -18,9 +18,8 @@ read_bc_watercourse <- function(x) {
   gdb_path <- gsub("_fgdb", ".gdb", tools::file_path_sans_ext(temp_zip))
   l <- "watercourse_1"
   sql_l <- sprintf("SELECT * FROM \"%s\" WHERE country = 140 AND political_division = 93", l)
-  s <- sf::read_sf(gdb_path, layer = l,
-              query = sql_l)
-  transform_bc_albers(s)
+  s <- sf::read_sf(gdb_path, query = sql_l)
+  sf::st_make_valid(transform_bc_albers(s))
 }
 
 
@@ -95,7 +94,7 @@ watercourses_5M <- function(class = 'sf', ask = interactive(), force = FALSE) {
   } else {
     ret <- readRDS(fpath)
     time <- attributes(ret)$time_downloaded
-    message(paste0('watercourses_5M was updated on ', format(time, "%Y-%m-%d")))
+    update_message_once(paste0('watercourses_5M was updated on ', format(time, "%Y-%m-%d")))
   }
   if (class == "sp") ret <- convert_to_sp(ret)
 
@@ -132,12 +131,13 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
     ret <- sf::read_sf(unzip_path[grepl("\\.shp$", unzip_path)])
     ret <- ret[ret$PRUID == '59',]
     ret <- transform_bc_albers(ret)
+    ret <- sf::st_make_valid(ret)
     ret <- rename_sf_col_to_geometry(ret)
     saveRDS(ret, fpath)
   } else {
     ret <- readRDS(fpath)
     time <- attributes(ret)$time_downloaded
-    message(paste0('fsa was updated on ', format(time, "%Y-%m-%d")))
+    update_message_once(paste0('fsa was updated on ', format(time, "%Y-%m-%d")))
   }
   if (class == "sp") ret <- convert_to_sp(ret)
 

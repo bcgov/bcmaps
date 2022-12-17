@@ -2,7 +2,11 @@ context("test layer load")
 
 
 avail <- available_layers()
-fn_names <- avail$layer_name[!is.na(avail$local)]
+fn_names <- avail$layer_name[!(avail$local) &
+                               !grepl("cded_", avail$layer_name)]
+
+# Only test bec and tsa once in a while - they're really big
+fn_names <- setdiff(fn_names, c("bec", "tsa"))
 
 
 test_that("test that all sf layer function work without error and returns an sf object as default", {
@@ -10,7 +14,7 @@ test_that("test that all sf layer function work without error and returns an sf 
   skip_if_offline()
 
   for (i in seq_along(fn_names)) {
-    #cat("\n", fn_names[i]) #for debugging
+    # cat("\n", fn_names[i]) #for debugging
     expect_error(layer <- match.fun(fn_names[i])(ask = FALSE), NA)
     expect_is(layer, "sf")
     expect_equal(attr(layer, "sf_column"), "geometry")
