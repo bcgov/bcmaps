@@ -6,7 +6,7 @@ fn_names <- avail$layer_name[!(avail$local) &
                                !grepl("cded_", avail$layer_name)]
 
 # Only test bec and tsa once in a while - they're really big
-fn_names <- setdiff(fn_names, c("bec", "tsa"))
+# fn_names <- setdiff(fn_names, c("bec", "tsa"))
 
 
 test_that("test that all sf layer function work without error and returns an sf object as default", {
