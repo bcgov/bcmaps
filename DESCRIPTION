@@ -1,10 +1,24 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
 Version: 1.0.3.9000
-Authors@R: c(person("Andy", "Teucher", email = "andy.teucher@gov.bc.ca",
-  role = c("aut", "cre")), person("Stephanie", "Hazlitt", email = "stephanie.hazlitt@gov.bc.ca",
-  role = "aut"), person("Sam", "Albers", email = "sam.albers@gov.bc.ca", role = "aut"),
-  person("Province of British Columbia", role="cph"))
+Authors@R: 
+    c(person(given = "Andy",
+             family = "Teucher",
+             role = c("aut", "cre"),
+             email = "andy.teucher@gmail.com",
+             comment = c(ORCID = "0000-0002-7840-692X")),
+      person(given = "Sam",
+             family = "Albers",
+             role = c("aut", "ctb"),
+             email = "sam.albers@gmail.com",
+             comment = c(ORCID = "0000-0002-9270-7884")),
+      person(given = "Stephanie",
+             family = "Hazlitt",
+             role = c("aut", "ctb"),
+             email = "stephhazlitt@gmail.com",
+             comment = c(ORCID = "0000-0002-3161-2304")),
+      person(given = "Province of British Columbia",
+             role = "cph"))
 Description: Provides access to various spatial layers for B.C., such as 
     administrative boundaries, natural resource management boundaries, etc. 
     Most layers are imported from the 'bcdata' package as 'sf' or 'Spatial' objects
