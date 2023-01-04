@@ -1,4 +1,4 @@
-# bcmaps (development version)
+# bcmaps 1.1.0
 
 * `bec` and `tsa` layers are now downloaded directly from the BC Data Catalogue. This ensures that these are up-to-date and means that we do not rely on the manual updating of these layers at  https://github.com/bcgov/bcmapsdata. (#62, #115)
 * Package startup message about no longer needing the `bcmapsdata` package has been removed.
