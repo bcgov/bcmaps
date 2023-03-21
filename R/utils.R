@@ -70,6 +70,8 @@ transform_bc_albers <- function(obj) {
 
 #' @export
 transform_bc_albers.Spatial <- function(obj) {
+  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
+
   if (!inherits(obj, "Spatial")) {
     stop("sp_obj must be a Spatial object", call. = FALSE)
   }
@@ -108,6 +110,7 @@ fix_geo_problems <- function(obj, tries = 5) {
 
 #' @export
 fix_geo_problems.Spatial <- function(obj, tries = 5) {
+  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
   if (!requireNamespace("rgeos", quietly = TRUE)) {
     stop("Package rgeos required but not available", call. = FALSE)
   }
@@ -188,6 +191,7 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 #'   unioned_sp <- self_union(spp)
 #' }
 self_union <- function(x) {
+  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
   if (!inherits(x, "SpatialPolygons")) {
     stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
   }
@@ -284,6 +288,7 @@ get_unioned_ids <- function(unioned_sp) {
 #' }
 #' }
 get_poly_attribute <- function(x, col, fun, ...) {
+  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
   if (!inherits(x, "list")) stop("x must be a list, or list-column in a data frame")
   if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
   if (!col %in% names(x[[1]])) stop(col, " is not a column in the data frames in x")
