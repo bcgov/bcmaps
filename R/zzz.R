@@ -18,7 +18,7 @@ bcmaps_env <- new.env(parent = emptyenv())
 
 
 bcmapsStartupMessage <- function() {
-  msg <- "The {bcmaps} package will soon drop all support for Spatial objects (`sp`).\nPlease use {bcmaps} with `sf` objects only moving forward."
+  msg <- "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0.\nPlease use `sf` objects with {bcmaps}."
 }
 
 .onAttach <- function(lib, pkg)

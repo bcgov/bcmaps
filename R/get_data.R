@@ -62,7 +62,7 @@ rename_sf_col_to_geometry <- function(x) {
 }
 
 convert_to_sp <- function(sf_obj) {
-  .Deprecated(msg = "The {bcmaps} package will soon drop support for Spatial objects (`sp`).")
+  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}")
   if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
   ret <- sf::st_zm(sf_obj, drop = TRUE)
   methods::as(ret, "Spatial")
