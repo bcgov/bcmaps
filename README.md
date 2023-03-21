@@ -33,6 +33,9 @@ Catalogue](https://catalogue.data.gov.bc.ca/) using the
 [bcdata](https://github.com/bcgov/bcdata) R package. See each layers
 individual help file for more detail.
 
+> ***IMPORTANT NOTE** All support for Spatial objects (`sp`) is
+> deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.*
+
 ## Installation
 
 You can install `bcmaps` from CRAN:
@@ -154,6 +157,9 @@ ggplot() +
 
 ### Spatial (sp) objects
 
+> ***IMPORTANT NOTE** All support for Spatial objects (`sp`) is
+> deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.*
+
 If you aren’t using the `sf` package and prefer the old standard
 [`sp`](https://cran.r-project.org/package=sp) way of doing things, set
 `class = "sp"` in either `get_layer` or the shortcut functions:
@@ -197,10 +203,12 @@ The package also contains a couple of handy utility functions:
 
 1.  `fix_geo_problems()` for fixing invalid topologies in `sf` or
     `Spatial` objects such as orphaned holes and self-intersections
+    (`class = "sp"` *deprecated* in v1.2.0)
 2.  `transform_bc_albers()` for transforming any `sf` or `Spatial`
     object to [BC Albers](https://epsg.io/3005) projection.
+    (`class = "sp"` *deprecated* in v1.2.0)
 3.  `self_union()` Union a `SpatialPolygons*` object with itself to
-    remove overlaps, while retaining attributes
+    remove overlaps, while retaining attributes (*deprecated in v1.2.0*)
 
 ## Getting Help or Reporting an Issue
 
@@ -242,8 +250,3 @@ Agreement](https://www.statcan.gc.ca/eng/reference/licence)). See the
     # Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
     # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     # See the License for the specific language governing permissions and limitations under the License.
-
-This repository is maintained by [Environmental Reporting
-BC](https://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B).
-Click [here](https://github.com/bcgov/EnvReportBC) for a complete list
-of our repositories on GitHub.

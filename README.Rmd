@@ -42,6 +42,10 @@ All layers are available in the
 
 Most layers are assessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package. See each layers individual help file for more detail.
 
+
+> _**IMPORTANT NOTE** All support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}._
+
+
 ## Installation
 
 You can install `bcmaps` from CRAN:
@@ -149,6 +153,8 @@ ggplot() +
 
 ### Spatial (sp) objects
 
+> _**IMPORTANT NOTE** All support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}._
+
 If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp)
 way of doing things, set `class = "sp"` in either `get_layer` or the shortcut functions:
 
@@ -182,10 +188,10 @@ After installing the package you can view vignettes by typing `browseVignettes("
 The package also contains a couple of handy utility functions:
 
 1. `fix_geo_problems()` for fixing invalid topologies in `sf` or `Spatial` objects 
-such as orphaned holes and self-intersections
+such as orphaned holes and self-intersections (`class = "sp"` _deprecated_ in v1.2.0)
 2. `transform_bc_albers()` for transforming any `sf` or `Spatial` object to 
-[BC Albers](https://epsg.io/3005) projection.
-3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes
+[BC Albers](https://epsg.io/3005) projection. (`class = "sp"` _deprecated_ in v1.2.0)
+3. `self_union()` Union a `SpatialPolygons*` object with itself to remove overlaps, while retaining attributes (_deprecated in v1.2.0_)
 
 ## Getting Help or Reporting an Issue
 
@@ -216,4 +222,3 @@ The source datasets used in this package come from various sources under open li
     # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     # See the License for the specific language governing permissions and limitations under the License.
 
-This repository is maintained by [Environmental Reporting BC](https://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B). Click [here](https://github.com/bcgov/EnvReportBC) for a complete list of our repositories on GitHub.
