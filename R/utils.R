@@ -59,6 +59,9 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
+#' @param class `r lifecycle::badge('deprecated')` `class = sp` is no
+#' longer supported
+#'
 #' @param obj The Spatial* or sf object to transform
 #'
 #' @return the Spatial* or sf object in BC Albers projection
@@ -70,8 +73,7 @@ transform_bc_albers <- function(obj) {
 
 #' @export
 transform_bc_albers.Spatial <- function(obj) {
-  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
-
+  deprecate_sp(what = "transform_bc_albers.Spatial()")
   if (!inherits(obj, "Spatial")) {
     stop("sp_obj must be a Spatial object", call. = FALSE)
   }
@@ -93,13 +95,15 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
+#'
 #' For `sf` objects, uses `sf::st_make_valid`.
 #' Otherwise, uses the common method of buffering by zero.
 #'
 #' `fix_self_intersect` has been removed and will no longer work. Use
 #' `fix_geo_problems` instead
 #'
-#' @param obj The SpatialPolygons* or sf object to check/fix
+#' @param obj The SpatialPolygons* or sf object to check/fix. `r lifecycle::badge('deprecated')` `sp` Spatial objects is no
+#' longer supported.
 #' @param tries The maximum number of attempts to repair the geometry. Ignored for `sf` objects.
 #'
 #' @return The `SpatialPolygons*` or `sf` object, repaired if necessary
@@ -110,7 +114,7 @@ fix_geo_problems <- function(obj, tries = 5) {
 
 #' @export
 fix_geo_problems.Spatial <- function(obj, tries = 5) {
-  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
+  deprecate_sp(what = "fix_geo_problems.Spatial()")
   if (!requireNamespace("rgeos", quietly = TRUE)) {
     stop("Package rgeos required but not available", call. = FALSE)
   }
@@ -161,9 +165,16 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function was deprecated because {bcmaps} no longer supports `sp` Spatial objects.
+#'
+#' @keywords internal
+#'
 #' The IDs of source polygons are stored in a list-column called
 #' `union_ids`, and original attributes (if present) are stored as nested
-#' dataframes in a list-column called `union_df`
+#' dataframes in a list-column called `union_df`.
 #'
 #' @param x A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
 #'
@@ -191,7 +202,7 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 #'   unioned_sp <- self_union(spp)
 #' }
 self_union <- function(x) {
-  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
+  deprecate_sp(what = "self_union()")
   if (!inherits(x, "SpatialPolygons")) {
     stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
   }
@@ -256,6 +267,13 @@ get_unioned_ids <- function(unioned_sp) {
 
 #' Get or calculate the attribute of a list-column containing nested dataframes.
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function was deprecated because {bcmaps} no longer supports `sp` Spatial objects.
+#'
+#' @keywords internal
+#'
 #' For example, `self_union` produces a `SpatialPolygonsDataFrame`
 #' that has a column called `union_df`, which contains a `data.frame`
 #' for each polygon with the attributes from the constituent polygons.
@@ -288,7 +306,7 @@ get_unioned_ids <- function(unioned_sp) {
 #' }
 #' }
 get_poly_attribute <- function(x, col, fun, ...) {
-  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.")
+ deprecate_sp(what = "get_poly_attribute()")
   if (!inherits(x, "list")) stop("x must be a list, or list-column in a data frame")
   if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
   if (!col %in% names(x[[1]])) stop(col, " is not a column in the data frames in x")
@@ -384,7 +402,9 @@ bec_colors <- bec_colours
 
 #' Get an extent/bounding box for British Columbia
 #'
-#' @param class `"sf"`, `"sp"`, or `"raster"`
+#'
+#' @param class `"sf"`, `"sp"`, or `"raster"`. `r lifecycle::badge('deprecated')` `class = sp` is no
+#' longer supported
 #' @param crs coordinate reference system: integer with the EPSG code,
 #' or character with proj4string. Default `3005` (BC Albers).
 #'
@@ -396,12 +416,11 @@ bec_colors <- bec_colours
 #' @examples
 #'\dontrun{
 #'   bc_bbox("sf")
-#'   bc_bbox("sp")
 #'   bc_bbox("raster")
 #'   }
 bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   class <- match.arg(class)
-
+deprecate_sp(what = "bc_bbox(class = 'should be `sf` or `raster`, use of `sp` was deprecated')")
   if (class == "raster" && !requireNamespace("raster")) {
     stop("raster package required to make an object of class Extent")
   }
