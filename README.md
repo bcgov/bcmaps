@@ -33,8 +33,9 @@ Catalogue](https://catalogue.data.gov.bc.ca/) using the
 [bcdata](https://github.com/bcgov/bcdata) R package. See each layers
 individual help file for more detail.
 
-> ***IMPORTANT NOTE** All support for Spatial objects (`sp`) is
-> deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.*
+> ***IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated
+> in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use
+> `sf` objects with {bcmaps}.*
 
 ## Installation
 

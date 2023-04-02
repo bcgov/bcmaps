@@ -43,7 +43,7 @@ All layers are available in the
 Most layers are assessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package. See each layers individual help file for more detail.
 
 
-> _**IMPORTANT NOTE** All support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}._
+> _**IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use `sf` objects with {bcmaps}._
 
 
 ## Installation
