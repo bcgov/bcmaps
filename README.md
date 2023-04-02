@@ -23,10 +23,10 @@ British Columbia.
 
 Provides access to various spatial layers of British Columbia, such as
 administrative boundaries, natural resource management boundaries,
-watercourses etc. All layers are available in the [BC
+watercourses, census boundaries, etc. All layers are available as `sf`
+objects in the [BC
 Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/)
-projection, which is the B.C. Government standard as `sf` or `Spatial`
-objects.
+projection, which is the B.C. Government standard.
 
 Most layers are assessed directly from the [B.C. Data
 Catalogue](https://catalogue.data.gov.bc.ca/) using the
@@ -202,14 +202,10 @@ After installing the package you can view vignettes by typing
 
 The package also contains a couple of handy utility functions:
 
-1.  `fix_geo_problems()` for fixing invalid topologies in `sf` or
-    `Spatial` objects such as orphaned holes and self-intersections
-    (`class = "sp"` *deprecated* in v1.2.0)
-2.  `transform_bc_albers()` for transforming any `sf` or `Spatial`
-    object to [BC Albers](https://epsg.io/3005) projection.
-    (`class = "sp"` *deprecated* in v1.2.0)
-3.  `self_union()` Union a `SpatialPolygons*` object with itself to
-    remove overlaps, while retaining attributes (*deprecated in v1.2.0*)
+- `fix_geo_problems()` for fixing invalid topologies in `sf` objects
+  such as orphaned holes and self-intersections
+- `transform_bc_albers()` for transforming any `sf` object to [BC
+  Albers](https://epsg.io/3005) projection
 
 ## Getting Help or Reporting an Issue
 
