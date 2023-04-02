@@ -13,9 +13,9 @@ self_union(x)
 A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
 }
 \description{
-The IDs of source polygons are stored in a list-column called
-\code{union_ids}, and original attributes (if present) are stored as nested
-dataframes in a list-column called \code{union_df}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function was deprecated because {bcmaps} no longer supports \code{sp} Spatial objects.
 }
 \examples{
 if (require(sp)) {
@@ -38,3 +38,25 @@ if (require(sp)) {
   unioned_sp <- self_union(spp)
 }
 }
+\keyword{(if}
+\keyword{IDs}
+\keyword{The}
+\keyword{`union_df`.}
+\keyword{`union_ids`,}
+\keyword{a}
+\keyword{and}
+\keyword{are}
+\keyword{as}
+\keyword{attributes}
+\keyword{called}
+\keyword{dataframes}
+\keyword{in}
+\keyword{internal}
+\keyword{list-column}
+\keyword{nested}
+\keyword{of}
+\keyword{original}
+\keyword{polygons}
+\keyword{present)}
+\keyword{source}
+\keyword{stored}

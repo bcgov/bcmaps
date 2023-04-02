@@ -23,7 +23,7 @@ Run this function each time you add a new data object.
 }
 \examples{
 \dontrun{
-make_shortcut()
+make_shortcuts()
 }
 
 }
