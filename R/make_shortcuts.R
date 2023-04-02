@@ -23,7 +23,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' make_shortcut()
+#' make_shortcuts()
 #' }
 #'
 #' @return TRUE (invisibly)
