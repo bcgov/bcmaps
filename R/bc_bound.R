@@ -13,7 +13,9 @@
 #' BC Boundary - High Resolution
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`. `r lifecycle::badge('deprecated')` `class = sp` is no
+#' longer supported.
+#'
 #' @param ask Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().
 #' @param force Should you force download the data?
 #'
@@ -23,7 +25,6 @@
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_bound_hres()
-#' my_layer_sp <- bc_bound_hres(class = 'sp')
 #' }
 #'
 #' @source `bcdc_get_data(record = '30aeb5c1-4285-46c8-b60b-15b1a6f4258b',
@@ -66,7 +67,6 @@ bc_bound_hres <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_bound()
-#' my_layer_sp <- bc_bound(class = 'sp')
 #' }
 #'
 #' @export
@@ -107,7 +107,6 @@ bc_bound <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_neighbours()
-#' my_layer_sp <- bc_neighbours(class = 'sp')
 #' }
 #'
 #' @export
