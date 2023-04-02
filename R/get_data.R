@@ -12,8 +12,10 @@
 
 #' Get a B.C. spatial layer
 #'
+#'
 #' @param layer the name of the layer. The list of available layers can be
 #' obtained by running `available_layers()`
+#'
 #' @inheritParams bc_bound_hres
 #'
 #' @return the layer requested
@@ -22,9 +24,6 @@
 #' @examples
 #' \dontrun{
 #'  get_layer("bc_bound_hres")
-#'
-#'  # As a "Spatial" (sp) object
-#'  get_layer("watercourses_15M")
 #' }
 get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE) {
 
@@ -62,7 +61,7 @@ rename_sf_col_to_geometry <- function(x) {
 }
 
 convert_to_sp <- function(sf_obj) {
-  .Deprecated(msg = "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}")
+ deprecate_sp(what = "convert_to_sp()")
   if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
   ret <- sf::st_zm(sf_obj, drop = TRUE)
   methods::as(ret, "Spatial")
