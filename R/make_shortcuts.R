@@ -72,7 +72,6 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' @examples
          roxygen_blocker#' \\dontrun{{
          roxygen_blocker#' my_layer <- {fn_name}()
-         roxygen_blocker#' my_layer_sp <- {fn_name}(class = 'sp')
          roxygen_blocker#' }}
          roxygen_blocker#'
          roxygen_blocker#' @export
