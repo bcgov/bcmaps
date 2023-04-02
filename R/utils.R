@@ -59,10 +59,9 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
-#' @param class `r lifecycle::badge('deprecated')` `class = sp` is no
-#' longer supported
 #'
-#' @param obj The Spatial* or sf object to transform
+#' @param obj The Spatial* or sf object to transform. `r lifecycle::badge('deprecated')` `sp` Spatial object is no
+#' longer supported.
 #'
 #' @return the Spatial* or sf object in BC Albers projection
 #' @export
@@ -102,7 +101,7 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 #' `fix_self_intersect` has been removed and will no longer work. Use
 #' `fix_geo_problems` instead
 #'
-#' @param obj The SpatialPolygons* or sf object to check/fix. `r lifecycle::badge('deprecated')` `sp` Spatial objects is no
+#' @param obj The SpatialPolygons* or sf object to check/fix. `r lifecycle::badge('deprecated')` `sp` Spatial object is no
 #' longer supported.
 #' @param tries The maximum number of attempts to repair the geometry. Ignored for `sf` objects.
 #'

@@ -7,10 +7,8 @@
 transform_bc_albers(obj)
 }
 \arguments{
-\item{obj}{The Spatial* or sf object to transform}
-
-\item{class}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{class = sp} is no
-longer supported}
+\item{obj}{The Spatial* or sf object to transform. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{sp} Spatial object is no
+longer supported.}
 }
 \value{
 the Spatial* or sf object in BC Albers projection

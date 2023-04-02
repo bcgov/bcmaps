@@ -7,7 +7,7 @@
 fix_geo_problems(obj, tries = 5)
 }
 \arguments{
-\item{obj}{The SpatialPolygons* or sf object to check/fix. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{sp} Spatial objects is no
+\item{obj}{The SpatialPolygons* or sf object to check/fix. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{sp} Spatial object is no
 longer supported.}
 
 \item{tries}{The maximum number of attempts to repair the geometry. Ignored for \code{sf} objects.}
