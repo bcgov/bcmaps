@@ -14,6 +14,9 @@
 #' @keywords internal
 "_PACKAGE"
 
+#' @import sf
+#' @importFrom utils download.file unzip
+
 ## usethis namespace: start
 #' @importFrom lifecycle deprecated
 ## usethis namespace: end
