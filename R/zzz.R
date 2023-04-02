@@ -18,15 +18,19 @@ bcmaps_env <- new.env(parent = emptyenv())
 
 
 bcmapsStartupMessage <- function() {
-  msg <- "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}."
+  msg <- "Support for Spatial objects (`sp`) was deprecated in {bcmaps} v1.2.0, and will be removed altogether in the Summer 2023. Please use `sf` objects with {bcmaps}."
 }
 
 .onAttach <- function(lib, pkg)
 {
   # startup message
   msg <- bcmapsStartupMessage()
-  if(!interactive())
-    msg[1]
   packageStartupMessage(msg)
   invisible()
 }
+
+deprecate_sp <- function(what){
+  lifecycle::deprecate_warn( when = "1.2.0",
+                             what = what,
+                             details = "Please use `sf` objects with {bcmaps}, support for Spatial objects (sp) will be removed in Summer 2023.")
+  }
