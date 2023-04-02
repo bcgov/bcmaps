@@ -169,7 +169,6 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 #'
 #' This function was deprecated because {bcmaps} no longer supports `sp` Spatial objects.
 #'
-#' @keywords internal
 #'
 #' The IDs of source polygons are stored in a list-column called
 #' `union_ids`, and original attributes (if present) are stored as nested
@@ -271,7 +270,6 @@ get_unioned_ids <- function(unioned_sp) {
 #'
 #' This function was deprecated because {bcmaps} no longer supports `sp` Spatial objects.
 #'
-#' @keywords internal
 #'
 #' For example, `self_union` produces a `SpatialPolygonsDataFrame`
 #' that has a column called `union_df`, which contains a `data.frame`

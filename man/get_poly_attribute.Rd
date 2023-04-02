@@ -22,6 +22,10 @@ An atomic vector of the same length as x
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
 This function was deprecated because {bcmaps} no longer supports \code{sp} Spatial objects.
+
+For example, \code{self_union} produces a \code{SpatialPolygonsDataFrame}
+that has a column called \code{union_df}, which contains a \code{data.frame}
+for each polygon with the attributes from the constituent polygons.
 }
 \examples{
 \dontrun{
@@ -43,27 +47,3 @@ if (require(sp)) {
 }
 }
 }
-\keyword{For}
-\keyword{`SpatialPolygonsDataFrame`}
-\keyword{`data.frame`}
-\keyword{`self_union`}
-\keyword{`union_df`,}
-\keyword{a}
-\keyword{attributes}
-\keyword{called}
-\keyword{column}
-\keyword{constituent}
-\keyword{contains}
-\keyword{each}
-\keyword{example,}
-\keyword{for}
-\keyword{from}
-\keyword{has}
-\keyword{internal}
-\keyword{polygon}
-\keyword{polygons.}
-\keyword{produces}
-\keyword{that}
-\keyword{the}
-\keyword{which}
-\keyword{with}
