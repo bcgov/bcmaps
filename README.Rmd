@@ -48,6 +48,7 @@ Most layers are assessed directly from the [B.C. Data Catalogue](https://catalog
 ## Installation
 
 You can install `bcmaps` from CRAN:
+
 ```{r, echo=TRUE, eval=FALSE}
 install.packages("bcmaps")
 ```
@@ -62,6 +63,7 @@ remotes::install_github("bcgov/bcmaps")
 ## Usage
 
 To see the layers that are available, run the `available_layers()` function:
+
 ```{r, echo=FALSE, warning=FALSE}
 library(bcmaps)
 ```
@@ -72,7 +74,7 @@ available_layers()
 ```
 
 Most layers are accessible by a shortcut function by the same name as the object. 
-Then you can use the data as you would any `sf` or `Spatial` object. The first time
+Then you can use the data as you would any `sf` object. The first time
 you run try to access a layer, you will be prompted for permission to download that layer
 to your hard drive. Subsequently that layer is available locally for easy future access. For example:
 
@@ -84,6 +86,7 @@ plot(st_geometry(bc))
 ```
 
 ### Simple Features objects
+
 By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
 
 ```{r plot-maps, fig.height=5, warning=FALSE}
@@ -147,34 +150,22 @@ ggplot() +
           aes(fill = ZONE, col = ZONE)) +
   scale_fill_manual(values = bec_colors()) +
   scale_colour_manual(values = bec_colours())
-
 ```
 
-### Spatial (sp) objects
-
-> _**IMPORTANT NOTE** All support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}._
-
-If you aren't using the `sf` package and prefer the old standard [`sp`](https://cran.r-project.org/package=sp)
-way of doing things, set `class = "sp"` in either `get_layer` or the shortcut functions:
-
-```{r watercourses, warning=FALSE}
-library("sp")
-# Load watercourse data and plot with boundaries of B.C.
-plot(bc_bound(class = "sp"))
-plot(watercourses_15M(class = "sp"), add = TRUE)
-```
 
 ### Updating layers
 
-When you first call a layer function bcmaps will remind you when that layer was last updated in your cache with a message. For a number of reasons, it might be necessary to get a fresh layer in your bcmaps cache. The easiest way to update is to use the `force` argument:
+When you first call a layer function `bcmaps` will remind you when that layer was last updated in your cache with a message. For a number of reasons, it might be necessary to get a fresh layer in your `bcmaps` cache. The easiest way to update is to use the `force` argument:
+
 ```{r, eval=FALSE}
 ep <- ecoprovinces(force = TRUE)
 ```
 
 Another option is to actively manage your cache by deleting the old layer and calling the function again:
+
 ```{r, eval=FALSE}
 delete_cache('ecoprovinces')
-ep <- ecoprovinces(force = TRUE)
+ep <- ecoprovinces()
 ```
 
 

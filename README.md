@@ -64,11 +64,10 @@ available_layers()
 ```
 
 Most layers are accessible by a shortcut function by the same name as
-the object. Then you can use the data as you would any `sf` or `Spatial`
-object. The first time you run try to access a layer, you will be
-prompted for permission to download that layer to your hard drive.
-Subsequently that layer is available locally for easy future access. For
-example:
+the object. Then you can use the data as you would any `sf` object. The
+first time you run try to access a layer, you will be prompted for
+permission to download that layer to your hard drive. Subsequently that
+layer is available locally for easy future access. For example:
 
 ``` r
 library(sf)
@@ -156,29 +155,11 @@ ggplot() +
 
 ![](tools/readme/bec-1.png)<!-- -->
 
-### Spatial (sp) objects
-
-> ***IMPORTANT NOTE** All support for Spatial objects (`sp`) is
-> deprecated in {bcmaps} v1.2.0. Please use `sf` objects with {bcmaps}.*
-
-If you aren’t using the `sf` package and prefer the old standard
-[`sp`](https://cran.r-project.org/package=sp) way of doing things, set
-`class = "sp"` in either `get_layer` or the shortcut functions:
-
-``` r
-library("sp")
-# Load watercourse data and plot with boundaries of B.C.
-plot(bc_bound(class = "sp"))
-plot(watercourses_15M(class = "sp"), add = TRUE)
-```
-
-![](tools/readme/watercourses-1.png)<!-- -->
-
 ### Updating layers
 
-When you first call a layer function bcmaps will remind you when that
+When you first call a layer function `bcmaps` will remind you when that
 layer was last updated in your cache with a message. For a number of
-reasons, it might be necessary to get a fresh layer in your bcmaps
+reasons, it might be necessary to get a fresh layer in your `bcmaps`
 cache. The easiest way to update is to use the `force` argument:
 
 ``` r
@@ -190,7 +171,7 @@ layer and calling the function again:
 
 ``` r
 delete_cache('ecoprovinces')
-ep <- ecoprovinces(force = TRUE)
+ep <- ecoprovinces()
 ```
 
 ### Vignettes
