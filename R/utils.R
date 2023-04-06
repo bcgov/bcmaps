@@ -345,8 +345,13 @@ get_return_type <- function(x) {
 #' @return A layer where the Northern Rockies Regional Municipality has been
 #' combined with the Regional Districts to form a full provincial coverage.
 #' @export
-combine_nr_rd <- function(class = c("sf", "sp")) {
-  class <- match.arg(class)
+combine_nr_rd <- function(class = deprecated()) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::combine_nr_rd(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
+
   rd <- get_layer("regional_districts", class = class)
   mun <- get_layer("municipalities", class = class)
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
