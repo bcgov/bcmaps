@@ -35,7 +35,7 @@ if (suppressPackageStartupMessages(require("sp"))) {
   })
 
   test_that("works with SpatialPolygonsDataFrame", {
-    expect_is(self_union(spdf), "SpatialPolygonsDataFrame")
+    expect_is(expect_deprecated(self_union(spdf)), "SpatialPolygonsDataFrame")
     expect_length(self_union(spdf)@polygons, 3)
     expect_setequal(self_union(spdf)@data$union_count, spdf_out_data$union_count)
     expect_setequal(self_union(spdf)@data$union_ids, spdf_out_data$union_ids)

@@ -21,4 +21,4 @@ if (identical(Sys.getenv("GITHUB_ACTIONS"), "true")) {
 bcdc_key <- Sys.getenv("BCDC_KEY")
 Sys.unsetenv("BCDC_KEY")
 
-library(lifecycle)
+library("lifecycle")
