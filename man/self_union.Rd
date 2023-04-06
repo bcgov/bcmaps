@@ -15,30 +15,11 @@ A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function was deprecated because {bcmaps} no longer supports \code{sp} Spatial objects.
+This function is deprecated because it relies on \code{rgoes}, which is being retired. Use
+\code{sf::st_union()} with \code{sf} objects instead.
 
 The IDs of source polygons are stored in a list-column called
 \code{union_ids}, and original attributes (if present) are stored as nested
 dataframes in a list-column called \code{union_df}.
 }
-\examples{
-if (require(sp)) {
-  p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-  p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
-
-  ps1 <- Polygons(list(p1), "s1")
-  ps2 <- Polygons(list(p2), "s2")
-
-  spp <- SpatialPolygons(list(ps1,ps2), 1:2)
-
-  df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
-                   stringsAsFactors = FALSE)
-
-  spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
-
-  plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
-
-  unioned_spdf <- self_union(spdf)
-  unioned_sp <- self_union(spp)
-}
-}
+\keyword{internal}

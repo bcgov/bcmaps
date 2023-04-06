@@ -7,8 +7,7 @@
 fix_geo_problems(obj, tries = 5)
 }
 \arguments{
-\item{obj}{The SpatialPolygons* or sf object to check/fix. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{sp} Spatial object is no
-longer supported.}
+\item{obj}{The SpatialPolygons* or sf object to check/fix.}
 
 \item{tries}{The maximum number of attempts to repair the geometry. Ignored for \code{sf} objects.}
 }
@@ -16,10 +15,10 @@ longer supported.}
 The \verb{SpatialPolygons*} or \code{sf} object, repaired if necessary
 }
 \description{
-For \code{sf} objects, uses \code{sf::st_make_valid}.
-Otherwise, uses the common method of buffering by zero.
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+
+This function is being deprecated because it relies on \code{rgeos}
+for operations on \code{Spatial} objects, which is being retired.
+For \code{sf} objects simply use \code{sf::st_make_valid()}
 }
-\details{
-\code{fix_self_intersect} has been removed and will no longer work. Use
-\code{fix_geo_problems} instead
-}
+\keyword{internal}

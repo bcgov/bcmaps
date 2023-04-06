@@ -14,5 +14,6 @@ longer supported.}
 the Spatial* or sf object in BC Albers projection
 }
 \description{
-Transform a Spatial* object to BC Albers projection
+The \code{Spatial} method has been deprecated because \code{sp} is being superseded by \code{sf}.
+bcmaps will no longer support \code{Spatial} objects as of Summer 2023. The \code{sf} method is here to stay.
 }

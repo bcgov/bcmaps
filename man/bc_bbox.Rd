@@ -7,8 +7,7 @@
 bc_bbox(class = c("sf", "sp", "raster"), crs = 3005)
 }
 \arguments{
-\item{class}{\code{"sf"}, \code{"sp"}, or \code{"raster"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{class = sp} is no
-longer supported}
+\item{class}{\code{"sf"}, \code{"raster"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. \code{class = "sp"} is deprecated.}
 
 \item{crs}{coordinate reference system: integer with the EPSG code,
 or character with proj4string. Default \code{3005} (BC Albers).}
