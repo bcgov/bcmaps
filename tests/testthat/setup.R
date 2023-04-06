@@ -20,3 +20,5 @@ if (identical(Sys.getenv("GITHUB_ACTIONS"), "true")) {
 # Unset BCDC_KEY env var so no 'authenticating with your API Key messages'
 bcdc_key <- Sys.getenv("BCDC_KEY")
 Sys.unsetenv("BCDC_KEY")
+
+library(lifecycle)
