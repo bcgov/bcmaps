@@ -4,14 +4,14 @@
 \alias{get_layer}
 \title{Get a B.C. spatial layer}
 \usage{
-get_layer(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE)
+get_layer(layer, class = deprecated(), ask = TRUE, force = FALSE)
 }
 \arguments{
 \item{layer}{the name of the layer. The list of available layers can be
 obtained by running \code{available_layers()}}
 
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}} \code{class = sp} is no
-longer supported.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. \code{class = sp} is no
+longer supported and as of bcmaps 1.2.0 (planned for Summer 2023) the class argument will be removed.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
