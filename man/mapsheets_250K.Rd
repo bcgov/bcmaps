@@ -7,7 +7,7 @@
 https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
 }
 \usage{
-mapsheets_250K(class = "sf")
+mapsheets_250K(class = deprecated())
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. \code{class = sp} is no

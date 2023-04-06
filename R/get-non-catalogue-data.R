@@ -42,7 +42,13 @@ read_bc_watercourse <- function(x) {
 #' }
 #'
 #' @export
-watercourses_15M <- function(class = 'sf', ask = interactive(), force = FALSE) {
+watercourses_15M <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::watercourses_15M(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
+
   x <- 'https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_15M_CA_Hydro_fgdb.zip'
 
   dir <- data_dir()
@@ -80,7 +86,13 @@ watercourses_15M <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-watercourses_5M <- function(class = 'sf', ask = interactive(), force = FALSE) {
+watercourses_5M <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::watercourses_5M(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
+
   x <- 'https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_5M_CA_Hydro_fgdb.zip'
 
   dir <- data_dir()
@@ -113,7 +125,12 @@ watercourses_5M <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' my_layer_sp <- fsa(class = 'sp')
 #' }
 #' @export
-fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
+fsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::fsa(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   link <- 'http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfsa000b16a_e.zip'
   x <- getOption('fsa_link', default = link)
@@ -163,7 +180,12 @@ fsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-mapsheets_250K <- function(class = 'sf') {
+mapsheets_250K <- function(class = deprecated()) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::mapsheets_250K(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   ret <- mapsheets_250K_data
 
@@ -193,7 +215,12 @@ mapsheets_250K <- function(class = 'sf') {
 #' }
 #'
 #' @export
-mapsheets_50K <- function(class = 'sf') {
+mapsheets_50K <- function(class = deprecated()) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::mapsheets_50K(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   ret <- mapsheets_50K_data
   # Re-assign CRS using installed sf/GDAL/PROJ stack so it is

@@ -32,7 +32,12 @@
 #'          layer = 'BC_Boundary_Terrestrial_Multipart')`
 #'
 #' @export
-bc_bound_hres <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_bound_hres <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::bc_bound_hres(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_bound_hres.rds")
@@ -70,7 +75,12 @@ bc_bound_hres <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-bc_bound <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_bound <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::bc_bound(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_bound.rds")
@@ -110,7 +120,12 @@ bc_bound <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-bc_neighbours <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_neighbours <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::bc_neighbours(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_neighbours.rds")

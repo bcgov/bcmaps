@@ -7,7 +7,7 @@
 \code{bcdata::bcdc_get_data('b9bd93e1-0226-4351-b943-05c6f80bd5da')}
 }
 \usage{
-bc_neighbours(class = "sf", ask = interactive(), force = FALSE)
+bc_neighbours(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. \code{class = sp} is no
