@@ -29,8 +29,14 @@ bcmapsStartupMessage <- function() {
   invisible()
 }
 
-deprecate_sp <- function(what){
-  lifecycle::deprecate_warn( when = "1.2.0",
-                             what = what,
-                             details = "Please use `sf` objects with {bcmaps}, support for Spatial objects (sp) will be removed in Summer 2023.")
-  }
+deprecate_sp <- function(what,
+                         env = rlang::caller_env(),
+                         user_env = rlang::caller_env(2)) {
+  lifecycle::deprecate_warn(
+    when = "1.2.0",
+    what = what,
+    details = "Please use `sf` objects with {bcmaps}, support for Spatial objects (sp) will be removed in Summer 2023.",
+    env = env,
+    user_env = user_env
+  )
+}

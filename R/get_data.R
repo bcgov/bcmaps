@@ -25,13 +25,24 @@
 #' \dontrun{
 #'  get_layer("bc_bound_hres")
 #' }
-get_layer <- function(layer, class = c("sf", "sp"), ask = TRUE, force = FALSE) {
+get_layer <- function(layer, class = deprecated(), ask = TRUE, force = FALSE) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n
          Use the function available_layers() to get a list of layers")
 
-  class <- match.arg(class)
+  if (lifecycle::is_present(class)) {{
+    # This is a bit convoluted but ensures that the deprecation
+    # message only gets triggered if it hasn't already been triggered
+    # by one of the shortcut functions. caller will be NULL if
+    # it's called from the global environment.
+    caller <- rlang::caller_call()
+    if (is.null(caller) || !rlang::call_name(caller) %in% shortcut_layer_names()) {
+      deprecate_sp('bcmaps::get_layer(class)')
+    }
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }}
+
   available <- available_layers()
 
   available_row <- available[available[["layer_name"]] == layer, ]
@@ -61,7 +72,6 @@ rename_sf_col_to_geometry <- function(x) {
 }
 
 convert_to_sp <- function(sf_obj) {
- deprecate_sp(what = "convert_to_sp()")
   if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
   ret <- sf::st_zm(sf_obj, drop = TRUE)
   methods::as(ret, "Spatial")
@@ -112,6 +122,10 @@ shortcut_layers <- function(){
   names(al)[1:2] <- c("layer_name", "title")
   #structure(al, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))
   al
+}
+
+shortcut_layer_names <- function() {
+  shortcut_layers()[["layer_name"]]
 }
 
 get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TRUE) {
