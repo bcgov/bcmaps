@@ -44,7 +44,7 @@ Suggests:
     future (>= 1.12.0),
     ggplot2 (>= 3.0),
     glue (>= 1.1.1),
-    raster (>= 2.5-8),
+    raster (>= 3.6-3),
     rgdal (>= 1.2-13),
     rgeos (>= 0.3-25),
     sp (>= 1.2-5),
