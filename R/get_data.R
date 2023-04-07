@@ -37,8 +37,8 @@ get_layer <- function(layer, class = deprecated(), ask = TRUE, force = FALSE) {
     # by one of the shortcut functions. caller will be NULL if
     # it's called from the global environment.
     caller <- rlang::caller_call()
-    caller_name <- rlang::call_name(caller)
-    if (is.null(caller) || is.null(caller_name) ||
+    caller_name <- if (is.null(caller)) caller else rlang::call_name(caller)
+    if (is.null(caller_name) ||
         !caller_name %in% c(shortcut_layer_names(), "combine_nr_rd")) {
       deprecate_sp('bcmaps::get_layer(class)')
     }
