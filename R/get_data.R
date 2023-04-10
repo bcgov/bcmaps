@@ -25,7 +25,7 @@
 #' \dontrun{
 #'  get_layer("bc_bound_hres")
 #' }
-get_layer <- function(layer, class = deprecated(), ask = TRUE, force = FALSE) {
+get_layer <- function(layer, class = deprecated(), ask = interactive(), force = FALSE) {
 
   if (!is.character(layer))
     stop("You must refer to the map layer as a character string (in 'quotes')\n

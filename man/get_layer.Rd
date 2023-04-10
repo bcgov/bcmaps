@@ -4,7 +4,7 @@
 \alias{get_layer}
 \title{Get a B.C. spatial layer}
 \usage{
-get_layer(layer, class = deprecated(), ask = TRUE, force = FALSE)
+get_layer(layer, class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
 \item{layer}{the name of the layer. The list of available layers can be
