@@ -15,8 +15,8 @@ A \code{SpatialPolygons} or \code{SpatialPolygonsDataFrame} object
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function is deprecated. Use \code{raster::union()} for
-\code{SpatialPolygonsDataFrame}s, or
+This function is deprecated as of bcmaps 1.2.0, and will be removed in Summer 2023.
+Use \code{raster::union()} for \code{SpatialPolygonsDataFrame}s, or
 \code{sf::st_union()} with \code{sf} objects instead.
 
 The IDs of source polygons are stored in a list-column called

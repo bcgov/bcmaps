@@ -17,8 +17,9 @@ The \verb{SpatialPolygons*} or \code{sf} object, repaired if necessary
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
 
-This function is being deprecated because it relies on \code{rgeos}
-for operations on \code{Spatial} objects, which is being retired.
+This function is deprecated as of bcmaps 1.2.0 because it relies on \code{rgeos}
+for operations on \code{Spatial} objects, which is being retired. It will be removed
+completely in Summer 2023.
 For \code{sf} objects simply use \code{sf::st_make_valid()}
 }
 \keyword{internal}

@@ -13,8 +13,9 @@
 #' BC Boundary - High Resolution
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`. `r lifecycle::badge('deprecated')`. `class = sp` is no
-#' longer supported and as of bcmaps 1.2.0 (planned for Summer 2023) the class argument will be removed.
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`. `r lifecycle::badge('deprecated')`.
+#' The `class` argument
+#' is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an `sf` object.
 #'
 #' @param ask Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().
 #' @param force Should you force download the data?

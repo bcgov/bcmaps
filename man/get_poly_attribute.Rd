@@ -21,9 +21,9 @@ An atomic vector of the same length as x
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
 
-This function is deprecated because it had a very niche application for
+This function is deprecated as of bcmaps 1.2.0 because it had a very niche application for
 calculating attributes on a \code{SpatialPolygonsDataFrame}, which we are removing
-support for.
+support for. It will be removed completely in Summer 2023.
 
 For example, \code{self_union} produces a \code{SpatialPolygonsDataFrame}
 that has a column called \code{union_df}, which contains a \code{data.frame}

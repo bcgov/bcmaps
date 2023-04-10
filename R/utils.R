@@ -59,11 +59,11 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
-#' The `Spatial` method has been deprecated because `sp` is being superseded by `sf`.
-#' bcmaps will no longer support `Spatial` objects as of Summer 2023. The `sf` method is here to stay.
+#' The `Spatial` method has been deprecated as of bcmaps 1.2.0 because `sp` is being superseded by `sf`,
+#' and will be removed in Summer 2023. The `sf` method is here to stay.
 #'
-#' @param obj The Spatial* or sf object to transform. `r lifecycle::badge('deprecated')` `sp` Spatial object is no
-#' longer supported.
+#' @param obj The Spatial* or sf object to transform. `r lifecycle::badge('deprecated')`
+#' Support for `sp` Spatial objects are deprecated.
 #'
 #' @return the Spatial* or sf object in BC Albers projection
 #' @export
@@ -101,8 +101,9 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 #' @description
 #' `r lifecycle::badge("deprecated")`.
 #'
-#' This function is being deprecated because it relies on `rgeos`
-#' for operations on `Spatial` objects, which is being retired.
+#' This function is deprecated as of bcmaps 1.2.0 because it relies on `rgeos`
+#' for operations on `Spatial` objects, which is being retired. It will be removed
+#' completely in Summer 2023.
 #' For `sf` objects simply use `sf::st_make_valid()`
 #'
 #' @param obj The SpatialPolygons* or sf object to check/fix.
@@ -184,8 +185,8 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 #' @description
 #' `r lifecycle::badge("deprecated")`
 #'
-#' This function is deprecated. Use `raster::union()` for
-#' `SpatialPolygonsDataFrame`s, or
+#' This function is deprecated as of bcmaps 1.2.0, and will be removed in Summer 2023.
+#' Use `raster::union()` for `SpatialPolygonsDataFrame`s, or
 #' `sf::st_union()` with `sf` objects instead.
 #'
 #' The IDs of source polygons are stored in a list-column called
@@ -249,9 +250,9 @@ get_unioned_ids <- function(unioned_sp) {
 #' @description
 #' `r lifecycle::badge("deprecated")`
 #'
-#' This function is deprecated because it had a very niche application for
+#' This function is deprecated as of bcmaps 1.2.0 because it had a very niche application for
 #' calculating attributes on a `SpatialPolygonsDataFrame`, which we are removing
-#' support for.
+#' support for. It will be removed completely in Summer 2023.
 #'
 #' For example, `self_union` produces a `SpatialPolygonsDataFrame`
 #' that has a column called `union_df`, which contains a `data.frame`
@@ -374,7 +375,8 @@ bec_colors <- bec_colours
 
 #' Get an extent/bounding box for British Columbia
 #'
-#' @param class `"sf"`, `"raster"`. `r lifecycle::badge("deprecated")`. `class = "sp"` is deprecated.
+#' @param class `"sf"`, `"raster"`. `r lifecycle::badge("deprecated")`. `class = "sp"`
+#' is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023.
 #' @param crs coordinate reference system: integer with the EPSG code,
 #' or character with proj4string. Default `3005` (BC Albers).
 #'
