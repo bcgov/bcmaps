@@ -27,6 +27,7 @@ jobs:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
       R_KEEP_PKG_SOURCE: yes
+      _SP_EVOLUTION_STATUS_: 2
 
     steps:
       - uses: actions/checkout@v3
