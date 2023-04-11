@@ -35,7 +35,9 @@ individual help file for more detail.
 
 > ***IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated
 > in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use
-> `sf` objects with {bcmaps}.*
+> `sf` objects with {bcmaps}.* A discussion on the evolution of the
+> spatial software stack in R can be found here:
+> <https://r-spatial.org/r/2022/04/12/evolution.html>.
 
 ## Installation
 
