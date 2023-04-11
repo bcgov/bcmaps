@@ -4,7 +4,7 @@
 
 We've started the process of removing support for the `sp` and `raster` packages, 
 especially those parts of that require 
-the use of the `rgdal` and `rgeos` packages, which will be retired in October 2023. See the [r-spatial blog](ttps://r-spatial.org/r/2022/04/12/evolution.html) for details of this evolution. We will fully remove
+the use of the `rgdal` and `rgeos` packages, which will be retired in October 2023. See the [r-spatial blog](https://r-spatial.org/r/2022/04/12/evolution.html) for details of this evolution. We will fully remove
 support for `Spatial` classes (from package `sp`) in the next release in Summer 2023.
 
 * Added deprecation warnings for the `class` argument in all of the data download functions: `get_layer()` and all of the wrapper shortcuts such as `bc_bound()`, `census_tract()`, etc. This argument will be removed in the next version of `bcmaps` as these functions will only return `sf` objects.
