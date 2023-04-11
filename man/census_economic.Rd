@@ -7,10 +7,12 @@
 \code{bcdata::bcdc_get_data(record = '1aebc451-a41c-496f-8b18-6f414cde93b7', resource = '3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96')}
 }
 \usage{
-census_economic(class = "sf", ask = interactive(), force = FALSE)
+census_economic(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+The \code{class} argument
+is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
@@ -25,7 +27,6 @@ Current Census Economic Region Boundaries
 \examples{
 \dontrun{
 my_layer <- census_economic()
-my_layer_sp <- census_economic(class = 'sp')
 }
 
 }

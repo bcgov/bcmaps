@@ -7,10 +7,12 @@
 \code{bcdata::bcdc_get_data(record = 'ccc01f43-860d-4583-8ba4-e72d8379441e', resource = '6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6')}
 }
 \usage{
-ecosections(class = "sf", ask = interactive(), force = FALSE)
+ecosections(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+The \code{class} argument
+is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
@@ -25,7 +27,6 @@ British Columbia Ecosections
 \examples{
 \dontrun{
 my_layer <- ecosections()
-my_layer_sp <- ecosections(class = 'sp')
 }
 
 }

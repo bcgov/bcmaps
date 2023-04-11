@@ -23,15 +23,19 @@ British Columbia.
 
 Provides access to various spatial layers of British Columbia, such as
 administrative boundaries, natural resource management boundaries,
-watercourses etc. All layers are available in the [BC
+watercourses, census boundaries, etc. All layers are available as `sf`
+objects in the [BC
 Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/)
-projection, which is the B.C. Government standard as `sf` or `Spatial`
-objects.
+projection, which is the B.C. Government standard.
 
 Most layers are assessed directly from the [B.C. Data
 Catalogue](https://catalogue.data.gov.bc.ca/) using the
 [bcdata](https://github.com/bcgov/bcdata) R package. See each layers
 individual help file for more detail.
+
+> ***IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated
+> in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use
+> `sf` objects with {bcmaps}.*
 
 ## Installation
 
@@ -60,11 +64,10 @@ available_layers()
 ```
 
 Most layers are accessible by a shortcut function by the same name as
-the object. Then you can use the data as you would any `sf` or `Spatial`
-object. The first time you run try to access a layer, you will be
-prompted for permission to download that layer to your hard drive.
-Subsequently that layer is available locally for easy future access. For
-example:
+the object. Then you can use the data as you would any `sf` object. The
+first time you run try to access a layer, you will be prompted for
+permission to download that layer to your hard drive. Subsequently that
+layer is available locally for easy future access. For example:
 
 ``` r
 library(sf)
@@ -152,26 +155,11 @@ ggplot() +
 
 ![](tools/readme/bec-1.png)<!-- -->
 
-### Spatial (sp) objects
-
-If you aren’t using the `sf` package and prefer the old standard
-[`sp`](https://cran.r-project.org/package=sp) way of doing things, set
-`class = "sp"` in either `get_layer` or the shortcut functions:
-
-``` r
-library("sp")
-# Load watercourse data and plot with boundaries of B.C.
-plot(bc_bound(class = "sp"))
-plot(watercourses_15M(class = "sp"), add = TRUE)
-```
-
-![](tools/readme/watercourses-1.png)<!-- -->
-
 ### Updating layers
 
-When you first call a layer function bcmaps will remind you when that
+When you first call a layer function `bcmaps` will remind you when that
 layer was last updated in your cache with a message. For a number of
-reasons, it might be necessary to get a fresh layer in your bcmaps
+reasons, it might be necessary to get a fresh layer in your `bcmaps`
 cache. The easiest way to update is to use the `force` argument:
 
 ``` r
@@ -183,7 +171,7 @@ layer and calling the function again:
 
 ``` r
 delete_cache('ecoprovinces')
-ep <- ecoprovinces(force = TRUE)
+ep <- ecoprovinces()
 ```
 
 ### Vignettes
@@ -195,12 +183,10 @@ After installing the package you can view vignettes by typing
 
 The package also contains a couple of handy utility functions:
 
-1.  `fix_geo_problems()` for fixing invalid topologies in `sf` or
-    `Spatial` objects such as orphaned holes and self-intersections
-2.  `transform_bc_albers()` for transforming any `sf` or `Spatial`
-    object to [BC Albers](https://epsg.io/3005) projection.
-3.  `self_union()` Union a `SpatialPolygons*` object with itself to
-    remove overlaps, while retaining attributes
+- `fix_geo_problems()` for fixing invalid topologies in `sf` objects
+  such as orphaned holes and self-intersections
+- `transform_bc_albers()` for transforming any `sf` object to [BC
+  Albers](https://epsg.io/3005) projection
 
 ## Getting Help or Reporting an Issue
 
@@ -242,8 +228,3 @@ Agreement](https://www.statcan.gc.ca/eng/reference/licence)). See the
     # Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
     # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     # See the License for the specific language governing permissions and limitations under the License.
-
-This repository is maintained by [Environmental Reporting
-BC](https://www2.gov.bc.ca/gov/content?id=FF80E0B985F245CEA62808414D78C41B).
-Click [here](https://github.com/bcgov/EnvReportBC) for a complete list
-of our repositories on GitHub.

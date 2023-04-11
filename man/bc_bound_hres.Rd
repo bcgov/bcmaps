@@ -7,10 +7,12 @@
 \code{bcdc_get_data(record = '30aeb5c1-4285-46c8-b60b-15b1a6f4258b', resource = '3d72cf36-ab53-4a2a-9988-a883d7488384', layer = 'BC_Boundary_Terrestrial_Multipart')}
 }
 \usage{
-bc_bound_hres(class = "sf", ask = interactive(), force = FALSE)
+bc_bound_hres(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+The \code{class} argument
+is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
@@ -25,7 +27,6 @@ BC Boundary - High Resolution
 \examples{
 \dontrun{
 my_layer <- bc_bound_hres()
-my_layer_sp <- bc_bound_hres(class = 'sp')
 }
 
 }

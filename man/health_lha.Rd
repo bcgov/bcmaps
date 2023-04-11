@@ -7,10 +7,12 @@
 \code{bcdata::bcdc_get_data(record = 'afd021d9-7722-4410-b506-d394c66e74fc', resource = 'd6e951d3-5103-475a-8bb6-b4d275e6343f')}
 }
 \usage{
-health_lha(class = "sf", ask = interactive(), force = FALSE)
+health_lha(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+The \code{class} argument
+is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
@@ -25,7 +27,6 @@ Local Health Area Boundaries
 \examples{
 \dontrun{
 my_layer <- health_lha()
-my_layer_sp <- health_lha(class = 'sp')
 }
 
 }

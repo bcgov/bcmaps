@@ -29,7 +29,7 @@ test_that("test that all sp layer function work without error and return a Spati
 
   for (i in seq_along(fn_names)) {
     #cat("\n", fn_names_sp[i]) #for debugging
-    expect_error(layer <- match.fun(fn_names[i])(class = "sp", ask = FALSE), NA)
+    expect_deprecated(layer <- match.fun(fn_names[i])(class = "sp", ask = FALSE))
     expect_is(layer, "Spatial")
   }
 })

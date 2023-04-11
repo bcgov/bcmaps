@@ -7,10 +7,12 @@
 \code{bcdata::bcdc_get_data(record = 'f358a53b-ffde-4830-a325-a5a03ff672c3', resource = '3ec24cb4-f78d-48a9-87e7-516763f00cc8')}
 }
 \usage{
-bec(class = "sf", ask = interactive(), force = FALSE)
+bec(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+The \code{class} argument
+is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
@@ -25,7 +27,6 @@ British Columbia BEC Map
 \examples{
 \dontrun{
 my_layer <- bec()
-my_layer_sp <- bec(class = 'sp')
 }
 
 }

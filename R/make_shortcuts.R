@@ -23,7 +23,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' make_shortcut()
+#' make_shortcuts()
 #' }
 #'
 #' @return TRUE (invisibly)
@@ -72,11 +72,16 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' @examples
          roxygen_blocker#' \\dontrun{{
          roxygen_blocker#' my_layer <- {fn_name}()
-         roxygen_blocker#' my_layer_sp <- {fn_name}(class = 'sp')
          roxygen_blocker#' }}
          roxygen_blocker#'
          roxygen_blocker#' @export
-         {fn_name} <- function(class = 'sf', ask = interactive(), force = FALSE) {{
+         {fn_name} <- function(class = deprecated(), ask = interactive(), force = FALSE) {{
+
+            if (lifecycle::is_present(class)) {{
+              deprecate_sp('bcmaps::{fn_name}(class)')
+              class <- match.arg(class, choices = c('sf', 'sp'))
+            }}
+
             get_layer('{fn_name}', class = class, ask = ask, force = force)
          }}
 

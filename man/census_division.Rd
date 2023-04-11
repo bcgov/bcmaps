@@ -7,10 +7,12 @@
 \code{bcdata::bcdc_get_data(record = 'ef17918a-597a-4012-8534-f8e71d8735b3', resource = '36b530c2-1de6-44a2-a6f6-c1fce36c53ed')}
 }
 \usage{
-census_division(class = "sf", ask = interactive(), force = FALSE)
+census_division(class = deprecated(), ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}.}
+\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
+The \code{class} argument
+is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
 
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
@@ -25,7 +27,6 @@ Current Census Division Boundaries
 \examples{
 \dontrun{
 my_layer <- census_division()
-my_layer_sp <- census_division(class = 'sp')
 }
 
 }

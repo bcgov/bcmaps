@@ -94,7 +94,7 @@ was in. We can use the `ecoregions` data from bcmaps, and the `st_join` function
 from the `sf` package to extract ecoregions from the point data and add that information:
 
 ```{r}
-ecoreg <- ecoregions()
+ecoreg <- ecoregions(ask = FALSE)
 st_join(spp, ecoreg["ECOREGION_NAME"])
 ```
 

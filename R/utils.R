@@ -59,20 +59,27 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
-#' @param obj The Spatial* or sf object to transform
+#' The `Spatial` method has been deprecated as of bcmaps 1.2.0 because `sp` is being superseded by `sf`,
+#' and will be removed in Summer 2023. The `sf` method is here to stay.
+#'
+#' @param obj The Spatial* or sf object to transform. `r lifecycle::badge('deprecated')`
+#' Support for `sp` Spatial objects are deprecated.
 #'
 #' @return the Spatial* or sf object in BC Albers projection
 #' @export
-#'
 transform_bc_albers <- function(obj) {
   UseMethod("transform_bc_albers")
 }
 
 #' @export
 transform_bc_albers.Spatial <- function(obj) {
-  if (!inherits(obj, "Spatial")) {
-    stop("sp_obj must be a Spatial object", call. = FALSE)
-  }
+
+  lifecycle::deprecate_warn(
+    "1.2.0",
+    "transform_bc_albers.Spatial()",
+    "transform_bc_albers.sf()",
+    details = "bcmaps will be dropping support for Spatial objects in Summer 2023."
+  )
 
   if (!requireNamespace("rgdal", quietly = TRUE)) {
     stop("Package rgdal could not be loaded", call. = FALSE)
@@ -91,16 +98,19 @@ transform_bc_albers.sfc <- transform_bc_albers.sf
 
 #' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
 #'
-#' For `sf` objects, uses `sf::st_make_valid`.
-#' Otherwise, uses the common method of buffering by zero.
+#' @description
+#' `r lifecycle::badge("deprecated")`.
 #'
-#' `fix_self_intersect` has been removed and will no longer work. Use
-#' `fix_geo_problems` instead
+#' This function is deprecated as of bcmaps 1.2.0 because it relies on `rgeos`
+#' for operations on `Spatial` objects, which is being retired. It will be removed
+#' completely in Summer 2023.
+#' For `sf` objects simply use `sf::st_make_valid()`
 #'
-#' @param obj The SpatialPolygons* or sf object to check/fix
+#' @param obj The SpatialPolygons* or sf object to check/fix.
 #' @param tries The maximum number of attempts to repair the geometry. Ignored for `sf` objects.
 #'
 #' @return The `SpatialPolygons*` or `sf` object, repaired if necessary
+#' @keywords internal
 #' @export
 fix_geo_problems <- function(obj, tries = 5) {
   UseMethod("fix_geo_problems")
@@ -108,6 +118,14 @@ fix_geo_problems <- function(obj, tries = 5) {
 
 #' @export
 fix_geo_problems.Spatial <- function(obj, tries = 5) {
+
+  lifecycle::deprecate_warn(
+    "1.2.0",
+    "fix_geo_problems.Spatial()",
+    "sf::st_make_valid()",
+    details = "This function requires rgeos which is being retired by its maintainers. The `Spatial` method will be removed in Summer 2023."
+  )
+
   if (!requireNamespace("rgeos", quietly = TRUE)) {
     stop("Package rgeos required but not available", call. = FALSE)
   }
@@ -140,6 +158,12 @@ fix_geo_problems.Spatial <- function(obj, tries = 5) {
 #' @export
 fix_geo_problems.sf <- function(obj, tries = 5) {
 
+  lifecycle::deprecate_warn(
+    "1.2.0",
+    "fix_geo_problems()",
+    "sf::st_make_valid()"
+  )
+
   ## Check if the overall geomtry is valid, if it is, exit and return input
   is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
 
@@ -158,35 +182,23 @@ fix_geo_problems.sfc <- fix_geo_problems.sf
 
 #' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is deprecated as of bcmaps 1.2.0, and will be removed in Summer 2023.
+#' Use `raster::union()` for `SpatialPolygonsDataFrame`s, or
+#' `sf::st_union()` with `sf` objects instead.
+#'
 #' The IDs of source polygons are stored in a list-column called
 #' `union_ids`, and original attributes (if present) are stored as nested
-#' dataframes in a list-column called `union_df`
+#' dataframes in a list-column called `union_df`.
 #'
 #' @param x A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
 #'
 #' @return A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
+#'
+#' @keywords internal
 #' @export
-#'
-#' @examples
-#' if (require(sp)) {
-#'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-#'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
-#'
-#'   ps1 <- Polygons(list(p1), "s1")
-#'   ps2 <- Polygons(list(p2), "s2")
-#'
-#'   spp <- SpatialPolygons(list(ps1,ps2), 1:2)
-#'
-#'   df <- data.frame(a = c("A", "B"), b = c("foo", "bar"),
-#'                    stringsAsFactors = FALSE)
-#'
-#'   spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
-#'
-#'   plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
-#'
-#'   unioned_spdf <- self_union(spdf)
-#'   unioned_sp <- self_union(spp)
-#' }
 self_union <- function(x) {
   if (!inherits(x, "SpatialPolygons")) {
     stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
@@ -196,7 +208,14 @@ self_union <- function(x) {
     stop("Package raster could not be loaded", call. = FALSE)
   }
 
-  unioned <- raster_union(x)
+  lifecycle::deprecate_warn(
+    "1.2.0",
+    "self_union()",
+    "sf::st_union()",
+    details = "This function requires rgeos which is being retired by its maintainers. The `Spatial` method will be removed in Summer 2023."
+  )
+
+  unioned <- raster::union(x)
   unioned$union_ids <- get_unioned_ids(unioned)
 
   export_cols <- c("union_count", "union_ids")
@@ -208,30 +227,6 @@ self_union <- function(x) {
 
   names(unioned)[names(unioned) == "count"] <- "union_count"
   unioned[, export_cols]
-}
-
-#' Modified raster::union method for a single SpatialPolygons(DataFrame)
-#'
-#' Modify raster::union to remove the expression:
-#'   if (!rgeos::gIntersects(x)) {
-#'     return(x)
-#'   }
-#' As it throws an error:
-#'   Error in RGEOSBinPredFunc(spgeom1, spgeom2, byid, func) :
-#'    TopologyException: side location conflict
-#'
-#' @param x a single SpatialPolygons(DataFrame) object
-#' @noRd
-raster_union <- function(x) {
-  # First get the function (method)
-  f <- methods::getMethod("union", c("SpatialPolygons", "missing"))
-  # Find the offending block in the body, and replace it with NULL
-  the_prob <- which(grepl("!rgeos::gIntersects(x)", body(f), fixed = TRUE))
-  if (length(the_prob)) {
-    body(f)[[the_prob]] <- NULL
-  }
-  # Call the modified function with the input
-  f(x)
 }
 
 ## For each new polygon in a SpatialPolygonsDataFrame that has been unioned with
@@ -252,6 +247,13 @@ get_unioned_ids <- function(unioned_sp) {
 
 #' Get or calculate the attribute of a list-column containing nested dataframes.
 #'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#'
+#' This function is deprecated as of bcmaps 1.2.0 because it had a very niche application for
+#' calculating attributes on a `SpatialPolygonsDataFrame`, which we are removing
+#' support for. It will be removed completely in Summer 2023.
+#'
 #' For example, `self_union` produces a `SpatialPolygonsDataFrame`
 #' that has a column called `union_df`, which contains a `data.frame`
 #' for each polygon with the attributes from the constituent polygons.
@@ -262,28 +264,17 @@ get_unioned_ids <- function(unioned_sp) {
 #' @param ... other parameters passed on to `fun`
 #'
 #' @return An atomic vector of the same length as x
-#' @export
 #'
-#' @examples
-#' \dontrun{
-#' if (require(sp)) {
-#'   p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-#'   p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
-#'   ps1 <- Polygons(list(p1), "s1")
-#'   ps2 <- Polygons(list(p2), "s2")
-#'   spp <- SpatialPolygons(list(ps1,ps2), 1:2)
-#'   df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
-#'                    c = factor(c("high", "low"), ordered = TRUE,
-#'                               levels = c("low", "high")),
-#'                    stringsAsFactors = FALSE)
-#'   spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
-#'   plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
-#'   unioned_spdf <- self_union(spdf)
-#'   get_poly_attribute(unioned_spdf$union_df, "a", sum)
-#'   get_poly_attribute(unioned_spdf$union_df, "c", max)
-#' }
-#' }
+#' @keywords internal
+#' @export
 get_poly_attribute <- function(x, col, fun, ...) {
+
+  lifecycle::deprecate_warn(
+    "1.2.0",
+    "get_poly_attribute()",
+    details = "Support for `Spatial` objects (package sp) will be dropped in Summer 2023."
+  )
+
   if (!inherits(x, "list")) stop("x must be a list, or list-column in a data frame")
   if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
   if (!col %in% names(x[[1]])) stop(col, " is not a column in the data frames in x")
@@ -330,8 +321,13 @@ get_return_type <- function(x) {
 #' @return A layer where the Northern Rockies Regional Municipality has been
 #' combined with the Regional Districts to form a full provincial coverage.
 #' @export
-combine_nr_rd <- function(class = c("sf", "sp")) {
-  class <- match.arg(class)
+combine_nr_rd <- function(class = deprecated()) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::combine_nr_rd(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
+
   rd <- get_layer("regional_districts", class = class)
   mun <- get_layer("municipalities", class = class)
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
@@ -379,7 +375,8 @@ bec_colors <- bec_colours
 
 #' Get an extent/bounding box for British Columbia
 #'
-#' @param class `"sf"`, `"sp"`, or `"raster"`
+#' @param class `"sf"`, `"raster"`. `r lifecycle::badge("deprecated")`. `class = "sp"`
+#' is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023.
 #' @param crs coordinate reference system: integer with the EPSG code,
 #' or character with proj4string. Default `3005` (BC Albers).
 #'
@@ -391,14 +388,21 @@ bec_colors <- bec_colours
 #' @examples
 #'\dontrun{
 #'   bc_bbox("sf")
-#'   bc_bbox("sp")
 #'   bc_bbox("raster")
 #'   }
 bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
   class <- match.arg(class)
-
   if (class == "raster" && !requireNamespace("raster")) {
     stop("raster package required to make an object of class Extent")
+  }
+
+  if (class == "sp") {
+    lifecycle::deprecate_warn(
+      "1.2.0",
+      "bc_bbox(class = 'sp')",
+      I("bc_bbox(class = 'sf') or bc_bbox(class = 'sf')"),
+      "Support for `Spatial` objects (package sp) will be dropped in Summer 2023."
+    )
   }
 
   sf_bbox <- sf::st_bbox(sf::st_transform(bc_bound(), crs))

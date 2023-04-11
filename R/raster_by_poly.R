@@ -15,6 +15,11 @@
 #' @export
 raster_by_poly <- function(raster_layer, poly, poly_field, summarize = FALSE,
                            parallel = FALSE) {
+  # I'm not deprecating this right now as both raster and sp are not
+  # being retired, rather their internal uses of of rgdal and rgeos have been
+  # removed, and this function does not require rgdal or rgeos.
+  # This will likely be on the block later.
+
   if (!requireNamespace("raster", quietly = TRUE) &&
       !requireNamespace("sp", quietly = TRUE)) {
     stop("packages sp and raster are required")

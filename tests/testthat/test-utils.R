@@ -24,14 +24,18 @@ test_that("bc_bbox works with all classes", {
   skip_on_cran()
   sf_out <- sf_bbox_to_vec(bc_bbox())
   expect_equivalent(bc_bbox(), sf::st_bbox(bc_bound()))
-  expect_equal(sp_bbox_to_vec(bc_bbox("sp")), sf_out)
+  lifecycle::expect_deprecated(
+    expect_equal(sp_bbox_to_vec(bc_bbox("sp")), sf_out)
+  )
   expect_equal(Extent_to_vec(bc_bbox("raster")), sf_out)
 })
 
 test_that("bc_bbox works with all classes and numeric crs", {
   skip_on_cran()
   sf_out <- sf_bbox_to_vec(bc_bbox(crs = 4326))
-  expect_equal(sp_bbox_to_vec(bc_bbox("sp", crs = 4326)), sf_out)
+  lifecycle::expect_deprecated(
+    expect_equal(sp_bbox_to_vec(bc_bbox("sp", crs = 4326)), sf_out)
+  )
   expect_equal(Extent_to_vec(bc_bbox("raster", crs = 4326)), sf_out)
 })
 

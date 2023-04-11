@@ -19,10 +19,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-3161-2304")),
       person(given = "Province of British Columbia",
              role = "cph"))
-Description: Provides access to various spatial layers for B.C., such as 
-    administrative boundaries, natural resource management boundaries, etc. 
-    Most layers are imported from the 'bcdata' package as 'sf' or 'Spatial' objects
-    through function calls in this package. 
+Description: Various layers of B.C., including administrative boundaries, natural resource management boundaries, census boundaries etc. All layers are available in BC Albers (<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area projection, which is the B.C. government standard. The layers are sourced from the British Columbia and Canadian government under open licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>), the Government of Canada Open Data Portal (<https://open.canada.ca/en/open-data>), and Statistics Canada (<https://www.statcan.gc.ca/eng/reference/licence>).
 License: Apache License (== 2.0) | file LICENSE
 URL: https://github.com/bcgov/bcmaps
 BugReports: https://github.com/bcgov/bcmaps/issues
@@ -38,7 +35,9 @@ Imports:
     stats,
     utils,
     xml2,
-    jsonlite (>= 1.7.0)
+    jsonlite (>= 1.7.0),
+    lifecycle (>= 1.0.3),
+    rlang
 Suggests: 
     knitr,
     rmarkdown,
@@ -46,7 +45,7 @@ Suggests:
     future (>= 1.12.0),
     ggplot2 (>= 3.0),
     glue (>= 1.1.1),
-    raster (>= 2.5-8),
+    raster (>= 3.6-3),
     rgdal (>= 1.2-13),
     rgeos (>= 0.3-25),
     sp (>= 1.2-5),
@@ -56,5 +55,5 @@ Suggests:
     stars (>= 0.4.3)
 VignetteBuilder: knitr
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1
+RoxygenNote: 7.2.3
 Encoding: UTF-8

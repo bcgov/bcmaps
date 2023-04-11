@@ -1,13 +1,13 @@
 ---
 title: "Working with bcmaps layers with point location data"
-date: "2021-01-18"
+date: "2023-04-10"
 output:
   rmarkdown::html_vignette:
     keep_md: true
     fig_width: 5
     fig_height: 5
 vignette: >
-  %\VignetteIndexEntry{Working with bcmaps layers with point location data}
+  %\VignetteIndexEntry{bcmaps layers and point data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -61,7 +61,7 @@ summary(spp)
 plot(spp["spp_present"])
 ```
 
-<img src="vignette-fig-convert-1.png" title="plot of chunk convert" alt="plot of chunk convert" width="100%" />
+<img src="vignette-fig-convert-1.png" alt="plot of chunk convert" width="100%" />
 
 In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf.
 
@@ -129,9 +129,17 @@ st_crs(spp)
 #>   User input: EPSG:4326 
 #>   wkt:
 #> GEOGCRS["WGS 84",
-#>     DATUM["World Geodetic System 1984",
+#>     ENSEMBLE["World Geodetic System 1984 ensemble",
+#>         MEMBER["World Geodetic System 1984 (Transit)"],
+#>         MEMBER["World Geodetic System 1984 (G730)"],
+#>         MEMBER["World Geodetic System 1984 (G873)"],
+#>         MEMBER["World Geodetic System 1984 (G1150)"],
+#>         MEMBER["World Geodetic System 1984 (G1674)"],
+#>         MEMBER["World Geodetic System 1984 (G1762)"],
+#>         MEMBER["World Geodetic System 1984 (G2139)"],
 #>         ELLIPSOID["WGS 84",6378137,298.257223563,
-#>             LENGTHUNIT["metre",1]]],
+#>             LENGTHUNIT["metre",1]],
+#>         ENSEMBLEACCURACY[2.0]],
 #>     PRIMEM["Greenwich",0,
 #>         ANGLEUNIT["degree",0.0174532925199433]],
 #>     CS[ellipsoidal,2],
@@ -162,7 +170,7 @@ Now we can overlay the points on the provincial boundary dataset:
 plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
 ```
 
-<img src="vignette-fig-overlay-1.png" title="plot of chunk overlay" alt="plot of chunk overlay" width="100%" />
+<img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%" />
 
 ```r
 plot(st_geometry(bc_bound), add = TRUE)
@@ -175,37 +183,13 @@ from the `sf` package to extract ecoregions from the point data and add that inf
 
 
 ```r
-ecoreg <- ecoregions()
-#> bcmaps would like to store this layer in the directory:
-#> /Users/ateucher/Library/Caches/org.R-project.R/R/bcmaps
-#> Is that okay?
-#> 1: Yes
-#> 2: No
-#> 
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
-#> Enter an item from the menu, or 0 to exit
+ecoreg <- ecoregions(ask = FALSE)
 st_join(spp, ecoreg["ECOREGION_NAME"])
 #> Simple feature collection with 10 features and 3 fields
-#> geometry type:  POINT
-#> dimension:      XY
-#> bbox:           xmin: 912519.3 ymin: 600149.1 xmax: 1383324 ymax: 1642418
-#> projected CRS:  NAD83 / BC Albers
+#> Geometry type: POINT
+#> Dimension:     XY
+#> Bounding box:  xmin: 912519.3 ymin: 600149.1 xmax: 1383324 ymax: 1642418
+#> Projected CRS: NAD83 / BC Albers
 #>    site_num spp_present                   ECOREGION_NAME                 geometry
 #> 1         A         yes CENTRAL CANADIAN ROCKY MOUNTAINS  POINT (1341578 1016164)
 #> 2         B         yes    BOREAL MOUNTAINS AND PLATEAUS POINT (945861.3 1324757)

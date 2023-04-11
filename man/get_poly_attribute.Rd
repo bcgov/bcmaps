@@ -19,27 +19,14 @@ get_poly_attribute(x, col, fun, ...)
 An atomic vector of the same length as x
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function is deprecated as of bcmaps 1.2.0 because it had a very niche application for
+calculating attributes on a \code{SpatialPolygonsDataFrame}, which we are removing
+support for. It will be removed completely in Summer 2023.
+
 For example, \code{self_union} produces a \code{SpatialPolygonsDataFrame}
 that has a column called \code{union_df}, which contains a \code{data.frame}
 for each polygon with the attributes from the constituent polygons.
 }
-\examples{
-\dontrun{
-if (require(sp)) {
-  p1 <- Polygon(cbind(c(2,4,4,1,2),c(2,3,5,4,2)))
-  p2 <- Polygon(cbind(c(5,4,3,2,5),c(2,3,3,2,2)))
-  ps1 <- Polygons(list(p1), "s1")
-  ps2 <- Polygons(list(p2), "s2")
-  spp <- SpatialPolygons(list(ps1,ps2), 1:2)
-  df <- data.frame(a = c(1, 2), b = c("foo", "bar"),
-                   c = factor(c("high", "low"), ordered = TRUE,
-                              levels = c("low", "high")),
-                   stringsAsFactors = FALSE)
-  spdf <- SpatialPolygonsDataFrame(spp, df, match.ID = FALSE)
-  plot(spdf, col = c(rgb(1, 0, 0,0.5), rgb(0, 0, 1,0.5)))
-  unioned_spdf <- self_union(spdf)
-  get_poly_attribute(unioned_spdf$union_df, "a", sum)
-  get_poly_attribute(unioned_spdf$union_df, "c", max)
-}
-}
-}
+\keyword{internal}

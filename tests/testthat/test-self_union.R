@@ -28,14 +28,14 @@ if (suppressPackageStartupMessages(require("sp"))) {
     row.names = c("1", "2", "3"), class = "data.frame")
 
   test_that("works with SpatialPolygons", {
-    expect_is(self_union(spp), "SpatialPolygonsDataFrame")
+    expect_is(expect_deprecated(self_union(spp)), "SpatialPolygonsDataFrame")
     expect_length(self_union(spp)@polygons, 3)
     expect_setequal(self_union(spp)@data$union_ids, spp_out_data$union_ids)
     expect_setequal(self_union(spp)@data$union_count, spp_out_data$union_count)
   })
 
   test_that("works with SpatialPolygonsDataFrame", {
-    expect_is(self_union(spdf), "SpatialPolygonsDataFrame")
+    expect_is(expect_deprecated(self_union(spdf)), "SpatialPolygonsDataFrame")
     expect_length(self_union(spdf)@polygons, 3)
     expect_setequal(self_union(spdf)@data$union_count, spdf_out_data$union_count)
     expect_setequal(self_union(spdf)@data$union_ids, spdf_out_data$union_ids)

@@ -1,4 +1,4 @@
-# Copyright 2022 Province of British Columbia
+# Copyright 2023 Province of British Columbia
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -29,11 +29,16 @@
 #' @examples
 #' \dontrun{
 #' my_layer <- airzones()
-#' my_layer_sp <- airzones(class = 'sp')
 #' }
 #'
 #' @export
-airzones <- function(class = 'sf', ask = interactive(), force = FALSE) {
+airzones <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::airzones(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('airzones', class = class, ask = ask, force = force)
 }
 
@@ -51,11 +56,16 @@ airzones <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_cities()
-#' my_layer_sp <- bc_cities(class = 'sp')
 #' }
 #'
 #' @export
-bc_cities <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_cities <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::bc_cities(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('bc_cities', class = class, ask = ask, force = force)
 }
 
@@ -73,11 +83,16 @@ bc_cities <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- bec()
-#' my_layer_sp <- bec(class = 'sp')
 #' }
 #'
 #' @export
-bec <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bec <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::bec(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('bec', class = class, ask = ask, force = force)
 }
 
@@ -95,11 +110,16 @@ bec <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- census_dissemination_area()
-#' my_layer_sp <- census_dissemination_area(class = 'sp')
 #' }
 #'
 #' @export
-census_dissemination_area <- function(class = 'sf', ask = interactive(), force = FALSE) {
+census_dissemination_area <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::census_dissemination_area(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('census_dissemination_area', class = class, ask = ask, force = force)
 }
 
@@ -117,11 +137,16 @@ census_dissemination_area <- function(class = 'sf', ask = interactive(), force =
 #' @examples
 #' \dontrun{
 #' my_layer <- census_division()
-#' my_layer_sp <- census_division(class = 'sp')
 #' }
 #'
 #' @export
-census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
+census_division <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::census_division(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('census_division', class = class, ask = ask, force = force)
 }
 
@@ -139,11 +164,16 @@ census_division <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- census_economic()
-#' my_layer_sp <- census_economic(class = 'sp')
 #' }
 #'
 #' @export
-census_economic <- function(class = 'sf', ask = interactive(), force = FALSE) {
+census_economic <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::census_economic(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('census_economic', class = class, ask = ask, force = force)
 }
 
@@ -161,11 +191,16 @@ census_economic <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- census_metropolitan_area()
-#' my_layer_sp <- census_metropolitan_area(class = 'sp')
 #' }
 #'
 #' @export
-census_metropolitan_area <- function(class = 'sf', ask = interactive(), force = FALSE) {
+census_metropolitan_area <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::census_metropolitan_area(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('census_metropolitan_area', class = class, ask = ask, force = force)
 }
 
@@ -183,11 +218,16 @@ census_metropolitan_area <- function(class = 'sf', ask = interactive(), force = 
 #' @examples
 #' \dontrun{
 #' my_layer <- census_subdivision()
-#' my_layer_sp <- census_subdivision(class = 'sp')
 #' }
 #'
 #' @export
-census_subdivision <- function(class = 'sf', ask = interactive(), force = FALSE) {
+census_subdivision <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::census_subdivision(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('census_subdivision', class = class, ask = ask, force = force)
 }
 
@@ -205,11 +245,16 @@ census_subdivision <- function(class = 'sf', ask = interactive(), force = FALSE)
 #' @examples
 #' \dontrun{
 #' my_layer <- census_tract()
-#' my_layer_sp <- census_tract(class = 'sp')
 #' }
 #'
 #' @export
-census_tract <- function(class = 'sf', ask = interactive(), force = FALSE) {
+census_tract <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::census_tract(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('census_tract', class = class, ask = ask, force = force)
 }
 
@@ -227,11 +272,16 @@ census_tract <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- ecoprovinces()
-#' my_layer_sp <- ecoprovinces(class = 'sp')
 #' }
 #'
 #' @export
-ecoprovinces <- function(class = 'sf', ask = interactive(), force = FALSE) {
+ecoprovinces <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::ecoprovinces(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('ecoprovinces', class = class, ask = ask, force = force)
 }
 
@@ -249,11 +299,16 @@ ecoprovinces <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- ecoregions()
-#' my_layer_sp <- ecoregions(class = 'sp')
 #' }
 #'
 #' @export
-ecoregions <- function(class = 'sf', ask = interactive(), force = FALSE) {
+ecoregions <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::ecoregions(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('ecoregions', class = class, ask = ask, force = force)
 }
 
@@ -271,11 +326,16 @@ ecoregions <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- ecosections()
-#' my_layer_sp <- ecosections(class = 'sp')
 #' }
 #'
 #' @export
-ecosections <- function(class = 'sf', ask = interactive(), force = FALSE) {
+ecosections <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::ecosections(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('ecosections', class = class, ask = ask, force = force)
 }
 
@@ -293,11 +353,16 @@ ecosections <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- gw_aquifers()
-#' my_layer_sp <- gw_aquifers(class = 'sp')
 #' }
 #'
 #' @export
-gw_aquifers <- function(class = 'sf', ask = interactive(), force = FALSE) {
+gw_aquifers <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::gw_aquifers(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('gw_aquifers', class = class, ask = ask, force = force)
 }
 
@@ -315,11 +380,16 @@ gw_aquifers <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- health_chsa()
-#' my_layer_sp <- health_chsa(class = 'sp')
 #' }
 #'
 #' @export
-health_chsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
+health_chsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::health_chsa(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('health_chsa', class = class, ask = ask, force = force)
 }
 
@@ -337,11 +407,16 @@ health_chsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- health_ha()
-#' my_layer_sp <- health_ha(class = 'sp')
 #' }
 #'
 #' @export
-health_ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+health_ha <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::health_ha(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('health_ha', class = class, ask = ask, force = force)
 }
 
@@ -359,11 +434,16 @@ health_ha <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- health_hsda()
-#' my_layer_sp <- health_hsda(class = 'sp')
 #' }
 #'
 #' @export
-health_hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
+health_hsda <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::health_hsda(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('health_hsda', class = class, ask = ask, force = force)
 }
 
@@ -381,11 +461,16 @@ health_hsda <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- health_lha()
-#' my_layer_sp <- health_lha(class = 'sp')
 #' }
 #'
 #' @export
-health_lha <- function(class = 'sf', ask = interactive(), force = FALSE) {
+health_lha <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::health_lha(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('health_lha', class = class, ask = ask, force = force)
 }
 
@@ -403,11 +488,16 @@ health_lha <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- hydrozones()
-#' my_layer_sp <- hydrozones(class = 'sp')
 #' }
 #'
 #' @export
-hydrozones <- function(class = 'sf', ask = interactive(), force = FALSE) {
+hydrozones <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::hydrozones(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('hydrozones', class = class, ask = ask, force = force)
 }
 
@@ -425,11 +515,16 @@ hydrozones <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- municipalities()
-#' my_layer_sp <- municipalities(class = 'sp')
 #' }
 #'
 #' @export
-municipalities <- function(class = 'sf', ask = interactive(), force = FALSE) {
+municipalities <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::municipalities(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('municipalities', class = class, ask = ask, force = force)
 }
 
@@ -447,11 +542,16 @@ municipalities <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- nr_areas()
-#' my_layer_sp <- nr_areas(class = 'sp')
 #' }
 #'
 #' @export
-nr_areas <- function(class = 'sf', ask = interactive(), force = FALSE) {
+nr_areas <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::nr_areas(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('nr_areas', class = class, ask = ask, force = force)
 }
 
@@ -469,11 +569,16 @@ nr_areas <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- nr_districts()
-#' my_layer_sp <- nr_districts(class = 'sp')
 #' }
 #'
 #' @export
-nr_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+nr_districts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::nr_districts(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('nr_districts', class = class, ask = ask, force = force)
 }
 
@@ -491,11 +596,16 @@ nr_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- nr_regions()
-#' my_layer_sp <- nr_regions(class = 'sp')
 #' }
 #'
 #' @export
-nr_regions <- function(class = 'sf', ask = interactive(), force = FALSE) {
+nr_regions <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::nr_regions(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('nr_regions', class = class, ask = ask, force = force)
 }
 
@@ -513,11 +623,16 @@ nr_regions <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- regional_districts()
-#' my_layer_sp <- regional_districts(class = 'sp')
 #' }
 #'
 #' @export
-regional_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+regional_districts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::regional_districts(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('regional_districts', class = class, ask = ask, force = force)
 }
 
@@ -535,11 +650,16 @@ regional_districts <- function(class = 'sf', ask = interactive(), force = FALSE)
 #' @examples
 #' \dontrun{
 #' my_layer <- tsa()
-#' my_layer_sp <- tsa(class = 'sp')
 #' }
 #'
 #' @export
-tsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
+tsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::tsa(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('tsa', class = class, ask = ask, force = force)
 }
 
@@ -557,11 +677,16 @@ tsa <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- water_districts()
-#' my_layer_sp <- water_districts(class = 'sp')
 #' }
 #'
 #' @export
-water_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+water_districts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::water_districts(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('water_districts', class = class, ask = ask, force = force)
 }
 
@@ -579,11 +704,16 @@ water_districts <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- water_precincts()
-#' my_layer_sp <- water_precincts(class = 'sp')
 #' }
 #'
 #' @export
-water_precincts <- function(class = 'sf', ask = interactive(), force = FALSE) {
+water_precincts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::water_precincts(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('water_precincts', class = class, ask = ask, force = force)
 }
 
@@ -601,10 +731,15 @@ water_precincts <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- wsc_drainages()
-#' my_layer_sp <- wsc_drainages(class = 'sp')
 #' }
 #'
 #' @export
-wsc_drainages <- function(class = 'sf', ask = interactive(), force = FALSE) {
+wsc_drainages <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+   if (lifecycle::is_present(class)) {
+     deprecate_sp('bcmaps::wsc_drainages(class)')
+     class <- match.arg(class, choices = c('sf', 'sp'))
+   }
+
    get_layer('wsc_drainages', class = class, ask = ask, force = force)
 }

@@ -13,7 +13,10 @@
 #' BC Boundary - High Resolution
 #'
 #'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`.
+#' @param class what class you want the object in? `"sf"` (default) or `"sp"`. `r lifecycle::badge('deprecated')`.
+#' The `class` argument
+#' is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an `sf` object.
+#'
 #' @param ask Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().
 #' @param force Should you force download the data?
 #'
@@ -23,7 +26,6 @@
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_bound_hres()
-#' my_layer_sp <- bc_bound_hres(class = 'sp')
 #' }
 #'
 #' @source `bcdc_get_data(record = '30aeb5c1-4285-46c8-b60b-15b1a6f4258b',
@@ -31,7 +33,12 @@
 #'          layer = 'BC_Boundary_Terrestrial_Multipart')`
 #'
 #' @export
-bc_bound_hres <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_bound_hres <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::bc_bound_hres(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_bound_hres.rds")
@@ -66,11 +73,15 @@ bc_bound_hres <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_bound()
-#' my_layer_sp <- bc_bound(class = 'sp')
 #' }
 #'
 #' @export
-bc_bound <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_bound <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::bc_bound(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_bound.rds")
@@ -107,11 +118,15 @@ bc_bound <- function(class = 'sf', ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- bc_neighbours()
-#' my_layer_sp <- bc_neighbours(class = 'sp')
 #' }
 #'
 #' @export
-bc_neighbours <- function(class = 'sf', ask = interactive(), force = FALSE) {
+bc_neighbours <- function(class = deprecated(), ask = interactive(), force = FALSE) {
+
+  if (lifecycle::is_present(class)) {
+    deprecate_sp('bcmaps::bc_neighbours(class)')
+    class <- match.arg(class, choices = c('sf', 'sp'))
+  }
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_neighbours.rds")
