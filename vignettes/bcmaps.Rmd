@@ -1,6 +1,6 @@
 ---
 title: "Get started with bcmaps"
-date: "`r Sys.Date()`"
+date: "2023-06-02"
 output:
   rmarkdown::html_vignette:
     keep_md: true
@@ -27,18 +27,7 @@ See the License for the specific language governing permissions and limitations 
 -->
 
 
-```{r options, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE,
-  comment = "#>",
-  warning = FALSE,
-  message = FALSE,
-  fig.path = "vignette-fig-",
-  out.width = "100%",
-  fig.width = 7,
-  fig.height = 4,
-  dev = "CairoPNG",
-  dpi = 400)
-```
+
 
 
 ## Overview
@@ -61,11 +50,10 @@ Most layers are assessed directly from the [B.C. Data Catalogue](https://catalog
 
 To see the layers that are available, run the `available_layers()` function:
 
-```{r, echo=FALSE, warning=FALSE}
-library(bcmaps)
-```
 
-```{r, eval=FALSE}
+
+
+```r
 library(bcmaps)
 available_layers()
 ```
@@ -75,18 +63,22 @@ Then you can use the data as you would any `sf` object. The first time
 you run try to access a layer, you will be prompted for permission to download that layer
 to your hard drive. Subsequently that layer is available locally for easy future access. For example:
 
-```{r}
+
+```r
 library(sf)
 
 bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
+<img src="vignette-fig-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%" />
+
 ### Simple Features objects
 
 By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
 
-```{r plot-maps, fig.height=5, warning=FALSE}
+
+```r
 library(bcmaps)
 library(sf)
 
@@ -101,11 +93,14 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
+<img src="vignette-fig-plot-maps-1.png" alt="plot of chunk plot-maps" width="100%" />
+
 ### Digital Elevation Model for British Columbia 1:250,000
 
 The `cded_raster` and `cded_stars` functions return the 1:250,000 digital elevation model for British Columbia bounded by some area of interest. Here we are retrieving the area bounded by the _Logan Lake_ census subdivision:
 
-```{r cded}
+
+```r
 library(raster)
 
 aoi <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Logan Lake", ]
@@ -113,11 +108,14 @@ aoi_raster <- cded_raster(aoi)
 plot(aoi_raster)
 ```
 
+<img src="vignette-fig-cded-1.png" alt="plot of chunk cded" width="100%" />
+
 ### It's a beautiful day in the neighbourhood
 
 A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name. This example also illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/) package to plot maps in R using `geom_sf`:
 
-```{r bc_neighbours}
+
+```r
 library(ggplot2)
 ggplot() +
   geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) +
@@ -127,6 +125,8 @@ ggplot() +
   theme_minimal()
 ```
 
+<img src="vignette-fig-bc_neighbours-1.png" alt="plot of chunk bc_neighbours" width="100%" />
+
 
 ### Biogeoclimatic Zones
 
@@ -134,11 +134,10 @@ As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem Classification) map
 is available via the `bec()` function, and an accompanying function `bec_colours()`
 function to colour it:
 
-```{r include=FALSE}
-bec <- bec(ask = FALSE)
-```
 
-```{r bec, message=FALSE}
+
+
+```r
 bec <- bec()
 library(ggplot2)
 bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
@@ -149,18 +148,22 @@ ggplot() +
   scale_colour_manual(values = bec_colours())
 ```
 
+<img src="vignette-fig-bec-1.png" alt="plot of chunk bec" width="100%" />
+
 
 ### Updating layers
 
 When you first call a layer function `bcmaps` will remind you when that layer was last updated in your cache with a message. For a number of reasons, it might be necessary to get a fresh layer in your `bcmaps` cache. The easiest way to update is to use the `force` argument:
 
-```{r, eval=FALSE}
+
+```r
 ep <- ecoprovinces(force = TRUE)
 ```
 
 Another option is to actively manage your cache by deleting the old layer and calling the function again:
 
-```{r, eval=FALSE}
+
+```r
 delete_cache('ecoprovinces')
 ep <- ecoprovinces()
 ```

@@ -39,20 +39,13 @@ spp <- data.frame(site_num = LETTERS[1:10], spp_present = sample(c("yes", "no"),
                  lat = runif(10, 49, 60), long = runif(10, -128, -120),
                  stringsAsFactors = FALSE)
 head(spp)
-#>   site_num spp_present      lat
-#> 1        A         yes 54.03516
-#> 2        B         yes 56.91023
-#> 3        C         yes 59.28139
-#> 4        D         yes 51.80972
-#> 5        E          no 54.08522
-#> 6        F          no 59.34016
-#>        long
-#> 1 -120.7677
-#> 2 -126.8903
-#> 3 -120.0889
-#> 4 -120.4267
-#> 5 -127.3405
-#> 6 -123.8863
+#>   site_num spp_present      lat      long
+#> 1        A         yes 54.03516 -120.7677
+#> 2        B         yes 56.91023 -126.8903
+#> 3        C         yes 59.28139 -120.0889
+#> 4        D         yes 51.80972 -120.4267
+#> 5        E          no 54.08522 -127.3405
+#> 6        F          no 59.34016 -123.8863
 ```
 
 Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
@@ -61,14 +54,10 @@ Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
 ```r
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
-#>    site_num        
-#>  Length:10         
-#>  Class :character  
-#>  Mode  :character  
-#>  spp_present           geometry 
-#>  Length:10          POINT  :10  
-#>  Class :character   epsg:NA: 0  
-#>  Mode  :character
+#>    site_num         spp_present           geometry 
+#>  Length:10          Length:10          POINT  :10  
+#>  Class :character   Class :character   epsg:NA: 0  
+#>  Mode  :character   Mode  :character
 plot(spp["spp_present"])
 ```
 
