@@ -1,6 +1,6 @@
 ---
 title: "Working with bcmaps layers with point location data"
-date: "2023-04-10"
+date: "2023-06-02"
 output:
   rmarkdown::html_vignette:
     keep_md: true
@@ -16,7 +16,7 @@ vignette: >
 
 We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitude pairs into a `SpatialPointsDataFrame`, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.
 
-For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
+For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences to a map of British Columbia.
 
 First, load the packages we will need:
 
@@ -39,25 +39,36 @@ spp <- data.frame(site_num = LETTERS[1:10], spp_present = sample(c("yes", "no"),
                  lat = runif(10, 49, 60), long = runif(10, -128, -120),
                  stringsAsFactors = FALSE)
 head(spp)
-#>   site_num spp_present      lat      long
-#> 1        A         yes 54.03516 -120.7677
-#> 2        B         yes 56.91023 -126.8903
-#> 3        C         yes 59.28139 -120.0889
-#> 4        D         yes 51.80972 -120.4267
-#> 5        E          no 54.08522 -127.3405
-#> 6        F          no 59.34016 -123.8863
+#>   site_num spp_present      lat
+#> 1        A         yes 54.03516
+#> 2        B         yes 56.91023
+#> 3        C         yes 59.28139
+#> 4        D         yes 51.80972
+#> 5        E          no 54.08522
+#> 6        F          no 59.34016
+#>        long
+#> 1 -120.7677
+#> 2 -126.8903
+#> 3 -120.0889
+#> 4 -120.4267
+#> 5 -127.3405
+#> 6 -123.8863
 ```
 
-Next we convert this to a `SpatialPointsDataFrame` using the `sp` package. The syntax for doing this is a little obscure - you specify the columns that hold the x and y data in a character vector on the right hand side of the `<-`:
+Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
 
 
 ```r
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
-#>    site_num         spp_present           geometry 
-#>  Length:10          Length:10          POINT  :10  
-#>  Class :character   Class :character   epsg:NA: 0  
-#>  Mode  :character   Mode  :character
+#>    site_num        
+#>  Length:10         
+#>  Class :character  
+#>  Mode  :character  
+#>  spp_present           geometry 
+#>  Length:10          POINT  :10  
+#>  Class :character   epsg:NA: 0  
+#>  Mode  :character
 plot(spp["spp_present"])
 ```
 
@@ -156,7 +167,7 @@ st_crs(spp)
 #>     ID["EPSG",4326]]
 ```
 
-So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound`:
+So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound_data`:
 
 
 ```r
@@ -167,15 +178,11 @@ Now we can overlay the points on the provincial boundary dataset:
 
 
 ```r
-plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
+plot(st_geometry(bc_bound_data))
+plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE, add = TRUE)
 ```
 
 <img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%" />
-
-```r
-plot(st_geometry(bc_bound), add = TRUE)
-#> Error in UseMethod("st_geometry"): no applicable method for 'st_geometry' applied to an object of class "function"
-```
 
 Now we want to know what ecoregion of the province each of these observations
 was in. We can use the `ecoregions` data from bcmaps, and the `st_join` function
@@ -190,16 +197,38 @@ st_join(spp, ecoreg["ECOREGION_NAME"])
 #> Dimension:     XY
 #> Bounding box:  xmin: 912519.3 ymin: 600149.1 xmax: 1383324 ymax: 1642418
 #> Projected CRS: NAD83 / BC Albers
-#>    site_num spp_present                   ECOREGION_NAME                 geometry
-#> 1         A         yes CENTRAL CANADIAN ROCKY MOUNTAINS  POINT (1341578 1016164)
-#> 2         B         yes    BOREAL MOUNTAINS AND PLATEAUS POINT (945861.3 1324757)
-#> 3         C         yes                HAY-SLAVE LOWLAND  POINT (1337001 1602713)
-#> 4         D         yes               COLUMBIA HIGHLANDS POINT (1383324 770393.7)
-#> 5         E          no       EASTERN HAZELTON MOUNTAINS POINT (912519.3 1009950)
-#> 6         F          no                   MUSKWA PLATEAU  POINT (1120431 1596971)
-#> 7         G          no                   MUSKWA PLATEAU  POINT (1063173 1642418)
-#> 8         H          no        THOMPSON-OKANAGAN PLATEAU POINT (1373357 600149.1)
-#> 9         I         yes                     FRASER BASIN  POINT (1102484 1025860)
-#> 10        J          no CENTRAL CANADIAN ROCKY MOUNTAINS  POINT (1297769 1139361)
+#>    site_num spp_present
+#> 1         A         yes
+#> 2         B         yes
+#> 3         C         yes
+#> 4         D         yes
+#> 5         E          no
+#> 6         F          no
+#> 7         G          no
+#> 8         H          no
+#> 9         I         yes
+#> 10        J          no
+#>                      ECOREGION_NAME
+#> 1  CENTRAL CANADIAN ROCKY MOUNTAINS
+#> 2     BOREAL MOUNTAINS AND PLATEAUS
+#> 3                 HAY-SLAVE LOWLAND
+#> 4                COLUMBIA HIGHLANDS
+#> 5        EASTERN HAZELTON MOUNTAINS
+#> 6                    MUSKWA PLATEAU
+#> 7                    MUSKWA PLATEAU
+#> 8         THOMPSON-OKANAGAN PLATEAU
+#> 9                      FRASER BASIN
+#> 10 CENTRAL CANADIAN ROCKY MOUNTAINS
+#>                    geometry
+#> 1   POINT (1341578 1016164)
+#> 2  POINT (945861.3 1324757)
+#> 3   POINT (1337001 1602713)
+#> 4  POINT (1383324 770393.7)
+#> 5  POINT (912519.3 1009950)
+#> 6   POINT (1120431 1596971)
+#> 7   POINT (1063173 1642418)
+#> 8  POINT (1373357 600149.1)
+#> 9   POINT (1102484 1025860)
+#> 10  POINT (1297769 1139361)
 ```
 

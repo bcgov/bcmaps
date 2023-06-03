@@ -27,7 +27,7 @@ knitr::opts_chunk$set(collapse = TRUE,
 
 We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitude pairs into a `SpatialPointsDataFrame`, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.
 
-For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences on to a map of British Columbia.
+For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences to a map of British Columbia.
 
 First, load the packages we will need:
 
@@ -85,8 +85,8 @@ spp <- transform_bc_albers(spp)
 Now we can overlay the points on the provincial boundary dataset:
 
 ```{r overlay, fig.height=4, fig.width=6, warning=FALSE}
-plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE)
-plot(st_geometry(bc_bound_data), add = TRUE)
+plot(st_geometry(bc_bound_data))
+plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE, add = TRUE)
 ```
 
 Now we want to know what ecoregion of the province each of these observations
