@@ -22,7 +22,7 @@ ggplot2::theme_set(ggplot2::theme_minimal())
 
 <!-- badges: start -->
 [![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/license/apache-2-0/)
 [![R build status](https://github.com/bcgov/bcmaps/workflows/R-CMD-check/badge.svg)](https://github.com/bcgov/bcmaps/actions)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps) [![CRAN Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps) 
 <!-- badges: end -->
@@ -100,7 +100,7 @@ If you would like to contribute to the package, please see our
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Source Data
-The source datasets used in this package come from various sources under open licences, including [DataBC](https://data.gov.bc.ca) ([Open Government Licence - British Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics Canada Open Licence Agreement](https://www.statcan.gc.ca/eng/reference/licence)). See the `data-raw` folder for details on each source dataset.
+The source datasets used in this package come from various sources under open licences, including [DataBC](https://data.gov.bc.ca) ([Open Government Licence - British Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics Canada Open Licence Agreement](https://www.statcan.gc.ca/en/reference/licence)). See the `data-raw` folder for details on each source dataset.
 
 ## Licence
 
