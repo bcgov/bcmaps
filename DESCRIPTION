@@ -21,7 +21,8 @@ Authors@R:
              role = "cph"))
 Description: Various layers of B.C., including administrative boundaries, natural resource management boundaries, census boundaries etc. All layers are available in BC Albers (<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area projection, which is the B.C. government standard. The layers are sourced from the British Columbia and Canadian government under open licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>), the Government of Canada Open Data Portal (<https://open.canada.ca/en/open-data>), and Statistics Canada (<https://www.statcan.gc.ca/eng/reference/licence>).
 License: Apache License (== 2.0) | file LICENSE
-URL: https://github.com/bcgov/bcmaps
+URL: https://github.com/bcgov/bcmaps,
+    http://bcgov.github.io/bcmaps/
 BugReports: https://github.com/bcgov/bcmaps/issues
 Depends:
     sf (>= 0.9),
