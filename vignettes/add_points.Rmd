@@ -1,5 +1,5 @@
 ---
-title: "Working with bcmaps layers with point location data"
+title: "bcmaps layers and point data"
 date: "2023-06-03"
 output:
   rmarkdown::html_vignette:
@@ -54,14 +54,10 @@ Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
 ```r
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
-#>    site_num         spp_present       
-#>  Length:10          Length:10         
-#>  Class :character   Class :character  
-#>  Mode  :character   Mode  :character  
-#>     geometry 
-#>  POINT  :10  
-#>  epsg:NA: 0  
-#> 
+#>    site_num         spp_present           geometry 
+#>  Length:10          Length:10          POINT  :10  
+#>  Class :character   Class :character   epsg:NA: 0  
+#>  Mode  :character   Mode  :character
 plot(spp["spp_present"])
 ```
 
@@ -190,28 +186,17 @@ st_join(spp, ecoreg["ECOREGION_NAME"])
 #> Dimension:     XY
 #> Bounding box:  xmin: 912519.3 ymin: 600149.1 xmax: 1383324 ymax: 1642418
 #> Projected CRS: NAD83 / BC Albers
-#>    site_num spp_present
-#> 1         A         yes
-#> 2         B         yes
-#> 3         C         yes
-#> 4         D         yes
-#> 5         E          no
-#> 6         F          no
-#> 7         G          no
-#> 8         H          no
-#> 9         I         yes
-#> 10        J          no
-#>                      ECOREGION_NAME
-#> 1  CENTRAL CANADIAN ROCKY MOUNTAINS
-#> 2     BOREAL MOUNTAINS AND PLATEAUS
-#> 3                 HAY-SLAVE LOWLAND
-#> 4                COLUMBIA HIGHLANDS
-#> 5        EASTERN HAZELTON MOUNTAINS
-#> 6                    MUSKWA PLATEAU
-#> 7                    MUSKWA PLATEAU
-#> 8         THOMPSON-OKANAGAN PLATEAU
-#> 9                      FRASER BASIN
-#> 10 CENTRAL CANADIAN ROCKY MOUNTAINS
+#>    site_num spp_present                   ECOREGION_NAME
+#> 1         A         yes CENTRAL CANADIAN ROCKY MOUNTAINS
+#> 2         B         yes    BOREAL MOUNTAINS AND PLATEAUS
+#> 3         C         yes                HAY-SLAVE LOWLAND
+#> 4         D         yes               COLUMBIA HIGHLANDS
+#> 5         E          no       EASTERN HAZELTON MOUNTAINS
+#> 6         F          no                   MUSKWA PLATEAU
+#> 7         G          no                   MUSKWA PLATEAU
+#> 8         H          no        THOMPSON-OKANAGAN PLATEAU
+#> 9         I         yes                     FRASER BASIN
+#> 10        J          no CENTRAL CANADIAN ROCKY MOUNTAINS
 #>                    geometry
 #> 1   POINT (1341578 1016164)
 #> 2  POINT (945861.3 1324757)

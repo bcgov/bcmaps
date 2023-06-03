@@ -77,7 +77,7 @@ plot(st_geometry(bc))
 
 [Getting Started with
 `bcmaps`](https://bcgov.github.io/bcmaps/articles/bcmaps.html)  
-[Working with bcmaps layers with point location
+[Working with `bcmaps` layers and point
 data](https://bcgov.github.io/bcmaps/articles/add_points.html)
 
 You can also view vignettes by typing `browseVignettes("bcmaps")` in
