@@ -48,7 +48,7 @@ head(spp)
 #> 6        F          no 59.34016 -123.8863
 ```
 
-Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
+Next we convert this to an `sf` points layer using the `sf` package:
 
 
 ```r
