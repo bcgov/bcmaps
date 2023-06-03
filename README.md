@@ -24,10 +24,10 @@ available as `sf` objects in the [BC
 Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/)
 projection, which is the B.C. Government standard.
 
-Most layers are assessed directly from the [B.C. Data
+Most layers are accessed directly from the [B.C. Data
 Catalogue](https://catalogue.data.gov.bc.ca/) using the
 [bcdata](https://github.com/bcgov/bcdata) R package under the hood. See
-each layers individual help file for more detail.
+each layer’s individual help file for more detail.
 
 > ***IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated
 > in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use
