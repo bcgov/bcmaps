@@ -72,7 +72,7 @@ available_layers()
 
 Most layers are accessible by a shortcut function by the same name as the object.
 Then you can use the data as you would any `sf` object. The first time
-you run try to access a layer, you will be prompted for permission to download that layer
+you try to access a layer, you will be prompted for permission to download that layer
 to your hard drive. Subsequently that layer is available locally for easy future access. For example:
 
 ```{r}
