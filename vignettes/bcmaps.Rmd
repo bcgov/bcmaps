@@ -1,6 +1,6 @@
 ---
 title: "Get started with bcmaps"
-date: "2023-06-02"
+date: "2023-06-03"
 output:
   rmarkdown::html_vignette:
     keep_md: true
