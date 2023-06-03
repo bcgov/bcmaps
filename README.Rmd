@@ -11,14 +11,14 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   message=FALSE,
-  fig.path = "tools/readme/",
+  fig.path = "man/figures/",
   dpi = 150
 )
 
 ggplot2::theme_set(ggplot2::theme_minimal())
 ```
 
-# bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/logo.png" height="139" align="right"/>
 
 <!-- badges: start -->
 [![img](https://img.shields.io/badge/Lifecycle-Stable-97ca00)](https://github.com/bcgov/repomountie/blob/8b2ebdc9756819625a56f7a426c29f99b777ab1d/doc/state-badges.md)

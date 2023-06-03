@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
 
-# bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/logo.png" height="139" align="right"/>
 
 <!-- badges: start -->
 
@@ -71,7 +71,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/unnamed-chunk-6-1.png)<!-- -->
 
 ## Vignettes
 
