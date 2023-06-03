@@ -39,7 +39,7 @@ See the License for the specific language governing permissions and limitations 
 administrative boundaries, natural resource management boundaries, watercourses, census boundaries, etc. All layers are available as `sf` objects in the
 [BC Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the B.C. Government standard.
 
-Most layers are assessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package under the hood. See each layers individual help file for more detail.
+Most layers are accessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package under the hood. See each layers individual help file for more detail.
 
 
 > _**IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use `sf` objects with {bcmaps}._ A discussion on the evolution of the spatial software stack in R can be found here: https://r-spatial.org/r/2022/04/12/evolution.html.
@@ -60,7 +60,7 @@ available_layers()
 
 Most layers are accessible by a shortcut function by the same name as the object.
 Then you can use the data as you would any `sf` object. The first time
-you run try to access a layer, you will be prompted for permission to download that layer
+you try to access a layer, you will be prompted for permission to download that layer
 to your hard drive. Subsequently that layer is available locally for easy future access. For example:
 
 
@@ -72,6 +72,11 @@ plot(st_geometry(bc))
 ```
 
 <img src="vignette-fig-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%" />
+
+There are two British Columbia boundary map layers available in `bcmaps`:
+
+- `bc_bound()` for fast plotting with suitable detail for most figures (layer sourced from [(7.5M) Provinces and States - The Atlas of Canada Base Maps for BC](https://catalogue.data.gov.bc.ca/dataset/b9bd93e1-0226-4351-b943-05c6f80bd5da))
+- `bc_bound_hres()` for geospatial analyses requiring detailed lineworks of British Columbia (sourced from [Province of British Columbia - Boundary Terrestrial](https://catalogue.data.gov.bc.ca/dataset/30aeb5c1-4285-46c8-b60b-15b1a6f4258b))
 
 ### Simple Features objects
 
@@ -164,19 +169,17 @@ Another option is to actively manage your cache by deleting the old layer and ca
 
 
 ```r
+show_cached_files()
 delete_cache('ecoprovinces')
 ep <- ecoprovinces()
 ```
 
 ### Utility Functions
 
-The package also contains a couple of handy utility functions:
+The package also contains a few handy utility functions:
 
-- `fix_geo_problems()` for fixing invalid topologies in `sf` objects
-such as orphaned holes and self-intersections
 - `transform_bc_albers()` for transforming any `sf` object to
 [BC Albers](https://epsg.io/3005) projection
-
-
-
+- `bc_area()` to get the total area of British Columbia in various units
+- `bc_bbox()` to get an extend/bounding box for British Columbia
 
