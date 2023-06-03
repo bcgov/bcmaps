@@ -117,7 +117,7 @@ plot(aoi_raster)
 
 ### It's a beautiful day in the neighbourhood
 
-A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name. This example also illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/) package to plot maps in R using `geom_sf`:
+A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name. This example also illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/) package to plot maps in R using `geom_sf` and the `bc_cities()` function available in `bcmaps`:
 
 
 ```r
