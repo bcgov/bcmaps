@@ -1,6 +1,6 @@
 ---
 title: "Working with bcmaps layers with point location data"
-date: "2023-06-02"
+date: "2023-06-03"
 output:
   rmarkdown::html_vignette:
     keep_md: true
@@ -54,10 +54,14 @@ Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
 ```r
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
-#>    site_num         spp_present           geometry 
-#>  Length:10          Length:10          POINT  :10  
-#>  Class :character   Class :character   epsg:NA: 0  
-#>  Mode  :character   Mode  :character
+#>    site_num         spp_present       
+#>  Length:10          Length:10         
+#>  Class :character   Class :character  
+#>  Mode  :character   Mode  :character  
+#>     geometry 
+#>  POINT  :10  
+#>  epsg:NA: 0  
+#> 
 plot(spp["spp_present"])
 ```
 
@@ -168,7 +172,7 @@ Now we can overlay the points on the provincial boundary dataset:
 
 ```r
 plot(st_geometry(bc_bound_data))
-plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE, add = TRUE)
+plot(spp["spp_present"], add = TRUE)
 ```
 
 <img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%" />

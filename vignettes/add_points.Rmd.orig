@@ -86,7 +86,7 @@ Now we can overlay the points on the provincial boundary dataset:
 
 ```{r overlay, fig.height=4, fig.width=6, warning=FALSE}
 plot(st_geometry(bc_bound_data))
-plot(spp["spp_present"], expandBB = rep(0.2, 4), graticule = TRUE, add = TRUE)
+plot(spp["spp_present"], add = TRUE)
 ```
 
 Now we want to know what ecoregion of the province each of these observations
