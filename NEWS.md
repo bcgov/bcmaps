@@ -1,5 +1,24 @@
 # bcmaps (development version)
 
+* Added a `pkgdown` site for `bcmaps`, and shifted detailed user documentation from the `README` to a Get Started with `bcmaps` article (vignette)
+
+# bcmaps 1.2.0
+
+## Deprecation of `sp` and `raster` support
+
+We've started the process of removing support for the `sp` and `raster` packages, 
+especially those parts of that require 
+the use of the `rgdal` and `rgeos` packages, which will be retired in October 2023. See the [r-spatial blog](https://r-spatial.org/r/2022/04/12/evolution.html) for details of this evolution. We will fully remove
+support for `Spatial` classes (from package `sp`) in the next release in Summer 2023.
+
+* Added deprecation warnings for the `class` argument in all of the data download functions: `get_layer()` and all of the wrapper shortcuts such as `bc_bound()`, `census_tract()`, etc. This argument will be removed in the next version of `bcmaps` as these functions will only return `sf` objects.
+* The `Spatial` method of `transform_bc_albers()` is deprecated.
+* `fix_geo_problems()` is deprecated and will be removed completely in Summer 2023. 
+For `sf` objects simply use `sf::st_make_valid()`
+* `self_union()` is deprecated and will be removed in Summer 2023. Use `raster::union()` 
+for `SpatialPolygonsDataFrame`s, or `sf::st_union()` with `sf` objects instead.
+* `get_poly_attribute()` is deprecated because it had a very niche application for calculating attributes on a `SpatialPolygonsDataFrame`, which we are removing support for. It will be removed completely in Summer 2023.
+
 # bcmaps 1.1.0
 
 * `bec` and `tsa` layers are now downloaded directly from the BC Data Catalogue. This ensures that these are up-to-date and means that we do not rely on the manual updating of these layers at  https://github.com/bcgov/bcmapsdata. (#62, #115)
