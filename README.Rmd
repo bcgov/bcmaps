@@ -28,18 +28,13 @@ ggplot2::theme_set(ggplot2::theme_minimal())
 <!-- badges: end -->
 
 
-
-## Overview
-
 An [R](https://www.r-project.org) package of spatial map layers for British Columbia.
 
-## Features
-
-Provides access to various spatial layers of British Columbia, such as 
+`bcmaps` provides access to various spatial layers of British Columbia, such as 
 administrative boundaries, natural resource management boundaries, watercourses, census boundaries, etc. All layers are available as `sf` objects in the
 [BC Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/) projection, which is the B.C. Government standard. 
 
-Most layers are assessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package. See each layers individual help file for more detail.
+Most layers are assessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package under the hood. See each layers individual help file for more detail.
 
 
 > _**IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use `sf` objects with {bcmaps}._ A discussion on the evolution of the spatial software stack in R can be found here: https://r-spatial.org/r/2022/04/12/evolution.html. 
@@ -60,7 +55,7 @@ install.packages("remotes")
 remotes::install_github("bcgov/bcmaps")
 ```
 
-## Usage
+## Quick Start
 
 To see the layers that are available, run the `available_layers()` function:
 
@@ -73,10 +68,8 @@ library(bcmaps)
 available_layers()
 ```
 
-Most layers are accessible by a shortcut function by the same name as the object. 
-Then you can use the data as you would any `sf` object. The first time
-you run try to access a layer, you will be prompted for permission to download that layer
-to your hard drive. Subsequently that layer is available locally for easy future access. For example:
+Most layers are accessible by a shortcut function by the same name as the object.
+Then you can use the data as you would any `sf` object.
 
 ```{r}
 library(sf)
@@ -85,102 +78,13 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-### Simple Features objects
 
-By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
+## Vignettes
 
-```{r plot-maps, fig.height=5, warning=FALSE}
-library(bcmaps)
-library(sf)
+[Getting Started with `bcmaps`](https://bcgov.github.io/bcmaps/articles/bcmaps.html)  
+[Working with bcmaps layers with point location data](https://bcgov.github.io/bcmaps/articles/add_points.html)
 
-# Load and plot the boundaries of B.C.
-
-bc <- bc_bound()
-plot(st_geometry(bc))
-
-## Next load the Regional Districts data, then extract and plot the Kootenays
-rd <- regional_districts()
-kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
-plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
-```
-
-### Digital Elevation Model for British Columbia 1:250,000 
-
-The `cded_raster` and `cded_stars` functions return the 1:250,000 digital elevation model for British Columbia bounded by some area of interest. Here we are retrieving the area bounded by the _Logan Lake_ census subdivision:
-
-```{r cded}
-library(raster)
-
-aoi <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Logan Lake", ]
-aoi_raster <- cded_raster(aoi)
-plot(aoi_raster)
-```
-
-### It's a beautiful day in the neighbourhood
-
-A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name. This example also illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/) package to plot maps in R using `geom_sf`:
-
-```{r bc_neighbours}
-library(ggplot2)
-ggplot() + 
-  geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
-  geom_sf(data = bc_cities()) +
-  coord_sf(datum = NA) +
-  scale_fill_viridis_d(name = "Jurisdiction") +
-  theme_minimal()
-```
-
-
-### Biogeoclimatic Zones
-
-As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem Classification) map
-is available via the `bec()` function, and an accompanying function `bec_colours()` 
-function to colour it:
-
-```{r include=FALSE}
-bec <- bec(ask = FALSE)
-```
-
-```{r bec, message=FALSE}
-bec <- bec()
-library(ggplot2)
-bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
-ggplot() +
-  geom_sf(data = bec_sub,
-          aes(fill = ZONE, col = ZONE)) +
-  scale_fill_manual(values = bec_colors()) +
-  scale_colour_manual(values = bec_colours())
-```
-
-
-### Updating layers
-
-When you first call a layer function `bcmaps` will remind you when that layer was last updated in your cache with a message. For a number of reasons, it might be necessary to get a fresh layer in your `bcmaps` cache. The easiest way to update is to use the `force` argument:
-
-```{r, eval=FALSE}
-ep <- ecoprovinces(force = TRUE)
-```
-
-Another option is to actively manage your cache by deleting the old layer and calling the function again:
-
-```{r, eval=FALSE}
-delete_cache('ecoprovinces')
-ep <- ecoprovinces()
-```
-
-
-### Vignettes
-
-After installing the package you can view vignettes by typing `browseVignettes("bcmaps")` in your R session.
-
-### Utility Functions
-
-The package also contains a couple of handy utility functions:
-
-- `fix_geo_problems()` for fixing invalid topologies in `sf` objects 
-such as orphaned holes and self-intersections
-- `transform_bc_albers()` for transforming any `sf` object to 
-[BC Albers](https://epsg.io/3005) projection
+You can also view vignettes by typing `browseVignettes("bcmaps")` in your R session after you install `bcmaps`.
 
 
 ## Getting Help or Reporting an Issue
