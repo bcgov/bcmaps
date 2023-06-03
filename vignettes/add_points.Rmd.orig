@@ -50,7 +50,7 @@ spp <- data.frame(site_num = LETTERS[1:10], spp_present = sample(c("yes", "no"),
 head(spp)
 ```
 
-Next we convert this to a `SpatialPointsDataFrame` using the `sf` package:
+Next we convert this to an `sf` points layer using the `sf` package:
 
 ```{r convert, warning=FALSE}
 spp <- st_as_sf(spp, coords = c("long", "lat"))
