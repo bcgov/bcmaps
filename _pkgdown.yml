@@ -2,5 +2,5 @@ url: http://bcgov.github.io/bcmaps/
 template:
   bootstrap: 5
 development:
-  mode: auto
+  mode: release
 
