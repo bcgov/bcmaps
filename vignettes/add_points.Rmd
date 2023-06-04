@@ -14,7 +14,7 @@ vignette: >
 
 
 
-We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitude pairs into a `SpatialPointsDataFrame`, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.
+We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitude pairs into an `sf` points layer, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.
 
 For this example, say we have done surveys for a species across B.C., and we want to be able to add the presences and absences to a map of British Columbia.
 
@@ -22,7 +22,6 @@ First, load the packages we will need:
 
 - `sf` for working with spatial layers in the *simple features* format
 - `bcmaps` for accessing spatial files of B.C.
-- `ggplot2` for plotting
 
 
 ```r
@@ -74,12 +73,12 @@ spp <- st_set_crs(spp, 4326)
 
 All of the maps in the `bcmaps` package are in BC Albers projection ([EPSG:3005](https://epsg.io/3005)), which is the B.C. government standard. It is an 'equal area' projection, meaning that the size of areas is not distorted, and thus is suitable for analyses on large areas.
 
-If we look at the `proj4string` for `bc_bound` and our `spp_df`, we see that they are different:
+If we look at the `proj4string` for `bc_bound_layer` and our `spp_df`, we see that they are different:
 
 
 ```r
-bc_bound_data <- bc_bound()
-st_crs(bc_bound_data)
+bc_bound_layer <- bc_bound()
+st_crs(bc_bound_layer)
 #> Coordinate Reference System:
 #>   User input: NAD83 / BC Albers 
 #>   wkt:
@@ -156,7 +155,7 @@ st_crs(spp)
 #>     ID["EPSG",4326]]
 ```
 
-So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound_data`:
+So let's transform the dataframe of species presence/absences into the same CRS as `bc_bound_layer`:
 
 
 ```r
@@ -167,14 +166,14 @@ Now we can overlay the points on the provincial boundary dataset:
 
 
 ```r
-plot(st_geometry(bc_bound_data))
+plot(st_geometry(bc_bound_layer))
 plot(spp["spp_present"], add = TRUE)
 ```
 
 <img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%" />
 
 Now we want to know what ecoregion of the province each of these observations
-was in. We can use the `ecoregions` data from bcmaps, and the `st_join` function
+was in. We can use the `ecoregions` data from `bcmaps`, and the `st_join` function
 from the `sf` package to extract ecoregions from the point data and add that information:
 
 
