@@ -84,8 +84,8 @@ spp <- transform_bc_albers(spp)
 Now we can overlay the points on the provincial boundary dataset:
 
 ```{r overlay, fig.height=4, fig.width=6, warning=FALSE}
-plot(st_geometry(bc_bound_layer))
-plot(spp["spp_present"], add = TRUE)
+plot(spp["spp_present"], graticule = TRUE, reset = FALSE)
+plot(st_geometry(bc_bound_layer), add = TRUE)
 ```
 
 Now we want to know what ecoregion of the province each of these observations
