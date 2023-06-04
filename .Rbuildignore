@@ -13,3 +13,6 @@ CONTRIBUTING.md
 ^data-raw$
 ^revdep$
 ^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

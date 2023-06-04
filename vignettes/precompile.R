@@ -43,3 +43,7 @@ if (!all(success)) {
 } else {
   unlink(images)
 }
+
+## precompile interactively, and then run the script to mv .png files
+# knitr::knit("vignettes/bcmaps.Rmd.orig",
+# output = "vignettes/bcmaps.Rmd")

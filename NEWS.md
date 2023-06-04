@@ -1,5 +1,9 @@
 # bcmaps (development version)
 
+* Added a `pkgdown` site for `bcmaps` https://bcgov.github.io/bcmaps/ (#63)
+* Moved the detailed user documentation from the `README` to a Get Started with `bcmaps` article/vignette (#42)
+* Better documentation for `bc_bound_hres()` (#124)
+
 # bcmaps 1.2.0
 
 ## Deprecation of `sp` and `raster` support

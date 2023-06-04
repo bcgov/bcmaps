@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file and re-knit-->
 
-# bcmaps <img src="tools/readme/bcmaps-sticker.png" height="139" align="right"/>
+# bcmaps <img src="man/figures/logo.png" height="139" align="right"/>
 
 <!-- badges: start -->
 
@@ -14,24 +14,20 @@ status](https://github.com/bcgov/bcmaps/workflows/R-CMD-check/badge.svg)](https:
 Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps)
 <!-- badges: end -->
 
-## Overview
-
 An [R](https://www.r-project.org) package of spatial map layers for
 British Columbia.
 
-## Features
-
-Provides access to various spatial layers of British Columbia, such as
-administrative boundaries, natural resource management boundaries,
-watercourses, census boundaries, etc. All layers are available as `sf`
-objects in the [BC
+`bcmaps` provides access to various spatial layers of British Columbia,
+such as administrative boundaries, natural resource management
+boundaries, watercourses, census boundaries, etc. All layers are
+available as `sf` objects in the [BC
 Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/)
 projection, which is the B.C. Government standard.
 
-Most layers are assessed directly from the [B.C. Data
+Most layers are accessed directly from the [B.C. Data
 Catalogue](https://catalogue.data.gov.bc.ca/) using the
-[bcdata](https://github.com/bcgov/bcdata) R package. See each layers
-individual help file for more detail.
+[bcdata](https://github.com/bcgov/bcdata) R package under the hood. See
+each layer’s individual help file for more detail.
 
 > ***IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated
 > in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use
@@ -55,7 +51,7 @@ install.packages("remotes")
 remotes::install_github("bcgov/bcmaps")
 ```
 
-## Usage
+## Quick Start
 
 To see the layers that are available, run the `available_layers()`
 function:
@@ -66,10 +62,7 @@ available_layers()
 ```
 
 Most layers are accessible by a shortcut function by the same name as
-the object. Then you can use the data as you would any `sf` object. The
-first time you run try to access a layer, you will be prompted for
-permission to download that layer to your hard drive. Subsequently that
-layer is available locally for easy future access. For example:
+the object. Then you can use the data as you would any `sf` object.
 
 ``` r
 library(sf)
@@ -78,117 +71,17 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](tools/readme/unnamed-chunk-6-1.png)<!-- -->
+![](man/figures/unnamed-chunk-6-1.png)<!-- -->
 
-### Simple Features objects
+## Vignettes
 
-By default, all layers are returned as [`sf` spatial
-objects](https://cran.r-project.org/package=sf):
+[Getting Started with
+`bcmaps`](https://bcgov.github.io/bcmaps/articles/bcmaps.html)  
+[Working with `bcmaps` layers and point
+data](https://bcgov.github.io/bcmaps/articles/add_points.html)
 
-``` r
-library(bcmaps)
-library(sf)
-
-# Load and plot the boundaries of B.C.
-
-bc <- bc_bound()
-plot(st_geometry(bc))
-
-## Next load the Regional Districts data, then extract and plot the Kootenays
-rd <- regional_districts()
-kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
-plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
-```
-
-![](tools/readme/plot-maps-1.png)<!-- -->
-
-### Digital Elevation Model for British Columbia 1:250,000
-
-The `cded_raster` and `cded_stars` functions return the 1:250,000
-digital elevation model for British Columbia bounded by some area of
-interest. Here we are retrieving the area bounded by the *Logan Lake*
-census subdivision:
-
-``` r
-library(raster)
-
-aoi <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Logan Lake", ]
-aoi_raster <- cded_raster(aoi)
-plot(aoi_raster)
-```
-
-![](tools/readme/cded-1.png)<!-- -->
-
-### It’s a beautiful day in the neighbourhood
-
-A handy layer for creating maps for display is the `bc_neighbours`
-layer, accessible with the function by the same name. This example also
-illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/)
-package to plot maps in R using `geom_sf`:
-
-``` r
-library(ggplot2)
-ggplot() + 
-  geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) + 
-  geom_sf(data = bc_cities()) +
-  coord_sf(datum = NA) +
-  scale_fill_viridis_d(name = "Jurisdiction") +
-  theme_minimal()
-```
-
-![](tools/readme/bc_neighbours-1.png)<!-- -->
-
-### Biogeoclimatic Zones
-
-As of version 0.15.0 the B.C. BEC (Biogeoclimatic Ecosystem
-Classification) map is available via the `bec()` function, and an
-accompanying function `bec_colours()` function to colour it:
-
-``` r
-bec <- bec()
-library(ggplot2)
-bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
-ggplot() +
-  geom_sf(data = bec_sub,
-          aes(fill = ZONE, col = ZONE)) +
-  scale_fill_manual(values = bec_colors()) +
-  scale_colour_manual(values = bec_colours())
-```
-
-![](tools/readme/bec-1.png)<!-- -->
-
-### Updating layers
-
-When you first call a layer function `bcmaps` will remind you when that
-layer was last updated in your cache with a message. For a number of
-reasons, it might be necessary to get a fresh layer in your `bcmaps`
-cache. The easiest way to update is to use the `force` argument:
-
-``` r
-ep <- ecoprovinces(force = TRUE)
-```
-
-Another option is to actively manage your cache by deleting the old
-layer and calling the function again:
-
-``` r
-delete_cache('ecoprovinces')
-ep <- ecoprovinces()
-```
-
-### Vignettes
-
-After installing the package you can view vignettes by typing
-`browseVignettes("bcmaps")` in your R session.
-
-### Utility Functions
-
-The package also contains a couple of handy utility functions:
-
-- `fix_geo_problems()` for fixing invalid topologies in `sf` objects
-  such as orphaned holes and self-intersections
-- `transform_bc_albers()` for transforming any `sf` object to [BC
-  Albers](https://epsg.io/3005) projection
+You can also view vignettes by typing `browseVignettes("bcmaps")` in
+your R session after you install `bcmaps`.
 
 ## Getting Help or Reporting an Issue
 
@@ -209,8 +102,8 @@ By participating in this project you agree to abide by its terms.
 ## Source Data
 
 The source datasets used in this package come from various sources under
-open licences, including [DataBC](https://data.gov.bc.ca) ([Open
-Government Licence - British
+open licences, including the [B.C. Data
+Catalalogue](https://data.gov.bc.ca) ([Open Government Licence - British
 Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics
 Canada Open Licence
