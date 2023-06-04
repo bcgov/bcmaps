@@ -84,8 +84,8 @@ plot(st_geometry(bc))
 
 There are two British Columbia boundary map layers available in `bcmaps`:
 
-- `bc_bound()` for fast plotting with suitable detail for most figures (layer sourced from [(7.5M) Provinces and States - The Atlas of Canada Base Maps for BC](https://catalogue.data.gov.bc.ca/dataset/b9bd93e1-0226-4351-b943-05c6f80bd5da))
-- `bc_bound_hres()` for geospatial analyses requiring detailed lineworks of British Columbia (sourced from [Province of British Columbia - Boundary Terrestrial](https://catalogue.data.gov.bc.ca/dataset/30aeb5c1-4285-46c8-b60b-15b1a6f4258b))
+- `bc_bound()` for fast plotting with suitable detail for most figures (source: [(7.5M) Provinces and States - The Atlas of Canada Base Maps for BC](https://catalogue.data.gov.bc.ca/dataset/b9bd93e1-0226-4351-b943-05c6f80bd5da))
+- `bc_bound_hres()` for geospatial analyses requiring detailed lineworks of British Columbia (source: [Province of British Columbia - Boundary Terrestrial](https://catalogue.data.gov.bc.ca/dataset/30aeb5c1-4285-46c8-b60b-15b1a6f4258b))
 
 ### Simple Features objects
 
