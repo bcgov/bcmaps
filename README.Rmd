@@ -100,7 +100,7 @@ If you would like to contribute to the package, please see our
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Source Data
-The source datasets used in this package come from various sources under open licences, including [DataBC](https://data.gov.bc.ca) ([Open Government Licence - British Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics Canada Open Licence Agreement](https://www.statcan.gc.ca/en/reference/licence)). See the `data-raw` folder for details on each source dataset.
+The source datasets used in this package come from various sources under open licences, including the [B.C. Data Catalalogue](https://data.gov.bc.ca) ([Open Government Licence - British Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics Canada Open Licence Agreement](https://www.statcan.gc.ca/en/reference/licence)). See the `data-raw` folder for details on each source dataset.
 
 ## Licence
 
