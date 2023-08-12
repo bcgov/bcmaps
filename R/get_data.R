@@ -137,14 +137,21 @@ get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TR
   layers_df <- shortcut_layers()
 
   if (!file.exists(fpath) | force) {
-    check_write_to_data_dir(dir, ask)
+  check_write_to_data_dir(dir, ask)
     recordid <- layers_df$record[layers_df$layer_name == what]
     resourceid <- layers_df$resource[layers_df$layer_name == what]
     ret <- bcdata::bcdc_get_data(recordid, resourceid)
     class(ret) <- setdiff(class(ret), 'bcdc_sf')
-    ret <- sf::st_transform(ret, 'EPSG:3005')
-    ret <- sf::st_make_valid(ret)
-    saveRDS(ret, fpath)
+    if (nzchar(Sys.getenv("MAKEVALID_BEFORE_TRANSFORM"))) {
+      message("trying the reverse thing")
+      ret <- sf::st_make_valid(ret)
+      ret <- sf::st_transform(ret, 'EPSG:3005')
+    } else {
+      message("original order")
+      ret <- sf::st_transform(ret, 'EPSG:3005')
+      ret <- sf::st_make_valid(ret)
+    }
+  saveRDS(ret, fpath)
   } else {
     ret <- readRDS(fpath)
     time <- attributes(ret)$time_downloaded
