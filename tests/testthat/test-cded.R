@@ -140,10 +140,6 @@ if (require("raster") && require("stars")) {
   skip_if_offline()
 
   pol1 <- mapsheets_50K()[1,]
-  pol2 <- withr::with_options(
-    list(lifecycle_verbosity = "quiet"),
-    mapsheets_50K(class = "sp")[1,]
-  )
   r <- raster(mapsheets_50K()[1,])
   s <- st_as_stars(r)
   bound_box <- st_bbox(s)
@@ -152,7 +148,6 @@ if (require("raster") && require("stars")) {
     expect_is(cded_raster(r), "RasterLayer")
     expect_is(cded_raster(s), "RasterLayer")
     expect_is(cded_raster(pol1), "RasterLayer")
-    expect_is(cded_raster(pol2), "RasterLayer")
     expect_is(cded_raster(bound_box), "RasterLayer")
   })
 
@@ -160,7 +155,6 @@ if (require("raster") && require("stars")) {
     expect_is(cded_stars(r), "stars")
     expect_is(cded_stars(s), "stars")
     expect_is(cded_stars(pol1), "stars")
-    expect_is(cded_stars(pol2), "stars")
     expect_is(cded_stars(bound_box), "stars")
   })
 
