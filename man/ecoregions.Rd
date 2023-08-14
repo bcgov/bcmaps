@@ -7,19 +7,15 @@
 \code{bcdata::bcdc_get_data(record = 'd00389e0-66da-4895-bd56-39a0dd64aa78', resource = 'bd816a86-4f5e-4989-b1df-0b2f3f4a5f86')}
 }
 \usage{
-ecoregions(class = deprecated(), ask = interactive(), force = FALSE)
+ecoregions(ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
-
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
 \item{force}{Should you force download the data?}
 }
 \value{
-The spatial layer of \code{ecoregions} in the desired class
+The spatial layer of \code{ecoregions} as an \code{sf} object.
 }
 \description{
 British Columbia Ecoregions

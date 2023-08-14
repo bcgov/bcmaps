@@ -7,19 +7,15 @@
 \code{bcdata::bcdc_get_data(record = '92cb3ad8-9582-48a9-9e79-9a9d33601e50', resource = '07f9aa3f-0b66-4a49-919f-332d12bcd8f0')}
 }
 \usage{
-water_districts(class = deprecated(), ask = interactive(), force = FALSE)
+water_districts(ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
-
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
 \item{force}{Should you force download the data?}
 }
 \value{
-The spatial layer of \code{water_districts} in the desired class
+The spatial layer of \code{water_districts} as an \code{sf} object.
 }
 \description{
 British Columbia's Water Management Districts

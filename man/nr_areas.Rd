@@ -7,19 +7,15 @@
 \code{bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')}
 }
 \usage{
-nr_areas(class = deprecated(), ask = interactive(), force = FALSE)
+nr_areas(ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
-
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
 \item{force}{Should you force download the data?}
 }
 \value{
-The spatial layer of \code{nr_areas} in the desired class
+The spatial layer of \code{nr_areas} as an \code{sf} object.
 }
 \description{
 British Columbia Natural Resource (NR) Areas

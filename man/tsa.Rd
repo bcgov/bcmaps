@@ -7,19 +7,15 @@
 \code{bcdata::bcdc_get_data(record = '8daa29da-d7f4-401c-83ae-d962e3a28980', resource = '6851f8a6-77b9-4555-9f60-3d2bd8e039be')}
 }
 \usage{
-tsa(class = deprecated(), ask = interactive(), force = FALSE)
+tsa(ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
-
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
 \item{force}{Should you force download the data?}
 }
 \value{
-The spatial layer of \code{tsa} in the desired class
+The spatial layer of \code{tsa} as an \code{sf} object.
 }
 \description{
 British Columbia Timber Supply Areas and TSA Blocks

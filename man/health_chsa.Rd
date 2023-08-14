@@ -7,19 +7,15 @@
 \code{bcdata::bcdc_get_data(record = '68f2f577-28a7-46b4-bca9-7e9770f2f357', resource = '59065b51-511a-4976-b77f-034168365273')}
 }
 \usage{
-health_chsa(class = deprecated(), ask = interactive(), force = FALSE)
+health_chsa(ask = interactive(), force = FALSE)
 }
 \arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
-
 \item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
 
 \item{force}{Should you force download the data?}
 }
 \value{
-The spatial layer of \code{health_chsa} in the desired class
+The spatial layer of \code{health_chsa} as an \code{sf} object.
 }
 \description{
 Community Health Service Areas - CHSA

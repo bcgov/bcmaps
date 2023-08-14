@@ -4,12 +4,7 @@
 \alias{combine_nr_rd}
 \title{Combine Northern Rockies Regional Municipality with Regional Districts}
 \usage{
-combine_nr_rd(class = deprecated())
-}
-\arguments{
-\item{class}{what class you want the object in? \code{"sf"} (default) or \code{"sp"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
-The \code{class} argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an \code{sf} object.}
+combine_nr_rd()
 }
 \value{
 A layer where the Northern Rockies Regional Municipality has been
