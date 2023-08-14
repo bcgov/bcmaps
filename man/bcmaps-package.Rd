@@ -14,6 +14,7 @@ Various layers of B.C., including administrative boundaries, natural resource ma
 Useful links:
 \itemize{
   \item \url{https://github.com/bcgov/bcmaps}
+  \item \url{http://bcgov.github.io/bcmaps/}
   \item Report bugs at \url{https://github.com/bcgov/bcmaps/issues}
 }
 
