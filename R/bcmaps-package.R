@@ -18,6 +18,5 @@
 #' @importFrom utils download.file unzip
 
 ## usethis namespace: start
-#' @importFrom lifecycle deprecated
 ## usethis namespace: end
 NULL

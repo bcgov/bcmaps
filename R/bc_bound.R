@@ -12,16 +12,10 @@
 
 #' BC Boundary - High Resolution
 #'
-#'
-#' @param class what class you want the object in? `"sf"` (default) or `"sp"`. `r lifecycle::badge('deprecated')`.
-#' The `class` argument
-#' is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an `sf` object.
-#'
 #' @param ask Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().
 #' @param force Should you force download the data?
 #'
-#' @return The spatial layer of `bc_bound_hres` in the desired class
-#'
+#' @return The spatial layer of `bc_bound_hres` as an `sf` object
 #'
 #' @examples
 #' \dontrun{
@@ -33,12 +27,7 @@
 #'          layer = 'BC_Boundary_Terrestrial_Multipart')`
 #'
 #' @export
-bc_bound_hres <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::bc_bound_hres(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
+bc_bound_hres <- function(ask = interactive(), force = FALSE) {
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_bound_hres.rds")
@@ -55,10 +44,8 @@ bc_bound_hres <- function(class = deprecated(), ask = interactive(), force = FAL
     time <- attributes(ret)$time_downloaded
     update_message_once(paste0('bc_bound_hres was updated on ', format(time, "%Y-%m-%d")))
   }
-  if (class == "sp") ret <- convert_to_sp(ret)
 
   ret
-
 }
 
 
@@ -66,7 +53,7 @@ bc_bound_hres <- function(class = deprecated(), ask = interactive(), force = FAL
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `bc_bound` in the desired class
+#' @return The spatial layer of `bc_bound` as an `sf` object
 #'
 #' @source `bcdata::bcdc_get_data('b9bd93e1-0226-4351-b943-05c6f80bd5da')`
 #'
@@ -76,12 +63,7 @@ bc_bound_hres <- function(class = deprecated(), ask = interactive(), force = FAL
 #' }
 #'
 #' @export
-bc_bound <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::bc_bound(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
+bc_bound <- function(ask = interactive(), force = FALSE) {
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_bound.rds")
@@ -99,8 +81,6 @@ bc_bound <- function(class = deprecated(), ask = interactive(), force = FALSE) {
     update_message_once(paste0('bc_bound_hres was updated on ', format(time, "%Y-%m-%d")))
   }
 
-  if (class == "sp") ret <- convert_to_sp(ret)
-
   ret
 }
 
@@ -110,7 +90,7 @@ bc_bound <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `bc_neighbours` in the desired class
+#' @return The spatial layer of `bc_neighbours` as an `sf` object
 #'
 #'
 #' @source `bcdata::bcdc_get_data('b9bd93e1-0226-4351-b943-05c6f80bd5da')`
@@ -121,12 +101,7 @@ bc_bound <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-bc_neighbours <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::bc_neighbours(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
+bc_neighbours <- function(ask = interactive(), force = FALSE) {
 
   dir <- data_dir()
   fpath <- file.path(dir, "bc_neighbours.rds")
@@ -176,8 +151,5 @@ bc_neighbours <- function(class = deprecated(), ask = interactive(), force = FAL
     update_message_once(paste0('bc_neighbours was updated on ', format(time, "%Y-%m-%d")))
   }
 
-  if (class == "sp") ret <- convert_to_sp(ret)
-
   ret
-
 }

@@ -37,8 +37,7 @@ Imports:
     utils,
     xml2,
     jsonlite (>= 1.7.0),
-    lifecycle (>= 1.0.3),
-    rlang
+    lifecycle (>= 1.0.3)
 Suggests: 
     knitr,
     rmarkdown,
@@ -47,8 +46,6 @@ Suggests:
     ggplot2 (>= 3.0),
     glue (>= 1.1.1),
     raster (>= 3.6-3),
-    rgdal (>= 1.2-13),
-    rgeos (>= 0.3-25),
     sp (>= 1.2-5),
     lwgeom (>= 0.2-2),
     testthat (>= 2.1.0),

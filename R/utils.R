@@ -59,33 +59,14 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
-#' The `Spatial` method has been deprecated as of bcmaps 1.2.0 because `sp` is being superseded by `sf`,
-#' and will be removed in Summer 2023. The `sf` method is here to stay.
+#' The `Spatial` method has been removed as of bcmaps 1.3.0. The `sf` method is here to stay.
 #'
-#' @param obj The Spatial* or sf object to transform. `r lifecycle::badge('deprecated')`
-#' Support for `sp` Spatial objects are deprecated.
+#' @param obj The sf object to transform.
 #'
-#' @return the Spatial* or sf object in BC Albers projection
+#' @return the sf object in BC Albers projection
 #' @export
 transform_bc_albers <- function(obj) {
   UseMethod("transform_bc_albers")
-}
-
-#' @export
-transform_bc_albers.Spatial <- function(obj) {
-
-  lifecycle::deprecate_warn(
-    "1.2.0",
-    "transform_bc_albers.Spatial()",
-    "transform_bc_albers.sf()",
-    details = "bcmaps will be dropping support for Spatial objects in Summer 2023."
-  )
-
-  if (!requireNamespace("rgdal", quietly = TRUE)) {
-    stop("Package rgdal could not be loaded", call. = FALSE)
-  }
-
-  sp::spTransform(obj, sp::CRS("+init=epsg:3005"))
 }
 
 #' @export
@@ -95,216 +76,6 @@ transform_bc_albers.sf <- function(obj) {
 
 #' @export
 transform_bc_albers.sfc <- transform_bc_albers.sf
-
-#' Check and fix polygons that self-intersect, and sometimes can fix orphan holes
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`.
-#'
-#' This function is deprecated as of bcmaps 1.2.0 because it relies on `rgeos`
-#' for operations on `Spatial` objects, which is being retired. It will be removed
-#' completely in Summer 2023.
-#' For `sf` objects simply use `sf::st_make_valid()`
-#'
-#' @param obj The SpatialPolygons* or sf object to check/fix.
-#' @param tries The maximum number of attempts to repair the geometry. Ignored for `sf` objects.
-#'
-#' @return The `SpatialPolygons*` or `sf` object, repaired if necessary
-#' @keywords internal
-#' @export
-fix_geo_problems <- function(obj, tries = 5) {
-  UseMethod("fix_geo_problems")
-}
-
-#' @export
-fix_geo_problems.Spatial <- function(obj, tries = 5) {
-
-  lifecycle::deprecate_warn(
-    "1.2.0",
-    "fix_geo_problems.Spatial()",
-    "sf::st_make_valid()",
-    details = "This function requires rgeos which is being retired by its maintainers. The `Spatial` method will be removed in Summer 2023."
-  )
-
-  if (!requireNamespace("rgeos", quietly = TRUE)) {
-    stop("Package rgeos required but not available", call. = FALSE)
-  }
-
-  is_valid <- suppressWarnings(rgeos::gIsValid(obj))
-
-  if (is_valid) {
-    message("Geometry is valid")
-    return(obj)
-  }
-
-  ## If not valid, repair. Try max tries times
-  i <- 1L
-  message("Problems found - Attempting to repair...")
-  while (i <= tries) {
-    message("Attempt ", i, " of ", tries)
-    obj <- rgeos::gBuffer(obj, byid = TRUE, width = 0)
-    is_valid <- suppressWarnings(rgeos::gIsValid(obj))
-    if (is_valid) {
-      message("Geometry is valid")
-      return(obj)
-    } else {
-      i <- i + 1
-    }
-  }
-  warning("Tried ", tries, " times but could not repair geometry")
-  obj
-}
-
-#' @export
-fix_geo_problems.sf <- function(obj, tries = 5) {
-
-  lifecycle::deprecate_warn(
-    "1.2.0",
-    "fix_geo_problems()",
-    "sf::st_make_valid()"
-  )
-
-  ## Check if the overall geomtry is valid, if it is, exit and return input
-  is_valid <- suppressWarnings(suppressMessages(sf::st_is_valid(obj)))
-
-  if (all(is_valid)) {
-    message("Geometry is valid")
-    return(obj)
-  }
-
-  message("Problems found - Attempting to repair...")
-
-  make_valid(obj)
-}
-
-#' @export
-fix_geo_problems.sfc <- fix_geo_problems.sf
-
-#' Union a SpatialPolygons* object with itself to remove overlaps, while retaining attributes
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`
-#'
-#' This function is deprecated as of bcmaps 1.2.0, and will be removed in Summer 2023.
-#' Use `raster::union()` for `SpatialPolygonsDataFrame`s, or
-#' `sf::st_union()` with `sf` objects instead.
-#'
-#' The IDs of source polygons are stored in a list-column called
-#' `union_ids`, and original attributes (if present) are stored as nested
-#' dataframes in a list-column called `union_df`.
-#'
-#' @param x A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
-#'
-#' @return A `SpatialPolygons` or `SpatialPolygonsDataFrame` object
-#'
-#' @keywords internal
-#' @export
-self_union <- function(x) {
-  if (!inherits(x, "SpatialPolygons")) {
-    stop("x must be a SpatialPolygons or SpatialPolygonsDataFrame")
-  }
-
-  if (!requireNamespace("raster", quietly = TRUE)) {
-    stop("Package raster could not be loaded", call. = FALSE)
-  }
-
-  lifecycle::deprecate_warn(
-    "1.2.0",
-    "self_union()",
-    "sf::st_union()",
-    details = "This function requires rgeos which is being retired by its maintainers. The `Spatial` method will be removed in Summer 2023."
-  )
-
-  unioned <- raster::union(x)
-  unioned$union_ids <- get_unioned_ids(unioned)
-
-  export_cols <- c("union_count", "union_ids")
-
-  if (inherits(x, "SpatialPolygonsDataFrame")) {
-    unioned$union_df <- lapply(unioned$union_ids, function(y) x@data[y, ])
-    export_cols <- c(export_cols, "union_df")
-  }
-
-  names(unioned)[names(unioned) == "count"] <- "union_count"
-  unioned[, export_cols]
-}
-
-## For each new polygon in a SpatialPolygonsDataFrame that has been unioned with
-## itself (raster::union(SPDF, missing)), get the original polygon ids that
-## compose it
-get_unioned_ids <- function(unioned_sp) {
-  id_cols <- grep("^ID\\.", names(unioned_sp@data))
-  unioned_sp_data <- as.matrix(unioned_sp@data[, id_cols])
-  colnames(unioned_sp_data) <- gsub("ID\\.", "", colnames(unioned_sp_data))
-
-  unioned_ids <- apply(unioned_sp_data, 1, function(i) {
-    as.numeric(colnames(unioned_sp_data)[i > 0])
-  })
-
-  names(unioned_ids) <- rownames(unioned_sp_data)
-  unioned_ids
-}
-
-#' Get or calculate the attribute of a list-column containing nested dataframes.
-#'
-#' @description
-#' `r lifecycle::badge("deprecated")`
-#'
-#' This function is deprecated as of bcmaps 1.2.0 because it had a very niche application for
-#' calculating attributes on a `SpatialPolygonsDataFrame`, which we are removing
-#' support for. It will be removed completely in Summer 2023.
-#'
-#' For example, `self_union` produces a `SpatialPolygonsDataFrame`
-#' that has a column called `union_df`, which contains a `data.frame`
-#' for each polygon with the attributes from the constituent polygons.
-#'
-#' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
-#' @param col the column in the nested data frames from which to retrieve/calculate attributes
-#' @param fun function to determine the resulting single attribute from overlapping polygons
-#' @param ... other parameters passed on to `fun`
-#'
-#' @return An atomic vector of the same length as x
-#'
-#' @keywords internal
-#' @export
-get_poly_attribute <- function(x, col, fun, ...) {
-
-  lifecycle::deprecate_warn(
-    "1.2.0",
-    "get_poly_attribute()",
-    details = "Support for `Spatial` objects (package sp) will be dropped in Summer 2023."
-  )
-
-  if (!inherits(x, "list")) stop("x must be a list, or list-column in a data frame")
-  if (!all(vapply(x, is.data.frame, logical(1)))) stop("x must be a list of data frames")
-  if (!col %in% names(x[[1]])) stop(col, " is not a column in the data frames in x")
-  if (!is.function(fun)) stop("fun must be a function")
-
-  test_data <- x[[1]][[col]]
-
-  return_type <- get_return_type(test_data)
-
-  is_fac <- FALSE
-
-  if (return_type == "factor") {
-    is_fac <- TRUE
-    lvls <- levels(test_data)
-    ordered <- is.ordered(test_data)
-    return_type <- "integer"
-  }
-
-  fun_value <- eval(call(return_type, 1))
-
-  ret <- vapply(x, function(y) {
-    fun(y[[col]], ...)
-  }, FUN.VALUE = fun_value)
-
-  if (is_fac) {
-    ret <- factor(lvls[ret], ordered = ordered, levels = lvls)
-  }
-
-  ret
-}
 
 get_return_type <- function(x) {
   if (is.factor(x)) {
@@ -316,20 +87,12 @@ get_return_type <- function(x) {
 
 #' Combine Northern Rockies Regional Municipality with Regional Districts
 #'
-#' @inheritParams get_layer
-#'
 #' @return A layer where the Northern Rockies Regional Municipality has been
 #' combined with the Regional Districts to form a full provincial coverage.
 #' @export
-combine_nr_rd <- function(class = deprecated()) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::combine_nr_rd(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
-
-  rd <- get_layer("regional_districts", class = class)
-  mun <- get_layer("municipalities", class = class)
+combine_nr_rd <- function() {
+  rd <- get_layer("regional_districts")
+  mun <- get_layer("municipalities")
   rbind(rd, mun[mun$ADMIN_AREA_ABBREVIATION == "NRRM",])
 }
 
@@ -375,14 +138,12 @@ bec_colors <- bec_colours
 
 #' Get an extent/bounding box for British Columbia
 #'
-#' @param class `"sf"`, `"raster"`. `r lifecycle::badge("deprecated")`. `class = "sp"`
-#' is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023.
+#' @param class `"sf"`, `"raster"`.
 #' @param crs coordinate reference system: integer with the EPSG code,
 #' or character with proj4string. Default `3005` (BC Albers).
 #'
 #' @return an object denoting a bounding box of British Columbia,
-#' of the corresponding class specified in `class`. The coordinates will be
-#' in lat-long WGS84 (epsg:4326).
+#' of the corresponding class specified in `class`.
 #' @export
 #'
 #' @examples
@@ -390,18 +151,18 @@ bec_colors <- bec_colours
 #'   bc_bbox("sf")
 #'   bc_bbox("raster")
 #'   }
-bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
+bc_bbox <- function(class = c("sf", "raster"), crs = 3005) {
   class <- match.arg(class)
   if (class == "raster" && !requireNamespace("raster")) {
     stop("raster package required to make an object of class Extent")
   }
 
   if (class == "sp") {
-    lifecycle::deprecate_warn(
-      "1.2.0",
+    lifecycle::deprecate_stop(
+      "1.3.0",
       "bc_bbox(class = 'sp')",
       I("bc_bbox(class = 'sf') or bc_bbox(class = 'sf')"),
-      "Support for `Spatial` objects (package sp) will be dropped in Summer 2023."
+      drop_sp_support_message()
     )
   }
 
@@ -412,11 +173,8 @@ bc_bbox <- function(class = c("sf", "sp", "raster"), crs = 3005) {
 
   switch(class,
          sf = sf_bbox,
-         sp = structure(unname(raw_bbox), .Dim = c(2L, 2L),
-                        .Dimnames = list(c("x", "y"), c("min", "max"))),
          raster = raster::extent(unname(raw_bbox[c("xmin", "xmax", "ymin", "ymax")]))
   )
-
 }
 
 set_bc_albers <- function(x) {

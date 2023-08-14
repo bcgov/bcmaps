@@ -25,25 +25,7 @@
 #' \dontrun{
 #'  get_layer("bc_bound_hres")
 #' }
-get_layer <- function(layer, class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (!is.character(layer))
-    stop("You must refer to the map layer as a character string (in 'quotes')\n
-         Use the function available_layers() to get a list of layers")
-
-  if (lifecycle::is_present(class)) {{
-    # This is a bit convoluted but ensures that the deprecation
-    # message only gets triggered if it hasn't already been triggered
-    # by one of the shortcut functions. caller will be NULL if
-    # it's called from the global environment.
-    caller <- rlang::caller_call()
-    caller_name <- if (is.null(caller)) caller else rlang::call_name(caller)
-    if (is.null(caller_name) ||
-        !caller_name %in% c(shortcut_layer_names(), "combine_nr_rd")) {
-      deprecate_sp('bcmaps::get_layer(class)')
-    }
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }}
+get_layer <- function(layer, ask = interactive(), force = FALSE) {
 
   available <- available_layers()
 
@@ -53,15 +35,7 @@ get_layer <- function(layer, class = deprecated(), ask = interactive(), force = 
     stop(layer, " is not an available layer")
   }
 
-  ret <- get_catalogue_data(layer, ask = ask, force = force)
-
-
-  if (class == "sp") {
-    ret <- convert_to_sp(ret)
-  }
-
-  ret
-
+  get_catalogue_data(layer, ask = ask, force = force)
 }
 
 rename_sf_col_to_geometry <- function(x) {
@@ -72,13 +46,6 @@ rename_sf_col_to_geometry <- function(x) {
   attr(x, "sf_column") <- "geometry"
   x
 }
-
-convert_to_sp <- function(sf_obj) {
-  if (!requireNamespace("sf")) stop("The sf package is required to convert to sp")
-  ret <- sf::st_zm(sf_obj, drop = TRUE)
-  methods::as(ret, "Spatial")
-}
-
 
 #' List available data layers
 #'
@@ -103,7 +70,6 @@ convert_to_sp <- function(sf_obj) {
 #' @export
 
 available_layers <- function() {
-
   layers_df
   names(layers_df)[1:2] <- c("layer_name", "title")
   structure(layers_df, class = c("avail_layers", "tbl_df", "tbl", "data.frame"))

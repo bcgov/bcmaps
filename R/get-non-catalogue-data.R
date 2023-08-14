@@ -29,7 +29,7 @@ read_bc_watercourse <- function(x) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `watercourses_15M` in the desired class
+#' @return The spatial layer of `watercourses_15M` as an `sf` object.
 #'
 #' @source https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_15M_CA_Hydro_fgdb.zip
 #'
@@ -38,16 +38,10 @@ read_bc_watercourse <- function(x) {
 #' @examples
 #' \dontrun{
 #' my_layer <- watercourses_15M()
-#' my_layer_sp <- watercourses_15M(class = 'sp')
 #' }
 #'
 #' @export
-watercourses_15M <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::watercourses_15M(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
+watercourses_15M <- function(ask = interactive(), force = FALSE) {
 
   x <- 'https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_15M_CA_Hydro_fgdb.zip'
 
@@ -64,7 +58,6 @@ watercourses_15M <- function(class = deprecated(), ask = interactive(), force = 
     time <- attributes(ret)$time_downloaded
     message(paste0('watercourses_15M was updated on ', format(time, "%Y-%m-%d")))
   }
-  if (class == "sp") ret <- convert_to_sp(ret)
 
   ret
 }
@@ -73,7 +66,7 @@ watercourses_15M <- function(class = deprecated(), ask = interactive(), force = 
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `watercourses_5M` in the desired class
+#' @return The spatial layer of `watercourses_5M` as an `sf` object.
 #'
 #' @source https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_5M_CA_Hydro_fgdb.zip
 #'
@@ -82,16 +75,10 @@ watercourses_15M <- function(class = deprecated(), ask = interactive(), force = 
 #' @examples
 #' \dontrun{
 #' my_layer <- watercourses_5M()
-#' my_layer_sp <- watercourses_5M(class = 'sp')
 #' }
 #'
 #' @export
-watercourses_5M <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::watercourses_5M(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
+watercourses_5M <- function(ask = interactive(), force = FALSE) {
 
   x <- 'https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_5M_CA_Hydro_fgdb.zip'
 
@@ -108,7 +95,6 @@ watercourses_5M <- function(class = deprecated(), ask = interactive(), force = F
     time <- attributes(ret)$time_downloaded
     update_message_once(paste0('watercourses_5M was updated on ', format(time, "%Y-%m-%d")))
   }
-  if (class == "sp") ret <- convert_to_sp(ret)
 
   ret
 }
@@ -122,15 +108,9 @@ watercourses_5M <- function(class = deprecated(), ask = interactive(), force = F
 #' @examples
 #' \dontrun{
 #' my_layer <- fsa()
-#' my_layer_sp <- fsa(class = 'sp')
 #' }
 #' @export
-fsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::fsa(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
+fsa <- function(ask = interactive(), force = FALSE) {
 
   link <- 'http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfsa000b16a_e.zip'
   x <- getOption('fsa_link', default = link)
@@ -156,18 +136,13 @@ fsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
     time <- attributes(ret)$time_downloaded
     update_message_once(paste0('fsa was updated on ', format(time, "%Y-%m-%d")))
   }
-  if (class == "sp") ret <- convert_to_sp(ret)
 
   ret
-
 }
 
 #' NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
 #'
-#'
-#' @inheritParams bc_bound_hres
-#'
-#' @return The spatial layer of `mapsheets_250K` in the desired class
+#' @return The spatial layer of `mapsheets_250K` as an `sf` object.
 #'
 #' @source https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
 #'
@@ -176,33 +151,17 @@ fsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #' @examples
 #' \dontrun{
 #' my_layer <- mapsheets_250K()
-#' my_layer_sp <- mapsheets_250K(class = 'sp')
 #' }
 #'
 #' @export
-mapsheets_250K <- function(class = deprecated()) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::mapsheets_250K(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
-
-  ret <- mapsheets_250K_data
-
+mapsheets_250K <- function() {
   # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
   # in a format usable by that stack
-  ret <- set_bc_albers(ret)
-
-  if (class == "sp") ret <- convert_to_sp(ret)
-
-  ret
+  set_bc_albers(mapsheets_250K_data)
 }
 #' NTS 50K Grid - Digital Baseline Mapping at 1:50,000 (NTS)
 #'
-#'
-#' @inheritParams bc_bound_hres
-#'
-#' @return The spatial layer of `mapsheets_50K` in the desired class
+#' @return The spatial layer of `mapsheets_50K` as an `sf` object.
 #'
 #' @source https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
 #'
@@ -211,23 +170,11 @@ mapsheets_250K <- function(class = deprecated()) {
 #' @examples
 #' \dontrun{
 #' my_layer <- mapsheets_50K()
-#' my_layer_sp <- mapsheets_50K(class = 'sp')
 #' }
 #'
 #' @export
-mapsheets_50K <- function(class = deprecated()) {
-
-  if (lifecycle::is_present(class)) {
-    deprecate_sp('bcmaps::mapsheets_50K(class)')
-    class <- match.arg(class, choices = c('sf', 'sp'))
-  }
-
-  ret <- mapsheets_50K_data
+mapsheets_50K <- function() {
   # Re-assign CRS using installed sf/GDAL/PROJ stack so it is
   # in a format usable by that stack
-  ret <- set_bc_albers(ret)
-
-  if (class == "sp") ret <- convert_to_sp(ret)
-
-  ret
+  set_bc_albers(mapsheets_50K_data)
 }
