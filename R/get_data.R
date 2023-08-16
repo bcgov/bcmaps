@@ -108,8 +108,8 @@ get_catalogue_data <- function(what, release = "latest", force = FALSE, ask = TR
     resourceid <- layers_df$resource[layers_df$layer_name == what]
     ret <- bcdata::bcdc_get_data(recordid, resourceid)
     class(ret) <- setdiff(class(ret), 'bcdc_sf')
-    ret <- sf::st_transform(ret, 'EPSG:3005')
     ret <- sf::st_make_valid(ret)
+    ret <- sf::st_transform(ret, 'EPSG:3005')
     saveRDS(ret, fpath)
   } else {
     ret <- readRDS(fpath)
