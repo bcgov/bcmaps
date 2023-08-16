@@ -1,5 +1,21 @@
 # bcmaps (development version)
 
+## Removal of `sp` and `raster` support
+
+We've removed support for the `sp` and `raster` packages, 
+especially those parts of that require 
+the use of the `rgdal` and `rgeos` packages, which will be retired in October 2023. See the [r-spatial blog](https://r-spatial.org/r/2022/04/12/evolution.html) for details of this evolution.
+
+* Removed the `class` argument in all of the data download functions: `get_layer()` and all of the wrapper shortcuts such as `bc_bound()`, `census_tract()`, etc. These functions will now only return `sf` objects.
+* The `Spatial` method of `transform_bc_albers()` is removed.
+* `fix_geo_problems()` is removed. For `sf` objects simply use `sf::st_make_valid()`
+* `self_union()` is removed. Use `raster::union()` for `SpatialPolygonsDataFrame`s, or `sf::st_union()` with `sf` objects instead.
+* `get_poly_attribute()` is removed.
+* `raster_by_poly()` is retained for now as it does not rely on `rgdal` or `rgeos`, 
+  just `sp` and `raster`, which are still being maintained.
+  
+## Documentation improvements
+
 * Added a `pkgdown` site for `bcmaps` https://bcgov.github.io/bcmaps/ (#63)
 * Moved the detailed user documentation from the `README` to a Get Started with `bcmaps` article/vignette (#42)
 * Better documentation for `bc_bound_hres()` (#124)
