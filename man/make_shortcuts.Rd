@@ -16,7 +16,7 @@ TRUE (invisibly)
 This generates a \code{shortcuts.R} file in the \code{R} directory, with function definitions
 and roxygen blocks for each data object in \code{bcmaps}. This ensures that each
 data object can be accessed directly from \code{bcmaps} by a
-function such as \code{bc_bound()}, or \code{airzones("sp")}.
+function such as \code{bc_bound()}, or \code{airzones()}.
 }
 \details{
 Run this function each time you add a new data object.

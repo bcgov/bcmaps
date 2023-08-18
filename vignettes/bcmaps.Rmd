@@ -1,6 +1,6 @@
 ---
 title: "Get started with bcmaps"
-date: "2023-06-04"
+date: "2023-08-14"
 output:
   rmarkdown::html_vignette:
     keep_md: true
@@ -41,9 +41,7 @@ administrative boundaries, natural resource management boundaries, watercourses,
 
 Most layers are accessed directly from the [B.C. Data Catalogue](https://catalogue.data.gov.bc.ca/) using the [bcdata](https://github.com/bcgov/bcdata) R package under the hood. See each layer's individual help file for more detail.
 
-
-> _**IMPORTANT NOTE** Support for Spatial objects (`sp`) is deprecated in {bcmaps} v1.2.0, and will be removed in Summer 2023. Please use `sf` objects with {bcmaps}._ A discussion on the evolution of the spatial software stack in R can be found here: https://r-spatial.org/r/2022/04/12/evolution.html.
-
+> _**IMPORTANT NOTE** Support for Spatial objects (`sp`) was removed in {bcmaps} v1.3.0. Please use `sf` objects with {bcmaps}._ A discussion on the evolution of the spatial software stack in R can be found here: https://r-spatial.org/r/2022/04/12/evolution.html.
 
 
 ## Usage
@@ -71,7 +69,10 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
+<div class="figure">
 <img src="vignette-fig-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%" />
+<p class="caption">plot of chunk unnamed-chunk-3</p>
+</div>
 
 There are two British Columbia boundary map layers available in `bcmaps`:
 
@@ -98,7 +99,10 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
+<div class="figure">
 <img src="vignette-fig-plot-maps-1.png" alt="plot of chunk plot-maps" width="100%" />
+<p class="caption">plot of chunk plot-maps</p>
+</div>
 
 ### Digital Elevation Model for British Columbia 1:250,000
 
@@ -113,7 +117,10 @@ aoi_raster <- cded_raster(aoi)
 plot(aoi_raster)
 ```
 
+<div class="figure">
 <img src="vignette-fig-cded-1.png" alt="plot of chunk cded" width="100%" />
+<p class="caption">plot of chunk cded</p>
+</div>
 
 ### It's a beautiful day in the neighbourhood
 
@@ -130,7 +137,10 @@ ggplot() +
   theme_minimal()
 ```
 
+<div class="figure">
 <img src="vignette-fig-bc_neighbours-1.png" alt="plot of chunk bc_neighbours" width="100%" />
+<p class="caption">plot of chunk bc_neighbours</p>
+</div>
 
 
 ### Biogeoclimatic Zones
@@ -153,7 +163,10 @@ ggplot() +
   scale_colour_manual(values = bec_colours())
 ```
 
+<div class="figure">
 <img src="vignette-fig-bec-1.png" alt="plot of chunk bec" width="100%" />
+<p class="caption">plot of chunk bec</p>
+</div>
 
 
 ### Updating layers

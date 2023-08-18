@@ -20,7 +20,7 @@
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `airzones` in the desired class
+#' @return The spatial layer of `airzones` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'e8eeefc4-2826-47bc-8430-85703d328516', resource = 'c495d082-b586-4df0-9e06-bd6b66a8acd9')`
 #'
@@ -32,14 +32,8 @@
 #' }
 #'
 #' @export
-airzones <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::airzones(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('airzones', class = class, ask = ask, force = force)
+airzones <- function(ask = interactive(), force = FALSE) {
+   get_layer('airzones', ask = ask, force = force)
 }
 
 #' BC Major Cities Points
@@ -47,7 +41,7 @@ airzones <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `bc_cities` in the desired class
+#' @return The spatial layer of `bc_cities` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'b678c432-c5c1-4341-88db-0d6befa0c7f8', resource = '443dd858-2e37-4a8f-937a-f53359f16e64')`
 #'
@@ -59,14 +53,8 @@ airzones <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-bc_cities <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::bc_cities(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('bc_cities', class = class, ask = ask, force = force)
+bc_cities <- function(ask = interactive(), force = FALSE) {
+   get_layer('bc_cities', ask = ask, force = force)
 }
 
 #' British Columbia BEC Map
@@ -74,7 +62,7 @@ bc_cities <- function(class = deprecated(), ask = interactive(), force = FALSE) 
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `bec` in the desired class
+#' @return The spatial layer of `bec` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'f358a53b-ffde-4830-a325-a5a03ff672c3', resource = '3ec24cb4-f78d-48a9-87e7-516763f00cc8')`
 #'
@@ -86,14 +74,8 @@ bc_cities <- function(class = deprecated(), ask = interactive(), force = FALSE) 
 #' }
 #'
 #' @export
-bec <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::bec(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('bec', class = class, ask = ask, force = force)
+bec <- function(ask = interactive(), force = FALSE) {
+   get_layer('bec', ask = ask, force = force)
 }
 
 #' Current Census Dissemination Areas
@@ -101,7 +83,7 @@ bec <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `census_dissemination_area` in the desired class
+#' @return The spatial layer of `census_dissemination_area` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'a091fd65-d682-4a24-8c0e-68de7c87e3a3', resource = 'a7fa66d4-0f95-4c58-861d-42d875e5b79f')`
 #'
@@ -113,14 +95,8 @@ bec <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-census_dissemination_area <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::census_dissemination_area(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('census_dissemination_area', class = class, ask = ask, force = force)
+census_dissemination_area <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_dissemination_area', ask = ask, force = force)
 }
 
 #' Current Census Division Boundaries
@@ -128,7 +104,7 @@ census_dissemination_area <- function(class = deprecated(), ask = interactive(),
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `census_division` in the desired class
+#' @return The spatial layer of `census_division` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'ef17918a-597a-4012-8534-f8e71d8735b3', resource = '36b530c2-1de6-44a2-a6f6-c1fce36c53ed')`
 #'
@@ -140,14 +116,8 @@ census_dissemination_area <- function(class = deprecated(), ask = interactive(),
 #' }
 #'
 #' @export
-census_division <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::census_division(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('census_division', class = class, ask = ask, force = force)
+census_division <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_division', ask = ask, force = force)
 }
 
 #' Current Census Economic Region Boundaries
@@ -155,7 +125,7 @@ census_division <- function(class = deprecated(), ask = interactive(), force = F
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `census_economic` in the desired class
+#' @return The spatial layer of `census_economic` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '1aebc451-a41c-496f-8b18-6f414cde93b7', resource = '3f0236cf-b1a1-4f1a-8e9e-86c2c3daff96')`
 #'
@@ -167,14 +137,8 @@ census_division <- function(class = deprecated(), ask = interactive(), force = F
 #' }
 #'
 #' @export
-census_economic <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::census_economic(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('census_economic', class = class, ask = ask, force = force)
+census_economic <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_economic', ask = ask, force = force)
 }
 
 #' Current Census Metropolitan Areas
@@ -182,7 +146,7 @@ census_economic <- function(class = deprecated(), ask = interactive(), force = F
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `census_metropolitan_area` in the desired class
+#' @return The spatial layer of `census_metropolitan_area` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'a6fb34b7-0937-4718-8f1f-43dba2c0f407', resource = 'f129a965-363e-4d7e-8319-a4010e002fdb')`
 #'
@@ -194,14 +158,8 @@ census_economic <- function(class = deprecated(), ask = interactive(), force = F
 #' }
 #'
 #' @export
-census_metropolitan_area <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::census_metropolitan_area(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('census_metropolitan_area', class = class, ask = ask, force = force)
+census_metropolitan_area <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_metropolitan_area', ask = ask, force = force)
 }
 
 #' Current Census Subdivision Boundaries
@@ -209,7 +167,7 @@ census_metropolitan_area <- function(class = deprecated(), ask = interactive(), 
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `census_subdivision` in the desired class
+#' @return The spatial layer of `census_subdivision` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '4c5618c6-38dd-4a62-a3de-9408b4974bb6', resource = '98bd1222-57bb-4504-92c2-4a5857ae7671')`
 #'
@@ -221,14 +179,8 @@ census_metropolitan_area <- function(class = deprecated(), ask = interactive(), 
 #' }
 #'
 #' @export
-census_subdivision <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::census_subdivision(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('census_subdivision', class = class, ask = ask, force = force)
+census_subdivision <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_subdivision', ask = ask, force = force)
 }
 
 #' Current Census Tract Boundaries
@@ -236,7 +188,7 @@ census_subdivision <- function(class = deprecated(), ask = interactive(), force 
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `census_tract` in the desired class
+#' @return The spatial layer of `census_tract` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '539aae5b-12f6-4934-9592-9b27acc827f8', resource = 'be767db6-0d4e-4906-a89b-564637f14db9')`
 #'
@@ -248,14 +200,8 @@ census_subdivision <- function(class = deprecated(), ask = interactive(), force 
 #' }
 #'
 #' @export
-census_tract <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::census_tract(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('census_tract', class = class, ask = ask, force = force)
+census_tract <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_tract', ask = ask, force = force)
 }
 
 #' British Columbia Ecoprovinces
@@ -263,7 +209,7 @@ census_tract <- function(class = deprecated(), ask = interactive(), force = FALS
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `ecoprovinces` in the desired class
+#' @return The spatial layer of `ecoprovinces` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '51832f47-efdf-4956-837a-45fc2c9032dd', resource = '811fcedb-1a53-4574-8149-454f4a740682')`
 #'
@@ -275,14 +221,8 @@ census_tract <- function(class = deprecated(), ask = interactive(), force = FALS
 #' }
 #'
 #' @export
-ecoprovinces <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::ecoprovinces(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('ecoprovinces', class = class, ask = ask, force = force)
+ecoprovinces <- function(ask = interactive(), force = FALSE) {
+   get_layer('ecoprovinces', ask = ask, force = force)
 }
 
 #' British Columbia Ecoregions
@@ -290,7 +230,7 @@ ecoprovinces <- function(class = deprecated(), ask = interactive(), force = FALS
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `ecoregions` in the desired class
+#' @return The spatial layer of `ecoregions` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'd00389e0-66da-4895-bd56-39a0dd64aa78', resource = 'bd816a86-4f5e-4989-b1df-0b2f3f4a5f86')`
 #'
@@ -302,14 +242,8 @@ ecoprovinces <- function(class = deprecated(), ask = interactive(), force = FALS
 #' }
 #'
 #' @export
-ecoregions <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::ecoregions(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('ecoregions', class = class, ask = ask, force = force)
+ecoregions <- function(ask = interactive(), force = FALSE) {
+   get_layer('ecoregions', ask = ask, force = force)
 }
 
 #' British Columbia Ecosections
@@ -317,7 +251,7 @@ ecoregions <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `ecosections` in the desired class
+#' @return The spatial layer of `ecosections` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'ccc01f43-860d-4583-8ba4-e72d8379441e', resource = '6b6a3122-7a0b-4c0f-a72b-1e5c0e13d7e6')`
 #'
@@ -329,14 +263,8 @@ ecoregions <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #' }
 #'
 #' @export
-ecosections <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::ecosections(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('ecosections', class = class, ask = ask, force = force)
+ecosections <- function(ask = interactive(), force = FALSE) {
+   get_layer('ecosections', ask = ask, force = force)
 }
 
 #' British Columbia's developed ground water aquifers
@@ -344,7 +272,7 @@ ecosections <- function(class = deprecated(), ask = interactive(), force = FALSE
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `gw_aquifers` in the desired class
+#' @return The spatial layer of `gw_aquifers` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '099d69c5-1401-484d-9e19-c121ccb7977c', resource = '8f421e3a-ccd3-4fab-8198-53ad6e9e2af2')`
 #'
@@ -356,14 +284,8 @@ ecosections <- function(class = deprecated(), ask = interactive(), force = FALSE
 #' }
 #'
 #' @export
-gw_aquifers <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::gw_aquifers(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('gw_aquifers', class = class, ask = ask, force = force)
+gw_aquifers <- function(ask = interactive(), force = FALSE) {
+   get_layer('gw_aquifers', ask = ask, force = force)
 }
 
 #' Community Health Service Areas - CHSA
@@ -371,7 +293,7 @@ gw_aquifers <- function(class = deprecated(), ask = interactive(), force = FALSE
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `health_chsa` in the desired class
+#' @return The spatial layer of `health_chsa` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '68f2f577-28a7-46b4-bca9-7e9770f2f357', resource = '59065b51-511a-4976-b77f-034168365273')`
 #'
@@ -383,14 +305,8 @@ gw_aquifers <- function(class = deprecated(), ask = interactive(), force = FALSE
 #' }
 #'
 #' @export
-health_chsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::health_chsa(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('health_chsa', class = class, ask = ask, force = force)
+health_chsa <- function(ask = interactive(), force = FALSE) {
+   get_layer('health_chsa', ask = ask, force = force)
 }
 
 #' Health Authority Boundaries
@@ -398,7 +314,7 @@ health_chsa <- function(class = deprecated(), ask = interactive(), force = FALSE
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `health_ha` in the desired class
+#' @return The spatial layer of `health_ha` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '7bc6018f-bb4f-4e5d-845e-c529e3d1ac3b', resource = '93b79a3c-2da4-4fd4-b953-2f5c690db430')`
 #'
@@ -410,14 +326,8 @@ health_chsa <- function(class = deprecated(), ask = interactive(), force = FALSE
 #' }
 #'
 #' @export
-health_ha <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::health_ha(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('health_ha', class = class, ask = ask, force = force)
+health_ha <- function(ask = interactive(), force = FALSE) {
+   get_layer('health_ha', ask = ask, force = force)
 }
 
 #' Health Service Delivery Area Boundaries
@@ -425,7 +335,7 @@ health_ha <- function(class = deprecated(), ask = interactive(), force = FALSE) 
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `health_hsda` in the desired class
+#' @return The spatial layer of `health_hsda` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '71c930b9-563a-46da-a10f-ead49ccbc390', resource = 'c5dad467-229b-4378-852b-ff92479a65b6')`
 #'
@@ -437,14 +347,8 @@ health_ha <- function(class = deprecated(), ask = interactive(), force = FALSE) 
 #' }
 #'
 #' @export
-health_hsda <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::health_hsda(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('health_hsda', class = class, ask = ask, force = force)
+health_hsda <- function(ask = interactive(), force = FALSE) {
+   get_layer('health_hsda', ask = ask, force = force)
 }
 
 #' Local Health Area Boundaries
@@ -452,7 +356,7 @@ health_hsda <- function(class = deprecated(), ask = interactive(), force = FALSE
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `health_lha` in the desired class
+#' @return The spatial layer of `health_lha` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'afd021d9-7722-4410-b506-d394c66e74fc', resource = 'd6e951d3-5103-475a-8bb6-b4d275e6343f')`
 #'
@@ -464,14 +368,8 @@ health_hsda <- function(class = deprecated(), ask = interactive(), force = FALSE
 #' }
 #'
 #' @export
-health_lha <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::health_lha(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('health_lha', class = class, ask = ask, force = force)
+health_lha <- function(ask = interactive(), force = FALSE) {
+   get_layer('health_lha', ask = ask, force = force)
 }
 
 #' Hydrologic Zone Boundaries of British Columbia
@@ -479,7 +377,7 @@ health_lha <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `hydrozones` in the desired class
+#' @return The spatial layer of `hydrozones` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '329fd234-8835-4d44-9aaa-97c37bfc8d92', resource = 'baeb665e-85c7-4a7b-8e67-8b956785490a')`
 #'
@@ -491,14 +389,8 @@ health_lha <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #' }
 #'
 #' @export
-hydrozones <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::hydrozones(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('hydrozones', class = class, ask = ask, force = force)
+hydrozones <- function(ask = interactive(), force = FALSE) {
+   get_layer('hydrozones', ask = ask, force = force)
 }
 
 #' British Columbia Municipalities
@@ -506,7 +398,7 @@ hydrozones <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `municipalities` in the desired class
+#' @return The spatial layer of `municipalities` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'e3c3c580-996a-4668-8bc5-6aa7c7dc4932', resource = '25c95b07-5882-47ff-970d-36cb243b8355')`
 #'
@@ -518,14 +410,8 @@ hydrozones <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #' }
 #'
 #' @export
-municipalities <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::municipalities(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('municipalities', class = class, ask = ask, force = force)
+municipalities <- function(ask = interactive(), force = FALSE) {
+   get_layer('municipalities', ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Areas
@@ -533,7 +419,7 @@ municipalities <- function(class = deprecated(), ask = interactive(), force = FA
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `nr_areas` in the desired class
+#' @return The spatial layer of `nr_areas` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'c1861ba4-abb8-4947-b3e5-7f7c4d7257d5', resource = '4b317896-1a42-4c03-9dbd-bff996d5ea0c')`
 #'
@@ -545,14 +431,8 @@ municipalities <- function(class = deprecated(), ask = interactive(), force = FA
 #' }
 #'
 #' @export
-nr_areas <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::nr_areas(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('nr_areas', class = class, ask = ask, force = force)
+nr_areas <- function(ask = interactive(), force = FALSE) {
+   get_layer('nr_areas', ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Districts
@@ -560,7 +440,7 @@ nr_areas <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `nr_districts` in the desired class
+#' @return The spatial layer of `nr_districts` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '0bc73892-e41f-41d0-8d8e-828c16139337', resource = 'e6676e55-2a6f-4b2b-91ad-3caf291ac5d4')`
 #'
@@ -572,14 +452,8 @@ nr_areas <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-nr_districts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::nr_districts(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('nr_districts', class = class, ask = ask, force = force)
+nr_districts <- function(ask = interactive(), force = FALSE) {
+   get_layer('nr_districts', ask = ask, force = force)
 }
 
 #' British Columbia Natural Resource (NR) Regions
@@ -587,7 +461,7 @@ nr_districts <- function(class = deprecated(), ask = interactive(), force = FALS
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `nr_regions` in the desired class
+#' @return The spatial layer of `nr_regions` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'dfc492c0-69c5-4c20-a6de-2c9bc999301f', resource = 'ec636f64-9c5f-4704-8e66-2dd43032c9b5')`
 #'
@@ -599,14 +473,8 @@ nr_districts <- function(class = deprecated(), ask = interactive(), force = FALS
 #' }
 #'
 #' @export
-nr_regions <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::nr_regions(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('nr_regions', class = class, ask = ask, force = force)
+nr_regions <- function(ask = interactive(), force = FALSE) {
+   get_layer('nr_regions', ask = ask, force = force)
 }
 
 #' British Columbia Regional Districts
@@ -614,7 +482,7 @@ nr_regions <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `regional_districts` in the desired class
+#' @return The spatial layer of `regional_districts` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'd1aff64e-dbfe-45a6-af97-582b7f6418b9', resource = '57c7f719-dc87-415c-8be7-ef2f95289397')`
 #'
@@ -626,14 +494,8 @@ nr_regions <- function(class = deprecated(), ask = interactive(), force = FALSE)
 #' }
 #'
 #' @export
-regional_districts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::regional_districts(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('regional_districts', class = class, ask = ask, force = force)
+regional_districts <- function(ask = interactive(), force = FALSE) {
+   get_layer('regional_districts', ask = ask, force = force)
 }
 
 #' British Columbia Timber Supply Areas and TSA Blocks
@@ -641,7 +503,7 @@ regional_districts <- function(class = deprecated(), ask = interactive(), force 
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `tsa` in the desired class
+#' @return The spatial layer of `tsa` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '8daa29da-d7f4-401c-83ae-d962e3a28980', resource = '6851f8a6-77b9-4555-9f60-3d2bd8e039be')`
 #'
@@ -653,14 +515,8 @@ regional_districts <- function(class = deprecated(), ask = interactive(), force 
 #' }
 #'
 #' @export
-tsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::tsa(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('tsa', class = class, ask = ask, force = force)
+tsa <- function(ask = interactive(), force = FALSE) {
+   get_layer('tsa', ask = ask, force = force)
 }
 
 #' British Columbia's Water Management Districts
@@ -668,7 +524,7 @@ tsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `water_districts` in the desired class
+#' @return The spatial layer of `water_districts` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '92cb3ad8-9582-48a9-9e79-9a9d33601e50', resource = '07f9aa3f-0b66-4a49-919f-332d12bcd8f0')`
 #'
@@ -680,14 +536,8 @@ tsa <- function(class = deprecated(), ask = interactive(), force = FALSE) {
 #' }
 #'
 #' @export
-water_districts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::water_districts(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('water_districts', class = class, ask = ask, force = force)
+water_districts <- function(ask = interactive(), force = FALSE) {
+   get_layer('water_districts', ask = ask, force = force)
 }
 
 #' British Columbia's Water Management Precincts
@@ -695,7 +545,7 @@ water_districts <- function(class = deprecated(), ask = interactive(), force = F
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `water_precincts` in the desired class
+#' @return The spatial layer of `water_precincts` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = 'b5f436b4-532c-4ee2-ba27-90d55ec8c73f', resource = 'e482fd4a-be58-4541-8e0d-c39a764fd0a3')`
 #'
@@ -707,14 +557,8 @@ water_districts <- function(class = deprecated(), ask = interactive(), force = F
 #' }
 #'
 #' @export
-water_precincts <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::water_precincts(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('water_precincts', class = class, ask = ask, force = force)
+water_precincts <- function(ask = interactive(), force = FALSE) {
+   get_layer('water_precincts', ask = ask, force = force)
 }
 
 #' Water Survey of Canada Sub-Sub-Drainage Areas
@@ -722,7 +566,7 @@ water_precincts <- function(class = deprecated(), ask = interactive(), force = F
 #'
 #' @inheritParams bc_bound_hres
 #'
-#' @return The spatial layer of `wsc_drainages` in the desired class
+#' @return The spatial layer of `wsc_drainages` as an `sf` object.
 #'
 #' @source `bcdata::bcdc_get_data(record = '7ae18a3c-917b-4cb1-9aa8-51a172475dbb', resource = '4455072e-d33b-4685-9edd-cffda763dd45')`
 #'
@@ -734,12 +578,6 @@ water_precincts <- function(class = deprecated(), ask = interactive(), force = F
 #' }
 #'
 #' @export
-wsc_drainages <- function(class = deprecated(), ask = interactive(), force = FALSE) {
-
-   if (lifecycle::is_present(class)) {
-     deprecate_sp('bcmaps::wsc_drainages(class)')
-     class <- match.arg(class, choices = c('sf', 'sp'))
-   }
-
-   get_layer('wsc_drainages', class = class, ask = ask, force = force)
+wsc_drainages <- function(ask = interactive(), force = FALSE) {
+   get_layer('wsc_drainages', ask = ask, force = force)
 }

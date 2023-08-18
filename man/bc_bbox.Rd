@@ -4,19 +4,17 @@
 \alias{bc_bbox}
 \title{Get an extent/bounding box for British Columbia}
 \usage{
-bc_bbox(class = c("sf", "sp", "raster"), crs = 3005)
+bc_bbox(class = c("sf", "raster"), crs = 3005)
 }
 \arguments{
-\item{class}{\code{"sf"}, \code{"raster"}. \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}. \code{class = "sp"}
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023.}
+\item{class}{\code{"sf"}, \code{"raster"}.}
 
 \item{crs}{coordinate reference system: integer with the EPSG code,
 or character with proj4string. Default \code{3005} (BC Albers).}
 }
 \value{
 an object denoting a bounding box of British Columbia,
-of the corresponding class specified in \code{class}. The coordinates will be
-in lat-long WGS84 (epsg:4326).
+of the corresponding class specified in \code{class}.
 }
 \description{
 Get an extent/bounding box for British Columbia

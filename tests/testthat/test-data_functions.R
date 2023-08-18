@@ -9,7 +9,7 @@ fn_names <- avail$layer_name[!(avail$local) &
 fn_names <- setdiff(fn_names, c("bec", "tsa"))
 
 
-test_that("test that all sf layer function work without error and returns an sf object as default", {
+test_that("All sf layer function work without error and returns an sf object.", {
   skip_on_cran()
   skip_if_offline()
 
@@ -22,15 +22,3 @@ test_that("test that all sf layer function work without error and returns an sf 
     expect_equal(st_crs(layer)$wkt, st_crs("EPSG:3005")$wkt)
   }
 })
-
-test_that("test that all sp layer function work without error and return a Spatial* object ", {
-  skip_on_cran()
-  skip_if_offline()
-
-  for (i in seq_along(fn_names)) {
-    #cat("\n", fn_names_sp[i]) #for debugging
-    expect_deprecated(layer <- match.fun(fn_names[i])(class = "sp", ask = FALSE))
-    expect_is(layer, "Spatial")
-  }
-})
-
