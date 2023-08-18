@@ -83,7 +83,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>bcmaps layers and point data</h1>
             
-            <h4 data-toc-skip class="date">2023-06-04</h4>
+            <h4 data-toc-skip class="date">2023-08-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/bcgov/bcmaps/blob/HEAD/vignettes/add_points.Rmd" class="external-link"><code>vignettes/add_points.Rmd</code></a></small>
       <div class="d-none name"><code>add_points.Rmd</code></div>
@@ -131,16 +131,16 @@ Excel file that we would import):</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">spp</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_as_sf.html" class="external-link">st_as_sf</a></span><span class="op">(</span><span class="va">spp</span>, coords <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"long"</span>, <span class="st">"lat"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">spp</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    site_num         spp_present       </span></span>
-<span><span class="co">#&gt;  Length:10          Length:10         </span></span>
-<span><span class="co">#&gt;  Class :character   Class :character  </span></span>
-<span><span class="co">#&gt;  Mode  :character   Mode  :character  </span></span>
-<span><span class="co">#&gt;     geometry </span></span>
-<span><span class="co">#&gt;  POINT  :10  </span></span>
-<span><span class="co">#&gt;  epsg:NA: 0  </span></span>
-<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;    site_num         spp_present           geometry </span></span>
+<span><span class="co">#&gt;  Length:10          Length:10          POINT  :10  </span></span>
+<span><span class="co">#&gt;  Class :character   Class :character   epsg:NA: 0  </span></span>
+<span><span class="co">#&gt;  Mode  :character   Mode  :character</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spp</span><span class="op">[</span><span class="st">"spp_present"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-convert-1.png" alt="plot of chunk convert" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-convert-1.png" alt="plot of chunk convert" width="100%"><p class="caption">
+plot of chunk convert
+</p>
+</div>
 <p>In order to overlay these points on other spatial layers, they need
 to use the same Coordinate Reference System (CRS). Coordinate systems
 and projections in R can be confusing. There is a great reference on
@@ -246,7 +246,11 @@ the same CRS as <code>bc_bound_layer</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spp</span><span class="op">[</span><span class="st">"spp_present"</span><span class="op">]</span>, graticule <span class="op">=</span> <span class="cn">TRUE</span>, reset <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">bc_bound_layer</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%"><p class="caption">
+plot of chunk overlay
+</p>
+</div>
 <p>Now we want to know what ecoregion of the province each of these
 observations was in. We can use the <code>ecoregions</code> data from
 <code>bcmaps</code>, and the <code>st_join</code> function from the
@@ -260,28 +264,17 @@ add that information:</p>
 <span><span class="co">#&gt; Dimension:     XY</span></span>
 <span><span class="co">#&gt; Bounding box:  xmin: 912519.3 ymin: 600149.1 xmax: 1383324 ymax: 1642418</span></span>
 <span><span class="co">#&gt; Projected CRS: NAD83 / BC Albers</span></span>
-<span><span class="co">#&gt;    site_num spp_present</span></span>
-<span><span class="co">#&gt; 1         A         yes</span></span>
-<span><span class="co">#&gt; 2         B         yes</span></span>
-<span><span class="co">#&gt; 3         C         yes</span></span>
-<span><span class="co">#&gt; 4         D         yes</span></span>
-<span><span class="co">#&gt; 5         E          no</span></span>
-<span><span class="co">#&gt; 6         F          no</span></span>
-<span><span class="co">#&gt; 7         G          no</span></span>
-<span><span class="co">#&gt; 8         H          no</span></span>
-<span><span class="co">#&gt; 9         I         yes</span></span>
-<span><span class="co">#&gt; 10        J          no</span></span>
-<span><span class="co">#&gt;                      ECOREGION_NAME</span></span>
-<span><span class="co">#&gt; 1  CENTRAL CANADIAN ROCKY MOUNTAINS</span></span>
-<span><span class="co">#&gt; 2     BOREAL MOUNTAINS AND PLATEAUS</span></span>
-<span><span class="co">#&gt; 3                 HAY-SLAVE LOWLAND</span></span>
-<span><span class="co">#&gt; 4                COLUMBIA HIGHLANDS</span></span>
-<span><span class="co">#&gt; 5        EASTERN HAZELTON MOUNTAINS</span></span>
-<span><span class="co">#&gt; 6                    MUSKWA PLATEAU</span></span>
-<span><span class="co">#&gt; 7                    MUSKWA PLATEAU</span></span>
-<span><span class="co">#&gt; 8         THOMPSON-OKANAGAN PLATEAU</span></span>
-<span><span class="co">#&gt; 9                      FRASER BASIN</span></span>
-<span><span class="co">#&gt; 10 CENTRAL CANADIAN ROCKY MOUNTAINS</span></span>
+<span><span class="co">#&gt;    site_num spp_present                   ECOREGION_NAME</span></span>
+<span><span class="co">#&gt; 1         A         yes CENTRAL CANADIAN ROCKY MOUNTAINS</span></span>
+<span><span class="co">#&gt; 2         B         yes    BOREAL MOUNTAINS AND PLATEAUS</span></span>
+<span><span class="co">#&gt; 3         C         yes                HAY-SLAVE LOWLAND</span></span>
+<span><span class="co">#&gt; 4         D         yes               COLUMBIA HIGHLANDS</span></span>
+<span><span class="co">#&gt; 5         E          no       EASTERN HAZELTON MOUNTAINS</span></span>
+<span><span class="co">#&gt; 6         F          no                   MUSKWA PLATEAU</span></span>
+<span><span class="co">#&gt; 7         G          no                   MUSKWA PLATEAU</span></span>
+<span><span class="co">#&gt; 8         H          no        THOMPSON-OKANAGAN PLATEAU</span></span>
+<span><span class="co">#&gt; 9         I         yes                     FRASER BASIN</span></span>
+<span><span class="co">#&gt; 10        J          no CENTRAL CANADIAN ROCKY MOUNTAINS</span></span>
 <span><span class="co">#&gt;                    geometry</span></span>
 <span><span class="co">#&gt; 1   POINT (1341578 1016164)</span></span>
 <span><span class="co">#&gt; 2  POINT (945861.3 1324757)</span></span>
