@@ -3,7 +3,7 @@
 ## Removal of `sp` and `raster` support
 
 We've removed support for the `sp` and `raster` packages, 
-especially those parts of that require 
+especially those parts that require 
 the use of the `rgdal` and `rgeos` packages, which will be retired in October 2023. See the [r-spatial blog](https://r-spatial.org/r/2022/04/12/evolution.html) for details of this evolution.
 
 * Removed the `class` argument in all of the data download functions: `get_layer()` and all of the wrapper shortcuts such as `bc_bound()`, `census_tract()`, etc. These functions will now only return `sf` objects.
