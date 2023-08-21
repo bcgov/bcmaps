@@ -26,6 +26,8 @@
 #' make_shortcuts()
 #' }
 #'
+#' @noRd
+#'
 #' @return TRUE (invisibly)
 make_shortcuts <- function(file = "R/shortcuts.R") {
 
@@ -74,6 +76,7 @@ make_shortcuts <- function(file = "R/shortcuts.R") {
          roxygen_blocker#' my_layer <- {fn_name}()
          roxygen_blocker#' }}
          roxygen_blocker#'
+         roxygen_blocker#' @family BC layers
          roxygen_blocker#' @export
          {fn_name} <- function(ask = interactive(), force = FALSE) {{
             get_layer('{fn_name}', ask = ask, force = force)

@@ -33,7 +33,7 @@ read_bc_watercourse <- function(x) {
 #'
 #' @source https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_15M_CA_Hydro_fgdb.zip
 #'
-#'
+#' @family BC layers
 #'
 #' @examples
 #' \dontrun{
@@ -70,7 +70,7 @@ watercourses_15M <- function(ask = interactive(), force = FALSE) {
 #'
 #' @source https://ftp.maps.canada.ca/pub/nrcan_rncan/vector/canvec/fgdb/Hydro/canvec_5M_CA_Hydro_fgdb.zip
 #'
-#'
+#' @family BC layers
 #'
 #' @examples
 #' \dontrun{
@@ -105,10 +105,13 @@ watercourses_5M <- function(ask = interactive(), force = FALSE) {
 #'
 #' @source http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/files-fichiers/2016/lfsa000b16a_e.zip
 #'
+#' @family BC layers
+#'
 #' @examples
 #' \dontrun{
 #' my_layer <- fsa()
 #' }
+#'
 #' @export
 fsa <- function(ask = interactive(), force = FALSE) {
 
@@ -146,7 +149,7 @@ fsa <- function(ask = interactive(), force = FALSE) {
 #'
 #' @source https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
 #'
-#'
+#' @family BC layers
 #'
 #' @examples
 #' \dontrun{
@@ -165,7 +168,7 @@ mapsheets_250K <- function() {
 #'
 #' @source https://open.canada.ca/data/en/dataset/055919c2-101e-4329-bfd7-1d0c333c0e62
 #'
-#'
+#' @family BC layers
 #'
 #' @examples
 #' \dontrun{

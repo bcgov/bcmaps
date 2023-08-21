@@ -26,6 +26,8 @@
 #'          resource = '3d72cf36-ab53-4a2a-9988-a883d7488384',
 #'          layer = 'BC_Boundary_Terrestrial_Multipart')`
 #'
+#' @family BC layers
+#'
 #' @export
 bc_bound_hres <- function(ask = interactive(), force = FALSE) {
 
@@ -61,6 +63,8 @@ bc_bound_hres <- function(ask = interactive(), force = FALSE) {
 #' \dontrun{
 #' my_layer <- bc_bound()
 #' }
+#'
+#' @family BC layers
 #'
 #' @export
 bc_bound <- function(ask = interactive(), force = FALSE) {

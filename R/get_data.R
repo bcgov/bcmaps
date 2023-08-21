@@ -68,7 +68,6 @@ rename_sf_col_to_geometry <- function(x) {
 #' available_layers()
 #' }
 #' @export
-
 available_layers <- function() {
   layers_df
   names(layers_df)[1:2] <- c("layer_name", "title")

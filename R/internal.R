@@ -4,8 +4,8 @@
 #' @param year The year the license should apply (Default current year)
 #' @param copyright_holder Copyright holder (Default "Province of British Columbia")
 #'
-#'
 #' @return NULL
+#' @noRd
 add_license_header <- function(file, year = format(Sys.Date(), "%Y"), copyright_holder = "Province of British Columbia") {
 
   file_text <- readLines(file)
