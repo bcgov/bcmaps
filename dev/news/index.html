@@ -55,10 +55,28 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="bcmaps-development-version">bcmaps (development version)<a class="anchor" aria-label="anchor" href="#bcmaps-development-version"></a></h2>
+<div class="section level3">
+<h3 id="removal-of-sp-and-raster-support-development-version">Removal of <code>sp</code> and <code>raster</code> support<a class="anchor" aria-label="anchor" href="#removal-of-sp-and-raster-support-development-version"></a></h3>
+<p>We’ve removed support for the <code>sp</code> and <code>raster</code> packages, especially those parts that require the use of the <code>rgdal</code> and <code>rgeos</code> packages, which will be retired in October 2023. See the <a href="https://r-spatial.org/r/2022/04/12/evolution.html" class="external-link">r-spatial blog</a> for details of this evolution.</p>
+<ul><li>Removed the <code>class</code> argument in all of the data download functions: <code><a href="../reference/get_layer.html">get_layer()</a></code> and all of the wrapper shortcuts such as <code><a href="../reference/bc_bound.html">bc_bound()</a></code>, <code><a href="../reference/census_tract.html">census_tract()</a></code>, etc. These functions will now only return <code>sf</code> objects.</li>
+<li>The <code>Spatial</code> method of <code><a href="../reference/transform_bc_albers.html">transform_bc_albers()</a></code> is removed.</li>
+<li>
+<code><a href="../reference/fix_geo_problems.html">fix_geo_problems()</a></code> is removed. For <code>sf</code> objects simply use <code><a href="https://r-spatial.github.io/sf/reference/valid.html" class="external-link">sf::st_make_valid()</a></code>
+</li>
+<li>
+<code><a href="../reference/self_union.html">self_union()</a></code> is removed. Use <code><a href="https://rdrr.io/r/base/sets.html" class="external-link">raster::union()</a></code> for <code>SpatialPolygonsDataFrame</code>s, or <code><a href="https://r-spatial.github.io/sf/reference/geos_combine.html" class="external-link">sf::st_union()</a></code> with <code>sf</code> objects instead.</li>
+<li>
+<code><a href="../reference/get_poly_attribute.html">get_poly_attribute()</a></code> is removed.</li>
+<li>
+<code><a href="../reference/raster_by_poly.html">raster_by_poly()</a></code> is retained for now as it does not rely on <code>rgdal</code> or <code>rgeos</code>, just <code>sp</code> and <code>raster</code>, which are still being maintained.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-improvements-development-version">Documentation improvements<a class="anchor" aria-label="anchor" href="#documentation-improvements-development-version"></a></h3>
 <ul><li>Added a <code>pkgdown</code> site for <code>bcmaps</code> <a href="https://bcgov.github.io/bcmaps/" class="external-link uri">https://bcgov.github.io/bcmaps/</a> (<a href="https://github.com/bcgov/bcmaps/issues/63" class="external-link">#63</a>)</li>
 <li>Moved the detailed user documentation from the <code>README</code> to a Get Started with <code>bcmaps</code> article/vignette (<a href="https://github.com/bcgov/bcmaps/issues/42" class="external-link">#42</a>)</li>
 <li>Better documentation for <code><a href="../reference/bc_bound_hres.html">bc_bound_hres()</a></code> (<a href="https://github.com/bcgov/bcmaps/issues/124" class="external-link">#124</a>)</li>
 </ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.2.0" id="bcmaps-120">bcmaps 1.2.0<a class="anchor" aria-label="anchor" href="#bcmaps-120"></a></h2><p class="text-muted">CRAN release: 2023-04-11</p>
 <div class="section level3">

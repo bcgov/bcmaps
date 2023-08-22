@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">regional_districts</span><span class="op">(</span>class <span class="op">=</span> <span class="fu">deprecated</span><span class="op">(</span><span class="op">)</span>, ask <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>, force <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">regional_districts</span><span class="op">(</span>ask <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>, force <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -69,13 +69,7 @@
     </div>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>class</dt>
-<dd><p>what class you want the object in? <code>"sf"</code> (default) or <code>"sp"</code>. <a href="https://lifecycle.r-lib.org/articles/stages.html#deprecated" class="external-link"><img src="figures/lifecycle-deprecated.svg" alt="[Deprecated]"></a>.
-The <code>class</code> argument
-is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that point this function will only return an <code>sf</code> object.</p></dd>
-
-
-<dt>ask</dt>
+    <dl><dt>ask</dt>
 <dd><p>Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().</p></dd>
 
 
@@ -87,11 +81,45 @@ is deprecated as of bcmaps 1.2.0 and will be removed in Summer 2023. At that poi
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>The spatial layer of <code>regional_districts</code> in the desired class</p>
+<p>The spatial layer of <code>regional_districts</code> as an <code>sf</code> object.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><code><a href="combine_nr_rd.html">combine_nr_rd()</a></code> to combine Regional Districts and the Northern Rockies Regional Municipality into one layer</p></div>
+    <div class="dont-index"><p><code><a href="combine_nr_rd.html">combine_nr_rd()</a></code> to combine Regional Districts and the Northern Rockies Regional Municipality into one layer</p>
+<p>Other BC layers: 
+<code><a href="airzones.html">airzones</a>()</code>,
+<code><a href="bc_bound_hres.html">bc_bound_hres</a>()</code>,
+<code><a href="bc_bound.html">bc_bound</a>()</code>,
+<code><a href="bc_cities.html">bc_cities</a>()</code>,
+<code><a href="bec.html">bec</a>()</code>,
+<code><a href="census_dissemination_area.html">census_dissemination_area</a>()</code>,
+<code><a href="census_division.html">census_division</a>()</code>,
+<code><a href="census_economic.html">census_economic</a>()</code>,
+<code><a href="census_metropolitan_area.html">census_metropolitan_area</a>()</code>,
+<code><a href="census_subdivision.html">census_subdivision</a>()</code>,
+<code><a href="census_tract.html">census_tract</a>()</code>,
+<code><a href="ecoprovinces.html">ecoprovinces</a>()</code>,
+<code><a href="ecoregions.html">ecoregions</a>()</code>,
+<code><a href="ecosections.html">ecosections</a>()</code>,
+<code><a href="fsa.html">fsa</a>()</code>,
+<code><a href="gw_aquifers.html">gw_aquifers</a>()</code>,
+<code><a href="health_chsa.html">health_chsa</a>()</code>,
+<code><a href="health_ha.html">health_ha</a>()</code>,
+<code><a href="health_hsda.html">health_hsda</a>()</code>,
+<code><a href="health_lha.html">health_lha</a>()</code>,
+<code><a href="hydrozones.html">hydrozones</a>()</code>,
+<code><a href="mapsheets_250K.html">mapsheets_250K</a>()</code>,
+<code><a href="mapsheets_50K.html">mapsheets_50K</a>()</code>,
+<code><a href="municipalities.html">municipalities</a>()</code>,
+<code><a href="nr_areas.html">nr_areas</a>()</code>,
+<code><a href="nr_districts.html">nr_districts</a>()</code>,
+<code><a href="nr_regions.html">nr_regions</a>()</code>,
+<code><a href="tsa.html">tsa</a>()</code>,
+<code><a href="water_districts.html">water_districts</a>()</code>,
+<code><a href="water_precincts.html">water_precincts</a>()</code>,
+<code><a href="watercourses_15M.html">watercourses_15M</a>()</code>,
+<code><a href="watercourses_5M.html">watercourses_5M</a>()</code>,
+<code><a href="wsc_drainages.html">wsc_drainages</a>()</code></p></div>
     </div>
 
     <div class="section level2">

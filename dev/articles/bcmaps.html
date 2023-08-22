@@ -84,7 +84,7 @@
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Get started with bcmaps</h1>
             
-            <h4 data-toc-skip class="date">2023-06-04</h4>
+            <h4 data-toc-skip class="date">2023-08-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/bcgov/bcmaps/blob/HEAD/vignettes/bcmaps.Rmd" class="external-link"><code>vignettes/bcmaps.Rmd</code></a></small>
       <div class="d-none name"><code>bcmaps.Rmd</code></div>
@@ -120,10 +120,9 @@ the <a href="https://github.com/bcgov/bcdata" class="external-link">bcdata</a> R
 the hood. See each layer’s individual help file for more detail.</p>
 <blockquote>
 <p><em><strong>IMPORTANT NOTE</strong> Support for Spatial objects
-(<code>sp</code>) is deprecated in {bcmaps} v1.2.0, and will be removed
-in Summer 2023. Please use <code>sf</code> objects with {bcmaps}.</em> A
-discussion on the evolution of the spatial software stack in R can be
-found here: <a href="https://r-spatial.org/r/2022/04/12/evolution.html" class="external-link uri">https://r-spatial.org/r/2022/04/12/evolution.html</a>.</p>
+(<code>sp</code>) was removed in {bcmaps} v1.3.0. Please use
+<code>sf</code> objects with {bcmaps}.</em> A discussion on the
+evolution of the spatial software stack in R can be found here: <a href="https://r-spatial.org/r/2022/04/12/evolution.html" class="external-link uri">https://r-spatial.org/r/2022/04/12/evolution.html</a>.</p>
 </blockquote>
 </div>
 <div class="section level2">
@@ -144,7 +143,11 @@ that layer is available locally for easy future access. For example:</p>
 <span></span>
 <span><span class="va">bc</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/bc_bound.html">bc_bound</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">bc</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" width="100%"><p class="caption">
+plot of chunk unnamed-chunk-3
+</p>
+</div>
 <p>There are two British Columbia boundary map layers available in
 <code>bcmaps</code>:</p>
 <ul>
@@ -175,7 +178,11 @@ objects</a>:</p>
 <span><span class="va">rd</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/regional_districts.html">regional_districts</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">kootenays</span> <span class="op">&lt;-</span> <span class="va">rd</span><span class="op">[</span><span class="va">rd</span><span class="op">$</span><span class="va">ADMIN_AREA_NAME</span> <span class="op">==</span> <span class="st">"Regional District of Central Kootenay"</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">kootenays</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"lightseagreen"</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-plot-maps-1.png" alt="plot of chunk plot-maps" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-plot-maps-1.png" alt="plot of chunk plot-maps" width="100%"><p class="caption">
+plot of chunk plot-maps
+</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="digital-elevation-model-for-british-columbia-1250000">Digital Elevation Model for British Columbia 1:250,000<a class="anchor" aria-label="anchor" href="#digital-elevation-model-for-british-columbia-1250000"></a>
@@ -190,7 +197,11 @@ bounded by the <em>Logan Lake</em> census subdivision:</p>
 <span><span class="va">aoi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/census_subdivision.html">census_subdivision</a></span><span class="op">(</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="../reference/census_subdivision.html">census_subdivision</a></span><span class="op">(</span><span class="op">)</span><span class="op">$</span><span class="va">CENSUS_SUBDIVISION_NAME</span> <span class="op">==</span> <span class="st">"Logan Lake"</span>, <span class="op">]</span></span>
 <span><span class="va">aoi_raster</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cded_raster.html">cded_raster</a></span><span class="op">(</span><span class="va">aoi</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/plot.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">aoi_raster</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-cded-1.png" alt="plot of chunk cded" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-cded-1.png" alt="plot of chunk cded" width="100%"><p class="caption">
+plot of chunk cded
+</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="its-a-beautiful-day-in-the-neighbourhood">It’s a beautiful day in the neighbourhood<a class="anchor" aria-label="anchor" href="#its-a-beautiful-day-in-the-neighbourhood"></a>
@@ -208,7 +219,11 @@ function available in <code>bcmaps</code>:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggsf.html" class="external-link">coord_sf</a></span><span class="op">(</span>datum <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_d</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"Jurisdiction"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-bc_neighbours-1.png" alt="plot of chunk bc_neighbours" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-bc_neighbours-1.png" alt="plot of chunk bc_neighbours" width="100%"><p class="caption">
+plot of chunk bc_neighbours
+</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="biogeoclimatic-zones">Biogeoclimatic Zones<a class="anchor" aria-label="anchor" href="#biogeoclimatic-zones"></a>
@@ -226,7 +241,11 @@ colour it:</p>
 <span>          <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill <span class="op">=</span> <span class="va">ZONE</span>, col <span class="op">=</span> <span class="va">ZONE</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="../reference/bec_colours.html">bec_colors</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_colour_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="../reference/bec_colours.html">bec_colours</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-bec-1.png" alt="plot of chunk bec" width="100%"></p>
+<div class="figure">
+<img src="vignette-fig-bec-1.png" alt="plot of chunk bec" width="100%"><p class="caption">
+plot of chunk bec
+</p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="updating-layers">Updating layers<a class="anchor" aria-label="anchor" href="#updating-layers"></a>

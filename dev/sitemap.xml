@@ -28,9 +28,6 @@
     <loc>http://bcgov.github.io/bcmaps/dev/news/index.html</loc>
   </url>
   <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/add_license_header.html</loc>
-  </url>
-  <url>
     <loc>http://bcgov.github.io/bcmaps/dev/reference/airzones.html</loc>
   </url>
   <url>
@@ -137,9 +134,6 @@
   </url>
   <url>
     <loc>http://bcgov.github.io/bcmaps/dev/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/make_shortcuts.html</loc>
   </url>
   <url>
     <loc>http://bcgov.github.io/bcmaps/dev/reference/mapsheets_250K.html</loc>
