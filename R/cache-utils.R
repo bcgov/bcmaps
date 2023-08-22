@@ -20,7 +20,6 @@
 #'
 #' @return `delete_cache()`: A logical of whether the file(s) were successful deleted
 #'
-#' @export
 #' @examples
 #' \dontrun{
 #' ## See which files you have
@@ -32,7 +31,10 @@
 #' ## Specify which files are deleted
 #' delete_cache(c('regional_districts.rds', 'bc_cities.rds'))
 #' }
-
+#'
+#' @family cache
+#'
+#' @export
 delete_cache <- function(files_to_delete = NULL) {
   files <- list_cached_files()
 
@@ -67,6 +69,8 @@ delete_cache <- function(files_to_delete = NULL) {
 #'  there will be a row in the data frame showing the total size
 #'  of the cded tiles cache directory.
 #'  - `modified`, date and time last modified
+#'
+#' @family cache
 #'
 #' @export
 show_cached_files <- function() {

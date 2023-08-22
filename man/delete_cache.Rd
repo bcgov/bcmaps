@@ -43,4 +43,6 @@ delete_cache()
 ## Specify which files are deleted
 delete_cache(c('regional_districts.rds', 'bc_cities.rds'))
 }
+
 }
+\concept{cache}

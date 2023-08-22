@@ -1,4 +1,45 @@
 url: http://bcgov.github.io/bcmaps/
+
 template:
   bootstrap: 5
 
+development:
+  mode: auto
+
+reference:
+  - title: B.C. Layers
+    desc: >
+      Various administrative and natural resource boundaries of B.C.
+    contents:
+    - available_layers
+    - get_layer
+    - has_concept("BC layers")
+
+  - title: "Canadian Digital Elevation Data (CDED)"
+    desc: >
+      Digital Elevation Model (DEM) of British Columbia
+    contents:
+    - starts_with("cded")
+    - starts_with("vrt")
+
+  - title: Cache Management
+    desc: Utilities to manage your cached layers
+    contents:
+    - has_concept("cache")
+
+  - title: Utility functions
+    desc: Various utility functions for working with BC data
+    contents:
+    - bc_area
+    - bc_bbox
+    - transform_bc_albers
+    - combine_nr_rd
+    - bc_neighbours
+    - bec_colours
+    - bec_colours
+
+  - title: Raster utilities
+    desc: Functions for specific raster operations
+    contents:
+    - raster_by_poly
+    - summarize_raster_list

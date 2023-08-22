@@ -31,6 +31,7 @@
 #' my_layer <- airzones()
 #' }
 #'
+#' @family BC layers
 #' @export
 airzones <- function(ask = interactive(), force = FALSE) {
    get_layer('airzones', ask = ask, force = force)
@@ -52,6 +53,7 @@ airzones <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- bc_cities()
 #' }
 #'
+#' @family BC layers
 #' @export
 bc_cities <- function(ask = interactive(), force = FALSE) {
    get_layer('bc_cities', ask = ask, force = force)
@@ -73,6 +75,7 @@ bc_cities <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- bec()
 #' }
 #'
+#' @family BC layers
 #' @export
 bec <- function(ask = interactive(), force = FALSE) {
    get_layer('bec', ask = ask, force = force)
@@ -94,6 +97,7 @@ bec <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- census_dissemination_area()
 #' }
 #'
+#' @family BC layers
 #' @export
 census_dissemination_area <- function(ask = interactive(), force = FALSE) {
    get_layer('census_dissemination_area', ask = ask, force = force)
@@ -115,6 +119,7 @@ census_dissemination_area <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- census_division()
 #' }
 #'
+#' @family BC layers
 #' @export
 census_division <- function(ask = interactive(), force = FALSE) {
    get_layer('census_division', ask = ask, force = force)
@@ -136,6 +141,7 @@ census_division <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- census_economic()
 #' }
 #'
+#' @family BC layers
 #' @export
 census_economic <- function(ask = interactive(), force = FALSE) {
    get_layer('census_economic', ask = ask, force = force)
@@ -157,6 +163,7 @@ census_economic <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- census_metropolitan_area()
 #' }
 #'
+#' @family BC layers
 #' @export
 census_metropolitan_area <- function(ask = interactive(), force = FALSE) {
    get_layer('census_metropolitan_area', ask = ask, force = force)
@@ -178,6 +185,7 @@ census_metropolitan_area <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- census_subdivision()
 #' }
 #'
+#' @family BC layers
 #' @export
 census_subdivision <- function(ask = interactive(), force = FALSE) {
    get_layer('census_subdivision', ask = ask, force = force)
@@ -199,6 +207,7 @@ census_subdivision <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- census_tract()
 #' }
 #'
+#' @family BC layers
 #' @export
 census_tract <- function(ask = interactive(), force = FALSE) {
    get_layer('census_tract', ask = ask, force = force)
@@ -220,6 +229,7 @@ census_tract <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- ecoprovinces()
 #' }
 #'
+#' @family BC layers
 #' @export
 ecoprovinces <- function(ask = interactive(), force = FALSE) {
    get_layer('ecoprovinces', ask = ask, force = force)
@@ -241,6 +251,7 @@ ecoprovinces <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- ecoregions()
 #' }
 #'
+#' @family BC layers
 #' @export
 ecoregions <- function(ask = interactive(), force = FALSE) {
    get_layer('ecoregions', ask = ask, force = force)
@@ -262,6 +273,7 @@ ecoregions <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- ecosections()
 #' }
 #'
+#' @family BC layers
 #' @export
 ecosections <- function(ask = interactive(), force = FALSE) {
    get_layer('ecosections', ask = ask, force = force)
@@ -283,6 +295,7 @@ ecosections <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- gw_aquifers()
 #' }
 #'
+#' @family BC layers
 #' @export
 gw_aquifers <- function(ask = interactive(), force = FALSE) {
    get_layer('gw_aquifers', ask = ask, force = force)
@@ -304,6 +317,7 @@ gw_aquifers <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- health_chsa()
 #' }
 #'
+#' @family BC layers
 #' @export
 health_chsa <- function(ask = interactive(), force = FALSE) {
    get_layer('health_chsa', ask = ask, force = force)
@@ -325,6 +339,7 @@ health_chsa <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- health_ha()
 #' }
 #'
+#' @family BC layers
 #' @export
 health_ha <- function(ask = interactive(), force = FALSE) {
    get_layer('health_ha', ask = ask, force = force)
@@ -346,6 +361,7 @@ health_ha <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- health_hsda()
 #' }
 #'
+#' @family BC layers
 #' @export
 health_hsda <- function(ask = interactive(), force = FALSE) {
    get_layer('health_hsda', ask = ask, force = force)
@@ -367,6 +383,7 @@ health_hsda <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- health_lha()
 #' }
 #'
+#' @family BC layers
 #' @export
 health_lha <- function(ask = interactive(), force = FALSE) {
    get_layer('health_lha', ask = ask, force = force)
@@ -388,6 +405,7 @@ health_lha <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- hydrozones()
 #' }
 #'
+#' @family BC layers
 #' @export
 hydrozones <- function(ask = interactive(), force = FALSE) {
    get_layer('hydrozones', ask = ask, force = force)
@@ -409,6 +427,7 @@ hydrozones <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- municipalities()
 #' }
 #'
+#' @family BC layers
 #' @export
 municipalities <- function(ask = interactive(), force = FALSE) {
    get_layer('municipalities', ask = ask, force = force)
@@ -430,6 +449,7 @@ municipalities <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- nr_areas()
 #' }
 #'
+#' @family BC layers
 #' @export
 nr_areas <- function(ask = interactive(), force = FALSE) {
    get_layer('nr_areas', ask = ask, force = force)
@@ -451,6 +471,7 @@ nr_areas <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- nr_districts()
 #' }
 #'
+#' @family BC layers
 #' @export
 nr_districts <- function(ask = interactive(), force = FALSE) {
    get_layer('nr_districts', ask = ask, force = force)
@@ -472,6 +493,7 @@ nr_districts <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- nr_regions()
 #' }
 #'
+#' @family BC layers
 #' @export
 nr_regions <- function(ask = interactive(), force = FALSE) {
    get_layer('nr_regions', ask = ask, force = force)
@@ -493,6 +515,7 @@ nr_regions <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- regional_districts()
 #' }
 #'
+#' @family BC layers
 #' @export
 regional_districts <- function(ask = interactive(), force = FALSE) {
    get_layer('regional_districts', ask = ask, force = force)
@@ -514,6 +537,7 @@ regional_districts <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- tsa()
 #' }
 #'
+#' @family BC layers
 #' @export
 tsa <- function(ask = interactive(), force = FALSE) {
    get_layer('tsa', ask = ask, force = force)
@@ -535,6 +559,7 @@ tsa <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- water_districts()
 #' }
 #'
+#' @family BC layers
 #' @export
 water_districts <- function(ask = interactive(), force = FALSE) {
    get_layer('water_districts', ask = ask, force = force)
@@ -556,6 +581,7 @@ water_districts <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- water_precincts()
 #' }
 #'
+#' @family BC layers
 #' @export
 water_precincts <- function(ask = interactive(), force = FALSE) {
    get_layer('water_precincts', ask = ask, force = force)
@@ -577,6 +603,7 @@ water_precincts <- function(ask = interactive(), force = FALSE) {
 #' my_layer <- wsc_drainages()
 #' }
 #'
+#' @family BC layers
 #' @export
 wsc_drainages <- function(ask = interactive(), force = FALSE) {
    get_layer('wsc_drainages', ask = ask, force = force)
