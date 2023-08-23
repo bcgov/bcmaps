@@ -18,10 +18,10 @@ Description: Various layers of B.C., including administrative boundaries,
     sourced from the British Columbia and Canadian government under open
     licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>),
     the Government of Canada Open Data Portal
-    (<https://open.canada.ca/en/open-data>), and Statistics Canada
+    (<https://open.canada.ca/en/using-open-data>), and Statistics Canada
     (<https://www.statcan.gc.ca/en/reference/licence>).
 License: Apache License (== 2.0) | file LICENSE
-URL: https://github.com/bcgov/bcmaps, http://bcgov.github.io/bcmaps/
+URL: https://github.com/bcgov/bcmaps, https://bcgov.github.io/bcmaps/
 BugReports: https://github.com/bcgov/bcmaps/issues
 Depends:
     R (>= 2.10),
