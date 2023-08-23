@@ -137,7 +137,7 @@ Excel file that we would import):</p>
 <span><span class="co">#&gt;  Class :character   Class :character   epsg:NA: 0  </span></span>
 <span><span class="co">#&gt;  Mode  :character   Mode  :character</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spp</span><span class="op">[</span><span class="st">"spp_present"</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-convert-1.png" width="100%"></p>
+<p><img src="vignette-fig-convert-1.png" alt="Map of randomly generated points of two colours representing species absent, and species present." width="100%"></p>
 <p>In order to overlay these points on other spatial layers, they need
 to use the same Coordinate Reference System (CRS). Coordinate systems
 and projections in R can be confusing. There is a great reference on
@@ -243,7 +243,7 @@ the same CRS as <code>bc_bound_layer</code>:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">spp</span><span class="op">[</span><span class="st">"spp_present"</span><span class="op">]</span>, graticule <span class="op">=</span> <span class="cn">TRUE</span>, reset <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu"><a href="https://r-spatial.github.io/sf/reference/st_geometry.html" class="external-link">st_geometry</a></span><span class="op">(</span><span class="va">bc_bound_layer</span><span class="op">)</span>, add <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="vignette-fig-overlay-1.png" width="100%"></p>
+<p><img src="vignette-fig-overlay-1.png" alt="The same random coloured points as before, now overlaid on a map of British Columbia." width="100%"></p>
 <p>Now we want to know what ecoregion of the province each of these
 observations was in. We can use the <code>ecoregions</code> data from
 <code>bcmaps</code>, and the <code>st_join</code> function from the
