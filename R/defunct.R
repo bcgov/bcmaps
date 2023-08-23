@@ -1,7 +1,7 @@
 #' @export
 transform_bc_albers.Spatial <- function(obj) {
   lifecycle::deprecate_stop(
-    "1.3.0",
+    "2.0.0",
     "transform_bc_albers.Spatial()",
     "transform_bc_albers.sf()",
     details = drop_sp_support_message()
@@ -13,7 +13,7 @@ transform_bc_albers.Spatial <- function(obj) {
 #' @description
 #' `r lifecycle::badge("defunct")`.
 #'
-#' This function is defunct as of bcmaps 1.3.0.
+#' This function is defunct as of bcmaps 2.0.0.
 #' For `sf` objects simply use `sf::st_make_valid()`
 #'
 #' @param obj The SpatialPolygons* or sf object to check/fix.
@@ -23,7 +23,7 @@ transform_bc_albers.Spatial <- function(obj) {
 #' @export
 fix_geo_problems <- function(obj) {
   lifecycle::deprecate_stop(
-    "1.3.0",
+    "2.0.0",
     "fix_geo_problems()",
     "sf::st_make_valid()"
   )
@@ -34,7 +34,7 @@ fix_geo_problems <- function(obj) {
 #' @description
 #' `r lifecycle::badge("defunct")`
 #'
-#' This function is defunct as of bcmaps 1.3.0.
+#' This function is defunct as of bcmaps 2.0.0.
 #' Use `raster::union()` for `SpatialPolygonsDataFrame`s, or
 #' `sf::st_union()` with `sf` objects instead.
 #'
@@ -46,7 +46,7 @@ fix_geo_problems <- function(obj) {
 #' @export
 self_union <- function(x) {
   lifecycle::deprecate_stop(
-    "1.3.0",
+    "2.0.0",
     "self_union()",
     "sf::st_union()",
     details = drop_sp_support_message()
@@ -58,7 +58,7 @@ self_union <- function(x) {
 #' @description
 #' `r lifecycle::badge("defunct")`
 #'
-#' This function is defunct as of bcmaps 1.3.0.
+#' This function is defunct as of bcmaps 2.0.0.
 #'
 #' @param x the list-column in the (SpatialPolygons)DataFrame that contains nested data.frames
 #' @param col the column in the nested data frames from which to retrieve/calculate attributes
@@ -71,7 +71,7 @@ self_union <- function(x) {
 #' @export
 get_poly_attribute <- function(x, col, fun, ...) {
   lifecycle::deprecate_stop(
-    "1.3.0",
+    "2.0.0",
     "get_poly_attribute()",
     details = drop_sp_support_message()
   )

@@ -59,7 +59,7 @@ km2_sq_mi <- function(x) {
 
 #' Transform a Spatial* object to BC Albers projection
 #'
-#' The `Spatial` method has been removed as of bcmaps 1.3.0. The `sf` method is here to stay.
+#' The `Spatial` method has been removed as of bcmaps 2.0.0. The `sf` method is here to stay.
 #'
 #' @param obj The sf object to transform.
 #'
@@ -159,7 +159,7 @@ bc_bbox <- function(class = c("sf", "raster"), crs = 3005) {
 
   if (class == "sp") {
     lifecycle::deprecate_stop(
-      "1.3.0",
+      "2.0.0",
       "bc_bbox(class = 'sp')",
       I("bc_bbox(class = 'sf') or bc_bbox(class = 'sf')"),
       drop_sp_support_message()

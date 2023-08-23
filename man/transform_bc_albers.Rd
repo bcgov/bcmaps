@@ -13,5 +13,5 @@ transform_bc_albers(obj)
 the sf object in BC Albers projection
 }
 \description{
-The \code{Spatial} method has been removed as of bcmaps 1.3.0. The \code{sf} method is here to stay.
+The \code{Spatial} method has been removed as of bcmaps 2.0.0. The \code{sf} method is here to stay.
 }

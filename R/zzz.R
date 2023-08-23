@@ -18,7 +18,7 @@ bcmaps_env <- new.env(parent = emptyenv())
 
 
 bcmapsStartupMessage <- function() {
-  "Support for Spatial objects (`sp`) was removed in {bcmaps} v1.3.0. Please use `sf` objects with {bcmaps}."
+  "Support for Spatial objects (`sp`) was removed in {bcmaps} v2.0.0. Please use `sf` objects with {bcmaps}."
 }
 
 .onAttach <- function(lib, pkg)

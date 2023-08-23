@@ -21,6 +21,6 @@ An atomic vector of the same length as x
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#defunct}{\figure{lifecycle-defunct.svg}{options: alt='[Defunct]'}}}{\strong{[Defunct]}}
 
-This function is defunct as of bcmaps 1.3.0.
+This function is defunct as of bcmaps 2.0.0.
 }
 \keyword{internal}

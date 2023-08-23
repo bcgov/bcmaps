@@ -15,7 +15,7 @@ The \verb{SpatialPolygons*} or \code{sf} object, repaired if necessary
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#defunct}{\figure{lifecycle-defunct.svg}{options: alt='[Defunct]'}}}{\strong{[Defunct]}}.
 
-This function is defunct as of bcmaps 1.3.0.
+This function is defunct as of bcmaps 2.0.0.
 For \code{sf} objects simply use \code{sf::st_make_valid()}
 }
 \keyword{internal}
