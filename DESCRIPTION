@@ -1,57 +1,57 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
 Version: 1.2.0.9000
-Authors@R: 
-    c(person(given = "Andy",
-             family = "Teucher",
-             role = c("aut", "cre"),
-             email = "andy.teucher@gmail.com",
-             comment = c(ORCID = "0000-0002-7840-692X")),
-      person(given = "Sam",
-             family = "Albers",
-             role = c("aut", "ctb"),
-             email = "sam.albers@gmail.com",
-             comment = c(ORCID = "0000-0002-9270-7884")),
-      person(given = "Stephanie",
-             family = "Hazlitt",
-             role = c("aut", "ctb"),
-             email = "stephhazlitt@gmail.com",
-             comment = c(ORCID = "0000-0002-3161-2304")),
-      person(given = "Province of British Columbia",
-             role = "cph"))
-Description: Various layers of B.C., including administrative boundaries, natural resource management boundaries, census boundaries etc. All layers are available in BC Albers (<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area projection, which is the B.C. government standard. The layers are sourced from the British Columbia and Canadian government under open licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>), the Government of Canada Open Data Portal (<https://open.canada.ca/en/open-data>), and Statistics Canada (<https://www.statcan.gc.ca/en/reference/licence>).
+Authors@R: c(
+    person("Andy", "Teucher", , "andy.teucher@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7840-692X")),
+    person("Sam", "Albers", , "sam.albers@gmail.com", role = c("aut", "ctb"),
+           comment = c(ORCID = "0000-0002-9270-7884")),
+    person("Stephanie", "Hazlitt", , "stephhazlitt@gmail.com", role = c("aut", "ctb"),
+           comment = c(ORCID = "0000-0002-3161-2304")),
+    person("Province of British Columbia", role = "cph")
+  )
+Description: Various layers of B.C., including administrative boundaries,
+    natural resource management boundaries, census boundaries etc. All
+    layers are available in BC Albers
+    (<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area
+    projection, which is the B.C. government standard. The layers are
+    sourced from the British Columbia and Canadian government under open
+    licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>),
+    the Government of Canada Open Data Portal
+    (<https://open.canada.ca/en/open-data>), and Statistics Canada
+    (<https://www.statcan.gc.ca/en/reference/licence>).
 License: Apache License (== 2.0) | file LICENSE
-URL: https://github.com/bcgov/bcmaps,
-    http://bcgov.github.io/bcmaps/
+URL: https://github.com/bcgov/bcmaps, http://bcgov.github.io/bcmaps/
 BugReports: https://github.com/bcgov/bcmaps/issues
 Depends:
-    sf (>= 1.0),
-    R (>= 2.10)
+    R (>= 2.10),
+    sf (>= 1.0)
 Imports: 
     bcdata (>= 0.4.1),
     httr (>= 1.3.1),
+    jsonlite (>= 1.7.0),
+    lifecycle (>= 1.0.3),
     methods,
-    rappdirs (>= 0.3.1),
     progress,
+    rappdirs (>= 0.3.1),
     stats,
     utils,
-    xml2,
-    jsonlite (>= 1.7.0),
-    lifecycle (>= 1.0.3)
+    xml2
 Suggests: 
-    knitr,
-    rmarkdown,
-    future.apply (>= 1.2.0),
     future (>= 1.12.0),
+    future.apply (>= 1.2.0),
     ggplot2 (>= 3.0),
     glue (>= 1.1.1),
-    raster (>= 3.6-3),
-    sp (>= 2.0.0),
+    knitr,
     lwgeom (>= 0.2.13),
+    raster (>= 3.6-3),
+    rmarkdown,
+    sp (>= 2.0.0),
+    stars (>= 0.6.3),
     testthat (>= 2.1.0),
-    withr (>= 2.3),
-    stars (>= 0.6.3)
-VignetteBuilder: knitr
+    withr (>= 2.3)
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
-Encoding: UTF-8
