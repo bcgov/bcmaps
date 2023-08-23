@@ -22,7 +22,8 @@ knitr::opts_chunk$set(collapse = TRUE,
   fig.width = 7,
   fig.height = 4,
   dev = "CairoPNG",
-  dpi = 400)
+  dpi = 400,
+  fig.cap = "")
 ```
 
 We often want to be able to add point data to a map. This vignette will run through a simple example of converting a `data.frame` of latitude/longitude pairs into an `sf` points layer, and reprojecting it so that the points can be overlaid on a layer from the `bcmaps` package.

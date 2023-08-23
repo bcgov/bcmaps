@@ -37,7 +37,8 @@ knitr::opts_chunk$set(collapse = TRUE,
   fig.width = 7,
   fig.height = 4,
   dev = "CairoPNG",
-  dpi = 400)
+  dpi = 400,
+  fig.cap = "")
 ```
 
 

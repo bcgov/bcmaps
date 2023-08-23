@@ -1,6 +1,6 @@
 ---
 title: "bcmaps layers and point data"
-date: "2023-08-14"
+date: "2023-08-23"
 output:
   rmarkdown::html_vignette:
     keep_md: true
@@ -60,10 +60,7 @@ summary(spp)
 plot(spp["spp_present"])
 ```
 
-<div class="figure">
-<img src="vignette-fig-convert-1.png" alt="plot of chunk convert" width="100%" />
-<p class="caption">plot of chunk convert</p>
-</div>
+<img src="vignette-fig-convert-1.png" width="100%" />
 
 In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf.
 
@@ -173,10 +170,7 @@ plot(spp["spp_present"], graticule = TRUE, reset = FALSE)
 plot(st_geometry(bc_bound_layer), add = TRUE)
 ```
 
-<div class="figure">
-<img src="vignette-fig-overlay-1.png" alt="plot of chunk overlay" width="100%" />
-<p class="caption">plot of chunk overlay</p>
-</div>
+<img src="vignette-fig-overlay-1.png" width="100%" />
 
 Now we want to know what ecoregion of the province each of these observations
 was in. We can use the `ecoregions` data from `bcmaps`, and the `st_join` function
@@ -191,27 +185,16 @@ st_join(spp, ecoreg["ECOREGION_NAME"])
 #> Dimension:     XY
 #> Bounding box:  xmin: 912519.3 ymin: 600149.1 xmax: 1383324 ymax: 1642418
 #> Projected CRS: NAD83 / BC Albers
-#>    site_num spp_present                   ECOREGION_NAME
-#> 1         A         yes CENTRAL CANADIAN ROCKY MOUNTAINS
-#> 2         B         yes    BOREAL MOUNTAINS AND PLATEAUS
-#> 3         C         yes                HAY-SLAVE LOWLAND
-#> 4         D         yes               COLUMBIA HIGHLANDS
-#> 5         E          no       EASTERN HAZELTON MOUNTAINS
-#> 6         F          no                   MUSKWA PLATEAU
-#> 7         G          no                   MUSKWA PLATEAU
-#> 8         H          no        THOMPSON-OKANAGAN PLATEAU
-#> 9         I         yes                     FRASER BASIN
-#> 10        J          no CENTRAL CANADIAN ROCKY MOUNTAINS
-#>                    geometry
-#> 1   POINT (1341578 1016164)
-#> 2  POINT (945861.3 1324757)
-#> 3   POINT (1337001 1602713)
-#> 4  POINT (1383324 770393.7)
-#> 5  POINT (912519.3 1009950)
-#> 6   POINT (1120431 1596971)
-#> 7   POINT (1063173 1642418)
-#> 8  POINT (1373357 600149.1)
-#> 9   POINT (1102484 1025860)
-#> 10  POINT (1297769 1139361)
+#>    site_num spp_present                   ECOREGION_NAME                 geometry
+#> 1         A         yes CENTRAL CANADIAN ROCKY MOUNTAINS  POINT (1341578 1016164)
+#> 2         B         yes    BOREAL MOUNTAINS AND PLATEAUS POINT (945861.3 1324757)
+#> 3         C         yes                HAY-SLAVE LOWLAND  POINT (1337001 1602713)
+#> 4         D         yes               COLUMBIA HIGHLANDS POINT (1383324 770393.7)
+#> 5         E          no       EASTERN HAZELTON MOUNTAINS POINT (912519.3 1009950)
+#> 6         F          no                   MUSKWA PLATEAU  POINT (1120431 1596971)
+#> 7         G          no                   MUSKWA PLATEAU  POINT (1063173 1642418)
+#> 8         H          no        THOMPSON-OKANAGAN PLATEAU POINT (1373357 600149.1)
+#> 9         I         yes                     FRASER BASIN  POINT (1102484 1025860)
+#> 10        J          no CENTRAL CANADIAN ROCKY MOUNTAINS  POINT (1297769 1139361)
 ```
 
