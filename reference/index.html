@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">bcmaps</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.2.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">2.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,9 +53,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="b-c-layers">B.C. Layers<a class="anchor" aria-label="anchor" href="#b-c-layers"></a></h2>
       
-      
+      <p class="section-desc"></p><p>Various administrative and natural resource boundaries of B.C.</p>
 
       
     </div><div id="" class="section level2">
@@ -65,29 +65,19 @@
 
       <dl><dt>
           
-          <code><a href="add_license_header.html">add_license_header()</a></code> 
-        </dt>
-        <dd>Add the boilerplate Apache header to the top of a source code file</dd>
-      </dl><dl><dt>
-          
-          <code><a href="airzones.html">airzones()</a></code> 
-        </dt>
-        <dd>British Columbia Air Zones</dd>
-      </dl><dl><dt>
-          
           <code><a href="available_layers.html">available_layers()</a></code> 
         </dt>
         <dd>List available data layers</dd>
       </dl><dl><dt>
           
-          <code><a href="bc_area.html">bc_area()</a></code> 
+          <code><a href="get_layer.html">get_layer()</a></code> 
         </dt>
-        <dd>The size of British Columbia</dd>
+        <dd>Get a B.C. spatial layer</dd>
       </dl><dl><dt>
           
-          <code><a href="bc_bbox.html">bc_bbox()</a></code> 
+          <code><a href="airzones.html">airzones()</a></code> 
         </dt>
-        <dd>Get an extent/bounding box for British Columbia</dd>
+        <dd>British Columbia Air Zones</dd>
       </dl><dl><dt>
           
           <code><a href="bc_bound.html">bc_bound()</a></code> 
@@ -105,34 +95,9 @@
         <dd>BC Major Cities Points</dd>
       </dl><dl><dt>
           
-          <code><a href="bc_neighbours.html">bc_neighbours()</a></code> 
-        </dt>
-        <dd>Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia</dd>
-      </dl><dl><dt>
-          
           <code><a href="bec.html">bec()</a></code> 
         </dt>
         <dd>British Columbia BEC Map</dd>
-      </dl><dl><dt>
-          
-          <code><a href="bec_colours.html">bec_colours()</a></code> <code><a href="bec_colours.html">bec_colors()</a></code> 
-        </dt>
-        <dd>Biogeoclimatic Zone Colours</dd>
-      </dl><dl><dt>
-          
-          <code><a href="cded.html">cded()</a></code> 
-        </dt>
-        <dd>Canadian Digital Elevation Model (CDED)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="cded_raster.html">cded_raster()</a></code> 
-        </dt>
-        <dd>Get Canadian Digital Elevation Model (CDED) as a <code>raster</code> object</dd>
-      </dl><dl><dt>
-          
-          <code><a href="cded_stars.html">cded_stars()</a></code> 
-        </dt>
-        <dd>Get Canadian Digital Elevation Model (CDED) as a <code>stars</code> object</dd>
       </dl><dl><dt>
           
           <code><a href="census_dissemination_area.html">census_dissemination_area()</a></code> 
@@ -165,16 +130,6 @@
         <dd>Current Census Tract Boundaries</dd>
       </dl><dl><dt>
           
-          <code><a href="combine_nr_rd.html">combine_nr_rd()</a></code> 
-        </dt>
-        <dd>Combine Northern Rockies Regional Municipality with Regional Districts</dd>
-      </dl><dl><dt>
-          
-          <code><a href="delete_cache.html">delete_cache()</a></code> <code><a href="delete_cache.html">show_cached_files()</a></code> 
-        </dt>
-        <dd>View and delete cached files</dd>
-      </dl><dl><dt>
-          
           <code><a href="ecoprovinces.html">ecoprovinces()</a></code> 
         </dt>
         <dd>British Columbia Ecoprovinces</dd>
@@ -193,11 +148,6 @@
           <code><a href="fsa.html">fsa()</a></code> 
         </dt>
         <dd>British Columbia Forward Sortation Areas</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_layer.html">get_layer()</a></code> 
-        </dt>
-        <dd>Get a B.C. spatial layer</dd>
       </dl><dl><dt>
           
           <code><a href="gw_aquifers.html">gw_aquifers()</a></code> 
@@ -230,11 +180,6 @@
         <dd>Hydrologic Zone Boundaries of British Columbia</dd>
       </dl><dl><dt>
           
-          <code><a href="make_shortcuts.html">make_shortcuts()</a></code> 
-        </dt>
-        <dd>Make shortcut functions for data objects in bcmaps from B.C. Data Catalogue</dd>
-      </dl><dl><dt>
-          
           <code><a href="mapsheets_250K.html">mapsheets_250K()</a></code> 
         </dt>
         <dd>NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)</dd>
@@ -265,40 +210,14 @@
         <dd>British Columbia Natural Resource (NR) Regions</dd>
       </dl><dl><dt>
           
-          <code><a href="raster_by_poly.html">raster_by_poly()</a></code> 
-        </dt>
-        <dd>Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
-and clip the raster to each polygon. Optionally done in parallel</dd>
-      </dl><dl><dt>
-          
           <code><a href="regional_districts.html">regional_districts()</a></code> 
         </dt>
         <dd>British Columbia Regional Districts</dd>
       </dl><dl><dt>
           
-          <code><a href="summarize_raster_list.html">summarize_raster_list()</a></code> 
-        </dt>
-        <dd>Summarize a list of rasters into a list of numeric vectors</dd>
-      </dl><dl><dt>
-          
-          <code><a href="transform_bc_albers.html">transform_bc_albers()</a></code> 
-        </dt>
-        <dd>Transform a Spatial* object to BC Albers projection</dd>
-      </dl><dl><dt>
-          
           <code><a href="tsa.html">tsa()</a></code> 
         </dt>
         <dd>British Columbia Timber Supply Areas and TSA Blocks</dd>
-      </dl><dl><dt>
-          
-          <code><a href="vrt_files.html">vrt_files()</a></code> 
-        </dt>
-        <dd>List the files that a vrt is built on</dd>
-      </dl><dl><dt>
-          
-          <code><a href="vrt_info.html">vrt_info()</a></code> 
-        </dt>
-        <dd>Get metadata about a .vrt file</dd>
       </dl><dl><dt>
           
           <code><a href="water_districts.html">water_districts()</a></code> 
@@ -324,8 +243,124 @@ and clip the raster to each polygon. Optionally done in parallel</dd>
           <code><a href="wsc_drainages.html">wsc_drainages()</a></code> 
         </dt>
         <dd>Water Survey of Canada Sub-Sub-Drainage Areas</dd>
+      </dl></div><div class="section level2">
+      <h2 id="canadian-digital-elevation-data-cded-">Canadian Digital Elevation Data (CDED)<a class="anchor" aria-label="anchor" href="#canadian-digital-elevation-data-cded-"></a></h2>
+      
+      <p class="section-desc"></p><p>Digital Elevation Model (DEM) of British Columbia</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="cded.html">cded()</a></code> 
+        </dt>
+        <dd>Canadian Digital Elevation Model (CDED)</dd>
+      </dl><dl><dt>
+          
+          <code><a href="cded_raster.html">cded_raster()</a></code> 
+        </dt>
+        <dd>Get Canadian Digital Elevation Model (CDED) as a <code>raster</code> object</dd>
+      </dl><dl><dt>
+          
+          <code><a href="cded_stars.html">cded_stars()</a></code> 
+        </dt>
+        <dd>Get Canadian Digital Elevation Model (CDED) as a <code>stars</code> object</dd>
+      </dl><dl><dt>
+          
+          <code><a href="vrt_files.html">vrt_files()</a></code> 
+        </dt>
+        <dd>List the files that a vrt is built on</dd>
+      </dl><dl><dt>
+          
+          <code><a href="vrt_info.html">vrt_info()</a></code> 
+        </dt>
+        <dd>Get metadata about a .vrt file</dd>
+      </dl></div><div class="section level2">
+      <h2 id="cache-management">Cache Management<a class="anchor" aria-label="anchor" href="#cache-management"></a></h2>
+      
+      <p class="section-desc"></p><p>Utilities to manage your cached layers</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="delete_cache.html">delete_cache()</a></code> <code><a href="delete_cache.html">show_cached_files()</a></code> 
+        </dt>
+        <dd>View and delete cached files</dd>
+      </dl></div><div class="section level2">
+      <h2 id="utility-functions">Utility functions<a class="anchor" aria-label="anchor" href="#utility-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>Various utility functions for working with BC data</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="bc_area.html">bc_area()</a></code> 
+        </dt>
+        <dd>The size of British Columbia</dd>
+      </dl><dl><dt>
+          
+          <code><a href="bc_bbox.html">bc_bbox()</a></code> 
+        </dt>
+        <dd>Get an extent/bounding box for British Columbia</dd>
+      </dl><dl><dt>
+          
+          <code><a href="transform_bc_albers.html">transform_bc_albers()</a></code> 
+        </dt>
+        <dd>Transform a Spatial* object to BC Albers projection</dd>
+      </dl><dl><dt>
+          
+          <code><a href="combine_nr_rd.html">combine_nr_rd()</a></code> 
+        </dt>
+        <dd>Combine Northern Rockies Regional Municipality with Regional Districts</dd>
+      </dl><dl><dt>
+          
+          <code><a href="bc_neighbours.html">bc_neighbours()</a></code> 
+        </dt>
+        <dd>Boundary of British Columbia, provinces/states and the portion of the Pacific Ocean that borders British Columbia</dd>
+      </dl><dl><dt>
+          
+          <code><a href="bec_colours.html">bec_colours()</a></code> <code><a href="bec_colours.html">bec_colors()</a></code> 
+        </dt>
+        <dd>Biogeoclimatic Zone Colours</dd>
+      </dl></div><div class="section level2">
+      <h2 id="raster-utilities">Raster utilities<a class="anchor" aria-label="anchor" href="#raster-utilities"></a></h2>
+      
+      <p class="section-desc"></p><p>Functions for specific raster operations</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="raster_by_poly.html">raster_by_poly()</a></code> 
+        </dt>
+        <dd>Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster layer
+and clip the raster to each polygon. Optionally done in parallel</dd>
+      </dl><dl><dt>
+          
+          <code><a href="summarize_raster_list.html">summarize_raster_list()</a></code> 
+        </dt>
+        <dd>Summarize a list of rasters into a list of numeric vectors</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
