@@ -1,3 +1,5 @@
+# bcmaps (development version)
+
 # bcmaps 2.0.0
 
 ## Removal of `sp` and `raster` support
