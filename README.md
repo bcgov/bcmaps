@@ -70,7 +70,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-![](man/figures/unnamed-chunk-6-1.png)<!-- -->
+<img src="man/figures/unnamed-chunk-6-1.png" alt="A map of the outline of British Columbia."  />
 
 ## Vignettes
 

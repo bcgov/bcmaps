@@ -60,7 +60,7 @@ summary(spp)
 plot(spp["spp_present"])
 ```
 
-<img src="vignette-fig-convert-1.png" width="100%" />
+<img src="vignette-fig-convert-1.png" alt="Map of randomly generated points of two colours representing species absent, and species present." width="100%" />
 
 In order to overlay these points on other spatial layers, they need to use the same Coordinate Reference System (CRS). Coordinate systems and projections in R can be confusing. There is a great reference on using them here: https://www.nceas.ucsb.edu/sites/default/files/2020-04/OverviewCoordinateReferenceSystems.pdf.
 
@@ -170,7 +170,7 @@ plot(spp["spp_present"], graticule = TRUE, reset = FALSE)
 plot(st_geometry(bc_bound_layer), add = TRUE)
 ```
 
-<img src="vignette-fig-overlay-1.png" width="100%" />
+<img src="vignette-fig-overlay-1.png" alt="The same random coloured points as before, now overlaid on a map of British Columbia." width="100%" />
 
 Now we want to know what ecoregion of the province each of these observations
 was in. We can use the `ecoregions` data from `bcmaps`, and the `st_join` function

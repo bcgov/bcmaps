@@ -72,6 +72,7 @@ Most layers are accessible by a shortcut function by the same name as the object
 Then you can use the data as you would any `sf` object.
 
 ```{r}
+#| fig-alt: A map of the outline of British Columbia.
 library(sf)
 
 bc <- bc_bound()

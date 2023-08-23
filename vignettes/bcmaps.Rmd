@@ -69,7 +69,7 @@ bc <- bc_bound()
 plot(st_geometry(bc))
 ```
 
-<img src="vignette-fig-unnamed-chunk-3-1.png" width="100%" />
+<img src="vignette-fig-unnamed-chunk-3-1.png" alt="A simple map of the outline of British Columbia." width="100%" />
 
 There are two British Columbia boundary map layers available in `bcmaps`:
 
@@ -96,7 +96,7 @@ kootenays <- rd[rd$ADMIN_AREA_NAME == "Regional District of Central Kootenay", ]
 plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 ```
 
-<img src="vignette-fig-plot-maps-1.png" width="100%" />
+<img src="vignette-fig-plot-maps-1.png" alt="A map of the outline of British Columbia, with the Regional District of Central Kootenay in the Southeastern part of the province shaded in green." width="100%" />
 
 ### Digital Elevation Model for British Columbia 1:250,000
 
@@ -111,7 +111,7 @@ aoi_raster <- cded_raster(aoi)
 plot(aoi_raster)
 ```
 
-<img src="vignette-fig-cded-1.png" width="100%" />
+<img src="vignette-fig-cded-1.png" alt="A digital elevation map of a subset of B.C. (Logan Lake Census Subdivision) with high elevation in green and low elevation in pink." width="100%" />
 
 ### It's a beautiful day in the neighbourhood
 
@@ -128,7 +128,7 @@ ggplot() +
   theme_minimal()
 ```
 
-<img src="vignette-fig-bc_neighbours-1.png" width="100%" />
+<img src="vignette-fig-bc_neighbours-1.png" alt="A map of British Columbia with points representing B.C. cities, with the neighbouring states and provinces shown." width="100%" />
 
 
 ### Biogeoclimatic Zones
@@ -151,7 +151,7 @@ ggplot() +
   scale_colour_manual(values = bec_colours())
 ```
 
-<img src="vignette-fig-bec-1.png" width="100%" />
+<img src="vignette-fig-bec-1.png" alt="A map of the Bunchgrass and Ponderosa Pine Biogeoclimatic zones in Southern British Columbia." width="100%" />
 
 
 ### Updating layers

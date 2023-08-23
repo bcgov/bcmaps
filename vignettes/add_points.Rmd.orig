@@ -52,7 +52,11 @@ head(spp)
 
 Next we convert this to an `sf` points layer using the `sf` package:
 
-```{r convert, warning=FALSE}
+```{r convert}
+#| warning: false
+#| fig-alt: Map of randomly generated points of two colours representing species
+#|          absent, and species present.
+
 spp <- st_as_sf(spp, coords = c("long", "lat"))
 summary(spp)
 plot(spp["spp_present"])
@@ -84,7 +88,13 @@ spp <- transform_bc_albers(spp)
 
 Now we can overlay the points on the provincial boundary dataset:
 
-```{r overlay, fig.height=4, fig.width=6, warning=FALSE}
+```{r overlay}
+#| fig-height: 4
+#| fig-width: 6
+#| fig-alt: The same random coloured points as before, now overlaid on a map of
+#|          British Columbia.
+#| warning: false
+
 plot(spp["spp_present"], graticule = TRUE, reset = FALSE)
 plot(st_geometry(bc_bound_layer), add = TRUE)
 ```

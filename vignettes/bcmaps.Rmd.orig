@@ -75,6 +75,8 @@ you try to access a layer, you will be prompted for permission to download that 
 to your hard drive. Subsequently that layer is available locally for easy future access. For example:
 
 ```{r}
+#| fig-alt: A simple map of the outline of British Columbia.
+
 library(sf)
 
 bc <- bc_bound()
@@ -90,7 +92,12 @@ There are two British Columbia boundary map layers available in `bcmaps`:
 
 By default, all layers are returned as [`sf` spatial objects](https://cran.r-project.org/package=sf):
 
-```{r plot-maps, fig.height=5, warning=FALSE}
+```{r plot-maps}
+#| fig-height: 5
+#| warning: false
+#| fig-alt: A map of the outline of British Columbia, with the Regional District
+#|          of Central Kootenay in the Southeastern part of the province shaded in green.
+
 library(bcmaps)
 library(sf)
 
@@ -110,6 +117,9 @@ plot(st_geometry(kootenays), col = "lightseagreen", add = TRUE)
 The `cded_raster` and `cded_stars` functions return the 1:250,000 digital elevation model for British Columbia bounded by some area of interest. Here we are retrieving the area bounded by the _Logan Lake_ census subdivision:
 
 ```{r cded}
+#| fig-alt: A digital elevation map of a subset of B.C. (Logan Lake Census
+#|          Subdivision) with high elevation in green and low elevation in pink.
+
 library(raster)
 
 aoi <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Logan Lake", ]
@@ -122,6 +132,9 @@ plot(aoi_raster)
 A handy layer for creating maps for display is the `bc_neighbours` layer, accessible with the function by the same name. This example also illustrates using the popular [ggplot2](https://ggplot2.tidyverse.org/) package to plot maps in R using `geom_sf` and the `bc_cities()` function available in `bcmaps`:
 
 ```{r bc_neighbours}
+#| fig-alt: A map of British Columbia with points representing B.C. cities, with the
+#|          neighbouring states and provinces shown.
+
 library(ggplot2)
 ggplot() +
   geom_sf(data = bc_neighbours(), mapping = aes(fill = name)) +
@@ -142,7 +155,10 @@ function to colour it:
 bec <- bec(ask = FALSE)
 ```
 
-```{r bec, message=FALSE}
+```{r bec}
+#| fig-alt: A map of the Bunchgrass and Ponderosa Pine Biogeoclimatic zones in
+#|          Southern British Columbia.
+
 bec <- bec()
 library(ggplot2)
 bec_sub <- bec[bec$ZONE %in% c("BG", "PP"),]
