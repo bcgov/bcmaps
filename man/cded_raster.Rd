@@ -9,6 +9,7 @@ cded_raster(
   tiles_50K = NULL,
   .predicate = sf::st_intersects,
   dest_vrt = tempfile(fileext = ".vrt"),
+  ask = interactive(),
   check_tiles = TRUE,
   ...
 )
@@ -22,6 +23,8 @@ cded_raster(
 
 \item{dest_vrt}{The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project}
 
+\item{ask}{Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().}
+
 \item{check_tiles}{Should the tiles that you already have in your cache be checked to see if they need updating? Default \code{TRUE}.
 If you are running the same code frequently and are confident the tiles haven't changed, setting this to \code{FALSE}
 will speed things up.}
@@ -32,7 +35,7 @@ will speed things up.}
 a \code{raster} object of the cded tiles for the specified area of interest
 }
 \description{
-Get Canadian Digital Elevation Model (CDED) as a \code{raster} object
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}.
 }
 \examples{
 \dontrun{
@@ -40,3 +43,4 @@ vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Vic
 vic_cded <- cded_raster(aoi = vic)
 }
 }
+\keyword{internal}

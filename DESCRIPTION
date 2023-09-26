@@ -45,6 +45,7 @@ Suggests:
     knitr,
     lwgeom (>= 0.2.13),
     raster (>= 3.6-3),
+    terra (>= 1.7.0),
     rmarkdown,
     sp (>= 2.0.0),
     stars (>= 0.6.3),

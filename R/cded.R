@@ -96,26 +96,68 @@ cded <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
 #' vic_cded <- cded_stars(aoi = vic)
 #' }
 cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
-                       dest_vrt = tempfile(fileext = ".vrt"),
+                       dest_vrt = tempfile(fileext = ".vrt"), ask = interactive(),
                        check_tiles = TRUE, ...) {
   if (!requireNamespace("stars", quietly = TRUE)) {
     stop("stars package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K,
-              .predicate = .predicate, dest_vrt = dest_vrt,
-              check_tiles = check_tiles, ...)
+  vrt <- cded(
+    aoi = aoi,
+    tiles_50K = tiles_50K,
+    .predicate = .predicate,
+    dest_vrt = dest_vrt,
+    ask = interactive(),
+    check_tiles = check_tiles
+  )
 
   stats::setNames(stars::read_stars(vrt, ...), "elevation")
 }
 
+#' Get Canadian Digital Elevation Model (CDED) as a `terra` object
+#'
+#' @inheritParams cded
+#' @param ... Further arguments passed on to [terra::rast()]
+#'
+#' @return a `terra` object of the cded tiles for the specified area of interest
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' vic <- census_subdivision()[census_subdivision()$CENSUS_SUBDIVISION_NAME == "Victoria", ]
+#' vic_cded <- cded_terra(aoi = vic)
+#' }
+cded_terra <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
+                       dest_vrt = tempfile(fileext = ".vrt"), ask = interactive(),
+                       check_tiles = TRUE, ...) {
+  if (!requireNamespace("terra", quietly = TRUE)) {
+    stop("terra package required to use this function. Please install it.",
+         call. = FALSE)
+  }
+  vrt <- cded(
+    aoi = aoi,
+    tiles_50K = tiles_50K,
+    .predicate = .predicate,
+    dest_vrt = dest_vrt,
+    ask = interactive(),
+    check_tiles = check_tiles
+  )
+
+  stats::setNames(terra::rast(vrt, ...), "elevation")
+}
+
 #' Get Canadian Digital Elevation Model (CDED) as a `raster` object
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`.
+#'
 #'
 #' @inheritParams cded
 #' @param ... Further arguments passed on to [raster::raster]
 #'
 #' @return a `raster` object of the cded tiles for the specified area of interest
 #' @export
+#' @keywords internal
 #'
 #' @examples
 #' \dontrun{
@@ -123,15 +165,28 @@ cded_stars <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_interse
 #' vic_cded <- cded_raster(aoi = vic)
 #' }
 cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_intersects,
-                        dest_vrt = tempfile(fileext = ".vrt"),
+                        dest_vrt = tempfile(fileext = ".vrt"), ask = interactive(),
                         check_tiles = TRUE, ...) {
+
+  lifecycle::deprecate_warn(
+    when = "2.1.0",
+    what = "cded_raster()",
+    with = "cded_stars() or cded_terra()",
+    details = "bcmaps has begun dropping support for raster objects. Please consider switching to terra or stars."
+  )
+
   if (!requireNamespace("raster", quietly = TRUE)) {
     stop("raster package required to use this function. Please install it.",
          call. = FALSE)
   }
-  vrt <- cded(aoi = aoi, tiles_50K = tiles_50K,
-              .predicate = .predicate, dest_vrt = dest_vrt,
-              check_tiles = check_tiles, ...)
+  vrt <- cded(
+    aoi = aoi,
+    tiles_50K = tiles_50K,
+    .predicate = .predicate,
+    dest_vrt = dest_vrt,
+    ask = interactive(),
+    check_tiles = check_tiles
+  )
 
   stats::setNames(raster::raster(vrt, ...), "elevation")
 }
