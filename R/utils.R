@@ -257,6 +257,11 @@ convert_to_sf.stars <- function(obj) {
   sf::st_as_sfc(bbox)
 }
 
+convert_to_sf.SpatRaster <- function(obj) {
+  bbox <- sf::st_bbox(obj)
+  sf::st_as_sfc(bbox)
+}
+
 convert_to_sf.bbox <- function(obj) {
   sf::st_as_sfc(obj)
 }
