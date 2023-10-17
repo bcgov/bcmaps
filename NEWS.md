@@ -1,5 +1,8 @@
 # bcmaps (development version)
 
+* Added function `cded_terra()`
+* Deprecated function `cded_raster()` - this will be removed in a future version.
+
 # bcmaps 2.0.0
 
 ## Removal of `sp` and `raster` support
