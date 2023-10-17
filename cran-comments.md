@@ -2,7 +2,7 @@
 
 There were no ERRORs, WARNINGs, or NOTEs.
 
-### CRAN check issues
+## CRAN check issues
 
 There were no CRAN check issues to be fixed.
 
