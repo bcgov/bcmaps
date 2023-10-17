@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">bcmaps</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">2.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">2.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,6 +65,7 @@
 <span>  tiles_50K <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  .predicate <span class="op">=</span> <span class="fu">sf</span><span class="fu">::</span><span class="va"><a href="https://r-spatial.github.io/sf/reference/geos_binary_pred.html" class="external-link">st_intersects</a></span>,</span>
 <span>  dest_vrt <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span>fileext <span class="op">=</span> <span class="st">".vrt"</span><span class="op">)</span>,</span>
+<span>  ask <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/interactive.html" class="external-link">interactive</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  check_tiles <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -86,6 +87,10 @@
 
 <dt>dest_vrt</dt>
 <dd><p>The location of the vrt file. Defaults to a temporary file, but can be overridden if you'd like to save it for a project</p></dd>
+
+
+<dt>ask</dt>
+<dd><p>Should the function ask the user before downloading the data to a cache? Defaults to the value of interactive().</p></dd>
 
 
 <dt>check_tiles</dt>
