@@ -63,7 +63,7 @@ utm_convert <- function(x, xcol, ycol, zone, crs = "EPSG:3005",
     convert_from_zone(z, zone, xcol, ycol, crs, datum, xycols)
   })
 
-  res <- dplyr::bind_rows(x_split)
+  res <- do.call("rbind", x_split)
   cbind(res, x[, setdiff(names(x), names(res))])
 }
 

@@ -28,7 +28,7 @@ the data are all in one UTM zone}
 
 \item{datum}{The datum of the source data. \code{"NAD83"} (Default) or \code{"WGS84"}}
 
-\item{xycols}{should the X and Y columns be appended to the output?}
+\item{xycols}{should the X and Y columns be appended to the output? \code{TRUE} or \code{FALSE}}
 }
 \value{
 sf object in the chosen CRS
@@ -49,7 +49,7 @@ df <- data.frame(
   easting = c(500000, 800000, 700000),
   northing = c(5000000, 3000000, 1000000)
 )
-utm_convert(df, "easting", "northing", "zone")
+utm_convert(df, xcol = "easting", ycol = "northing", zone = "zone")
 
 # Data all in one zone, specify a single zone:
 df <- data.frame(
@@ -57,5 +57,5 @@ df <- data.frame(
   easting = c(500000, 800000),
   northing = c(5000000, 3000000)
 )
-utm_convert(df, "easting", "northing", zone = 11)
+utm_convert(df, xcol = "easting", ycol = "northing", zone = 11)
 }
