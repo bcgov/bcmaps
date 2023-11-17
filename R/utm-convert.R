@@ -22,7 +22,7 @@ utm_convert <- function(x, xcol, ycol, zonecol, crs = "EPSG:3005") {
 
   x_split <- lapply(x_split, function(z) {
     # browser()
-    epsg <- lookup_nad83_epsg_code(z[zonecol][1])
+    epsg <- lookup_nad83_epsg_code(z[[zonecol]][1])
     z <- sf::st_as_sf(z, coords = c(xcol, ycol), crs = epsg)
     sf::st_transform(z, crs = crs)
   })
