@@ -13,8 +13,7 @@
 ## Code to prepare the layers_df internal data
 layers_df <- dplyr::arrange(readr::read_csv("data-raw/layers_df.csv"), layer_name)
 
-nad83_lookup <- readr::read_csv("data-raw/nad83-lookup.csv")
-
+utm_zone_lookup <- readr::read_csv("data-raw/utm-zone-lookup.csv")
 
 source("data-raw/mapsheets_250K/process_mapsheet_250K.R")
 
@@ -25,7 +24,7 @@ usethis::use_data(
   layers_df,
   mapsheets_250K_data,
   mapsheets_50K_data,
-  nad83_lookup,
+  utm_zone_lookup,
   overwrite = TRUE,
   internal = TRUE,
   compress = "xz"
