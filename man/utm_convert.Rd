@@ -2,9 +2,9 @@
 % Please edit documentation in R/utm-convert.R
 \name{utm_convert}
 \alias{utm_convert}
-\title{Convert a data.frame of UTM coordinates to a single CRS}
+\title{Convert a data.frame of UTM coordinates to an sf object with a single CRS}
 \usage{
-utm_convert(x, xcol, ycol, zonecol, crs = "EPSG:3005")
+utm_convert(x, xcol, ycol, zone, crs = "EPSG:3005", xycols = TRUE)
 }
 \arguments{
 \item{x}{data.frame containing UTM coordinates, with a zone column}
@@ -13,13 +13,17 @@ utm_convert(x, xcol, ycol, zonecol, crs = "EPSG:3005")
 
 \item{ycol}{the name of the 'northing' column}
 
-\item{zonecol}{the name of the 'zone' column}
+\item{zone}{the name of the 'zone' column, or a single numeric value if
+the data are all in one UTM zone}
 
 \item{crs}{target CRS. Default BC Albers (EPSG:3005)}
+
+\item{xycols}{should the X and Y columns be appended}
 }
 \value{
 sf object in the chosen CRS
 }
 \description{
-Convert a data.frame of UTM coordinates to a single CRS
+This can operate on a data frame containing coordinates from multiple zones
+with a column denoting the zone, or a single zone for the full dataset.
 }

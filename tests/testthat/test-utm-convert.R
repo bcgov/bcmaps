@@ -5,6 +5,6 @@ test_that("multiplication works", {
     easting = c(500000, 800000, 700000),
     northing = c(5000000, 3000000, 1000000)
   )
-  out <- utm_convert(df, "easting", "northing", "zone")
+  out <- utm_convert(df, "easting", "northing", "zone", xycols = TRUE)
   expect_s3_class(out, "sf")
 })
