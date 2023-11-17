@@ -80,5 +80,18 @@ test_that("utm_convert errors expectedly", {
     northing = c(5000000, 3000000, 1000000, 1000000)
   )
   expect_error(utm_convert(df, "easting", "northing", "10S"), "Southern hemisphere")
+  df <- data.frame(
+    animalid = c("a", "b", "c", "d"),
+    easting = c(500000, 800000, 700000, 600000),
+    northing = c(5000000, 3000000, 1000000, 1000000)
+  )
+  expect_error(utm_convert(df, "easting", "northing", "10D"), "Southern hemisphere")
+  df <- data.frame(
+    animalid = c("a", "b", "c"),
+    zone = c("10N", "11N", "11R"),
+    easting = c(500000, 800000, 700000),
+    northing = c(5000000, 3000000, 1000000)
+  )
+  expect_error(utm_convert(df, "easting", "northing", "zone"), "Invalid zone(s): 11R")
 })
 

@@ -95,5 +95,9 @@ format_zone <- function(x) {
     stop("It looks like your UTM zones are in the Southern hemisphere", call. = FALSE)
   }
 
-  as.numeric(gsub("[NnUu$]", "", x))
+  ret <- suppressWarnings(as.numeric(gsub("[NnUu$]", "", x)))
+  if (is.na(ret)) {
+    stop("Invalid zone(s): ", x, call. = FALSE)
+  }
+  ret
 }
