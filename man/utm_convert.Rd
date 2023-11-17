@@ -27,3 +27,7 @@ sf object in the chosen CRS
 This can operate on a data frame containing coordinates from multiple zones
 with a column denoting the zone, or a single zone for the full dataset.
 }
+\details{
+This function assumes that your data are in the Northern Hemisphere and in
+NAD83
+}

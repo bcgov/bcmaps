@@ -3,6 +3,9 @@
 #' This can operate on a data frame containing coordinates from multiple zones
 #' with a column denoting the zone, or a single zone for the full dataset.
 #'
+#' This function assumes that your data are in the Northern Hemisphere and in
+#' NAD83
+#'
 #' @param x data.frame containing UTM coordinates, with a zone column
 #' @param xcol the name of the 'easting' columnm
 #' @param ycol the name of the 'northing' column
@@ -28,7 +31,7 @@ utm_convert <- function(x, xcol, ycol, zone, crs = "EPSG:3005", xycols = TRUE) {
   }
 
   if (one_zone) {
-    convert_from_zone(x, x[[zone]][1], xcol, ycol, crs, xycols)
+    res <- convert_from_zone(x, zone, xcol, ycol, crs, xycols)
     return(cbind(res, x[, setdiff(names(x), names(res))]))
   }
   x_split <- split(x, x[zone])
