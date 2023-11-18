@@ -15,13 +15,13 @@ test_that("utm_convert works with a zone column", {
 test_that("utm_convert works with a single zone", {
   df <- data.frame(
     animalid = c("a", "b"),
-    easting = c(500000, 800000),
-    northing = c(5000000, 3000000)
+    x = c(500000, 800000),
+    y = c(5000000, 3000000)
   )
-  out <- utm_convert(df, "easting", "northing", zone = 11)
+  out <- utm_convert(df, "x", "y", zone = 11)
   expect_s3_class(out, "sf")
   expect_equal(ncol(out), 6)
-  out <- utm_convert(df, "easting", "northing", zone = 11, xycols = FALSE)
+  out <- utm_convert(df, "x", "y", zone = 11, xycols = FALSE)
   expect_equal(ncol(out), 4)
 })
 

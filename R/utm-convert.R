@@ -7,8 +7,8 @@
 #' the Northern hemisphere
 #'
 #' @param x data.frame containing UTM coordinates, with a zone column
-#' @param xcol the name of the 'easting' column
-#' @param ycol the name of the 'northing' column
+#' @param easting the name of the 'easting' column
+#' @param northing the name of the 'northing' column
 #' @param zone the name of the 'zone' column, or a single value if
 #'    the data are all in one UTM zone
 #' @param crs target CRS. Default BC Albers (EPSG:3005)
@@ -25,7 +25,7 @@
 #'   easting = c(500000, 800000, 700000),
 #'   northing = c(5000000, 3000000, 1000000)
 #' )
-#' utm_convert(df, xcol = "easting", ycol = "northing", zone = "zone")
+#' utm_convert(df, easting = "easting", northing = "northing", zone = "zone")
 #'
 #' # Data all in one zone, specify a single zone:
 #' df <- data.frame(
@@ -33,8 +33,8 @@
 #'   easting = c(500000, 800000),
 #'   northing = c(5000000, 3000000)
 #' )
-#' utm_convert(df, xcol = "easting", ycol = "northing", zone = 11)
-utm_convert <- function(x, xcol, ycol, zone, crs = "EPSG:3005",
+#' utm_convert(df, easting = "easting", northing = "northing", zone = 11)
+utm_convert <- function(x, easting, northing, zone, crs = "EPSG:3005",
                         datum = c("NAD83", "WGS84"), xycols = TRUE) {
 
   one_zone <- !zone %in% names(x) && is.numeric(format_zone(zone))
@@ -44,15 +44,15 @@ utm_convert <- function(x, xcol, ycol, zone, crs = "EPSG:3005",
   if (!one_zone && !zone %in% names(x)) {
     stop(zone, " is not a column in x", call. = FALSE)
   }
-  if (!xcol %in% names(x)) {
-    stop(xcol, " is not a column in x", call. = FALSE)
+  if (!easting %in% names(x)) {
+    stop(easting, " is not a column in x", call. = FALSE)
   }
-  if (!ycol %in% names(x)) {
-    stop(ycol, " is not a column in x", call. = FALSE)
+  if (!northing %in% names(x)) {
+    stop(northing, " is not a column in x", call. = FALSE)
   }
 
   if (one_zone) {
-    res <- convert_from_zone(x, zone, xcol, ycol, crs, datum, xycols)
+    res <- convert_from_zone(x, zone, easting, northing, crs, datum, xycols)
     return(cbind(res, x[, setdiff(names(x), names(res))]))
   }
 
@@ -60,16 +60,16 @@ utm_convert <- function(x, xcol, ycol, zone, crs = "EPSG:3005",
 
   x_split <- lapply(x_split, function(z) {
     zone <- z[[zone]][1]
-    convert_from_zone(z, zone, xcol, ycol, crs, datum, xycols)
+    convert_from_zone(z, zone, easting, northing, crs, datum, xycols)
   })
 
   res <- do.call("rbind", x_split)
   cbind(res, x[, setdiff(names(x), names(res))])
 }
 
-convert_from_zone <- function(x, zone, xcol, ycol, crs, datum, xycols) {
+convert_from_zone <- function(x, zone, easting, northing, crs, datum, xycols) {
   epsg <- lookup_epsg_code(zone, datum)
-  x <- sf::st_as_sf(x, coords = c(xcol, ycol), crs = epsg)
+  x <- sf::st_as_sf(x, coords = c(easting, northing), crs = epsg)
   res <- sf::st_transform(x, crs = crs)
   if (xycols) {
     res <- cbind(res, sf::st_coordinates(res))

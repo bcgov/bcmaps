@@ -6,8 +6,8 @@
 \usage{
 utm_convert(
   x,
-  xcol,
-  ycol,
+  easting,
+  northing,
   zone,
   crs = "EPSG:3005",
   datum = c("NAD83", "WGS84"),
@@ -17,9 +17,9 @@ utm_convert(
 \arguments{
 \item{x}{data.frame containing UTM coordinates, with a zone column}
 
-\item{xcol}{the name of the 'easting' columnm}
+\item{easting}{the name of the 'easting' column}
 
-\item{ycol}{the name of the 'northing' column}
+\item{northing}{the name of the 'northing' column}
 
 \item{zone}{the name of the 'zone' column, or a single value if
 the data are all in one UTM zone}
@@ -49,7 +49,7 @@ df <- data.frame(
   easting = c(500000, 800000, 700000),
   northing = c(5000000, 3000000, 1000000)
 )
-utm_convert(df, xcol = "easting", ycol = "northing", zone = "zone")
+utm_convert(df, easting = "easting", northing = "northing", zone = "zone")
 
 # Data all in one zone, specify a single zone:
 df <- data.frame(
@@ -57,5 +57,5 @@ df <- data.frame(
   easting = c(500000, 800000),
   northing = c(5000000, 3000000)
 )
-utm_convert(df, xcol = "easting", ycol = "northing", zone = 11)
+utm_convert(df, easting = "easting", northing = "northing", zone = 11)
 }
