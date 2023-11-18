@@ -7,7 +7,7 @@
 #' the Northern hemisphere
 #'
 #' @param x data.frame containing UTM coordinates, with a zone column
-#' @param xcol the name of the 'easting' columnm
+#' @param xcol the name of the 'easting' column
 #' @param ycol the name of the 'northing' column
 #' @param zone the name of the 'zone' column, or a single value if
 #'    the data are all in one UTM zone
