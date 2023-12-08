@@ -171,8 +171,7 @@ cded_raster <- function(aoi = NULL, tiles_50K = NULL, .predicate = sf::st_inters
   lifecycle::deprecate_warn(
     when = "2.1.0",
     what = "cded_raster()",
-    with = "cded_stars() or cded_terra()",
-    details = "bcmaps has begun dropping support for raster objects. Please consider switching to terra or stars."
+    details = "bcmaps has begun dropping support for raster objects. Please consider switching to cded_terra() or cded_stars()."
   )
 
   if (!requireNamespace("raster", quietly = TRUE)) {
