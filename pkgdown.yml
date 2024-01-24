@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   add_points: add_points.html
   bcmaps: bcmaps.html
-last_built: 2023-10-17T22:35Z
+last_built: 2024-01-24T00:56Z
 urls:
   reference: http://bcgov.github.io/bcmaps/reference
   article: http://bcgov.github.io/bcmaps/articles
