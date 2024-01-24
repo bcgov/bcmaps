@@ -1,13 +1,16 @@
 context("test layer load")
 
-
 avail <- available_layers()
 fn_names <- avail$layer_name[!(avail$local) &
                                !grepl("cded_", avail$layer_name)]
 
 # Only test bec and tsa once in a while - they're really big
-fn_names <- setdiff(fn_names, c("bec", "tsa"))
-
+donttest <- c("bec", "tsa")
+# Skip fsa on ci - statcan server can timeout a lot
+if (nzchar(Sys.getenv("CI"))) {
+  donttest <- c(donttest, "fsa")
+}
+fn_names <- setdiff(fn_names, donttest)
 
 test_that("All sf layer function work without error and returns an sf object.", {
   skip_on_cran()
