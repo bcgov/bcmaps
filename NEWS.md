@@ -1,3 +1,5 @@
+# bcmaps (development version)
+
 # bcmaps 2.2.0
 
 * Added function `utm_convert()` to convert tabular data with X and Y coordinates
