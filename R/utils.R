@@ -239,29 +239,37 @@ convert_to_sf <- function(obj) {
   UseMethod("convert_to_sf")
 }
 
+#' @export
 convert_to_sf.sf <- function(obj) {
   obj
 }
+#' @export
 convert_to_sf.sfc <- convert_to_sf.sf
+
+#' @export
 convert_to_sf.Spatial <- function(obj) {
   sf::st_as_sf(obj)
 }
 
+#' @export
 convert_to_sf.Raster <- function(obj) {
   bbox <- sf::st_bbox(obj)
   sf::st_as_sfc(bbox)
 }
 
+#' @export
 convert_to_sf.stars <- function(obj) {
   bbox <- sf::st_bbox(obj)
   sf::st_as_sfc(bbox)
 }
 
+#' @export
 convert_to_sf.SpatRaster <- function(obj) {
   bbox <- sf::st_bbox(obj)
   sf::st_as_sfc(bbox)
 }
 
+#' @export
 convert_to_sf.bbox <- function(obj) {
   sf::st_as_sfc(obj)
 }
