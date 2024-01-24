@@ -21,8 +21,8 @@ British Columbia.
 such as administrative boundaries, natural resource management
 boundaries, watercourses, census boundaries, etc. All layers are
 available as `sf` objects in the [BC
-Albers](https://spatialreference.org/ref/epsg/nad83-bc-albers/)
-projection, which is the B.C. Government standard.
+Albers](https://spatialreference.org/ref/epsg/3005/) projection, which
+is the B.C. Government standard.
 
 Most layers are accessed directly from the [B.C. Data
 Catalogue](https://catalogue.data.gov.bc.ca/) using the
