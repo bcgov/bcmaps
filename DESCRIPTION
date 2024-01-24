@@ -13,7 +13,7 @@ Authors@R: c(
 Description: Various layers of B.C., including administrative boundaries,
     natural resource management boundaries, census boundaries etc. All
     layers are available in BC Albers
-    (<https://spatialreference.org/ref/epsg/nad83-bc-albers/>) equal-area
+    (<https://spatialreference.org/ref/epsg/3005/>) equal-area
     projection, which is the B.C. government standard. The layers are
     sourced from the British Columbia and Canadian government under open
     licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>),
@@ -55,4 +55,4 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.0

@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Various layers of B.C., including administrative boundaries, natural resource management boundaries, census boundaries etc. All layers are available in BC Albers (\url{https://spatialreference.org/ref/epsg/nad83-bc-albers/}) equal-area projection, which is the B.C. government standard. The layers are sourced from the British Columbia and Canadian government under open licenses, including B.C. Data Catalogue (\url{https://data.gov.bc.ca}), the Government of Canada Open Data Portal (\url{https://open.canada.ca/en/using-open-data}), and Statistics Canada (\url{https://www.statcan.gc.ca/en/reference/licence}).
+Various layers of B.C., including administrative boundaries, natural resource management boundaries, census boundaries etc. All layers are available in BC Albers (\url{https://spatialreference.org/ref/epsg/3005/}) equal-area projection, which is the B.C. government standard. The layers are sourced from the British Columbia and Canadian government under open licenses, including B.C. Data Catalogue (\url{https://data.gov.bc.ca}), the Government of Canada Open Data Portal (\url{https://open.canada.ca/en/using-open-data}), and Statistics Canada (\url{https://www.statcan.gc.ca/en/reference/licence}).
 }
 \seealso{
 Useful links:
