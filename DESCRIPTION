@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 2.1.0.9000
+Version: 2.2.0
 Authors@R: c(
     person("Andy", "Teucher", , "andy.teucher@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7840-692X")),
