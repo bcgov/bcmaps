@@ -1,201 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/articles/add_points.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/articles/bcmaps.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/authors.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/index.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/news/index.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/airzones.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/available_layers.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bc_area.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bc_bbox.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bc_bound.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bc_bound_hres.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bc_cities.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bc_neighbours.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bcmaps-package.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bec.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/bec_colours.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/cded.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/cded_raster.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/cded_stars.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/cded_terra.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/census_dissemination_area.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/census_division.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/census_economic.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/census_metropolitan_area.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/census_subdivision.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/census_tract.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/combine_nr_rd.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/delete_cache.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/ecoprovinces.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/ecoregions.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/ecosections.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/fix_geo_problems.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/fsa.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/get_layer.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/get_poly_attribute.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/gw_aquifers.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/health_chsa.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/health_ha.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/health_hsda.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/health_lha.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/hydrozones.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/mapsheets_250K.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/mapsheets_50K.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/municipalities.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/nr_areas.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/nr_districts.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/nr_regions.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/raster_by_poly.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/regional_districts.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/self_union.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/summarize_raster_list.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/transform_bc_albers.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/tsa.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/utm_convert.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/vrt_files.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/vrt_info.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/water_districts.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/water_precincts.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/watercourses_15M.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/watercourses_5M.html</loc>
-  </url>
-  <url>
-    <loc>http://bcgov.github.io/bcmaps/dev/reference/wsc_drainages.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>http://bcgov.github.io/bcmaps/dev/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/CONTRIBUTING.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/LICENSE-text.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/articles/add_points.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/articles/bcmaps.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/articles/index.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/authors.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/index.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/news/index.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/airzones.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/available_layers.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bc_area.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bc_bbox.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bc_bound.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bc_bound_hres.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bc_cities.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bc_neighbours.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bcmaps-package.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bec.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/bec_colours.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/cded.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/cded_raster.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/cded_stars.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/cded_terra.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/census_dissemination_area.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/census_division.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/census_economic.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/census_metropolitan_area.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/census_subdivision.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/census_tract.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/combine_nr_rd.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/delete_cache.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/ecoprovinces.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/ecoregions.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/ecosections.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/fix_geo_problems.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/fsa.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/get_layer.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/get_poly_attribute.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/gw_aquifers.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/health_chsa.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/health_ha.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/health_hsda.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/health_lha.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/hydrozones.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/index.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/mapsheets_250K.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/mapsheets_50K.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/municipalities.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/nr_areas.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/nr_districts.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/nr_regions.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/raster_by_poly.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/regional_districts.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/self_union.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/summarize_raster_list.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/transform_bc_albers.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/tsa.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/utm_convert.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/vrt_files.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/vrt_info.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/water_districts.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/water_precincts.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/watercourses_15M.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/watercourses_5M.html</loc></url>
+<url><loc>http://bcgov.github.io/bcmaps/dev/reference/wsc_drainages.html</loc></url>
 </urlset>
+
