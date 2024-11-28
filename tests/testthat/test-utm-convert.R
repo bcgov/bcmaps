@@ -95,3 +95,70 @@ test_that("utm_convert errors expectedly", {
   expect_error(utm_convert(df, "easting", "northing", "zone"), "Invalid zone")
 })
 
+test_that("Output minus sf stuff is same as input (#146)", {
+  data <- tibble::tibble(
+    Row_ID = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
+    NotSure = c(9608, 9609, 9610, 9611, 9612, 9613, 9614, 9615, 9616, 9617),
+    Zone = c(10, 10, 10, 10, 10, 10, 9, 9, 9, 9),
+    UTMe = c(
+      361775,
+      361775,
+      307196,
+      307196,
+      328213,
+      328213,
+      636424,
+      636648,
+      636795,
+      637401
+    ),
+    UTMn = c(
+      6011950,
+      6011950,
+      5979777,
+      5979777,
+      5984261,
+      5984261,
+      6161177,
+      6161270,
+      6161127,
+      6160851
+    ),
+    UTMe1 = c(
+      361775,
+      361775,
+      307196,
+      307196,
+      328213,
+      328213,
+      636424,
+      636648,
+      636795,
+      637401
+    ),
+    UTMn1 = c(
+      6011950,
+      6011950,
+      5979777,
+      5979777,
+      5984261,
+      5984261,
+      6161177,
+      6161270,
+      6161127,
+      6160851
+    )
+  )
+
+  out <- utm_convert(
+    data,
+    easting = "UTMe",
+    northing = "UTMn",
+    zone = "Zone"
+  )
+
+  expect_equal(
+    data, 
+    sf::st_drop_geometry(out)[, setdiff(names(out), c("X", "Y", "geometry")), drop = FALSE]
+  )
+})
