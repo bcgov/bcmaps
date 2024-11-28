@@ -162,15 +162,19 @@ test_that("Output minus sf stuff is same as input (#146)", {
     sf::st_drop_geometry(out_tbl)[, setdiff(names(out_tbl), c("X", "Y", "geometry")), drop = FALSE]
   )
 
+  # Check with bare data frame with row names
+  data_df <- as.data.frame(data)
+  rownames(data_df) <- letters[seq_len(nrow(data_df))]
+
   out_df <- utm_convert(
-    as.data.frame(data),
+    data_df,
     easting = "UTMe",
     northing = "UTMn",
     zone = "Zone"
   )
-
+  
   expect_equal(
-    as.data.frame(data), 
+    data_df, 
     sf::st_drop_geometry(out_df)[, setdiff(names(out_df), c("X", "Y", "geometry")), drop = FALSE]
   )
 

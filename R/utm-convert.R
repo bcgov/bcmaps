@@ -105,6 +105,8 @@ format_zone <- function(x) {
 restore_tibble <- function(new, original) {
   if (inherits(original, c("tbl_df", "tbl"))) {
     class(new) <- c(setdiff(class(new), class(original)), class(original))
+  } else {
+    rownames(new) <- rownames(original)
   }
   new
 }
