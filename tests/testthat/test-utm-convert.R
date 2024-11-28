@@ -96,7 +96,7 @@ test_that("utm_convert errors expectedly", {
 })
 
 test_that("Output minus sf stuff is same as input (#146)", {
-  data <- tibble::tibble(
+  data <- data.frame(
     Row_ID = c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10),
     NotSure = c(9608, 9609, 9610, 9611, 9612, 9613, 9614, 9615, 9616, 9617),
     Zone = c(10, 10, 10, 10, 10, 10, 9, 9, 9, 9),
@@ -149,8 +149,9 @@ test_that("Output minus sf stuff is same as input (#146)", {
       6160851
     )
   )
+  rownames(data) <- letters[seq_len(nrow(data))]
 
-  out_tbl <- utm_convert(
+  out_df <- utm_convert(
     data,
     easting = "UTMe",
     northing = "UTMn",
@@ -159,23 +160,26 @@ test_that("Output minus sf stuff is same as input (#146)", {
 
   expect_equal(
     data, 
-    sf::st_drop_geometry(out_tbl)[, setdiff(names(out_tbl), c("X", "Y", "geometry")), drop = FALSE]
+    sf::st_drop_geometry(out_df)[, setdiff(names(out_df), c("X", "Y", "geometry")), drop = FALSE]
   )
 
-  # Check with bare data frame with row names
-  data_df <- as.data.frame(data)
-  rownames(data_df) <- letters[seq_len(nrow(data_df))]
+  # Check with tibble
+  data_tbl <- structure(data, class = c("tbl_df", "tbl", "data.frame"))
+  rownames(data_tbl) <- NULL
 
-  out_df <- utm_convert(
-    data_df,
+  out_tbl <- utm_convert(
+    data_tbl,
     easting = "UTMe",
     northing = "UTMn",
     zone = "Zone"
   )
   
+  expect_s3_class(out_tbl, "tbl_df")
+  
   expect_equal(
-    data_df, 
-    sf::st_drop_geometry(out_df)[, setdiff(names(out_df), c("X", "Y", "geometry")), drop = FALSE]
+    data_tbl, 
+    sf::st_drop_geometry(out_tbl)[, setdiff(names(out_tbl), c("X", "Y", "geometry")), drop = FALSE],
+    check.attributes = FALSE
   )
 
 })
