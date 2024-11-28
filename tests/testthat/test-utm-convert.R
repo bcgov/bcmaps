@@ -150,7 +150,7 @@ test_that("Output minus sf stuff is same as input (#146)", {
     )
   )
 
-  out <- utm_convert(
+  out_tbl <- utm_convert(
     data,
     easting = "UTMe",
     northing = "UTMn",
@@ -159,6 +159,19 @@ test_that("Output minus sf stuff is same as input (#146)", {
 
   expect_equal(
     data, 
-    sf::st_drop_geometry(out)[, setdiff(names(out), c("X", "Y", "geometry")), drop = FALSE]
+    sf::st_drop_geometry(out_tbl)[, setdiff(names(out_tbl), c("X", "Y", "geometry")), drop = FALSE]
   )
+
+  out_df <- utm_convert(
+    as.data.frame(data),
+    easting = "UTMe",
+    northing = "UTMn",
+    zone = "Zone"
+  )
+
+  expect_equal(
+    as.data.frame(data), 
+    sf::st_drop_geometry(out_df)[, setdiff(names(out_df), c("X", "Y", "geometry")), drop = FALSE]
+  )
+
 })
