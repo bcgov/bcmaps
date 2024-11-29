@@ -2,6 +2,9 @@
 
 * In the `cded_()` functions, the `ask` argument, which controls if
   if the user is consulted to store data in the cache, was ignored. It is now respected (#147).
+* `utm_convert()` now respects `tibble` classes ([#143](https://github.com/bcgov/bcmaps/issues/143), #148).
+* Fixed a bug in `utm_convert()` where new coordinates could be mismatched with the wrong rows from the 
+  input data frame. ([#146](https://github.com/bcgov/bcmaps/issues/146), #148)
 
 # bcmaps 2.2.0
 

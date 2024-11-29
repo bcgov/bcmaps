@@ -53,23 +53,23 @@ utm_convert <- function(x, easting, northing, zone, crs = "EPSG:3005",
 
   if (one_zone) {
     res <- convert_from_zone(x, zone, easting, northing, crs, datum, xycols)
-    return(cbind(res, x[, setdiff(names(x), names(res))]))
+    return(res)
   }
-
-  x_split <- split(x, x[zone])
+  
+  x_split <- split(x, as.character(x[[zone]]))
 
   x_split <- lapply(x_split, function(z) {
     zone <- z[[zone]][1]
     convert_from_zone(z, zone, easting, northing, crs, datum, xycols)
   })
-
   res <- do.call("rbind", x_split)
-  cbind(res, x[, setdiff(names(x), names(res))])
+
+  restore_tibble(res, x)
 }
 
 convert_from_zone <- function(x, zone, easting, northing, crs, datum, xycols) {
   epsg <- lookup_epsg_code(zone, datum)
-  x <- sf::st_as_sf(x, coords = c(easting, northing), crs = epsg)
+  x <- sf::st_as_sf(x, coords = c(easting, northing), crs = epsg, remove = FALSE)
   res <- sf::st_transform(x, crs = crs)
   if (xycols) {
     res <- cbind(res, sf::st_coordinates(res))
@@ -100,4 +100,13 @@ format_zone <- function(x) {
     stop("Invalid zone(s): ", x, call. = FALSE)
   }
   ret
+}
+
+restore_tibble <- function(new, original) {
+  if (inherits(original, c("tbl_df", "tbl"))) {
+    class(new) <- c(setdiff(class(new), class(original)), class(original))
+  } else {
+    rownames(new) <- rownames(original)
+  }
+  new
 }
