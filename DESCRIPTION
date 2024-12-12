@@ -13,11 +13,11 @@ Authors@R: c(
 Description: Various layers of B.C., including administrative boundaries,
     natural resource management boundaries, census boundaries etc. All
     layers are available in BC Albers
-    (<https://spatialreference.org/ref/epsg/3005/>) equal-area
-    projection, which is the B.C. government standard. The layers are
-    sourced from the British Columbia and Canadian government under open
-    licenses, including B.C. Data Catalogue (<https://data.gov.bc.ca>),
-    the Government of Canada Open Data Portal
+    (<https://spatialreference.org/ref/epsg/3005/>) equal-area projection,
+    which is the B.C. government standard. The layers are sourced from the
+    British Columbia and Canadian government under open licenses,
+    including B.C. Data Catalogue (<https://data.gov.bc.ca>), the
+    Government of Canada Open Data Portal
     (<https://open.canada.ca/en/using-open-data>), and Statistics Canada
     (<https://www.statcan.gc.ca/en/reference/licence>).
 License: Apache License (== 2.0) | file LICENSE
@@ -27,7 +27,7 @@ Depends:
     R (>= 2.10),
     sf (>= 1.0)
 Imports: 
-    bcdata (>= 0.4.1),
+    bcdata (>= 0.5.0),
     httr (>= 1.3.1),
     jsonlite (>= 1.7.0),
     lifecycle (>= 1.0.3),
@@ -45,14 +45,14 @@ Suggests:
     knitr,
     lwgeom (>= 0.2.13),
     raster (>= 3.6-3),
-    terra (>= 1.7.0),
     rmarkdown,
     sp (>= 2.0.0),
     stars (>= 0.6.3),
+    terra (>= 1.7.0),
     testthat (>= 2.1.0),
     withr (>= 2.3)
 VignetteBuilder: 
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.2
