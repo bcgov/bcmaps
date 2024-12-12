@@ -38,7 +38,7 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="bcmaps-development-version">bcmaps (development version)<a class="anchor" aria-label="anchor" href="#bcmaps-development-version"></a></h2>
-<ul><li>In the <code>cded_()</code> functions, the <code>ask</code> argument, which controls if if the user is consulted to store data in the cache, was ignored. It is now respected (<a href="https://github.com/bcgov/bcmaps/issues/147" class="external-link">#147</a>).</li>
+<ul><li>In the <code>cded_()</code> functions, the <code>ask</code> argument, which controls if the user is asked to store data in the cache, was ignored. It is now respected (<a href="https://github.com/bcgov/bcmaps/issues/147" class="external-link">#147</a>).</li>
 <li>
 <code><a href="../reference/utm_convert.html">utm_convert()</a></code> now respects <code>tibble</code> classes (<a href="https://github.com/bcgov/bcmaps/issues/143" class="external-link">#143</a>, <a href="https://github.com/bcgov/bcmaps/issues/148" class="external-link">#148</a>).</li>
 <li>Fixed a bug in <code><a href="../reference/utm_convert.html">utm_convert()</a></code> where new coordinates could be mismatched with the wrong rows from the input data frame. (<a href="https://github.com/bcgov/bcmaps/issues/146" class="external-link">#146</a>, <a href="https://github.com/bcgov/bcmaps/issues/148" class="external-link">#148</a>)</li>
@@ -85,9 +85,10 @@
 <ul><li>Added deprecation warnings for the <code>class</code> argument in all of the data download functions: <code><a href="../reference/get_layer.html">get_layer()</a></code> and all of the wrapper shortcuts such as <code><a href="../reference/bc_bound.html">bc_bound()</a></code>, <code><a href="../reference/census_tract.html">census_tract()</a></code>, etc. This argument will be removed in the next version of <code>bcmaps</code> as these functions will only return <code>sf</code> objects.</li>
 <li>The <code>Spatial</code> method of <code><a href="../reference/transform_bc_albers.html">transform_bc_albers()</a></code> is deprecated.</li>
 <li>
-<code><a href="../reference/fix_geo_problems.html">fix_geo_problems()</a></code> is deprecated and will be removed completely in Summer 2023. For <code>sf</code> objects simply use <code><a href="https://r-spatial.github.io/sf/reference/valid.html" class="external-link">sf::st_make_valid()</a></code>
+<code><a href="../reference/fix_geo_problems.html">fix_geo_problems()</a></code> is deprecated and will be removed completely in Summer</li>
+</ul><ol start="2023" style="list-style-type: decimal"><li>For <code>sf</code> objects simply use <code><a href="https://r-spatial.github.io/sf/reference/valid.html" class="external-link">sf::st_make_valid()</a></code>
 </li>
-<li>
+</ol><ul><li>
 <code><a href="../reference/self_union.html">self_union()</a></code> is deprecated and will be removed in Summer 2023. Use <code><a href="https://rdrr.io/r/base/sets.html" class="external-link">raster::union()</a></code> for <code>SpatialPolygonsDataFrame</code>s, or <code><a href="https://r-spatial.github.io/sf/reference/geos_combine.html" class="external-link">sf::st_union()</a></code> with <code>sf</code> objects instead.</li>
 <li>
 <code><a href="../reference/get_poly_attribute.html">get_poly_attribute()</a></code> is deprecated because it had a very niche application for calculating attributes on a <code>SpatialPolygonsDataFrame</code>, which we are removing support for. It will be removed completely in Summer 2023.</li>
