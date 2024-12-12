@@ -29,8 +29,8 @@ my_layer <- hydrozones()
 \seealso{
 Other BC layers: 
 \code{\link{airzones}()},
-\code{\link{bc_bound_hres}()},
 \code{\link{bc_bound}()},
+\code{\link{bc_bound_hres}()},
 \code{\link{bc_cities}()},
 \code{\link{bec}()},
 \code{\link{census_dissemination_area}()},
