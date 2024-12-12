@@ -10,7 +10,7 @@ vrt_info(vrt, options = character(0), quiet = FALSE)
 \item{vrt}{path to a .vrt file}
 
 \item{options}{options to pass to \code{gdalinfo}. See
-\href{https://gdal.org/programs/gdalinfo.html}{here} for
+\href{https://gdal.org/en/stable/programs/gdalinfo.html}{here} for
 possible options.}
 
 \item{quiet}{suppress output to the console (default
