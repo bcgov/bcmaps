@@ -82,7 +82,7 @@ bc_bound <- function(ask = interactive(), force = FALSE) {
   } else {
     ret <- readRDS(fpath)
     time <- attributes(ret)$time_downloaded
-    update_message_once(paste0('bc_bound_hres was updated on ', format(time, "%Y-%m-%d")))
+    update_message_once(paste0('bc_bound was updated on ', format(time, "%Y-%m-%d")))
   }
 
   ret
