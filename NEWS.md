@@ -1,5 +1,7 @@
 # bcmaps (development version)
 
+* Added new census boundary layer: `census_dissemination_block()`(#150).
+
 # bcmaps 2.2.1
 
 * In the `cded_()` functions, the `ask` argument, which controls if the user is
