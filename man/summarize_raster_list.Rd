@@ -10,7 +10,7 @@ summarize_raster_list(raster_list, parallel = FALSE)
 \item{raster_list}{list of rasters}
 
 \item{parallel}{process in parallel? Default \code{FALSE}. If \code{TRUE}, it is up to
-the user to call \code{\link[future:plan]{future::plan()}} (or set \link[future:future.options]{options})
+the user to call \code{\link[future:plan]{future::plan()}} (or set \link[future:zzz-future.options]{options})
 to specify what parallel strategy to use.}
 }
 \value{

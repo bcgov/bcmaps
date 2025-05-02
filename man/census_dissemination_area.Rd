@@ -33,6 +33,7 @@ Other BC layers:
 \code{\link{bc_bound_hres}()},
 \code{\link{bc_cities}()},
 \code{\link{bec}()},
+\code{\link{census_dissemination_block}()},
 \code{\link{census_division}()},
 \code{\link{census_economic}()},
 \code{\link{census_metropolitan_area}()},

@@ -1,4 +1,4 @@
-# Copyright 2023 Province of British Columbia
+# Copyright 2025 Province of British Columbia
   #
   # Licensed under the Apache License, Version 2.0 (the "License");
   # you may not use this file except in compliance with the License.
@@ -101,6 +101,28 @@ bec <- function(ask = interactive(), force = FALSE) {
 #' @export
 census_dissemination_area <- function(ask = interactive(), force = FALSE) {
    get_layer('census_dissemination_area', ask = ask, force = force)
+}
+
+#' Current Census Dissemination Blocks
+#'
+#'
+#' @inheritParams bc_bound_hres
+#'
+#' @return The spatial layer of `census_dissemination_block` as an `sf` object.
+#'
+#' @source `bcdata::bcdc_get_data(record = '76909e49-8ba8-44b1-b69e-dba1fe9ecfba', resource = '2416c524-ed5e-442c-b235-2c805b920219')`
+#'
+#' 
+#'
+#' @examples
+#' \dontrun{
+#' my_layer <- census_dissemination_block()
+#' }
+#'
+#' @family BC layers
+#' @export
+census_dissemination_block <- function(ask = interactive(), force = FALSE) {
+   get_layer('census_dissemination_block', ask = ask, force = force)
 }
 
 #' Current Census Division Boundaries
