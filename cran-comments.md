@@ -1,10 +1,13 @@
+## Release summary
+
+This release is in response to a CRAN request to remove the indirect
+dependency on `leaflet.extras`, which is scheduled for archival on 2026-02-19.
+We bumped the minimum version of `bcdata` to ensure no dependency chain to
+`leaflet.extras`.
+
 ## R CMD check results
 
 There were no ERRORs, WARNINGs, or NOTEs.
-
-## CRAN check issues
-
-There were no CRAN check issues to be fixed.
 
 ## revdepcheck results
 

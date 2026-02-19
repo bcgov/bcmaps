@@ -1,6 +1,6 @@
 Package: bcmaps
 Title: Map Layers and Spatial Utilities for British Columbia
-Version: 2.2.1.9000
+Version: 2.3.0
 Authors@R: c(
     person("Andy", "Teucher", , "andy.teucher@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-7840-692X")),
@@ -19,7 +19,7 @@ Description: Various layers of B.C., including administrative boundaries,
     including B.C. Data Catalogue (<https://data.gov.bc.ca>), the
     Government of Canada Open Data Portal
     (<https://open.canada.ca/en/using-open-data>), and Statistics Canada
-    (<https://www.statcan.gc.ca/en/reference/licence>).
+    (<https://www.statcan.gc.ca/en/terms-conditions/open-licence>).
 License: Apache License (== 2.0) | file LICENSE
 URL: https://github.com/bcgov/bcmaps, https://bcgov.github.io/bcmaps/
 BugReports: https://github.com/bcgov/bcmaps/issues
@@ -27,7 +27,7 @@ Depends:
     R (>= 3.5),
     sf (>= 1.0)
 Imports: 
-    bcdata (>= 0.5.0),
+    bcdata (>= 0.5.2),
     httr (>= 1.3.1),
     jsonlite (>= 1.7.0),
     lifecycle (>= 1.0.3),
@@ -55,4 +55,4 @@ VignetteBuilder:
     knitr
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3

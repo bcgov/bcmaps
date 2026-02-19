@@ -1,6 +1,7 @@
-# bcmaps (development version)
+# bcmaps 2.3.0
 
-* Added new census boundary layer: `census_dissemination_block()`(#150).
+* Added new census boundary layer: `census_dissemination_block()` (#150).
+* Bumped minimum version of bcdata so no indirect dependency on soon-to-be-archived `leaflet.extras` package (#152)
 
 # bcmaps 2.2.1
 
