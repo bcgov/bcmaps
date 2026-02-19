@@ -5,6 +5,7 @@ mapsheets_50_sf <- mapsheets_50K()
 test_that("list_mapsheet_files works", {
   skip_on_cran()
   skip_if_offline()
+  skip_if(nzchar(Sys.getenv("SKIP_CATALOGUE_FUNCTION_TESTS")))
 
   res <- list_mapsheet_files("https://pub.data.gov.bc.ca/datasets/175624/82g/")
   expect_type(res, "character")
@@ -50,7 +51,11 @@ test_that("get_mapsheet_tiles works", {
   )
 
   # edit local md5 file to force a re-download
-  cat("cccchanges!", file = file.path(cache_dir, "82o/082o05_w.dem.zip.md5"), append = TRUE)
+  cat(
+    "cccchanges!",
+    file = file.path(cache_dir, "82o/082o05_w.dem.zip.md5"),
+    append = TRUE
+  )
 
   expect_message(
     get_mapsheet_tiles(mapsheet = "82o", dir = cache_dir),
@@ -59,7 +64,10 @@ test_that("get_mapsheet_tiles works", {
 
   # Remove a tif to force a re-download
   expect_true(
-    all(file.remove(file.path(cache_dir, c("82o/082o05_w.tif", "82o/082o05_w.dem.zip.md5"))))
+    all(file.remove(file.path(
+      cache_dir,
+      c("82o/082o05_w.tif", "82o/082o05_w.dem.zip.md5")
+    )))
   )
 
   expect_message(
@@ -68,7 +76,6 @@ test_that("get_mapsheet_tiles works", {
   )
 
   expect_true(all(file.exists(tifs)))
-
 })
 
 test_that("cded works with tiles_50K", {
@@ -81,17 +88,20 @@ test_that("cded works with tiles_50K", {
 
   tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
-  expect_equal(sort(basename(tifs)),
-               c("095d01_e.tif", "095d01_w.tif",
-                 "102o14_e.tif", "102o14_w.tif"
-               ))
+  expect_equal(
+    sort(basename(tifs)),
+    c("095d01_e.tif", "095d01_w.tif", "102o14_e.tif", "102o14_w.tif")
+  )
 })
 
 test_that("cded works with aoi", {
   skip_on_cran()
   skip_if_offline()
 
-  aoi <- st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ], -100)
+  aoi <- st_buffer(
+    mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ],
+    -100
+  )
 
   vrt <- cded(aoi)
 
@@ -99,12 +109,16 @@ test_that("cded works with aoi", {
 
   tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
-  expect_equal(sort(basename(tifs)),
-               c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
-               ))
+  expect_equal(
+    sort(basename(tifs)),
+    c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif")
+  )
 
   # With an aoi smaller than a single 50K tile
-  aoi <- st_buffer(mapsheets_50_sf[mapsheets_50_sf$NTS_SNRC == "095B04", ], -100)
+  aoi <- st_buffer(
+    mapsheets_50_sf[mapsheets_50_sf$NTS_SNRC == "095B04", ],
+    -100
+  )
 
   vrt <- cded(aoi)
 
@@ -112,16 +126,20 @@ test_that("cded works with aoi", {
 
   tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
-  expect_equal(sort(basename(tifs)),
-               c("095b04_e.tif", "095b04_w.tif"))
+  expect_equal(sort(basename(tifs)), c("095b04_e.tif", "095b04_w.tif"))
 })
 
 test_that("cded works with aoi with a different projection as mapsheets_250K", {
   skip_on_cran()
   skip_if_offline()
 
-  aoi <- st_transform(st_buffer(mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ], -100), 4326)
-
+  aoi <- st_transform(
+    st_buffer(
+      mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ],
+      -100
+    ),
+    4326
+  )
 
   vrt <- cded(aoi)
 
@@ -129,9 +147,10 @@ test_that("cded works with aoi with a different projection as mapsheets_250K", {
 
   tifs <- vrt_files(vrt, omit_vrt = TRUE)
 
-  expect_equal(sort(basename(tifs)),
-               c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif"
-               ))
+  expect_equal(
+    sort(basename(tifs)),
+    c("102o14_e.tif", "102o14_w.tif", "102o15_e.tif", "102o15_w.tif")
+  )
 })
 
 
@@ -139,7 +158,7 @@ if (require("stars")) {
   skip_on_cran()
   skip_if_offline()
 
-  pol1 <- mapsheets_50K()[1,]
+  pol1 <- mapsheets_50K()[1, ]
   s <- st_as_stars(pol1)
   bound_box <- st_bbox(s)
 
@@ -148,14 +167,13 @@ if (require("stars")) {
     expect_is(cded_stars(pol1), "stars")
     expect_is(cded_stars(bound_box), "stars")
   })
-
 }
 
 if (require("terra")) {
   skip_on_cran()
   skip_if_offline()
 
-  pol1 <- mapsheets_50K()[1,]
+  pol1 <- mapsheets_50K()[1, ]
   r <- rast(pol1)
   bound_box <- st_bbox(pol1)
 
@@ -165,4 +183,3 @@ if (require("terra")) {
     expect_is(cded_terra(bound_box), "SpatRaster")
   })
 }
-
