@@ -75,7 +75,7 @@ plot(st_geometry(bc))
 ## Vignettes
 
 [Getting Started with
-`bcmaps`](https://bcgov.github.io/bcmaps/articles/bcmaps.html)  
+`bcmaps`](https://bcgov.github.io/bcmaps/articles/bcmaps.html)\
 [Working with `bcmaps` layers and point
 data](https://bcgov.github.io/bcmaps/articles/add_points.html)
 
@@ -106,8 +106,8 @@ Catalalogue](https://data.gov.bc.ca) ([Open Government Licence - British
 Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics
 Canada Open Licence
-Agreement](https://www.statcan.gc.ca/en/reference/licence)). See the
-`data-raw` folder for details on each source dataset.
+Agreement](https://www.statcan.gc.ca/en/terms-conditions/open-licence)).
+See the `data-raw` folder for details on each source dataset.
 
 ## Licence
 
