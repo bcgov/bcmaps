@@ -90,7 +90,7 @@ By participating in this project you agree to abide by its terms.
 
 The source datasets used in this package come from various sources under
 open licences, including the [B.C. Data
-Catalalogue](https://data.gov.bc.ca) ([Open Government Licence - British
+Catalogue](https://data.gov.bc.ca) ([Open Government Licence - British
 Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
 and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics
 Canada Open Licence
