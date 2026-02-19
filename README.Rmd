@@ -10,7 +10,7 @@ output:
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  message=FALSE,
+  message = FALSE,
   fig.path = "man/figures/",
   dpi = 150
 )
@@ -101,7 +101,7 @@ If you would like to contribute to the package, please see our
 Please note that this project is released with a [Contributor Code of Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ## Source Data
-The source datasets used in this package come from various sources under open licences, including the [B.C. Data Catalalogue](https://data.gov.bc.ca) ([Open Government Licence - British Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics Canada Open Licence Agreement](https://www.statcan.gc.ca/en/terms-conditions/open-licence)). See the `data-raw` folder for details on each source dataset.
+The source datasets used in this package come from various sources under open licences, including the [B.C. Data Catalogue](https://data.gov.bc.ca) ([Open Government Licence - British Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61)) and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics Canada Open Licence Agreement](https://www.statcan.gc.ca/en/terms-conditions/open-licence)). See the `data-raw` folder for details on each source dataset.
 
 ## Licence
 
@@ -116,4 +116,3 @@ The source datasets used in this package come from various sources under open li
     # Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
     # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     # See the License for the specific language governing permissions and limitations under the License.
-
