@@ -1,0 +1,268 @@
+# bcmaps
+
+An [R](https://www.r-project.org) package of spatial map layers for
+British Columbia.
+
+`bcmaps` provides access to various spatial layers of British Columbia,
+such as administrative boundaries, natural resource management
+boundaries, watercourses, census boundaries, etc. All layers are
+available as `sf` objects in the [BC
+Albers](https://spatialreference.org/ref/epsg/3005/) projection, which
+is the B.C. Government standard.
+
+Most layers are accessed directly from the [B.C. Data
+Catalogue](https://catalogue.data.gov.bc.ca/) using the
+[bcdata](https://github.com/bcgov/bcdata) R package under the hood. See
+each layer’s individual help file for more detail.
+
+> ***IMPORTANT NOTE** Support for Spatial objects (`sp`) was removed in
+> {bcmaps} v1.3.0. Please use `sf` objects with {bcmaps}.* A discussion
+> on the evolution of the spatial software stack in R can be found here:
+> <https://r-spatial.org/r/2022/04/12/evolution.html>.
+
+## Installation
+
+You can install `bcmaps` from CRAN:
+
+``` r
+install.packages("bcmaps")
+```
+
+To install the development version of the `bcmaps` package, you need to
+install the `remotes` package then the `bcmaps` package.
+
+``` r
+install.packages("remotes")
+remotes::install_github("bcgov/bcmaps")
+```
+
+## Quick Start
+
+To see the layers that are available, run the
+[`available_layers()`](http://bcgov.github.io/bcmaps/reference/available_layers.md)
+function:
+
+``` r
+library(bcmaps)
+available_layers()
+```
+
+Most layers are accessible by a shortcut function by the same name as
+the object. Then you can use the data as you would any `sf` object.
+
+``` r
+library(sf)
+
+bc <- bc_bound()
+plot(st_geometry(bc))
+```
+
+![A map of the outline of British
+Columbia.](reference/figures/unnamed-chunk-6-1.png)
+
+## Vignettes
+
+[Getting Started with
+`bcmaps`](https://bcgov.github.io/bcmaps/articles/bcmaps.html)  
+[Working with `bcmaps` layers and point
+data](https://bcgov.github.io/bcmaps/articles/add_points.html)
+
+You can also view vignettes by typing `browseVignettes("bcmaps")` in
+your R session after you install `bcmaps`.
+
+## Getting Help or Reporting an Issue
+
+To report bugs/issues/feature requests, please file an
+[issue](https://github.com/bcgov/bcmaps/issues/).
+
+## How to Contribute
+
+Pull requests of new B.C. layers are welcome. If you would like to
+contribute to the package, please see our
+[CONTRIBUTING](https://github.com/bcgov/bcmaps/blob/master/CONTRIBUTING.md)
+guidelines.
+
+Please note that this project is released with a [Contributor Code of
+Conduct](https://github.com/bcgov/bcmaps/blob/master/CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.
+
+## Source Data
+
+The source datasets used in this package come from various sources under
+open licences, including the [B.C. Data
+Catalalogue](https://data.gov.bc.ca) ([Open Government Licence - British
+Columbia](https://www2.gov.bc.ca/gov/content?id=A519A56BC2BF44E4A008B33FCF527F61))
+and [Statistics Canada](https://www.statcan.gc.ca/start) ([Statistics
+Canada Open Licence
+Agreement](https://www.statcan.gc.ca/en/terms-conditions/open-licence)).
+See the `data-raw` folder for details on each source dataset.
+
+## Licence
+
+``` R
+# Copyright 2017 Province of British Columbia
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and limitations under the License.
+```
+
+# Package index
+
+## B.C. Layers
+
+Various administrative and natural resource boundaries of B.C.
+
+- [`available_layers()`](http://bcgov.github.io/bcmaps/reference/available_layers.md)
+  : List available data layers
+- [`get_layer()`](http://bcgov.github.io/bcmaps/reference/get_layer.md)
+  : Get a B.C. spatial layer
+- [`airzones()`](http://bcgov.github.io/bcmaps/reference/airzones.md) :
+  British Columbia Air Zones
+- [`bc_bound()`](http://bcgov.github.io/bcmaps/reference/bc_bound.md) :
+  BC Boundary
+- [`bc_bound_hres()`](http://bcgov.github.io/bcmaps/reference/bc_bound_hres.md)
+  : BC Boundary - High Resolution
+- [`bc_cities()`](http://bcgov.github.io/bcmaps/reference/bc_cities.md)
+  : BC Major Cities Points
+- [`bec()`](http://bcgov.github.io/bcmaps/reference/bec.md) : British
+  Columbia BEC Map
+- [`census_dissemination_area()`](http://bcgov.github.io/bcmaps/reference/census_dissemination_area.md)
+  : Current Census Dissemination Areas
+- [`census_dissemination_block()`](http://bcgov.github.io/bcmaps/reference/census_dissemination_block.md)
+  : Current Census Dissemination Blocks
+- [`census_division()`](http://bcgov.github.io/bcmaps/reference/census_division.md)
+  : Current Census Division Boundaries
+- [`census_economic()`](http://bcgov.github.io/bcmaps/reference/census_economic.md)
+  : Current Census Economic Region Boundaries
+- [`census_metropolitan_area()`](http://bcgov.github.io/bcmaps/reference/census_metropolitan_area.md)
+  : Current Census Metropolitan Areas
+- [`census_subdivision()`](http://bcgov.github.io/bcmaps/reference/census_subdivision.md)
+  : Current Census Subdivision Boundaries
+- [`census_tract()`](http://bcgov.github.io/bcmaps/reference/census_tract.md)
+  : Current Census Tract Boundaries
+- [`ecoprovinces()`](http://bcgov.github.io/bcmaps/reference/ecoprovinces.md)
+  : British Columbia Ecoprovinces
+- [`ecoregions()`](http://bcgov.github.io/bcmaps/reference/ecoregions.md)
+  : British Columbia Ecoregions
+- [`ecosections()`](http://bcgov.github.io/bcmaps/reference/ecosections.md)
+  : British Columbia Ecosections
+- [`fsa()`](http://bcgov.github.io/bcmaps/reference/fsa.md) : British
+  Columbia Forward Sortation Areas
+- [`gw_aquifers()`](http://bcgov.github.io/bcmaps/reference/gw_aquifers.md)
+  : British Columbia's developed ground water aquifers
+- [`health_chsa()`](http://bcgov.github.io/bcmaps/reference/health_chsa.md)
+  : Community Health Service Areas - CHSA
+- [`health_ha()`](http://bcgov.github.io/bcmaps/reference/health_ha.md)
+  : Health Authority Boundaries
+- [`health_hsda()`](http://bcgov.github.io/bcmaps/reference/health_hsda.md)
+  : Health Service Delivery Area Boundaries
+- [`health_lha()`](http://bcgov.github.io/bcmaps/reference/health_lha.md)
+  : Local Health Area Boundaries
+- [`hydrozones()`](http://bcgov.github.io/bcmaps/reference/hydrozones.md)
+  : Hydrologic Zone Boundaries of British Columbia
+- [`mapsheets_250K()`](http://bcgov.github.io/bcmaps/reference/mapsheets_250K.md)
+  : NTS 250K Grid - Digital Baseline Mapping at 1:250,000 (NTS)
+- [`mapsheets_50K()`](http://bcgov.github.io/bcmaps/reference/mapsheets_50K.md)
+  : NTS 50K Grid - Digital Baseline Mapping at 1:50,000 (NTS)
+- [`municipalities()`](http://bcgov.github.io/bcmaps/reference/municipalities.md)
+  : British Columbia Municipalities
+- [`nr_areas()`](http://bcgov.github.io/bcmaps/reference/nr_areas.md) :
+  British Columbia Natural Resource (NR) Areas
+- [`nr_districts()`](http://bcgov.github.io/bcmaps/reference/nr_districts.md)
+  : British Columbia Natural Resource (NR) Districts
+- [`nr_regions()`](http://bcgov.github.io/bcmaps/reference/nr_regions.md)
+  : British Columbia Natural Resource (NR) Regions
+- [`regional_districts()`](http://bcgov.github.io/bcmaps/reference/regional_districts.md)
+  : British Columbia Regional Districts
+- [`tsa()`](http://bcgov.github.io/bcmaps/reference/tsa.md) : British
+  Columbia Timber Supply Areas and TSA Blocks
+- [`water_districts()`](http://bcgov.github.io/bcmaps/reference/water_districts.md)
+  : British Columbia's Water Management Districts
+- [`water_precincts()`](http://bcgov.github.io/bcmaps/reference/water_precincts.md)
+  : British Columbia's Water Management Precincts
+- [`watercourses_15M()`](http://bcgov.github.io/bcmaps/reference/watercourses_15M.md)
+  : British Columbia watercourses at 1:15M scale
+- [`watercourses_5M()`](http://bcgov.github.io/bcmaps/reference/watercourses_5M.md)
+  : British Columbia watercourses at 1:5M scale
+- [`wsc_drainages()`](http://bcgov.github.io/bcmaps/reference/wsc_drainages.md)
+  : Water Survey of Canada Sub-Sub-Drainage Areas
+
+## Canadian Digital Elevation Data (CDED)
+
+Digital Elevation Model (DEM) of British Columbia
+
+- [`cded()`](http://bcgov.github.io/bcmaps/reference/cded.md) : Canadian
+  Digital Elevation Model (CDED)
+
+- [`cded_stars()`](http://bcgov.github.io/bcmaps/reference/cded_stars.md)
+  :
+
+  Get Canadian Digital Elevation Model (CDED) as a `stars` object
+
+- [`cded_terra()`](http://bcgov.github.io/bcmaps/reference/cded_terra.md)
+  :
+
+  Get Canadian Digital Elevation Model (CDED) as a `terra` object
+
+- [`vrt_files()`](http://bcgov.github.io/bcmaps/reference/vrt_files.md)
+  : List the files that a vrt is built on
+
+- [`vrt_info()`](http://bcgov.github.io/bcmaps/reference/vrt_info.md) :
+  Get metadata about a .vrt file
+
+## Cache Management
+
+Utilities to manage your cached layers
+
+- [`delete_cache()`](http://bcgov.github.io/bcmaps/reference/delete_cache.md)
+  [`show_cached_files()`](http://bcgov.github.io/bcmaps/reference/delete_cache.md)
+  : View and delete cached files
+
+## Utility functions
+
+Various utility functions for working with BC data
+
+- [`bc_area()`](http://bcgov.github.io/bcmaps/reference/bc_area.md) :
+  The size of British Columbia
+- [`bc_bbox()`](http://bcgov.github.io/bcmaps/reference/bc_bbox.md) :
+  Get an extent/bounding box for British Columbia
+- [`transform_bc_albers()`](http://bcgov.github.io/bcmaps/reference/transform_bc_albers.md)
+  : Transform a Spatial\* object to BC Albers projection
+- [`utm_convert()`](http://bcgov.github.io/bcmaps/reference/utm_convert.md)
+  : Convert a data.frame of UTM coordinates to an sf object with a
+  single CRS
+- [`combine_nr_rd()`](http://bcgov.github.io/bcmaps/reference/combine_nr_rd.md)
+  : Combine Northern Rockies Regional Municipality with Regional
+  Districts
+- [`bc_neighbours()`](http://bcgov.github.io/bcmaps/reference/bc_neighbours.md)
+  : Boundary of British Columbia, provinces/states and the portion of
+  the Pacific Ocean that borders British Columbia
+- [`bec_colours()`](http://bcgov.github.io/bcmaps/reference/bec_colours.md)
+  [`bec_colors()`](http://bcgov.github.io/bcmaps/reference/bec_colours.md)
+  : Biogeoclimatic Zone Colours
+
+## Raster utilities
+
+Functions for specific raster operations
+
+- [`raster_by_poly()`](http://bcgov.github.io/bcmaps/reference/raster_by_poly.md)
+  : Overlay a SpatialPolygonsDataFrame or sf polygons layer on a raster
+  layer and clip the raster to each polygon. Optionally done in parallel
+- [`summarize_raster_list()`](http://bcgov.github.io/bcmaps/reference/summarize_raster_list.md)
+  : Summarize a list of rasters into a list of numeric vectors
+
+# Articles
+
+### All vignettes
+
+- [bcmaps layers and point
+  data](http://bcgov.github.io/bcmaps/articles/add_points.md):
+- [Get started with
+  bcmaps](http://bcgov.github.io/bcmaps/articles/bcmaps.md):
