@@ -1,8 +1,10 @@
 context("test layer load")
 
 avail <- available_layers()
-fn_names <- avail$layer_name[!(avail$local) &
-                               !grepl("cded_", avail$layer_name)]
+fn_names <- avail$layer_name[
+  !(avail$local) &
+    !grepl("cded_", avail$layer_name)
+]
 
 # Only test bec and tsa once in a while - they're really big
 donttest <- c("bec", "tsa")
@@ -15,6 +17,7 @@ fn_names <- setdiff(fn_names, donttest)
 test_that("All sf layer function work without error and returns an sf object.", {
   skip_on_cran()
   skip_if_offline()
+  skip_if(nzchar(Sys.getenv("SKIP_CATALOGUE_FUNCTION_TESTS")))
 
   for (i in seq_along(fn_names)) {
     # cat("\n", fn_names[i]) #for debugging

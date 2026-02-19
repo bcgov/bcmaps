@@ -12,6 +12,7 @@ status](https://github.com/bcgov/bcmaps/workflows/R-CMD-check/badge.svg)](https:
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/bcmaps)](https://cran.r-project.org/package=bcmaps)
 [![CRAN
 Downloads](https://cranlogs.r-pkg.org/badges/bcmaps?color=brightgreen)](https://CRAN.R-project.org/package=bcmaps)
+[![R-CMD-check](https://github.com/bcgov/bcmaps/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bcgov/bcmaps/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 An [R](https://www.r-project.org) package of spatial map layers for
