@@ -16,7 +16,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/bcgov/bcmaps/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/bcgov/bcmaps/blob/v2.3.0/DESCRIPTION)
 
 Teucher A, Albers S, Hazlitt S (2026). *bcmaps: Map Layers and Spatial
 Utilities for British Columbia*. R package version 2.3.0,
