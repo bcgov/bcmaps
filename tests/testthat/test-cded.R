@@ -5,7 +5,7 @@ mapsheets_50_sf <- mapsheets_50K()
 test_that("list_mapsheet_files works", {
   skip_on_cran()
   skip_if_offline()
-  skip_if(nzchar(Sys.getenv("SKIP_CATALOGUE_FUNCTION_TESTS")))
+  skip_if_catalogue_function_tests_skipped()
 
   res <- list_mapsheet_files("https://pub.data.gov.bc.ca/datasets/175624/82g/")
   expect_type(res, "character")
@@ -31,6 +31,7 @@ test_that("making cded cache directory works", {
 test_that("get_mapsheet_tiles works", {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   cache_dir <- make_local_cded_cache()
 
@@ -81,6 +82,7 @@ test_that("get_mapsheet_tiles works", {
 test_that("cded works with tiles_50K", {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   vrt <- cded(tiles_50K = c("102o14", "095d01"))
 
@@ -97,6 +99,7 @@ test_that("cded works with tiles_50K", {
 test_that("cded works with aoi", {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   aoi <- st_buffer(
     mapsheets_sf[mapsheets_sf$MAP_TILE_DISPLAY_NAME == "102o", ],
@@ -132,6 +135,7 @@ test_that("cded works with aoi", {
 test_that("cded works with aoi with a different projection as mapsheets_250K", {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   aoi <- st_transform(
     st_buffer(
@@ -157,6 +161,7 @@ test_that("cded works with aoi with a different projection as mapsheets_250K", {
 if (require("stars")) {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   pol1 <- mapsheets_50K()[1, ]
   s <- st_as_stars(pol1)
@@ -172,6 +177,7 @@ if (require("stars")) {
 if (require("terra")) {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   pol1 <- mapsheets_50K()[1, ]
   r <- rast(pol1)

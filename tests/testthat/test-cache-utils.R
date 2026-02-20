@@ -3,6 +3,7 @@ context("test-cache-utils")
 test_that("show_cached_files works", {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
 
   datadir <- file.path(tempdir(), "bcmaps")
   withr::local_options(list("bcmaps.data_dir" = datadir))
@@ -18,9 +19,11 @@ test_that("show_cached_files works", {
   expect_equal(cache_info$is_dir, c(FALSE, TRUE))
 })
 
-test_that("the cache is deleted",{
+test_that("the cache is deleted", {
   skip_on_cran()
   skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
+
   expect_is(airzones(ask = FALSE, force = TRUE), "sf")
   expect_true(delete_cache("airzones"))
   expect_is(airzones(ask = FALSE, force = TRUE), "sf")

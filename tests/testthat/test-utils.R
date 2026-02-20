@@ -22,6 +22,9 @@ sf_bbox_to_vec <- function(x) {
 
 test_that("bc_bbox works with all classes", {
   skip_on_cran()
+  skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
+
   sf_out <- sf_bbox_to_vec(bc_bbox())
   expect_equivalent(bc_bbox(), sf::st_bbox(bc_bound()))
   expect_equal(Extent_to_vec(bc_bbox("raster")), sf_out)
@@ -29,6 +32,9 @@ test_that("bc_bbox works with all classes", {
 
 test_that("bc_bbox works with all classes and numeric crs", {
   skip_on_cran()
+  skip_if_offline()
+  skip_if_catalogue_function_tests_skipped()
+
   sf_out <- sf_bbox_to_vec(bc_bbox(crs = 4326))
   expect_equal(Extent_to_vec(bc_bbox("raster", crs = 4326)), sf_out)
 })
@@ -51,6 +57,12 @@ test_that("clean_geos_version works", {
   expect_equal(clean_geos_version("3.9.0dev1"), "3.9.0-9999-1")
   expect_equal(clean_geos_version("3.9.0"), "3.9.0")
 
-  expect_equal(unclass(numeric_version(clean_geos_version("3.9.0dev1"))), list(c(3, 9, 0, 9999, 1)))
-  expect_equal(unclass(numeric_version(clean_geos_version("3.9.0-dev-1"))), list(c(3, 9, 0, 9999, 1)))
+  expect_equal(
+    unclass(numeric_version(clean_geos_version("3.9.0dev1"))),
+    list(c(3, 9, 0, 9999, 1))
+  )
+  expect_equal(
+    unclass(numeric_version(clean_geos_version("3.9.0-dev-1"))),
+    list(c(3, 9, 0, 9999, 1))
+  )
 })

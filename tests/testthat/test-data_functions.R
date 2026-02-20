@@ -17,7 +17,7 @@ fn_names <- setdiff(fn_names, donttest)
 test_that("All sf layer function work without error and returns an sf object.", {
   skip_on_cran()
   skip_if_offline()
-  skip_if(nzchar(Sys.getenv("SKIP_CATALOGUE_FUNCTION_TESTS")))
+  skip_if_catalogue_function_tests_skipped()
 
   for (i in seq_along(fn_names)) {
     # cat("\n", fn_names[i]) #for debugging

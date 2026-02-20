@@ -5,15 +5,24 @@ skip_on_actions <- function() {
   skip("On GitHub Actions")
 }
 
+skip_if_catalogue_function_tests_skipped <- function() {
+  if (nzchar(Sys.getenv("SKIP_CATALOGUE_FUNCTION_TESTS"))) {
+    skip("Skipping catalogue function tests")
+  }
+}
+
 make_local_cded_cache <- function(dir = tempdir(), env = parent.frame()) {
   cache_dir <- file.path(dir, "cded")
   make_mapsheet_dirs(cache_dir)
 
   # Use withr::defer to cleanup tempdir after exiting tests
   # https://www.tidyverse.org/blog/2020/04/self-cleaning-test-fixtures/
-  withr::defer({
-    unlink(cache_dir, recursive = TRUE, force = TRUE)
-  }, envir = env)
+  withr::defer(
+    {
+      unlink(cache_dir, recursive = TRUE, force = TRUE)
+    },
+    envir = env
+  )
 
   cache_dir
 }
