@@ -11,6 +11,8 @@
 
 ## bcmaps 2.2.1
 
+CRAN release: 2024-12-20
+
 - In the `cded_()` functions, the `ask` argument, which controls if the
   user is asked to store data in the cache, was ignored. It is now
   respected ([\#147](https://github.com/bcgov/bcmaps/issues/147)).
@@ -27,12 +29,16 @@
 
 ## bcmaps 2.2.0
 
+CRAN release: 2024-01-24
+
 - Added function
   [`utm_convert()`](http://bcgov.github.io/bcmaps/reference/utm_convert.md)
   to convert tabular data with X and Y coordinates in (possibly
   multiple) UTM zones to a single CRS.
 
 ## bcmaps 2.1.0
+
+CRAN release: 2023-10-17
 
 - Added function
   [`cded_terra()`](http://bcgov.github.io/bcmaps/reference/cded_terra.md)
@@ -41,6 +47,8 @@
   this will be removed in a future version.
 
 ## bcmaps 2.0.0
+
+CRAN release: 2023-08-23
 
 ### Removal of `sp` and `raster` support
 
@@ -86,6 +94,8 @@ this evolution.
 
 ## bcmaps 1.2.0
 
+CRAN release: 2023-04-11
+
 ### Deprecation of `sp` and `raster` support
 
 We’ve started the process of removing support for the `sp` and `raster`
@@ -125,6 +135,8 @@ classes (from package `sp`) in the next release in Summer 2023.
 
 ## bcmaps 1.1.0
 
+CRAN release: 2023-01-06
+
 - `bec` and `tsa` layers are now downloaded directly from the BC Data
   Catalogue. This ensures that these are up-to-date and means that we do
   not rely on the manual updating of these layers at
@@ -136,6 +148,8 @@ classes (from package `sp`) in the next release in Summer 2023.
 
 ## bcmaps 1.0.3
 
+CRAN release: 2022-08-26
+
 - New behaviour of shortcut functions ensures that all spatial objects
   (`sf` or `Spatial`) returned are topologically valid and in the
   standard CRS of “EPSG:3005” (BC Albers).
@@ -143,6 +157,8 @@ classes (from package `sp`) in the next release in Summer 2023.
 - More robust behaviour of getting and checking cache of `cded` files.
 
 ## bcmaps 1.0.2
+
+CRAN release: 2021-03-09
 
 - New helper function
   [`show_cached_files()`](http://bcgov.github.io/bcmaps/reference/delete_cache.md)
@@ -152,6 +168,8 @@ classes (from package `sp`) in the next release in Summer 2023.
   [\#93](https://github.com/bcgov/bcmaps/issues/93))
 
 ## bcmaps 1.0.1
+
+CRAN release: 2021-01-19
 
 - When R version is \>= 4.0, bcmaps will use
   `tools::R_user_dir("bcmaps", "cache")` to determine the cache
@@ -215,6 +233,8 @@ classes (from package `sp`) in the next release in Summer 2023.
 
 ## bcmaps 0.18.1
 
+CRAN release: 2020-04-29
+
 - Fixed an error where
   [`fix_geo_problems()`](http://bcgov.github.io/bcmaps/reference/fix_geo_problems.md)
   would fail depending on the version of `GEOS` upon which `sf` was
@@ -240,6 +260,8 @@ classes (from package `sp`) in the next release in Summer 2023.
 
 ## bcmaps 0.18.0
 
+CRAN release: 2019-02-15
+
 - Added
   [`bc_neighbours()`](http://bcgov.github.io/bcmaps/reference/bc_neighbours.md)
   function to call layers containing adjacent jurisdictions.
@@ -256,11 +278,15 @@ classes (from package `sp`) in the next release in Summer 2023.
 
 ## bcmaps v0.17.1
 
+CRAN release: 2018-03-14
+
 - Fixed an issue where
   [`self_union()`](http://bcgov.github.io/bcmaps/reference/self_union.md)
   would fail due to a change in the `raster` package (30cef3438)
 
 ## bcmaps 0.17.0
+
+CRAN release: 2018-01-18
 
 - Output of
   [`available_layers()`](http://bcgov.github.io/bcmaps/reference/available_layers.md)
@@ -292,6 +318,8 @@ classes (from package `sp`) in the next release in Summer 2023.
   which is a point layer of B.C.’s major cities.
 
 ## bcmaps 0.16.0
+
+CRAN release: 2017-12-20
 
 - First release to CRAN
 - Added two new functions: `raster_by_poly` to overlay a
