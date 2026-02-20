@@ -22,7 +22,7 @@ jobs:
           - {os: macos-latest,   r: 'release', skip-catalogue-tests: true}
           - {os: windows-latest, r: 'release', skip-catalogue-tests: true}
           - {os: ubuntu-latest,   r: 'devel', http-user-agent: 'release', skip-catalogue-tests: true}
-          - {os: ubuntu-latest,   r: 'release', skip-catalogue-tests: false}
+          - {os: ubuntu-latest,   r: 'release'}
           - {os: ubuntu-latest,   r: 'oldrel-1', skip-catalogue-tests: true}
 
     env:
